@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+frontend/node_modules/
+frontend/dist/
+.playwright-mcp/
+backend/data/checkout_credit.sqlite
+backend/data/checkout_credit.sqlite-shm
+backend/data/checkout_credit.sqlite-wal
+.env
