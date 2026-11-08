@@ -1,0 +1,243 @@
+{
+  "application": {
+    "application_id": "DEMO-001",
+    "borrower_label": "Synthetic applicant 001",
+    "product": "Checkout installment",
+    "merchant": "Northstar Electronics (synthetic)",
+    "purchase_description": "Laptop and accessories",
+    "purchase_amount_vnd": 9600000,
+    "loan_amount_vnd": 9600000,
+    "proposed_installment_vnd": 2400000,
+    "term_months": 4,
+    "annual_interest_rate": 0.0,
+    "submitted_at": "2026-11-07T08:00:00+07:00",
+    "consent": true,
+    "identity_verified": true,
+    "source_permission": true,
+    "funding_reconciled": true,
+    "existing_monthly_debt_vnd": 1293750,
+    "essential_monthly_expenses_vnd": 3500000,
+    "monthly_income_vnd": [
+      11000000,
+      12000000,
+      13000000,
+      10000000,
+      14000000,
+      12000000,
+      11500000,
+      12500000,
+      13500000,
+      9000000,
+      13500000
+    ],
+    "evidence": {
+      "reconciliation_fields_consistent": 13,
+      "reconciliation_fields_total": 14,
+      "verified_sources": 9,
+      "available_sources": 10,
+      "age_days": 33.12818539935414,
+      "sources": [
+        {
+          "name": "Synthetic bank transaction history",
+          "type": "BANK_FEED_DEMO",
+          "months": 11,
+          "verified": true,
+          "permission": "synthetic consent fixture"
+        },
+        {
+          "name": "Synthetic payroll summary",
+          "type": "PAYROLL_DEMO",
+          "months": 6,
+          "verified": true,
+          "permission": "synthetic consent fixture"
+        },
+        {
+          "name": "Synthetic checkout funding record",
+          "type": "MERCHANT_LEDGER_DEMO",
+          "months": 1,
+          "verified": true,
+          "permission": "synthetic consent fixture"
+        }
+      ],
+      "reconciliation_notes": [
+        "Monthly transaction totals are generated from the seeded income series.",
+        "Funding amount matches the synthetic purchase amount.",
+        "One of 14 demonstration reconciliation fields is intentionally unresolved."
+      ]
+    },
+    "risk_anchor": {
+      "existing_dti_ratio": 0.1078125,
+      "income_cv": 0.12309149097933274,
+      "evidence_gap": 0.179062
+    },
+    "tags": [
+      "Baseline",
+      "All checks passed"
+    ]
+  },
+  "assessment": {
+    "status": "CALCULATED_DEMO_ONLY",
+    "gates": [
+      {
+        "key": "consent",
+        "label": "Borrower consent recorded",
+        "passed": true,
+        "mandatory": true
+      },
+      {
+        "key": "identity",
+        "label": "Simulated identity check passed",
+        "passed": true,
+        "mandatory": true
+      },
+      {
+        "key": "source_permission",
+        "label": "Financial source permission recorded",
+        "passed": true,
+        "mandatory": true
+      },
+      {
+        "key": "funding_reconciliation",
+        "label": "Checkout funding reconciled",
+        "passed": true,
+        "mandatory": true
+      }
+    ],
+    "scoring_performed": true,
+    "features": {
+      "mean_income_vnd": 12000000.0,
+      "income_standard_deviation_vnd": 1477097.8917519927,
+      "income_cv": 0.12309149097933272,
+      "income_p25_vnd": 11000000.0,
+      "existing_monthly_debt_vnd": 1293750.0,
+      "existing_dti_ratio": 0.1078125,
+      "income_residual_vnd": 7206250.0,
+      "history_coverage": 0.9166666666666666,
+      "history_months": 11
+    },
+    "confidence": {
+      "score": 0.820938,
+      "label": "Evidence quality index; not a probability",
+      "subscores": {
+        "coverage": 0.9166666666666666,
+        "consistency": 0.9285714285714286,
+        "recency": 0.43683285714285713,
+        "verification": 0.9
+      },
+      "weights": {
+        "coverage": 0.3,
+        "consistency": 0.3,
+        "recency": 0.2,
+        "verification": 0.2
+      },
+      "weighted_contributions": {
+        "coverage": 0.27499999999999997,
+        "consistency": 0.2785714285714286,
+        "recency": 0.08736657142857143,
+        "verification": 0.18000000000000002
+      },
+      "inputs": {
+        "income_history_months": 11,
+        "maximum_history_months": 12,
+        "reconciliation_fields_consistent": 13,
+        "reconciliation_fields_total": 14,
+        "verified_sources": 9,
+        "available_sources": 10,
+        "evidence_age_days": 33.12818539935414,
+        "recency_decay_days": 40.0
+      }
+    },
+    "risk": {
+      "score": 0.039675,
+      "label": "DEMO_RISK_SCORE_NOT_CALIBRATED",
+      "model_type": "Illustrative logistic regression formula",
+      "calibration_status": "NOT_TRAINED_OR_CALIBRATED",
+      "reference_parity": "UNVERIFIED_REFERENCE_FILES_MISSING",
+      "formula": "sigmoid(intercept + 3.00 \u00d7 existing DTI + 1.50 \u00d7 income CV + 0.80 \u00d7 evidence gap)",
+      "intercept": -3.837874838892775,
+      "slopes": {
+        "existing_dti_ratio": 3.0,
+        "income_cv": 1.5,
+        "evidence_gap": 0.8
+      },
+      "linear_terms": {
+        "existing_dti_ratio": 0.32343750000000004,
+        "income_cv": 0.1846372364689991,
+        "evidence_gap": 0.14324960000000006
+      },
+      "logit": -3.186550502423776,
+      "source_note": "Synthetic demo slopes; anchor PD is the expected value supplied in the implementation brief."
+    },
+    "affordability": {
+      "income_residual_vnd": 7206250.0,
+      "stressed_payment_capacity_vnd": 2906250.0,
+      "repayment_buffer_vnd": 506250.0,
+      "installment_eligible": true,
+      "proposed_installment_vnd": 2400000.0,
+      "max_dti_assumption": 0.35,
+      "essential_monthly_expenses_vnd": 3500000.0,
+      "calculation": "max(0, mean monthly income \u00d7 illustrative maximum DTI \u2212 existing monthly debt)",
+      "pmt_vnd": 2400000.0,
+      "pmt_calculation": "principal / term when rate is zero; otherwise standard amortizing-loan PMT"
+    },
+    "expected_loss": {
+      "amount_vnd": 119023.80975000001,
+      "pd_demo": 0.039675,
+      "lgd_assumption": 0.45,
+      "ead_assumption_vnd": 6666600.0,
+      "calculation": "PD demo \u00d7 illustrative LGD assumption \u00d7 illustrative EAD assumption"
+    },
+    "human_decision_required": true
+  },
+  "routing": {
+    "eligible_routes": [
+      "STANDARD_REVIEW",
+      "ENHANCED_REVIEW",
+      "FAST_TRACK_CANDIDATE"
+    ],
+    "recommended_route": "FAST_TRACK_CANDIDATE",
+    "human_confirmation_required": true,
+    "loan_approval_available": false,
+    "policy_status": "ILLUSTRATIVE_NOT_BANK_VALIDATED",
+    "objective": "Minimize estimated review cost across eligible routes after hard policy gates.",
+    "estimated_route_costs_vnd": {
+      "HOLD_FOR_HUMAN_HANDLING": 95000,
+      "FAST_TRACK_CANDIDATE": 42000,
+      "STANDARD_REVIEW": 110000,
+      "ENHANCED_REVIEW": 180000
+    },
+    "route_comparison": [
+      {
+        "route": "HOLD_FOR_HUMAN_HANDLING",
+        "eligible": false,
+        "estimated_cost_vnd": 95000,
+        "selected": false,
+        "reason": "Ineligible under policy gate"
+      },
+      {
+        "route": "FAST_TRACK_CANDIDATE",
+        "eligible": true,
+        "estimated_cost_vnd": 42000,
+        "selected": true,
+        "reason": "Eligible; lowest illustrative cost"
+      },
+      {
+        "route": "STANDARD_REVIEW",
+        "eligible": true,
+        "estimated_cost_vnd": 110000,
+        "selected": false,
+        "reason": "Eligible, but higher cost than selected route"
+      },
+      {
+        "route": "ENHANCED_REVIEW",
+        "eligible": true,
+        "estimated_cost_vnd": 180000,
+        "selected": false,
+        "reason": "Eligible, but higher cost than selected route"
+      }
+    ],
+    "explanations": [
+      "Route is eligible for consideration under illustrative demo thresholds."
+    ]
+  }
+}
