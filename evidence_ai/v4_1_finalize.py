@@ -612,7 +612,7 @@ The scientific answer is **suggestive but inconclusive**: the Hybrid and frozen 
 
 ## Abstract
 
-Financial evidence systems can confuse numerically different but semantically incomparable records and can fail to distinguish evidence that is historically applicable from evidence improperly asserted as current. We examined a semantic representation containing subject/account, field meaning, effective period, source provenance, units, gross/net basis, transaction direction, correction lineage, verification, missingness and uncertainty. A three-valued comparator emits COMPARABLE, NOT_COMPARABLE or UNKNOWN, while temporal validation relates evidence periods to the request. After V4 frozen models showed severe synthetic Generator B failures in stale evidence, legitimate discrepancies and source-pair transfer, a new development procedure and independently implemented synthetic Generator C were registered. Generator C predictions were frozen before labels opened. Post-unblinding reconciliation of the frozen Semantic Hybrid produced 100% observed critical recall (520/520), 0% false-positive rate on the registered C1/C3/C5 endpoint (0/2,927), 6.38% overall legitimate-document FPR, 30.95% case workload, AP 0.5652, Brier 0.03387 and Log Loss 0.09390. However, an audit found 100 missing critical stale labels in development partitions; deterministic rules also share tolerance and stale criteria with the synthetic gold; and XGBoost arms could not be replayed. Thus these results are exploratory and do not confirm causal improvement or external validity. No banking validation is available.
+Financial evidence systems can confuse numerically different but semantically incomparable records and can fail to distinguish evidence that is historically applicable from evidence improperly asserted as current. We examined a semantic representation containing subject/account, field meaning, effective period, source provenance, units, gross/net basis, transaction direction, correction lineage, verification, missingness and uncertainty. A three-valued comparator emits COMPARABLE, NOT_COMPARABLE or UNKNOWN, while temporal validation relates evidence periods to the request. After V4 frozen models showed severe synthetic Generator B failures in stale evidence, legitimate discrepancies and source-pair transfer, a new development procedure and independently implemented synthetic Generator C were registered. Generator C predictions were frozen before labels opened. Post-unblinding reconciliation of the frozen Semantic Hybrid produced 100% observed critical recall (520/520), 0% false-positive rate on the registered C1/C3/C5 endpoint (0/2,927), 6.38% overall legitimate-document FPR, 30.95% case workload, AP 0.5652, Brier 0.03387 and Log Loss 0.09390. A delayed replay of the exact frozen V3 XGBoost baseline after label unblinding also detected 520/520 critical records but flagged all 6,271 legitimate records and all cases; AP was 0.1396, Brier 0.9214 and Log Loss 6.9027. An audit found 100 missing critical stale labels in development partitions; deterministic rules also share tolerance and stale criteria with the synthetic gold; and the new Semantic XGBoost arm remains unevaluated. These results are exploratory and do not confirm causal improvement or external validity. No banking validation is available.
 
 ## 1. Introduction
 
@@ -987,6 +987,12 @@ def update_release_manifest():
         "ABLATION_REPORT.md", "CLAIMS_AND_LIMITATIONS.md", "REPRODUCTION.md",
         "UPDATED_DATASET_AND_SPLIT_MANIFESTS.md", "VERIFICATION_LOG.md",
         "ENGLISH_PITCH_EVIDENCE_SUMMARY.md", "PITCH_EVIDENCE_SUMMARY.md",
+        "data/generator-c-v1/C_DELAYED_BASELINE_XGBOOST_PREDICTIONS.csv",
+        "data/generator-c-v1/C_DELAYED_BASELINE_XGBOOST_MANIFEST.json",
+        "data/generator-c-v1/C_DELAYED_BASELINE_XGBOOST_RESULTS.json",
+        "data/generator-c-v1/C_DELAYED_BASELINE_XGBOOST_PAIRED.csv",
+        "data/generator-c-v1/C_DELAYED_BASELINE_XGBOOST_SCENARIO_METRICS.csv",
+        "data/generator-c-v1/C_DELAYED_BASELINE_XGBOOST_SOURCE_METRICS.csv",
     ]
     additions += [str(p.relative_to(OUT)).replace("\\", "/") for p in PITCH.rglob("*") if p.is_file()]
     public = list(dict.fromkeys(release.get("public_artifacts", []) + additions))
@@ -996,6 +1002,11 @@ def update_release_manifest():
     release["public_artifacts"] = public
     release["public_figures"] = figures
     release["artifact_checksums"] = {rel: sha(OUT / rel) for rel in public if (OUT / rel).is_file()}
+    source_checksums = release.get("source_checksums", {})
+    missing_sources = [rel for rel in source_checksums if not (OUT / rel).is_file()]
+    if missing_sources:
+        raise ValueError(f"V4.1 release source artifacts are missing: {missing_sources}")
+    release["source_checksums"] = {rel: sha(OUT / rel) for rel in source_checksums}
     write(release_path, json.dumps(release, indent=2))
 
 
@@ -1032,6 +1043,7 @@ def make_final_manifest():
         "evidence_ai/v4_1_generator_dev.py", "evidence_ai/v4_1_generator_c.py", "evidence_ai/v4_1_predict_c.py",
         "evidence_ai/v4_1_evaluate_c.py", "evidence_ai/v4_1_reconcile_c.py", "evidence_ai/v4_1_replay.py",
         "evidence_ai/v4_1_hard_negatives.py", "evidence_ai/v4_1_data_quality_audit.py", "evidence_ai/v4_1_finalize.py",
+        "evidence_ai/v4_1_delayed_xgb.py",
         "backend/app/evidence_research_v41.py", "backend/tests/test_evidence_research_v41.py",
         "frontend/src/EvidenceResearchV41.tsx", "frontend/src/evidence-research-v41.css", "frontend/src/App.tsx", "backend/app/main.py",
     ]
@@ -1052,12 +1064,26 @@ def make_final_manifest():
         "reports/evidence-v4.1/models/frozen-v1/frozen_release.json",
         "reports/evidence-v4.1/models/frozen-v1/training_configuration.json",
         "reports/evidence-v4.1/models/frozen-v1/training_log.json",
+        "reports/evidence-v4.1/data/generator-c-v1/C_DELAYED_BASELINE_XGBOOST_PREDICTIONS.csv",
+        "reports/evidence-v4.1/data/generator-c-v1/C_DELAYED_BASELINE_XGBOOST_MANIFEST.json",
+        "reports/evidence-v4.1/data/generator-c-v1/C_DELAYED_BASELINE_XGBOOST_RESULTS.json",
+        "reports/evidence-v4.1/data/generator-c-v1/C_DELAYED_BASELINE_XGBOOST_PAIRED.csv",
+        "reports/evidence-v4.1/data/generator-c-v1/C_DELAYED_BASELINE_XGBOOST_SCENARIO_METRICS.csv",
+        "reports/evidence-v4.1/data/generator-c-v1/C_DELAYED_BASELINE_XGBOOST_SOURCE_METRICS.csv",
+        "reports/evidence-v4.1/data/generator-c-v1/GENERATOR_C_RESULTS.json",
+        "reports/evidence-v4.1/GENERATOR_C_SUMMARY.json",
+        "reports/evidence-v4.1/GENERATOR_C_REPORT.md",
+        "reports/evidence-v4.1/ENGLISH_PITCH_EVIDENCE_SUMMARY.md",
+        "reports/evidence-v4.1/PITCH_EVIDENCE_SUMMARY.md",
+        "reports/evidence-v4.1/SEMANTIC_EVIDENCE_SCHEMA.md",
+        "reports/evidence-v4.1/models/frozen-v1/semantic_xgboost.joblib",
     ]
     pitch_files = [p for p in PITCH.rglob("*") if p.is_file()]
     paths.extend(str(p.relative_to(ROOT)).replace("\\", "/") for p in pitch_files)
     # Record frozen model artifact digests named in the manifest, never stale archive files.
     for name in ("semantic_logistic.joblib", "semantic_deepsets.pt", "ablation_no_temporal.joblib", "ablation_no_comparability.joblib", "ablation_no_source_provenance.joblib"):
         paths.append(f"reports/evidence-v4.1/models/frozen-v1/{name}")
+    paths.extend(f"reports/evidence-v3/synthetic/xgb-d4-s{seed}.json" for seed in (13, 29, 43))
     artifacts = []
     for rel in dict.fromkeys(paths):
         p = ROOT / rel
