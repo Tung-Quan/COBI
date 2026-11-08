@@ -1,6 +1,6 @@
 import type { CaseRecord, PortfolioMetrics } from './types'
 
-async function request<T>(path: string, init?: RequestInit): Promise<T> {
+export async function request<T>(path: string, init?: RequestInit): Promise<T> {
   const response = await fetch(`/api${path}`, {
     ...init,
     headers: { 'Content-Type': 'application/json', ...init?.headers },
@@ -8,7 +8,8 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
   if (!response.ok) {
     const body = await response.json().catch(() => null)
     const message = body?.detail
-    throw new Error(typeof message === 'string' ? message : `Request failed (${response.status})`)
+    throw new Error(typeof message === 'string' ? message : Array.isArray(message)
+      ? message.map(item => item.msg).join(' · ') : `Request failed (${response.status})`)
   }
   return response.json() as Promise<T>
 }
@@ -20,6 +21,10 @@ export async function getApplications(): Promise<CaseRecord[]> {
 
 export function getMetrics(): Promise<PortfolioMetrics> {
   return request<PortfolioMetrics>('/metrics')
+}
+
+export function revokeConsent(applicationId: string, reason: string): Promise<unknown> {
+  return request(`/applications/${applicationId}/revoke-consent`, { method: 'POST', body: JSON.stringify({ reason }) })
 }
 
 export function sendReviewAction(applicationId: string, payload: { action: string; reason: string; route?: string }): Promise<unknown> {

@@ -1,0 +1,48 @@
+.v41-research { display: grid; gap: 16px; color: #172e2a; }
+.v41-hero { padding: clamp(24px,4vw,42px); background: #193b34; color: #f0f7ef; border-bottom: 5px solid #d0b77c; border-radius: 9px; }
+.v41-hero > span,.v41-section-head > div > span { font: 700 10px/1.5 ui-monospace,Consolas,monospace; letter-spacing: .13em; color: #f1dca9; }
+.v41-hero h1 { margin: 11px 0; font: 500 clamp(32px,5vw,52px)/1 Georgia,serif; }
+.v41-hero p { max-width: 72ch; font-size: 13px; line-height: 1.6; }
+.v41-hero strong { font: 700 11px ui-monospace,Consolas,monospace; overflow-wrap: anywhere; }
+.v41-panel { min-width: 0; padding: clamp(16px,3vw,27px); border: 1px solid #d4ddd4; border-radius: 7px; background: #fffef9; }
+.v41-section-head { display: flex; align-items: flex-end; justify-content: space-between; gap: 14px; margin-bottom: 14px; }
+.v41-section-head > div > span { color: #3a675a; }
+.v41-section-head h2 { margin: 4px 0 0; font: 500 clamp(23px,3vw,32px)/1.05 Georgia,serif; }
+.v41-section-head > b { padding: 6px 9px; border: 1px solid #d7c897; border-radius: 3px; color: #65542a; background: #fbf5df; font: 700 9px ui-monospace,Consolas,monospace; white-space: nowrap; }
+.v41-counts { display: grid; grid-template-columns: repeat(auto-fit,minmax(135px,1fr)); gap: 9px; }
+.v41-counts > div,.v41-metric-grid article { padding: 12px; border: 1px solid #e1e7df; background: #fff; }
+.v41-counts small,.v41-metric-grid small { display: block; color: #547168; font-size: 11px; }
+.v41-counts strong { display: block; margin-top: 6px; font: 650 18px ui-monospace,Consolas,monospace; overflow-wrap: anywhere; }
+.v41-panel p,.v41-panel li { font-size: 12px; line-height: 1.6; }
+.v41-hash { overflow-wrap: anywhere; font: 10px ui-monospace,Consolas,monospace; }
+.v41-artifact-list { margin: 10px 0; font-size: 11px; }
+.v41-artifact-list summary { cursor: pointer; font-weight: 700; color: #276356; }
+.v41-artifact-list li { overflow-wrap: anywhere; margin: 7px 0; }
+.v41-artifact-list code { font-size: 10px; }
+.v41-panel h3 { margin: 18px 0 8px; font: 600 16px Georgia,serif; }
+.v41-figure-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(280px,1fr)); gap: 12px; }
+.v41-figure-grid figure { min-width: 0; border: 1px solid #e1e7df; padding: 8px; background: #fff; }
+.v41-figure-grid img { width: 100%; height: auto; display: block; }
+.v41-figure-grid figcaption { padding-top: 6px; color: #547168; font-size: 10px; }
+.v41-metric-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(175px,1fr)); gap: 9px; }
+.v41-metric-grid strong { display: block; margin: 8px 0 3px; font: 700 22px ui-monospace,Consolas,monospace; }
+.v41-metric-grid span { color: #547168; font-size: 10px; }
+.v41-table-wrap { overflow-x: auto; }
+.v41-panel table { width: 100%; border-collapse: collapse; text-align: left; font-size: 11px; font-variant-numeric: tabular-nums; }
+.v41-panel th,.v41-panel td { padding: 8px; border-bottom: 1px solid #e1e7df; white-space: nowrap; }
+.v41-panel thead { background: #edf2e8; }
+.v41-panel tbody th { font-weight: 650; }
+.v41-note { margin-top: 12px; padding: 12px; background: #f3f5e9; border-left: 3px solid #b9a45e; font-size: 11px; line-height: 1.6; }
+.v41-examples { display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 10px; }
+.v41-examples article { padding: 12px; border: 1px solid #e1e7df; background: white; }
+.v41-examples b { color: #28594e; }
+.v41-examples p { margin-bottom: 0; }
+.v41-limitations { border-left: 4px solid #b87754; }
+.v41-limitations ul { padding-left: 19px; }
+.v41-figures { display: grid; grid-template-columns: repeat(auto-fit,minmax(min(100%,340px),1fr)); gap: 12px; }
+.v41-figures figure { min-width: 0; margin: 0; padding: 9px; border: 1px solid #e1e7df; background: #fff; }
+.v41-figures img { display: block; width: 100%; height: auto; }
+.v41-figures figcaption { padding-top: 6px; color: #46655e; font-size: 10px; }
+.v41-artifacts { display: flex; flex-wrap: wrap; gap: 9px; margin-top: 12px; }
+.v41-artifacts a { padding: 7px 9px; border: 1px solid #d4ddd4; border-radius: 4px; color: #276356; background: #fff; font-size: 10px; text-decoration: underline; text-underline-offset: 2px; overflow-wrap: anywhere; }
+@media(max-width:620px) { .v41-section-head { align-items: flex-start; flex-direction: column; } .v41-section-head > b { white-space: normal; } }

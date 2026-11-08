@@ -11,11 +11,13 @@ export type CaseRecord = {
   purchase_description: string
   purchase_amount_vnd: number
   loan_amount_vnd: number
+  own_funds_vnd?: number | null
   proposed_installment_vnd: number
   term_months?: number
   annual_interest_rate?: number
   submitted_at: string
   consent: boolean
+  consent_revoked_at?: string
   identity_verified: boolean
   source_permission: boolean
   funding_reconciled: boolean
@@ -38,6 +40,12 @@ export type CaseRecord = {
 }
 
 export type Assessment = {
+  policy_version: string
+  fixture_version: string
+  risk_source: 'SYNTHETIC_HEURISTIC' | 'PUBLIC_BENCHMARK_ONLY' | 'APPLICATION_COMPATIBLE_VALIDATED' | 'UNAVAILABLE'
+  pd_status: string
+  checkout_pd: null
+  model: { version: string | null; scope: string }
   status: string
   scoring_performed: boolean
   notice?: string
@@ -50,6 +58,7 @@ export type Assessment = {
     weights: Record<string, number>
     weighted_contributions: Record<string, number>
     inputs: Record<string, number>
+    completeness_gaps: Record<string, number>
   } | null
   risk: {
     score: number
@@ -66,6 +75,12 @@ export type Assessment = {
   } | null
   affordability: {
     income_residual_vnd: number
+    stress_income_vnd: number
+    dti_capacity_vnd: number
+    residual_capacity_vnd: number
+    residual_buffer_assumption: number
+    installment_basis: string
+    stated_installment_differs_from_pmt: boolean
     stressed_payment_capacity_vnd: number
     repayment_buffer_vnd: number
     installment_eligible: boolean
@@ -77,6 +92,8 @@ export type Assessment = {
     calculation: string
   } | null
   expected_loss: {
+    status: string
+    sensitivity: { lgd: number; ead_vnd: number; amount_vnd: number }[]
     amount_vnd: number
     pd_demo: number
     lgd_assumption: number

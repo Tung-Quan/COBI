@@ -7,10 +7,13 @@ import {
   Menu, MoreHorizontal, ReceiptText, RefreshCw, Search, ShieldAlert,
   ShieldCheck, SlidersHorizontal, Sparkles, UserRound, Users, WalletCards, X,
 } from 'lucide-react'
-import { createApplication, downloadExport, getApplications, getMetrics, runSimulation, sendReviewAction } from './api'
+import { createApplication, downloadExport, getApplications, getMetrics, revokeConsent, runSimulation, sendReviewAction } from './api'
 import type { Assessment, AuditEvent, CaseRecord, PortfolioMetrics, RouteName } from './types'
+import { ResearchLab } from './ResearchLab'
+import { EvidenceResearch, EvidenceShadow } from './EvidenceResearch'
+import { EvidenceResearchV41 } from './EvidenceResearchV41'
 
-type PageName = 'Dashboard' | 'Applications' | 'AI Assessment' | 'Decision Routing' | 'Officer Review' | 'What-if Simulator' | 'Monitoring & export'
+type PageName = 'Dashboard' | 'Applications' | 'AI Assessment' | 'Decision Routing' | 'Officer Review' | 'What-if Simulator' | 'Monitoring & export' | 'Research Lab' | 'Evidence AI Research'
 
 const routeLabels: Record<RouteName, string> = {
   HOLD_FOR_HUMAN_HANDLING: 'Hold for handling',
@@ -108,8 +111,7 @@ function App() {
         <button className="icon-button mobile-menu" aria-label="Open menu" onClick={() => setMobileNav(true)}><Menu size={19} /></button>
         <div className="breadcrumbs"><span>Workspace</span><ChevronRight size={14} /><strong>{page}</strong></div>
         <div className="topbar-right">
-          <span className="sandbox-pill"><span className="status-dot" /> Synthetic sandbox</span>
-          <span className="topbar-date">07 Nov 2026</span>
+          <span className="sandbox-pill"><span className="status-dot" /> {page === 'Research Lab' || page === 'Evidence AI Research' ? 'Research benchmark' : 'Synthetic checkout demo'}</span>
           <button className="icon-button bell-button" aria-label="Notifications"><Bell size={17} /><i /></button>
           <div className="user-avatar" title="Simulated credit officer">TQ</div>
         </div>
@@ -124,6 +126,8 @@ function App() {
         {page === 'Officer Review' && active && <ReviewPage active={active} onNavigate={selectPage} onUpdated={async message => { await refresh(); setNotice(message) }} />}
         {page === 'What-if Simulator' && active && <SimulatorPage active={active} onNavigate={selectPage} />}
         {page === 'Monitoring & export' && <EvaluationPage />}
+        {page === 'Research Lab' && <ResearchLab />}
+        {page === 'Evidence AI Research' && <><EvidenceResearch /><EvidenceResearchV41 /></>}
       </div>
     </main>
   </div>
@@ -138,6 +142,8 @@ function Sidebar({ page, onNavigate, mobileOpen }: { page: PageName; onNavigate:
     { name: 'Officer Review', icon: FileCheck2, group: 'DECISION SUPPORT' },
     { name: 'What-if Simulator', icon: SlidersHorizontal, group: 'TOOLS' },
     { name: 'Monitoring & export', icon: BarChart3, group: 'TOOLS' },
+    { name: 'Research Lab', icon: BookOpen, group: 'RESEARCH' },
+    { name: 'Evidence AI Research', icon: FileSearch, group: 'RESEARCH' },
   ]
   let lastGroup = ''
   return <aside className={`sidebar ${mobileOpen ? 'sidebar-open' : ''}`}>
@@ -145,14 +151,14 @@ function Sidebar({ page, onNavigate, mobileOpen }: { page: PageName; onNavigate:
       <div className="brand-mark"><Landmark size={19} strokeWidth={1.8} /></div>
       <div><strong>credit / desk</strong><small>Checkout copilot</small></div>
     </div>
-    <div className="workspace-picker"><div className="workspace-glyph">C</div><div><strong>Credit Operations Unit</strong><small>Demo workspace</small></div><ChevronDown size={15} /></div>
+    <div className="workspace-picker"><div className="workspace-glyph">C</div><div><strong>Credit Review Workbench</strong><small>Synthetic checkout</small></div><ChevronDown size={15} /></div>
     <nav aria-label="Main navigation">
       {items.map(item => {
         const Icon = item.icon
         const heading = item.group !== lastGroup ? <div className="nav-group-label" key={`${item.group}-heading`}>{item.group}</div> : null
         lastGroup = item.group
-        return <div key={item.name}>{heading}<button className={`nav-link ${page === item.name ? 'nav-link-active' : ''}`} onClick={() => onNavigate(item.name)}>
-          <Icon size={17} strokeWidth={1.8} /><span>{item.name}</span>{item.name === 'Officer Review' && <span className="nav-count">3</span>}
+        return <div key={item.name}>{heading}<button className={`nav-link ${page === item.name ? 'nav-link-active' : ''}`} aria-current={page === item.name ? 'page' : undefined} onClick={() => onNavigate(item.name)}>
+          <Icon size={17} strokeWidth={1.8} /><span>{item.name}</span>
         </button></div>
       })}
     </nav>
@@ -233,7 +239,7 @@ function Spotlight({ item, onOpen }: { item: CaseRecord; onOpen: (id: string) =>
   return <div className="spotlight-content">
     <div className="spotlight-person"><div className="case-avatar avatar-gold">{item.application_id.slice(-2)}</div><div><strong>{item.borrower_label}</strong><span>{item.application_id} <i>·</i> {dateLabel(item.submitted_at)}</span></div></div>
     <div className="spotlight-purchase"><span>{item.purchase_description}</span><strong>{money(item.purchase_amount_vnd)}</strong></div>
-    <div className="spotlight-stats"><div><small>Confidence</small><strong className={scoreClass(item.assessment.confidence?.score)}>{percent(item.assessment.confidence?.score, 2)}</strong></div><div><small>Demo PD</small><strong>{percent(item.assessment.risk?.score, 3)}</strong></div></div>
+    <div className="spotlight-stats"><div><small>Confidence</small><strong className={scoreClass(item.assessment.confidence?.score)}>{percent(item.assessment.confidence?.score, 2)}</strong></div><div><small>Scenario score</small><strong>{percent(item.assessment.risk?.score, 3)}</strong></div></div>
     <div className="spotlight-route"><RouteBadge route={item.routing.recommended_route} /><span>{item.assessment.scoring_performed ? 'Suggested review path' : 'Scoring paused'}</span></div>
     <button className="button button-dark spotlight-button" onClick={() => onOpen(item.application_id)}>Open case <ArrowRight size={15} /></button>
   </div>
@@ -335,7 +341,7 @@ function NewCaseModal({ onClose, onCreated }: { onClose: () => void; onCreated: 
 
 function CaseTable({ cases, onSelect, compact = false }: { cases: CaseRecord[]; onSelect: (id: string) => void; compact?: boolean }) {
   return <div className={`table-wrap ${compact ? 'table-compact' : ''}`}>
-    <table className="cases-table"><thead><tr><th>APPLICATION</th><th>AMOUNT</th><th>EVIDENCE CS</th><th>DEMO PD</th><th>REVIEW PATH</th><th aria-label="Open case" /></tr></thead><tbody>
+    <table className="cases-table"><thead><tr><th>APPLICATION</th><th>AMOUNT</th><th>EVIDENCE CS</th><th>SCENARIO SCORE</th><th>REVIEW PATH</th><th aria-label="Open case" /></tr></thead><tbody>
       {cases.map(item => <tr key={item.application_id} className={item.assessment.scoring_performed ? '' : 'row-held'} onClick={() => onSelect(item.application_id)} tabIndex={0} onKeyDown={event => { if (event.key === 'Enter') onSelect(item.application_id) }}>
         <td><div className="table-case"><div className={`case-avatar ${item.application_id === 'DEMO-001' ? 'avatar-gold' : ''}`}>{item.application_id.slice(-2)}</div><div><strong>{item.borrower_label}</strong><span>{item.application_id} <i>·</i> {item.merchant.split(' ')[0]}</span></div></div></td>
         <td><strong className="table-money">{moneyCompact(item.purchase_amount_vnd)}</strong><small>{item.purchase_description}</small></td>
@@ -353,7 +359,9 @@ function AssessmentPage({ active, onNavigate }: { active: CaseRecord; onNavigate
   const assessment = active.assessment
   return <>
     <CaseContext active={active} onNavigate={onNavigate} current="AI Assessment" />
+    <EvidenceShadow applicationId={active.application_id} onResearch={() => onNavigate('Evidence AI Research')} />
     <PageTitle eyebrow="TRANSPARENT CALCULATIONS" title="AI assessment" description="A review aid that shows the inputs, formulas and provenance behind every number." action={<span className="demo-status"><Sparkles size={14} /> Synthetic demonstration</span>} />
+    <p className="research-policy"><ShieldCheck size={15} /> Checkout PD and expected loss require bank validation. Policy {assessment.policy_version} · Fixture {assessment.fixture_version}</p>
     {!assessment.scoring_performed ? <BlockedPanel assessment={assessment} /> : <>
       <div className="assessment-hero-grid">
         <section className="surface confidence-feature">
@@ -361,25 +369,39 @@ function AssessmentPage({ active, onNavigate }: { active: CaseRecord; onNavigate
           <div className="confidence-main"><div className="confidence-ring" style={{ '--score': `${(assessment.confidence!.score * 100).toFixed(3)}%` } as CSSProperties}><div><strong>{assessment.confidence!.score.toFixed(2)}</strong><small>of 1.00</small></div></div><div className="confidence-copy"><span className="score-kicker">QUALITY INDEX</span><h3>Evidence confidence</h3><p>This score summarizes evidence coverage and quality. It is not a probability of default.</p><div className="formula-chip">CS = Σ (weight × evidence subscore)</div></div></div>
           <div className="confidence-breakdown">{Object.entries(assessment.confidence!.subscores).map(([key, value]) => <div className="confidence-row" key={key}><div className="confidence-label"><span>{prettyKey(key)}</span><strong>{value.toFixed(3)}</strong></div><div className="confidence-track"><span style={{ width: `${value * 100}%` }} /></div><small>{percent(assessment.confidence!.weights[key])} weight <i>·</i> {assessment.confidence!.weighted_contributions[key].toFixed(3)} contribution</small></div>)}</div>
           <div className="provenance-note"><FileSearch size={14} /><span>Computed from {assessment.confidence!.inputs.income_history_months} monthly records, {assessment.confidence!.inputs.reconciliation_fields_consistent}/{assessment.confidence!.inputs.reconciliation_fields_total} reconciled fields and {assessment.confidence!.inputs.verified_sources}/{assessment.confidence!.inputs.available_sources} verified sources.</span></div>
+          <details className="method-details"><summary>Completeness gaps</summary><ul>{Object.entries(assessment.confidence!.completeness_gaps).map(([key, count]) => <li key={key}>{prettyKey(key)} · {count}</li>)}</ul></details>
         </section>
         <div className="assessment-side-stack">
-          <section className="surface risk-card"><div className="assessment-card-top"><div><div className="eyebrow">DEFAULT RISK · DEMO</div><h2>Illustrative PD</h2></div><div className="risk-stamp"><Activity size={15} /></div></div>
+          <section className="surface risk-card"><div className="assessment-card-top"><div><div className="eyebrow">SYNTHETIC RISK SCENARIO</div><h2>Synthetic score</h2></div><div className="risk-stamp"><Activity size={15} /></div></div>
             <div className="risk-number">{percent(assessment.risk?.score, 3)}<span>synthetic score</span></div><div className="risk-caution"><CircleAlert size={14} /><span>Not trained or calibrated. Do not use for real credit decisions.</span></div><details className="method-details"><summary>Show calculation <ChevronDown size={13} /></summary><p>{assessment.risk?.formula}</p><div className="method-inline">Logit <b>{assessment.risk?.logit.toFixed(4)}</b><span /> Intercept <b>{assessment.risk?.intercept.toFixed(4)}</b></div><small>{assessment.risk?.reference_parity}</small></details>
           </section>
-          <section className="surface loss-card"><div className="assessment-card-top"><div><div className="eyebrow">ILLUSTRATIVE EXPECTED LOSS</div><h2>Exposure estimate</h2></div><Banknote size={17} /></div><div className="loss-number">{money(assessment.expected_loss?.amount_vnd)}</div><p className="loss-formula">{assessment.expected_loss?.calculation}</p><div className="loss-inputs"><div><span>PD demo</span><b>{percent(assessment.expected_loss?.pd_demo, 3)}</b></div><div><span>LGD assumption</span><b>{percent(assessment.expected_loss?.lgd_assumption, 0)}</b></div><div><span>EAD assumption</span><b>{money(assessment.expected_loss?.ead_assumption_vnd)}</b></div></div></section>
+          <section className="surface loss-card"><div className="assessment-card-top"><div><div className="eyebrow">ILLUSTRATIVE EXPECTED LOSS</div><h2>Exposure estimate</h2></div><Banknote size={17} /></div><div className="loss-number">{money(assessment.expected_loss?.amount_vnd)}</div><p className="loss-formula">{assessment.expected_loss?.calculation}</p><div className="loss-inputs"><div><span>Scenario score</span><b>{percent(assessment.expected_loss?.pd_demo, 3)}</b></div><div><span>LGD assumption</span><b>{percent(assessment.expected_loss?.lgd_assumption, 0)}</b></div><div><span>EAD assumption</span><b>{money(assessment.expected_loss?.ead_assumption_vnd)}</b></div></div></section>
         </div>
       </div>
       <section className="surface feature-engineering-card"><div className="section-head"><div><div className="eyebrow">P3 · DERIVED FROM MONTHLY INCOME HISTORY</div><h2>Financial features</h2></div><FileSearch size={16} /></div><div className="financial-feature-grid">{[
         ['Mean monthly income', money(assessment.features?.mean_income_vnd), 'Arithmetic mean of the supplied records'],
         ['Income standard deviation', money(assessment.features?.income_standard_deviation_vnd), 'Population standard deviation'],
         ['Income coefficient of variation', percent(assessment.features?.income_cv, 2), 'Standard deviation ÷ mean income'],
-        ['25th percentile income', money(assessment.features?.income_p25_vnd), 'Lower observation at the 25th percentile index'],
+        ['25th percentile income', money(assessment.features?.income_p25_vnd), 'Linear interpolation at (n − 1) × 0.25'],
         ['Existing debt-to-income', percent(assessment.features?.existing_dti_ratio, 2), 'Existing monthly debt ÷ mean income'],
         ['History coverage', percent(assessment.features?.history_coverage, 1), `${assessment.features?.history_months} observed of 12 months`],
       ].map(([label, value, note]) => <div className="financial-feature" key={label}><small>{label}</small><strong>{value}</strong><span>{note}</span></div>)}</div></section>
       <section className="surface affordability-section"><div className="section-head"><div><div className="eyebrow">MONTHLY PAYMENT CAPACITY</div><h2>Affordability check</h2></div><span className={`eligibility-pill ${assessment.affordability?.installment_eligible ? 'eligible' : 'not-eligible'}`}>{assessment.affordability?.installment_eligible ? <><CheckCircle2 size={14} /> Within illustrative capacity</> : <><ShieldAlert size={14} /> Outside capacity</>}</span></div>
         <div className="capacity-layout"><div className="capacity-main"><div className="capacity-label"><span>Stressed payment capacity</span><HelpCircle size={14} /></div><strong>{money(assessment.affordability?.stressed_payment_capacity_vnd)}</strong><div className="capacity-track"><div className="capacity-payment" style={{ width: `${Math.min(100, (assessment.affordability!.proposed_installment_vnd / Math.max(assessment.affordability!.stressed_payment_capacity_vnd, 1)) * 100)}%` }} /><div className="capacity-limit" /></div><div className="capacity-legend"><span><i className="legend-square" /> Proposed instalment {money(assessment.affordability?.proposed_installment_vnd)}</span><span><i className="legend-dash" /> Available capacity</span></div></div><div className="capacity-details"><div><span>Income residual</span><strong>{money(assessment.affordability?.income_residual_vnd)}</strong></div><div><span>Repayment buffer</span><strong className={assessment.affordability!.repayment_buffer_vnd >= 0 ? 'positive' : 'negative'}>{money(assessment.affordability?.repayment_buffer_vnd)}</strong></div><div><span>PMT calculation</span><strong>{assessment.affordability?.pmt_vnd ? money(assessment.affordability.pmt_vnd) : 'Not supplied'}</strong></div></div></div>
-        <details className="method-details affordability-method"><summary>Formula and inputs <ChevronDown size={13} /></summary><p>{assessment.affordability?.calculation}</p><small>Mean income {money(assessment.features?.mean_income_vnd)} <i>·</i> Existing debt {money(assessment.features?.existing_monthly_debt_vnd)} <i>·</i> Illustrative DTI cap {percent(assessment.affordability?.max_dti_assumption, 0)}. No bank threshold has been validated.</small></details>
+        <details className="method-details affordability-method"><summary>Formula and inputs <ChevronDown size={13} /></summary>
+          <p>{assessment.affordability?.calculation}</p>
+          <p>DTI capacity {money(assessment.affordability?.dti_capacity_vnd)} · Residual capacity {money(assessment.affordability?.residual_capacity_vnd)} · P25 income {money(assessment.affordability?.stress_income_vnd)} · Buffer {percent(assessment.affordability?.residual_buffer_assumption, 0)}</p>
+          <small>Mean income {money(assessment.features?.mean_income_vnd)} · Existing debt {money(assessment.features?.existing_monthly_debt_vnd)} · Essentials {money(assessment.affordability?.essential_monthly_expenses_vnd)} · DTI cap {percent(assessment.affordability?.max_dti_assumption, 0)} · {assessment.affordability?.installment_basis}</small>
+          {assessment.affordability?.stated_installment_differs_from_pmt && <p>Declared installment differs from contract PMT. Capacity uses the contract calculation.</p>}
+        </details>
+      </section>
+      <section className="surface affordability-section">
+        <details className="method-details"><summary>Illustrative loss sensitivity</summary>
+          <div className="table-wrap"><table className="cases-table"><thead><tr><th>LGD</th><th>EAD</th><th>Scenario loss</th></tr></thead><tbody>
+            {assessment.expected_loss?.sensitivity.map(row => <tr key={[row.lgd, row.ead_vnd].join('/')}><td>{percent(row.lgd, 0)}</td><td>{money(row.ead_vnd)}</td><td>{money(row.amount_vnd)}</td></tr>)}
+          </tbody></table></div>
+        </details>
+        <details className="method-details"><summary>Income observations and model provenance</summary><p>{active.monthly_income_vnd.map(money).join(' · ')}</p><p>{assessment.model.version} · {assessment.model.scope} · {assessment.pd_status}</p></details>
       </section>
       <div className="assessment-actions"><div><span>Still a human decision</span><small>This assessment can inform review, but cannot create or approve a loan.</small></div><button className="button button-dark" onClick={() => onNavigate('Decision Routing')}>Continue to routing <ArrowRight size={15} /></button></div>
     </>}
@@ -398,13 +420,13 @@ function RoutingPage({ active, onNavigate }: { active: CaseRecord; onNavigate: (
     <div className="routing-summary-grid"><section className="surface proposed-route-card"><div className="eyebrow">RECOMMENDED NEXT STEP</div><div className="proposed-route-title"><div className={`route-illustration ${routeClass(routing.recommended_route)}`}>{routing.recommended_route === 'HOLD_FOR_HUMAN_HANDLING' ? <LockKeyhole size={23} /> : <Activity size={23} />}</div><div><span>Review path</span><h2>{routeLabels[routing.recommended_route]}</h2></div></div><p>{routing.explanations[0]}</p><div className="route-card-footer"><span><UserRound size={14} /> Requires officer confirmation</span><b>{money(routing.estimated_route_costs_vnd[routing.recommended_route])}</b></div></section>
       <section className="surface route-objective-card"><div className="objective-icon"><BarChart3 size={17} /></div><div className="eyebrow">COST OBJECTIVE</div><h3>Lowest-cost eligible path</h3><p>{routing.objective}</p><div className="objective-flag"><Info size={14} /> Route costs and eligibility thresholds are demo assumptions. Bank validation is pending.</div></section></div>
     <section className="surface policy-gates-card"><div className="section-head"><div><div className="eyebrow">P1 · HARD CONSTRAINTS</div><h2>Mandatory policy gates</h2></div><span className={`gate-summary ${active.assessment.scoring_performed ? 'gate-summary-pass' : 'gate-summary-fail'}`}>{active.assessment.scoring_performed ? 'All passed' : 'Automated scoring stopped'}</span></div><div className="policy-gates-grid">{active.assessment.gates.map((gate, index) => <div className={`policy-gate ${gate.passed ? 'passed' : 'failed'}`} key={gate.key}><span className="policy-gate-number">0{index + 1}</span><span className="policy-gate-icon">{gate.passed ? <Check size={14} /> : <X size={14} />}</span><div><strong>{gate.label}</strong><small>{gate.passed ? 'Verified for this synthetic scenario' : 'Failed · blocks automated scoring'}</small></div></div>)}</div></section>
-    <section className="surface route-compare-card"><div className="section-head"><div><div className="eyebrow">P8 · FEASIBLE ROUTES</div><h2>Compare review cost</h2></div><span className="estimate-label"><Info size={13} /> Estimates · VND</span></div><div className="route-compare-list">{routing.route_comparison.map(item => <div className={`route-compare-row ${item.selected ? 'route-row-selected' : ''} ${!item.eligible ? 'route-row-disabled' : ''}`} key={item.route}><div className="route-compare-name"><span className={`route-dot ${routeClass(item.route)}`} /><div><strong>{routeLabels[item.route]}</strong><small>{item.reason}</small></div></div><div className="route-compare-cost"><strong>{money(item.estimated_cost_vnd)}</strong>{item.selected ? <span className="selected-chip"><Check size={11} /> Recommended</span> : !item.eligible && <span className="ineligible-chip">Not eligible</span>}</div><div className="route-compare-bar"><span className={routeClass(item.route)} style={{ width: `${Math.max(8, item.estimated_cost_vnd / Math.max(...routing.route_comparison.map(row => row.estimated_cost_vnd)) * 100)}%` }} /></div></div>)}</div><div className="route-compare-foot"><ShieldCheck size={15} /><span>Hard validation rules cannot be bypassed by a low demo PD or a lower estimated route cost.</span></div></section>
+    <section className="surface route-compare-card"><div className="section-head"><div><div className="eyebrow">P8 · FEASIBLE ROUTES</div><h2>Compare review cost</h2></div><span className="estimate-label"><Info size={13} /> Estimates · VND</span></div><div className="route-compare-list">{routing.route_comparison.map(item => <div className={`route-compare-row ${item.selected ? 'route-row-selected' : ''} ${!item.eligible ? 'route-row-disabled' : ''}`} key={item.route}><div className="route-compare-name"><span className={`route-dot ${routeClass(item.route)}`} /><div><strong>{routeLabels[item.route]}</strong><small>{item.reason}</small></div></div><div className="route-compare-cost"><strong>{money(item.estimated_cost_vnd)}</strong>{item.selected ? <span className="selected-chip"><Check size={11} /> Recommended</span> : !item.eligible && <span className="ineligible-chip">Not eligible</span>}</div><div className="route-compare-bar"><span className={routeClass(item.route)} style={{ width: `${Math.max(8, item.estimated_cost_vnd / Math.max(...routing.route_comparison.map(row => row.estimated_cost_vnd)) * 100)}%` }} /></div></div>)}</div><div className="route-compare-foot"><ShieldCheck size={15} /><span>Route eligibility depends on the policy gates. Costs determine the order among eligible paths.</span></div></section>
     <section className="surface routing-explanation"><div className="explanation-icon"><FileSearch size={17} /></div><div><div className="eyebrow">WHY THIS ROUTE?</div><h3>Route rationale</h3><ul>{routing.explanations.map((reason, index) => <li key={index}>{reason}</li>)}</ul></div></section>
   </>
 }
 
 function ReviewPage({ active, onNavigate, onUpdated }: { active: CaseRecord; onNavigate: (page: PageName) => void; onUpdated: (message: string) => Promise<void> }) {
-  const [action, setAction] = useState<'confirm_route' | 'request_evidence' | 'escalate' | 'override_route'>('confirm_route')
+  const [action, setAction] = useState<'confirm_route' | 'request_evidence' | 'escalate' | 'override_route' | 'consent_revoked'>('confirm_route')
   const [route, setRoute] = useState<RouteName>(active.routing.recommended_route)
   const [reason, setReason] = useState('')
   const [saving, setSaving] = useState(false)
@@ -413,11 +435,17 @@ function ReviewPage({ active, onNavigate, onUpdated }: { active: CaseRecord; onN
   useEffect(() => { setRoute(active.routing.recommended_route); setHistory(active.review_history) }, [active.application_id, active.review_history, active.routing.recommended_route])
   const isOverride = action === 'override_route'
   const canSubmit = reason.trim().length >= 12 && !saving && (!isOverride || active.routing.eligible_routes.includes(route))
+    && (action !== 'consent_revoked' || !active.consent_revoked_at)
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault()
     setSaving(true); setError('')
     try {
-      await sendReviewAction(active.application_id, { action, reason, ...(action === 'override_route' ? { route } : {}) })
+      if (action === 'consent_revoked') {
+        await revokeConsent(active.application_id, reason)
+        setAction('confirm_route')
+      } else {
+        await sendReviewAction(active.application_id, { action, reason, ...(isOverride ? { route } : {}) })
+      }
       setReason('')
       await onUpdated('Review action recorded in the audit history.')
     } catch (cause) {
@@ -428,13 +456,14 @@ function ReviewPage({ active, onNavigate, onUpdated }: { active: CaseRecord; onN
     <CaseContext active={active} onNavigate={onNavigate} current="Officer Review" />
     <PageTitle eyebrow="HUMAN REVIEW · APPEND-ONLY AUDIT" title="Officer review" description="Record a reasoned review action. This screen does not approve a loan." action={<span className="human-only-badge"><UserRound size={14} /> Human authority only</span>} />
     <div className="review-layout"><div className="review-main-column">
-      <section className="surface review-decision-card"><div className="review-card-header"><div><div className="eyebrow">PROPOSED REVIEW PATH</div><h2>{routeLabels[active.routing.recommended_route]}</h2></div><RouteBadge route={active.routing.recommended_route} /></div><div className="review-case-row"><div className="review-mini-metric"><span>Evidence confidence</span><strong>{percent(active.assessment.confidence?.score, 2)}</strong></div><div className="review-mini-metric"><span>Demo PD</span><strong>{percent(active.assessment.risk?.score, 3)}</strong></div><div className="review-mini-metric"><span>Installment eligible</span><strong className={active.assessment.affordability?.installment_eligible ? 'positive' : 'negative'}>{active.assessment.affordability ? active.assessment.affordability.installment_eligible ? 'Yes' : 'No' : 'Not scored'}</strong></div></div><div className="review-guardrail"><ShieldCheck size={15} /><span>Permitted actions record review, evidence requests or escalation. No action here creates a credit offer or loan approval.</span></div></section>
+      <section className="surface review-decision-card"><div className="review-card-header"><div><div className="eyebrow">PROPOSED REVIEW PATH</div><h2>{routeLabels[active.routing.recommended_route]}</h2></div><RouteBadge route={active.routing.recommended_route} /></div><div className="review-case-row"><div className="review-mini-metric"><span>Evidence confidence</span><strong>{percent(active.assessment.confidence?.score, 2)}</strong></div><div className="review-mini-metric"><span>Scenario score</span><strong>{percent(active.assessment.risk?.score, 3)}</strong></div><div className="review-mini-metric"><span>Installment eligible</span><strong className={active.assessment.affordability?.installment_eligible ? 'positive' : 'negative'}>{active.assessment.affordability ? active.assessment.affordability.installment_eligible ? 'Yes' : 'No' : 'Not scored'}</strong></div></div><div className="review-guardrail"><ShieldCheck size={15} /><span>Permitted actions record review, evidence requests or escalation. No action here creates a credit offer or loan approval.</span></div></section>
       <form className="surface review-action-form" onSubmit={handleSubmit}><div className="section-head"><div><div className="eyebrow">REVIEW ACTION</div><h2>What should happen next?</h2></div><FileCheck2 size={17} /></div>
         <div className="action-choice-grid">{[
           ['confirm_route', 'Confirm review path', 'Acknowledge the current recommendation.', <CheckCircle2 size={16} />],
           ['request_evidence', 'Request more evidence', 'Pause for a specific missing item.', <FileClock size={16} />],
           ['escalate', 'Escalate case', 'Send the case for additional human review.', <ShieldAlert size={16} />],
           ['override_route', 'Change review path', 'Choose another eligible route with a reason.', <RefreshCw size={16} />],
+          ...(!active.consent_revoked_at ? [['consent_revoked', 'Record consent withdrawal', 'Stop scoring for this synthetic case.', <LockKeyhole size={16} />]] : []),
         ].map(([id, label, desc, icon]) => <button type="button" key={String(id)} className={`action-choice ${action === id ? 'action-choice-active' : ''}`} onClick={() => { setAction(id as typeof action); setError('') }}><span className="action-choice-icon">{icon as ReactNode}</span><span className="action-choice-copy"><strong>{label as string}</strong><small>{desc as string}</small></span>{action === id && <span className="action-choice-check"><Check size={12} /></span>}</button>)}</div>
         {isOverride && <label className="form-field route-select-field"><span>New review route <i>· choose an eligible path</i></span><div className="select-field-control"><select value={route} onChange={event => setRoute(event.target.value as RouteName)}>{active.routing.eligible_routes.map(value => <option value={value} key={value}>{routeLabels[value]}</option>)}</select><ChevronDown size={15} /></div></label>}
         <label className="form-field reason-field"><span>Reason for this action <b>Required</b></span><textarea value={reason} onChange={event => setReason(event.target.value)} rows={4} maxLength={1000} placeholder="Write the evidence or policy context behind this action. The reason becomes part of the case audit record." /><small>{reason.trim().length}/1000 characters · Minimum 12 characters</small></label>
@@ -458,13 +487,15 @@ function actionLabel(action: string) {
 }
 
 function SimulatorPage({ active, onNavigate }: { active: CaseRecord; onNavigate: (page: PageName) => void }) {
-  const [income, setIncome] = useState(Math.round((active.assessment.features?.mean_income_vnd ?? average(active.monthly_income_vnd)) / 100000) / 10)
-  const [debt, setDebt] = useState(Math.round(active.existing_monthly_debt_vnd / 100000) / 10)
-  const [installment, setInstallment] = useState(Math.round(active.proposed_installment_vnd / 100000) / 10)
-  const [quality, setQuality] = useState(Math.min(active.evidence.reconciliation_fields_consistent / active.evidence.reconciliation_fields_total, active.evidence.verified_sources / active.evidence.available_sources))
+  const [income, setIncome] = useState(average(active.monthly_income_vnd) / 1_000_000)
+  const [debt, setDebt] = useState(active.existing_monthly_debt_vnd / 1_000_000)
+  const [installment, setInstallment] = useState(active.proposed_installment_vnd / 1_000_000)
+  const [quality, setQuality] = useState(baseEvidenceQuality(active))
   const [consent, setConsent] = useState(active.consent)
   const [identityVerified, setIdentityVerified] = useState(active.identity_verified)
   const [maxDti, setMaxDti] = useState(0.35)
+  const [residualBuffer, setResidualBuffer] = useState(0.25)
+  const [checkBenchmark, setCheckBenchmark] = useState(false)
   const [fastCost, setFastCost] = useState(42000)
   const [standardCost, setStandardCost] = useState(110000)
   const [result, setResult] = useState<Awaited<ReturnType<typeof runSimulation>> | null>(null)
@@ -472,10 +503,10 @@ function SimulatorPage({ active, onNavigate }: { active: CaseRecord; onNavigate:
   const [error, setError] = useState('')
 
   useEffect(() => {
-    setIncome(Math.round((active.assessment.features?.mean_income_vnd ?? average(active.monthly_income_vnd)) / 100000) / 10)
-    setDebt(Math.round(active.existing_monthly_debt_vnd / 100000) / 10)
-    setInstallment(Math.round(active.proposed_installment_vnd / 100000) / 10)
-    setQuality(Math.min(active.evidence.reconciliation_fields_consistent / active.evidence.reconciliation_fields_total, active.evidence.verified_sources / active.evidence.available_sources))
+    setIncome(average(active.monthly_income_vnd) / 1_000_000)
+    setDebt(active.existing_monthly_debt_vnd / 1_000_000)
+    setInstallment(active.proposed_installment_vnd / 1_000_000)
+    setQuality(baseEvidenceQuality(active))
     setConsent(active.consent); setIdentityVerified(active.identity_verified); setResult(null)
   }, [active.application_id, active.assessment.features, active.existing_monthly_debt_vnd, active.proposed_installment_vnd, active.evidence, active.consent, active.identity_verified, active.monthly_income_vnd])
 
@@ -485,13 +516,15 @@ function SimulatorPage({ active, onNavigate }: { active: CaseRecord; onNavigate:
     const incomeFactor = income * 1_000_000 / baselineAverage
     try {
       const response = await runSimulation(active.application_id, {
-        monthly_income_vnd: active.monthly_income_vnd.map(value => Math.round(value * incomeFactor)),
-        existing_monthly_debt_vnd: Math.round(debt * 1_000_000),
-        proposed_installment_vnd: Math.round(installment * 1_000_000),
-        evidence_quality: quality,
+        ...(income !== baselineAverage / 1_000_000 ? { monthly_income_vnd: active.monthly_income_vnd.map(value => Math.round(value * incomeFactor)) } : {}),
+        ...(debt !== active.existing_monthly_debt_vnd / 1_000_000 ? { existing_monthly_debt_vnd: Math.round(debt * 1_000_000) } : {}),
+        ...(installment !== active.proposed_installment_vnd / 1_000_000 ? { proposed_installment_vnd: Math.round(installment * 1_000_000) } : {}),
+        ...(quality !== baseEvidenceQuality(active) ? { evidence_quality: quality } : {}),
         consent,
         identity_verified: identityVerified,
         max_dti: maxDti,
+        residual_buffer: residualBuffer,
+        ...(checkBenchmark ? { benchmark_model_id: 'uci350-v2.0-selected' } : {}),
         route_costs_vnd: { FAST_TRACK_CANDIDATE: fastCost, STANDARD_REVIEW: standardCost },
       })
       setResult(response)
@@ -505,20 +538,23 @@ function SimulatorPage({ active, onNavigate }: { active: CaseRecord; onNavigate:
     <PageTitle eyebrow="SCENARIO WORKBENCH" title="What-if simulator" description="Adjust synthetic inputs, rerun the transparent calculations and compare the proposed path." action={<span className="demo-status"><SlidersHorizontal size={14} /> Changes are not saved</span>} />
     <div className="simulator-grid"><form className="surface simulator-controls" onSubmit={simulate}><div className="simulator-form-head"><div className="eyebrow">CHANGE SCENARIO INPUTS</div><h2>Adjust the numbers</h2><p>Each run is temporary and scoped to {active.application_id}.</p></div>
       <div className="sim-controls-grid">
+        <label className="sim-control"><span>Stressed residual buffer <b>{percent(residualBuffer, 0)}</b></span><input type="range" min="0" max="0.75" step="0.01" value={residualBuffer} onChange={event => setResidualBuffer(Number(event.target.value))} /></label>
         <label className="sim-control"><span>Mean monthly income <b>{income.toFixed(1)}m ₫</b></span><input type="range" min="4" max="30" step="0.1" value={income} onChange={event => setIncome(Number(event.target.value))} /><div className="range-minmax"><small>4m</small><small>30m VND</small></div></label>
         <label className="sim-control"><span>Existing monthly debt <b>{debt.toFixed(2)}m ₫</b></span><input type="range" min="0" max="15" step="0.05" value={debt} onChange={event => setDebt(Number(event.target.value))} /><div className="range-minmax"><small>0</small><small>15m VND</small></div></label>
         <label className="sim-control"><span>Proposed instalment <b>{installment.toFixed(2)}m ₫</b></span><input type="range" min="0.2" max="8" step="0.05" value={installment} onChange={event => setInstallment(Number(event.target.value))} /><div className="range-minmax"><small>0.2m</small><small>8m VND</small></div></label>
         <label className="sim-control"><span>Evidence quality <b>{percent(quality, 0)}</b></span><input type="range" min="0" max="1" step="0.01" value={quality} onChange={event => setQuality(Number(event.target.value))} /><div className="range-minmax"><small>Incomplete</small><small>Fully checked</small></div></label>
         <label className="sim-control"><span>Maximum DTI assumption <b>{percent(maxDti, 0)}</b></span><input type="range" min="0.15" max="0.55" step="0.01" value={maxDti} onChange={event => setMaxDti(Number(event.target.value))} /><div className="range-minmax"><small>15%</small><small>55%</small></div></label>
       </div>
+      <label><input type="checkbox" checked={checkBenchmark} onChange={event => setCheckBenchmark(event.target.checked)} /> Check UCI benchmark compatibility</label>
       <div className="sim-costs"><div className="eyebrow">ILLUSTRATIVE ROUTE COSTS</div><div className="sim-cost-fields"><label>Fast-track estimate <span><input type="number" min="0" step="1000" value={fastCost} onChange={event => setFastCost(Number(event.target.value))} /> ₫</span></label><label>Standard estimate <span><input type="number" min="0" step="1000" value={standardCost} onChange={event => setStandardCost(Number(event.target.value))} /> ₫</span></label></div><small>These costs are demo assumptions, not bank estimates.</small></div>
       <div className="sim-toggle-row"><div><strong>Mandatory checks</strong><small>Consent, identity and source access gate scoring.</small></div><div className="sim-toggles"><Toggle label="Consent" checked={consent} onChange={setConsent} /><Toggle label="Identity" checked={identityVerified} onChange={setIdentityVerified} /></div></div>
       <button className="button button-dark simulate-button" type="submit" disabled={busy}>{busy ? <><RefreshCw size={15} className="spin" /> Recalculating…</> : <><Activity size={15} /> Run scenario</>}</button>
       {error && <div className="form-error"><CircleAlert size={14} />{error}</div>}
     </form>
     <div className="simulator-output"><section className="surface scenario-result"><div className="scenario-result-head"><div><div className="eyebrow">SCENARIO RESULT</div><h2>{result ? 'Updated calculation' : 'Current baseline'}</h2></div><span className={`unsaved-pill ${result ? 'unsaved-updated' : ''}`}><span />{result ? 'SIMULATED' : 'BASELINE'}</span></div><p className="scenario-muted">{result ? 'Result is traceable to the inputs at left and has not been saved to the case.' : 'Run the scenario to see how changed inputs affect the outputs.'}</p>
+      {displayedAssessment.pd_status === 'PD_UNAVAILABLE_SCHEMA_MISMATCH' && <p role="status" className="research-alert">PD_UNAVAILABLE_SCHEMA_MISMATCH · UCI features and label horizon differ from checkout. The panel below shows only synthetic calculations.</p>}
       {!displayedAssessment.scoring_performed ? <div className="scenario-blocked"><LockKeyhole size={17} /><div><strong>Scoring blocked</strong><span>{displayedAssessment.notice}</span></div></div> : <>
-        <div className="scenario-stat-grid"><ScenarioStat label="Confidence score" value={displayedAssessment.confidence?.score.toFixed(3) ?? '—'} note="Evidence quality" /><ScenarioStat label="Demo PD" value={percent(displayedAssessment.risk?.score, 3)} note="Not calibrated" /><ScenarioStat label="Payment capacity" value={moneyCompact(displayedAssessment.affordability?.stressed_payment_capacity_vnd)} note={displayedAssessment.affordability?.installment_eligible ? 'Within capacity' : 'Outside capacity'} /><ScenarioStat label="Expected loss" value={moneyCompact(displayedAssessment.expected_loss?.amount_vnd)} note="Illustrative" /></div>
+        <div className="scenario-stat-grid"><ScenarioStat label="Confidence score" value={displayedAssessment.confidence?.score.toFixed(3) ?? '—'} note="Evidence quality" /><ScenarioStat label="Scenario score" value={percent(displayedAssessment.risk?.score, 3)} note="Not calibrated" /><ScenarioStat label="Payment capacity" value={moneyCompact(displayedAssessment.affordability?.stressed_payment_capacity_vnd)} note={displayedAssessment.affordability?.installment_eligible ? 'Within capacity' : 'Outside capacity'} /><ScenarioStat label="Expected loss" value={moneyCompact(displayedAssessment.expected_loss?.amount_vnd)} note="Illustrative" /></div>
         <div className="scenario-recommendation"><div className="scenario-route-icon"><Activity size={16} /></div><div><small>RECOMMENDED REVIEW PATH</small><strong>{routeLabels[displayedRoute.recommended_route]}</strong></div><RouteBadge route={displayedRoute.recommended_route} /></div>
       </>}
       {result && <details className="scenario-trace"><summary><FileSearch size={13} /> View input trace <ChevronDown size={13} /></summary><pre>{JSON.stringify(result.scenario_inputs, null, 2)}</pre></details>}
@@ -551,10 +587,10 @@ function EvaluationPage() {
     {error && <div className="form-error evaluation-error"><CircleAlert size={14} />{error}</div>}
     {loading ? <div className="surface evaluation-loading">Loading the synthetic evaluation snapshot…</div> : <>
       <div className="evaluation-banner"><div className="evaluation-banner-icon"><Info size={17} /></div><div><strong>Illustrative comparison only</strong><span>These counts and cost estimates describe the six synthetic fixtures currently in this workspace. They are not measured portfolio outcomes or model performance.</span></div><span className="evaluation-banner-tag">SIMULATED</span></div>
-      <div className="evaluation-metrics-grid"><div className="surface evaluation-metric"><span>Applications evaluated</span><strong>{metrics?.application_count ?? 0}</strong><small>{metrics?.scoreable_count ?? 0} scoreable <i>·</i> {metrics?.blocked_count ?? 0} blocked</small></div><div className="surface evaluation-metric"><span>Estimated routing cost</span><strong>{moneyCompact(metrics?.proposed_routing_cost_estimate_vnd)}</strong><small>Illustrative current recommendations</small></div><div className="surface evaluation-metric"><span>Reference baseline cost</span><strong>{moneyCompact(metrics?.baseline_all_standard_cost_estimate_vnd)}</strong><small>Standard review for scoreable cases</small></div><div className="surface evaluation-metric"><span>Estimated difference</span><strong className={metrics && metrics.estimated_cost_difference_vnd >= 0 ? 'positive' : 'negative'}>{moneyCompact(metrics?.estimated_cost_difference_vnd)}</strong><small>Scenario arithmetic, not realized savings</small></div></div>
+      <div className="evaluation-metrics-grid"><div className="surface evaluation-metric"><span>Applications evaluated</span><strong>{metrics?.application_count ?? 0}</strong><small>{metrics?.scoreable_count ?? 0} scoreable <i>·</i> {metrics?.blocked_count ?? 0} blocked</small></div><div className="surface evaluation-metric"><span>Estimated routing cost</span><strong>{moneyCompact(metrics?.proposed_routing_cost_estimate_vnd)}</strong><small>Illustrative current recommendations</small></div><div className="surface evaluation-metric"><span>Reference baseline cost</span><strong>{moneyCompact(metrics?.baseline_all_standard_cost_estimate_vnd)}</strong><small>Fixed order among eligible routes</small></div><div className="surface evaluation-metric"><span>Estimated difference</span><strong className={metrics && metrics.estimated_cost_difference_vnd >= 0 ? 'positive' : 'negative'}>{moneyCompact(metrics?.estimated_cost_difference_vnd)}</strong><small>Scenario arithmetic, not realized savings</small></div></div>
       <div className="evaluation-grid"><section className="surface evaluation-routes"><div className="section-head"><div><div className="eyebrow">CURRENT FIXTURE ROUTING</div><h2>Route distribution</h2></div><Activity size={16} /></div><div className="evaluation-route-list">{(['FAST_TRACK_CANDIDATE', 'STANDARD_REVIEW', 'ENHANCED_REVIEW', 'HOLD_FOR_HUMAN_HANDLING'] as RouteName[]).map(route => { const count = metrics?.route_distribution[route] ?? 0; const share = metrics?.application_count ? count / metrics.application_count : 0; return <div className="evaluation-route" key={route}><div><span className={`route-dot ${routeClass(route)}`} /><b>{routeLabels[route]}</b><strong>{count}</strong></div><div className="evaluation-track"><span className={routeClass(route)} style={{ width: `${Math.max(count ? 6 : 0, share * 100)}%` }} /></div></div> })}</div><p className="evaluation-baseline-note">{metrics?.baseline_note}</p></section>
         <section className="surface evaluation-method"><div className="eyebrow">MODEL STATUS</div><div className="model-status-line"><span className="model-status-icon"><Activity size={18} /></span><strong>DEMO_RISK_SCORE_NOT_CALIBRATED</strong></div><p>No training data, validated repayment labels, holdout results or calibration evidence was supplied. The demo score is shown only to demonstrate calculation and routing behavior.</p><div className="model-status-row"><span>Model performance</span><b>Not measured</b></div><div className="model-status-row"><span>Reference parity</span><b>Unverified</b></div><div className="model-status-row"><span>Decision authority</span><b>Human officer</b></div></section></div>
-      <section className="surface evaluation-log"><div className="section-head"><div><div className="eyebrow">EVALUATION LOG</div><h2>Case-by-case output</h2></div><span className="evaluation-log-count">{logs.length} records</span></div><div className="table-wrap"><table className="cases-table eval-table"><thead><tr><th>APPLICATION</th><th>STATUS</th><th>CONFIDENCE</th><th>DEMO PD</th><th>RECOMMENDED PATH</th></tr></thead><tbody>{logs.map(log => <tr key={log.application_id}><td><strong className="eval-id">{log.application_id}</strong></td><td><span className={`eval-status ${log.assessment_status === 'CALCULATED_DEMO_ONLY' ? 'eval-ready' : 'eval-blocked'}`}>{log.assessment_status === 'CALCULATED_DEMO_ONLY' ? 'Calculated' : 'Blocked'}</span></td><td>{log.confidence_index == null ? '—' : log.confidence_index.toFixed(3)}</td><td>{log.pd_demo == null ? '—' : percent(log.pd_demo, 3)}</td><td><RouteBadge route={log.recommended_route} /></td></tr>)}</tbody></table></div></section>
+      <section className="surface evaluation-log"><div className="section-head"><div><div className="eyebrow">EVALUATION LOG</div><h2>Case-by-case output</h2></div><span className="evaluation-log-count">{logs.length} records</span></div><div className="table-wrap"><table className="cases-table eval-table"><thead><tr><th>APPLICATION</th><th>STATUS</th><th>CONFIDENCE</th><th>SCENARIO SCORE</th><th>RECOMMENDED PATH</th></tr></thead><tbody>{logs.map(log => <tr key={log.application_id}><td><strong className="eval-id">{log.application_id}</strong></td><td><span className={`eval-status ${log.assessment_status === 'CALCULATED_DEMO_ONLY' ? 'eval-ready' : 'eval-blocked'}`}>{log.assessment_status === 'CALCULATED_DEMO_ONLY' ? 'Calculated' : 'Blocked'}</span></td><td>{log.confidence_index == null ? '—' : log.confidence_index.toFixed(3)}</td><td>{log.pd_demo == null ? '—' : percent(log.pd_demo, 3)}</td><td><RouteBadge route={log.recommended_route} /></td></tr>)}</tbody></table></div></section>
       <div className="evaluation-footer"><ShieldCheck size={15} /><span>{'Every route requires human confirmation. The export includes each application, calculations, provenance inputs and append-only review history.'}</span></div>
     </>}
   </>
@@ -582,6 +618,12 @@ function prettyKey(value: string) {
 
 function average(values: number[]) {
   return values.length ? values.reduce((sum, value) => sum + value, 0) / values.length : 0
+}
+
+function baseEvidenceQuality(item: CaseRecord) {
+  const evidence = item.evidence
+  return Math.min(evidence.reconciliation_fields_consistent / Math.max(evidence.reconciliation_fields_total, 1),
+    evidence.verified_sources / Math.max(evidence.available_sources, 1))
 }
 
 export default App
