@@ -1,0 +1,70 @@
+{
+  "dataset_id": "semantic-evidence-development-d1.1",
+  "generator_id": "semantic-ledger-dev-v1.1",
+  "generator_seed": 2026110801,
+  "split_seed": 2026110804,
+  "cases": 1200,
+  "groups": 600,
+  "documents": 3600,
+  "scenario_counts": {
+    "D1_PERIOD_VARIATION": {
+      "cases": 200,
+      "groups": 100,
+      "documents": 600
+    },
+    "D2_GROSS_NET": {
+      "cases": 200,
+      "groups": 100,
+      "documents": 600
+    },
+    "D3_CORRECTION_LINEAGE": {
+      "cases": 200,
+      "groups": 100,
+      "documents": 600
+    },
+    "D4_HISTORICAL_VALIDITY": {
+      "cases": 200,
+      "groups": 100,
+      "documents": 600
+    },
+    "D5_COMPARABLE_CONFLICT": {
+      "cases": 200,
+      "groups": 100,
+      "documents": 600
+    },
+    "D6_ACCOUNT_DIRECTION": {
+      "cases": 200,
+      "groups": 100,
+      "documents": 600
+    }
+  },
+  "split_counts": {
+    "train": {
+      "cases": 720,
+      "groups": 360
+    },
+    "validation": {
+      "cases": 180,
+      "groups": 90
+    },
+    "calibration": {
+      "cases": 180,
+      "groups": 90
+    },
+    "locked_test": {
+      "cases": 120,
+      "groups": 60
+    }
+  },
+  "file_sha256": {
+    "observed.json": "588c18c4d08eb5ff74c50e323b1ebc5f283fd7bc0ac1d4e4ed65cf2b866f558f",
+    "gold_labels.json": "f51dcda12dcec77b292610a054101ca178345d59fbd52c69defa6f67882672ed",
+    "canonical_truth.json": "cf6916d6a99aa4dded360b01662dd67bd4cdce354b92101ccb2e2d2d6a3e15bf",
+    "split_train.json": "7fc91cbfb96dc8820943422a18899b8a7f58845f0a8546490c4014fe9abdbfee",
+    "split_validation.json": "c6e6f6a011e723a1f8c55df2e3a8b216f99197017ac96460b7ea454be87babc1",
+    "split_calibration.json": "b8480bbba7a66aa7ed472d2466cf7a95cf514fdfe3e67ec86f6e6226ee738d32",
+    "split_locked_test.json": "86ba0676c5a11b62426068ec450960839f8a736f8d131ac0228e8b877b7d8691"
+  },
+  "labels_are_programmatic_synthetic_gold": true,
+  "canonical_truth_used_as_feature": false
+}

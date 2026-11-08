@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="670" viewBox="0 0 1120 670" role="img">
+<title>Generator C frozen model comparison</title>
+<desc>Critical recall, legitimate-record false-positive rate, and case review workload for available frozen models.</desc>
+<rect width="1120" height="670" fill="#fffef9"/>
+<text x="40" y="52" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#173e35" text-anchor="start">Generator C: detection and review trade-offs</text>
+<text x="40" y="82" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#536a63" text-anchor="start">Frozen thresholds · independent synthetic challenge · higher recall is better; lower FPR and workload are better</text>
+<rect x="45" y="112" width="17" height="17" rx="3" fill="#0d7867"/>
+<text x="70" y="126" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#294d44" text-anchor="start">Critical recall</text>
+<rect x="375" y="112" width="17" height="17" rx="3" fill="#d06b52"/>
+<text x="400" y="126" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#294d44" text-anchor="start">Legitimate-record FPR</text>
+<rect x="705" y="112" width="17" height="17" rx="3" fill="#c19a3a"/>
+<text x="730" y="126" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#294d44" text-anchor="start">Case review workload</text>
+<line x1="295.0" y1="153" x2="295.0" y2="608" stroke="#e5e9e2"/>
+<text x="295.0" y="635" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#65766f" text-anchor="middle">0%</text>
+<line x1="441.0" y1="153" x2="441.0" y2="608" stroke="#e5e9e2"/>
+<text x="441.0" y="635" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#65766f" text-anchor="middle">20%</text>
+<line x1="587.0" y1="153" x2="587.0" y2="608" stroke="#e5e9e2"/>
+<text x="587.0" y="635" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#65766f" text-anchor="middle">40%</text>
+<line x1="733.0" y1="153" x2="733.0" y2="608" stroke="#e5e9e2"/>
+<text x="733.0" y="635" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#65766f" text-anchor="middle">60%</text>
+<line x1="879.0" y1="153" x2="879.0" y2="608" stroke="#e5e9e2"/>
+<text x="879.0" y="635" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#65766f" text-anchor="middle">80%</text>
+<line x1="1025.0" y1="153" x2="1025.0" y2="608" stroke="#e5e9e2"/>
+<text x="1025.0" y="635" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#65766f" text-anchor="middle">100%</text>
+<text x="35" y="194" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#243f38" text-anchor="start">Semantic hybrid</text>
+<line x1="30" y1="216" x2="1090" y2="216" stroke="#edf0ea"/>
+<rect x="295" y="175" width="730.0" height="14" rx="3" fill="#0d7867" opacity="0.9"/>
+<text x="1023" y="187" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">100.0%</text>
+<rect x="295" y="197" width="46.6" height="14" rx="3" fill="#d06b52" opacity="0.9"/>
+<text x="349.5635464838144" y="209" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">6.4%</text>
+<rect x="295" y="219" width="226.0" height="14" rx="3" fill="#c19a3a" opacity="0.9"/>
+<text x="528.952380952381" y="231" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">31.0%</text>
+<text x="35" y="286" font-family="Arial, sans-serif" font-size="15" font-weight="500" fill="#243f38" text-anchor="start">Semantic rules</text>
+<line x1="30" y1="308" x2="1090" y2="308" stroke="#edf0ea"/>
+<rect x="295" y="267" width="730.0" height="14" rx="3" fill="#0d7867" opacity="0.9"/>
+<text x="1023" y="279" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">100.0%</text>
+<rect x="295" y="289" width="75.8" height="14" rx="3" fill="#d06b52" opacity="0.9"/>
+<text x="378.7821719024079" y="301" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">10.4%</text>
+<rect x="295" y="311" width="270.7" height="14" rx="3" fill="#c19a3a" opacity="0.9"/>
+<text x="573.7083333333334" y="323" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">37.1%</text>
+<text x="35" y="378" font-family="Arial, sans-serif" font-size="15" font-weight="500" fill="#243f38" text-anchor="start">Frozen CS V2</text>
+<line x1="30" y1="400" x2="1090" y2="400" stroke="#edf0ea"/>
+<rect x="295" y="359" width="730.0" height="14" rx="3" fill="#0d7867" opacity="0.9"/>
+<text x="1023" y="371" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">100.0%</text>
+<rect x="295" y="381" width="729.8" height="14" rx="3" fill="#d06b52" opacity="0.9"/>
+<text x="1023" y="393" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">100.0%</text>
+<rect x="295" y="403" width="729.6" height="14" rx="3" fill="#c19a3a" opacity="0.9"/>
+<text x="1023" y="415" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">99.9%</text>
+<text x="35" y="470" font-family="Arial, sans-serif" font-size="15" font-weight="500" fill="#243f38" text-anchor="start">Frozen logistic regression</text>
+<line x1="30" y1="492" x2="1090" y2="492" stroke="#edf0ea"/>
+<rect x="295" y="451" width="730.0" height="14" rx="3" fill="#0d7867" opacity="0.9"/>
+<text x="1023" y="463" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">100.0%</text>
+<rect x="295" y="473" width="730.0" height="14" rx="3" fill="#d06b52" opacity="0.9"/>
+<text x="1023" y="485" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">100.0%</text>
+<rect x="295" y="495" width="730.0" height="14" rx="3" fill="#c19a3a" opacity="0.9"/>
+<text x="1023" y="507" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">100.0%</text>
+<text x="35" y="562" font-family="Arial, sans-serif" font-size="15" font-weight="500" fill="#243f38" text-anchor="start">Frozen Deep Sets</text>
+<line x1="30" y1="584" x2="1090" y2="584" stroke="#edf0ea"/>
+<rect x="295" y="543" width="730.0" height="14" rx="3" fill="#0d7867" opacity="0.9"/>
+<text x="1023" y="555" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">100.0%</text>
+<rect x="295" y="565" width="730.0" height="14" rx="3" fill="#d06b52" opacity="0.9"/>
+<text x="1023" y="577" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">100.0%</text>
+<rect x="295" y="587" width="730.0" height="14" rx="3" fill="#c19a3a" opacity="0.9"/>
+<text x="1023" y="599" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="#243f38" text-anchor="start">100.0%</text>
+<text x="40" y="663" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#725b4b" text-anchor="start">XGBoost baseline arms were unavailable in the frozen runtime and are omitted, not imputed.</text>
+</svg>

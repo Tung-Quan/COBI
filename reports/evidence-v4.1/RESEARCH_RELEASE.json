@@ -1,0 +1,11 @@
+{
+  "release_id": "cobi-evidence-v4.1-research-summary-v1",
+  "validation_status": "EVIDENCE_AI_VALIDATION_BLOCKED",
+  "status": "POST_UNBLINDING_EXPLORATORY",
+  "read_only": true,
+  "routing_authorized": false,
+  "approval_authorized": false,
+  "metrics_sha256": "31d046a36bdd815feb2960d3e35163b1d6c719713b317ba66c20aaaa96bc310d",
+  "prediction_sha256": "03d1a2a6aa3d52eae483cca2d538e8cf71777eea17aa32215160bc5be3dc7523",
+  "model_manifest_sha256": "9e960f45b0b4607f243de7429cd329e8317dea0a2020cf0ebe859e4641a78c1a"
+}

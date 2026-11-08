@@ -1,0 +1,344 @@
+{
+  "status": "PASS_NO_BASELINE_DISCREPANCY",
+  "v4_manifest_sha256": "6ae215ce991df13546201fdb0fc61b5a385aef68fdbf04d682fac62727f7f688",
+  "v4_manifest_artifacts_verified": 96,
+  "v3_model_manifest_sha256": "7fbc4a2d60198526a97b91109f503d1f6559e845a912dfd75e42235a1538869d",
+  "v3_selection_lock_sha256": "7635fd4f49cf4a4681210baa81f439443a6af4f3d3ee5080a8c87921e446ad72",
+  "v3_model_manifest": {
+    "experiment_id": "evidence-synthetic-v3.0",
+    "feature_names": [
+      "log_amount_income",
+      "log_amount_debt",
+      "log_amount_purchase",
+      "missing_income",
+      "missing_debt",
+      "missing_purchase",
+      "ocr_quality",
+      "age_days",
+      "reported_verified",
+      "source_statement",
+      "source_payroll",
+      "source_merchant",
+      "peer_gap_income",
+      "peer_gap_debt",
+      "peer_gap_purchase",
+      "document_count",
+      "coverage",
+      "consistency",
+      "recency",
+      "verification",
+      "hashed_text_0",
+      "hashed_text_1",
+      "hashed_text_2",
+      "hashed_text_3",
+      "hashed_text_4",
+      "hashed_text_5",
+      "hashed_text_6",
+      "hashed_text_7",
+      "hashed_text_8",
+      "hashed_text_9",
+      "hashed_text_10",
+      "hashed_text_11"
+    ],
+    "source_feature_groups": {
+      "base": [
+        "log_amount_income",
+        "log_amount_debt",
+        "log_amount_purchase",
+        "missing_income",
+        "missing_debt",
+        "missing_purchase",
+        "ocr_quality"
+      ],
+      "metadata": [
+        "age_days",
+        "reported_verified",
+        "source_statement",
+        "source_payroll",
+        "source_merchant"
+      ],
+      "relationships": [
+        "peer_gap_income",
+        "peer_gap_debt",
+        "peer_gap_purchase",
+        "document_count"
+      ],
+      "cs": [
+        "coverage",
+        "consistency",
+        "recency",
+        "verification"
+      ],
+      "embedding": [
+        "hashed_text_0",
+        "hashed_text_1",
+        "hashed_text_2",
+        "hashed_text_3",
+        "hashed_text_4",
+        "hashed_text_5",
+        "hashed_text_6",
+        "hashed_text_7",
+        "hashed_text_8",
+        "hashed_text_9",
+        "hashed_text_10",
+        "hashed_text_11"
+      ]
+    },
+    "seeds": [
+      13,
+      29,
+      43
+    ],
+    "selected_variant": "ds-1",
+    "policy_authorized": false,
+    "bank_validated": false
+  },
+  "v3_frozen_thresholds": {
+    "M0_CS_V2": 0.2664026678255962,
+    "M1_LOGISTIC": 0.5265371299544362,
+    "M2_XGBOOST": 0.9236921847680296,
+    "M3_DEEP_SETS": 0.6561391478347606,
+    "ABLATE_metadata": 0.655440227464496,
+    "ABLATE_relationships": 0.5125468472021283,
+    "ABLATE_cs": 0.5859893168587473,
+    "ABLATE_embedding": 0.6731876059236938
+  },
+  "e2_prediction_rows": 7744,
+  "failure_counts_recomputed": {
+    "B1": {
+      "M0_CS_V2": {
+        "critical_false_negatives": 14,
+        "critical_support": 117,
+        "legitimate_false_positives": 866,
+        "legitimate_support": 1156
+      },
+      "M1_LOGISTIC": {
+        "critical_false_negatives": 6,
+        "critical_support": 117,
+        "legitimate_false_positives": 1001,
+        "legitimate_support": 1156
+      },
+      "M2_XGBOOST": {
+        "critical_false_negatives": 41,
+        "critical_support": 117,
+        "legitimate_false_positives": 673,
+        "legitimate_support": 1156
+      },
+      "M3_DEEP_SETS": {
+        "critical_false_negatives": 39,
+        "critical_support": 117,
+        "legitimate_false_positives": 425,
+        "legitimate_support": 1156
+      }
+    },
+    "B2": {
+      "M0_CS_V2": {
+        "critical_false_negatives": 31,
+        "critical_support": 172,
+        "legitimate_false_positives": 781,
+        "legitimate_support": 1110
+      },
+      "M1_LOGISTIC": {
+        "critical_false_negatives": 8,
+        "critical_support": 172,
+        "legitimate_false_positives": 956,
+        "legitimate_support": 1110
+      },
+      "M2_XGBOOST": {
+        "critical_false_negatives": 10,
+        "critical_support": 172,
+        "legitimate_false_positives": 771,
+        "legitimate_support": 1110
+      },
+      "M3_DEEP_SETS": {
+        "critical_false_negatives": 11,
+        "critical_support": 172,
+        "legitimate_false_positives": 923,
+        "legitimate_support": 1110
+      }
+    },
+    "B3": {
+      "M0_CS_V2": {
+        "critical_false_negatives": 91,
+        "critical_support": 143,
+        "legitimate_false_positives": 312,
+        "legitimate_support": 1103
+      },
+      "M1_LOGISTIC": {
+        "critical_false_negatives": 2,
+        "critical_support": 143,
+        "legitimate_false_positives": 15,
+        "legitimate_support": 1103
+      },
+      "M2_XGBOOST": {
+        "critical_false_negatives": 49,
+        "critical_support": 143,
+        "legitimate_false_positives": 7,
+        "legitimate_support": 1103
+      },
+      "M3_DEEP_SETS": {
+        "critical_false_negatives": 10,
+        "critical_support": 143,
+        "legitimate_false_positives": 7,
+        "legitimate_support": 1103
+      }
+    },
+    "B4": {
+      "M0_CS_V2": {
+        "critical_false_negatives": 34,
+        "critical_support": 80,
+        "legitimate_false_positives": 610,
+        "legitimate_support": 1170
+      },
+      "M1_LOGISTIC": {
+        "critical_false_negatives": 80,
+        "critical_support": 80,
+        "legitimate_false_positives": 33,
+        "legitimate_support": 1170
+      },
+      "M2_XGBOOST": {
+        "critical_false_negatives": 80,
+        "critical_support": 80,
+        "legitimate_false_positives": 0,
+        "legitimate_support": 1170
+      },
+      "M3_DEEP_SETS": {
+        "critical_false_negatives": 80,
+        "critical_support": 80,
+        "legitimate_false_positives": 0,
+        "legitimate_support": 1170
+      }
+    },
+    "B5": {
+      "M0_CS_V2": {
+        "critical_false_negatives": 1,
+        "critical_support": 68,
+        "legitimate_false_positives": 1198,
+        "legitimate_support": 1199
+      },
+      "M1_LOGISTIC": {
+        "critical_false_negatives": 0,
+        "critical_support": 68,
+        "legitimate_false_positives": 1192,
+        "legitimate_support": 1199
+      },
+      "M2_XGBOOST": {
+        "critical_false_negatives": 3,
+        "critical_support": 68,
+        "legitimate_false_positives": 1145,
+        "legitimate_support": 1199
+      },
+      "M3_DEEP_SETS": {
+        "critical_false_negatives": 0,
+        "critical_support": 68,
+        "legitimate_false_positives": 1174,
+        "legitimate_support": 1199
+      }
+    },
+    "B6": {
+      "M0_CS_V2": {
+        "critical_false_negatives": 106,
+        "critical_support": 167,
+        "legitimate_false_positives": 362,
+        "legitimate_support": 1152
+      },
+      "M1_LOGISTIC": {
+        "critical_false_negatives": 4,
+        "critical_support": 167,
+        "legitimate_false_positives": 87,
+        "legitimate_support": 1152
+      },
+      "M2_XGBOOST": {
+        "critical_false_negatives": 95,
+        "critical_support": 167,
+        "legitimate_false_positives": 1,
+        "legitimate_support": 1152
+      },
+      "M3_DEEP_SETS": {
+        "critical_false_negatives": 4,
+        "critical_support": 167,
+        "legitimate_false_positives": 25,
+        "legitimate_support": 1152
+      }
+    }
+  },
+  "feature_names": [
+    "log_amount_income",
+    "log_amount_debt",
+    "log_amount_purchase",
+    "missing_income",
+    "missing_debt",
+    "missing_purchase",
+    "ocr_quality",
+    "age_days",
+    "reported_verified",
+    "source_statement",
+    "source_payroll",
+    "source_merchant",
+    "peer_gap_income",
+    "peer_gap_debt",
+    "peer_gap_purchase",
+    "document_count",
+    "coverage",
+    "consistency",
+    "recency",
+    "verification",
+    "hashed_text_0",
+    "hashed_text_1",
+    "hashed_text_2",
+    "hashed_text_3",
+    "hashed_text_4",
+    "hashed_text_5",
+    "hashed_text_6",
+    "hashed_text_7",
+    "hashed_text_8",
+    "hashed_text_9",
+    "hashed_text_10",
+    "hashed_text_11"
+  ],
+  "feature_groups": {
+    "base": [
+      "log_amount_income",
+      "log_amount_debt",
+      "log_amount_purchase",
+      "missing_income",
+      "missing_debt",
+      "missing_purchase",
+      "ocr_quality"
+    ],
+    "metadata": [
+      "age_days",
+      "reported_verified",
+      "source_statement",
+      "source_payroll",
+      "source_merchant"
+    ],
+    "relationships": [
+      "peer_gap_income",
+      "peer_gap_debt",
+      "peer_gap_purchase",
+      "document_count"
+    ],
+    "cs": [
+      "coverage",
+      "consistency",
+      "recency",
+      "verification"
+    ],
+    "embedding": [
+      "hashed_text_0",
+      "hashed_text_1",
+      "hashed_text_2",
+      "hashed_text_3",
+      "hashed_text_4",
+      "hashed_text_5",
+      "hashed_text_6",
+      "hashed_text_7",
+      "hashed_text_8",
+      "hashed_text_9",
+      "hashed_text_10",
+      "hashed_text_11"
+    ]
+  },
+  "exploratory": true
+}

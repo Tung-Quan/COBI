@@ -1,0 +1,23 @@
+{
+  "status": "LABELS_OPENED_EVALUATION_COMPLETE",
+  "prediction_sha256": "03d1a2a6aa3d52eae483cca2d538e8cf71777eea17aa32215160bc5be3dc7523",
+  "gold_labels_sha256": "b113587a7c64d7b3657a4500d8a0461cd8f0df85c68a39fb1c4a0aacc8ac3c1a",
+  "evaluation_code_sha256": "7c6c08d06259c48dfb0f47d07a81cfe58f7cbb5d43c5466d36e285f353affb76",
+  "results_sha256": {
+    "ABLACTION_STUDY.json": "6f14e87e8469a98d566160155f21f5d3cd3aee4313c72d8450ffabb0ae1a0aa9",
+    "C_PREDICTION_MANIFEST.json": "506b279597b251243674cb5b61a99d898c94161615c8de92862c1228bf361e70",
+    "C_PREDICTIONS_FROZEN.csv": "03d1a2a6aa3d52eae483cca2d538e8cf71777eea17aa32215160bc5be3dc7523",
+    "C_SEMANTIC_EXPLANATIONS.json": "cc31d8d6e5a849cf72b0a85ffad6418740053c5050f7e3249baef28e27ce981e",
+    "dataset_manifest.json": "7a15e685acafbbf0ff537021cad7d17d269876d129c7674d793146df7c634502",
+    "FAILURE_CASE_GALLERY.csv": "172fb7229aa5577af88c66e38f9937c198ee9db77afb7e339ba0c9b0675b01e1",
+    "FAILURE_TAXONOMY.csv": "054e19ea957bb67c851c5eaa56ee2972eb49fc0aa3e4d4ecaa69b2d6c3d4def4",
+    "GENERATOR_C_RESULTS.json": "8c158bc467ce34a6f7f5dbb392643f3d6accf85a9ca42361aeee262b425925a1",
+    "GROUPED_CONFIDENCE_INTERVALS.csv": "5293b36cc5b9013a8dc92ee8fcd367e2bf4574004be0cff9bd2bb2731ebc090d",
+    "observed.json": "712d667a8918749f8c7bccd702c72b631215fabe5eb19a99853b4bbcac79251f",
+    "SCENARIO_METRICS.csv": "43b2dd217aa0e8a83676aef72d985b88e6744759198fade161b7efed927ff91f",
+    "SOURCE_METRICS.csv": "3586dc2815473936ab22fab9048312db11c099fef2c81ebed62887e306702720",
+    "THRESHOLD_TRANSFER_DIAGNOSTIC_EXPLORATORY.csv": "6e20e163a66df38224bd26da15cf8473b3e914af5f51fbe632e004820c834d95"
+  },
+  "metrics_computed_without_model_tuning": true,
+  "generator_c_labels_used_for_threshold_change": false
+}

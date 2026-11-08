@@ -1,0 +1,41 @@
+{
+  "audit_id": "cobi-v4.1-d1.1-temporal-label-consistency",
+  "dataset_manifest_sha256": "2bf617a463cb0a2e046abe49feaed070acb4135c2b537cd7f652c465b9f6ae1e",
+  "audit_code_sha256": "ec970f8a4236d855101b250b359f750777c34a4d08164aca25cf45d8de9144b9",
+  "audit_csv_sha256": "04de0b72d0c466051e33e6a572805bdba36a0a6f2b53f4ec4b25886fc24ad148",
+  "stale_as_current_records": 200,
+  "critical_labels_missing_on_stale_records": 100,
+  "counts_by_split": {
+    "train": {
+      "stale_as_current": 120,
+      "critical_label_missing": 60,
+      "material_label_missing": 60
+    },
+    "validation": {
+      "stale_as_current": 30,
+      "critical_label_missing": 15,
+      "material_label_missing": 15
+    },
+    "calibration": {
+      "stale_as_current": 30,
+      "critical_label_missing": 15,
+      "material_label_missing": 15
+    },
+    "locked_test": {
+      "stale_as_current": 20,
+      "critical_label_missing": 10,
+      "material_label_missing": 10
+    }
+  },
+  "finding": "D4_HISTORICAL_VALIDITY contains stale-as-current records with critical temporal validity but gold labels omit the critical defect for 100 records.",
+  "affected_splits": [
+    "train",
+    "validation",
+    "calibration",
+    "locked_test"
+  ],
+  "consequence": "Training, validation, calibration, and locked development-test evidence for temporal defects is label-inconsistent. C results remain observed measurements for the frozen release but are exploratory and cannot be interpreted as confirmatory evidence for learned feature effects.",
+  "generator_c_labels_changed_or_reopened": false,
+  "generator_c_metrics_or_thresholds_changed": false,
+  "validation_status": "EVIDENCE_AI_VALIDATION_BLOCKED"
+}

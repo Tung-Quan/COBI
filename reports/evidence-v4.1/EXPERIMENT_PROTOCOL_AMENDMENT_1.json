@@ -1,0 +1,19 @@
+{
+  "amendment_id": "cobi-evidence-v4.1-amendment-1",
+  "status": "REGISTERED_BEFORE_ANY_MODEL_TRAINING_OR_GENERATOR_C",
+  "registered_at": "2026-11-08",
+  "original_protocol_canonical_sha256": "b5fb342f0607ef14cfc6f0683a87585e6998e1cd176f0c48500b26ca8caf8711",
+  "reason": "Valid historical D4 development cases changed the request period, but their neutral side record retained the prior current period; a semantic sanity check found this before any V4.1 model training.",
+  "correction": {
+    "development_generator_from": "semantic-ledger-dev-v1.0",
+    "development_generator_to": "semantic-ledger-dev-v1.1",
+    "new_dataset_directory": "reports/evidence-v4.1/data/development-d1.1",
+    "old_dataset_directory": "reports/evidence-v4.1/data/development-d1",
+    "old_dataset_status": "INVALIDATED_PRE_TRAINING_REQUEST_PERIOD_FIXTURE_ERROR",
+    "old_dataset_used_for_training_or_selection": false
+  },
+  "unchanged": ["Generator C code design", "Generator C seed and sample size", "C scenario taxonomy", "metrics", "bootstrap", "model-selection rules", "calibration and threshold rules", "acceptance criteria", "ablation plan"],
+  "generator_c_created": false,
+  "generator_c_labels_opened": false,
+  "model_training_started": false
+}

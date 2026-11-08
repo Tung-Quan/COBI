@@ -1,0 +1,17 @@
+contrast,metric,difference_point_estimate,lower_95,upper_95,valid_draws,customer_group_stratified_bootstrap,interpretation
+SEMANTIC_HYBRID_MINUS_M0_CS_V2,critical_recall,0.0,0.0,0.0,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_M0_CS_V2,overall_legitimate_fpr,-0.9358953914846116,-0.9404208740927738,-0.9316159503052273,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_M0_CS_V2,case_review_workload,-0.6898809523809524,-0.7041666666666666,-0.6758779761904763,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_M0_CS_V2,material_average_precision,0.4372720538474705,0.42476821802849085,0.4480198458927211,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_M1_LOGISTIC,critical_recall,0.0,0.0,0.0,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_M1_LOGISTIC,overall_legitimate_fpr,-0.9362143198851858,-0.9406425870107128,-0.9318855737471726,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_M1_LOGISTIC,case_review_workload,-0.6904761904761905,-0.7047619047619047,-0.6761904761904762,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_M1_LOGISTIC,material_average_precision,0.48128936048511417,0.47344582337637914,0.48915972059448026,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_M3_DEEP_SETS,critical_recall,0.0,0.0,0.0,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_M3_DEEP_SETS,overall_legitimate_fpr,-0.9362143198851858,-0.9406425870107128,-0.9318855737471726,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_M3_DEEP_SETS,case_review_workload,-0.6904761904761905,-0.7047619047619047,-0.6761904761904762,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_M3_DEEP_SETS,material_average_precision,0.4724229672901665,0.4598695558115394,0.48217233871802884,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_SEMANTIC_RULE,critical_recall,0.0,0.0,0.0,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_SEMANTIC_RULE,overall_legitimate_fpr,-0.040025514272045926,-0.04427474399911004,-0.03566842988565716,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_SEMANTIC_RULE,case_review_workload,-0.061309523809523814,-0.06547619047619052,-0.05654761904761907,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection
+SEMANTIC_HYBRID_MINUS_SEMANTIC_RULE,material_average_precision,0.0,0.0,0.0,500,500,post-unblinding paired descriptive comparison; not confirmatory model selection

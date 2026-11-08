@@ -1,0 +1,10 @@
+{
+  "dataset_id": "semantic-evidence-development-d1.1",
+  "pair_rows": 3600,
+  "source_development_manifest_sha256": "2bf617a463cb0a2e046abe49feaed070acb4135c2b537cd7f652c465b9f6ae1e",
+  "hard_negative_pairs_sha256": "e8a1be64681050d8f35d0b7d82ef50f294f04f4b008efa7bb6690b8e4e91cb0d",
+  "pair_material_error_is_not_inferred_from_value_difference": true,
+  "pair_numeric_conflict_requires_comparable_semantics": true,
+  "stale_as_current_is_separately_labeled": true,
+  "labels_are_development_synthetic_gold": true
+}

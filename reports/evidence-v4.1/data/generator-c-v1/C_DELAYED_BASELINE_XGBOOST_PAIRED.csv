@@ -1,0 +1,9 @@
+metric,hybrid_minus_xgboost,lower_95,upper_95,valid_draws,unit,scenario_stratified
+critical_recall,0.0,0.0,0.0,500,customer_group,True
+aggregate_legitimate_fpr,-0.9362143198851858,-0.9406425870107128,-0.9318855737471726,500,customer_group,True
+legitimate_discrepancy_fpr,-1.0,-1.0,-1.0,500,customer_group,True
+stale_as_current_recall,0.0,0.0,0.0,500,customer_group,True
+review_workload,-0.6904761904761905,-0.7047619047619047,-0.6761904761904762,500,customer_group,True
+material_average_precision,0.4256227718953125,0.407170061094631,0.4404213476289606,500,customer_group,True
+brier,-0.8875346482799072,-0.8934872783371466,-0.8817851403881108,500,customer_group,True
+log_loss,-6.808819925105976,-6.842703575230327,-6.7731486159342245,500,customer_group,True

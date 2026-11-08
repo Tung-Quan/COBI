@@ -1,0 +1,9 @@
+metric,numerator,denominator,value,ci95_low,ci95_high,unit
+Critical recall,520,520,1.0,1.0,1.0,document fraction
+Overall legitimate FPR,400,6271,0.06378568011481422,0.059357412989287144,0.06811442625282735,document fraction
+C1/C3/C5 legitimate FPR,0,2927,0.0,0.0,0.0,document fraction
+C4 stale recall,120,120,1.0,1.0,1.0,document fraction
+Case review workload,520,1680,0.30952380952380953,0.29523809523809524,0.3238095238095238,case fraction
+Material-defect AP,520 positives,6791 documents,0.5652173913043478,0.5619834710743802,0.5688073394495413,unitless
+Brier score,mean squared error,6791,0.033867798953460246,0.03189561400629648,0.035769924070388016,unitless
+Log loss,mean binary cross-entropy,6791,0.09390396634036388,0.08843598123692226,0.09917775256115399,nats per document

@@ -1,0 +1,142 @@
+{
+  "status": "DELAYED_FROZEN_BASELINE_PREDICTIONS_POST_UNBLINDING",
+  "blinded_confirmatory": false,
+  "generator_c_labels_already_opened_before_replay": true,
+  "generator_c_observed_sha256": "712d667a8918749f8c7bccd702c72b631215fabe5eb19a99853b4bbcac79251f",
+  "generator_c_dataset_manifest_sha256": "7a15e685acafbbf0ff537021cad7d17d269876d129c7674d793146df7c634502",
+  "prediction_sha256": "292879b4d25e63e8501e8fc33d95afcbdb26950a790b36e98bb44e4340365778",
+  "prediction_rows": 6791,
+  "case_count": 1680,
+  "document_count": 6791,
+  "model": "M2_XGBOOST",
+  "model_artifact_sha256": {
+    "reports/evidence-v3/synthetic/xgb-d4-s13.json": "2c84a93366568277ead3985a7efcce98e11328f2424c427419ac3cf853ad2bf8",
+    "reports/evidence-v3/synthetic/xgb-d4-s29.json": "2c84a93366568277ead3985a7efcce98e11328f2424c427419ac3cf853ad2bf8",
+    "reports/evidence-v3/synthetic/xgb-d4-s43.json": "2c84a93366568277ead3985a7efcce98e11328f2424c427419ac3cf853ad2bf8"
+  },
+  "selection_lock_sha256": "7635fd4f49cf4a4681210baa81f439443a6af4f3d3ee5080a8c87921e446ad72",
+  "preprocessing_sha256": "777d409a0dca92cc064e7c5d05679780cc7b6d2e5a649d8d872ad4671695f9d2",
+  "feature_contract": [
+    "log_amount_income",
+    "log_amount_debt",
+    "log_amount_purchase",
+    "missing_income",
+    "missing_debt",
+    "missing_purchase",
+    "ocr_quality",
+    "age_days",
+    "reported_verified",
+    "source_statement",
+    "source_payroll",
+    "source_merchant",
+    "peer_gap_income",
+    "peer_gap_debt",
+    "peer_gap_purchase",
+    "document_count",
+    "coverage",
+    "consistency",
+    "recency",
+    "verification",
+    "hashed_text_0",
+    "hashed_text_1",
+    "hashed_text_2",
+    "hashed_text_3",
+    "hashed_text_4",
+    "hashed_text_5",
+    "hashed_text_6",
+    "hashed_text_7",
+    "hashed_text_8",
+    "hashed_text_9",
+    "hashed_text_10",
+    "hashed_text_11"
+  ],
+  "xgboost_version": "3.0.5",
+  "frozen_threshold": 0.9236921847680296,
+  "threshold_source": "reports/evidence-v3/synthetic/selection_lock.json",
+  "calibrator": {
+    "intercept": -0.05747091929375128,
+    "slope": 1.1034258702434248
+  },
+  "prediction_replay_validation": {
+    "status": "PASS",
+    "dataset": "previously inspected Generator B",
+    "xgboost_version": "3.0.5",
+    "metrics_checked": {
+      "cases": {
+        "replay": 1920,
+        "published": 1920,
+        "matches": true
+      },
+      "documents": {
+        "replay": 7744,
+        "published": 7744,
+        "matches": true
+      },
+      "material_errors": {
+        "replay": 854,
+        "published": 854,
+        "matches": true
+      },
+      "critical_errors": {
+        "replay": 747,
+        "published": 747,
+        "matches": true
+      },
+      "critical_false_negatives": {
+        "replay": 278,
+        "published": 278,
+        "matches": true
+      },
+      "critical_recall": {
+        "replay": 0.6278447121820616,
+        "published": 0.6278447121820616,
+        "matches": true
+      },
+      "critical_fnr": {
+        "replay": 0.37215528781793844,
+        "published": 0.37215528781793844,
+        "matches": true
+      },
+      "average_precision": {
+        "replay": 0.20148983275890742,
+        "published": 0.20148983275890742,
+        "matches": true
+      },
+      "brier": {
+        "replay": 0.36905489100133543,
+        "published": 0.36905489100133543,
+        "matches": true
+      },
+      "log_loss": {
+        "replay": 1.7621452553066002,
+        "published": 1.7621452553066002,
+        "matches": true
+      },
+      "document_flag_rate": {
+        "replay": 0.40366735537190085,
+        "published": 0.40366735537190085,
+        "matches": true
+      },
+      "review_workload": {
+        "replay": 0.5463541666666667,
+        "published": 0.5463541666666667,
+        "matches": true
+      },
+      "flagged_cases": {
+        "replay": 1049,
+        "published": 1049,
+        "matches": true
+      },
+      "false_positive_documents": {
+        "replay": 2597,
+        "published": 2597,
+        "matches": true
+      }
+    },
+    "interpretation": "Inference reproduction check only; B is already inspected."
+  },
+  "validation_status": "EVIDENCE_AI_VALIDATION_BLOCKED",
+  "routing_authorized": false,
+  "approval_authorized": false,
+  "checkout_consumes_research_outputs": false
+}

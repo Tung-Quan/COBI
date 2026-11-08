@@ -1,0 +1,56 @@
+{
+  "protocol_id": "cobi-evidence-v4.1-c1.0",
+  "registered_at": "2026-11-08",
+  "registration_stage": "BEFORE_GENERATOR_C_GENERATION_AND_LABEL_EVALUATION",
+  "validation_status": "EVIDENCE_AI_VALIDATION_BLOCKED",
+  "research_question": "Can semantic-aware financial evidence representations improve material-defect detection and reduce false-positive review alerts under independent synthetic distribution shifts?",
+  "hypotheses": {
+    "H1_comparability": "Semantic comparability reduces flags on valid differences across non-comparable records.",
+    "H2_temporal_validity": "Effective/requested-period semantics improve stale-as-current recall.",
+    "H3_source_set_transfer": "Semantic relationships retain performance on a source pair held out from development."
+  },
+  "development": {
+    "generator_id": "semantic-ledger-dev-v1.1",
+    "pre_training_amendment_id": "cobi-evidence-v4.1-amendment-1",
+    "seed": 2026110801,
+    "scenarios": ["D1_PERIOD_VARIATION", "D2_GROSS_NET", "D3_CORRECTION_LINEAGE", "D4_HISTORICAL_VALIDITY", "D5_COMPARABLE_CONFLICT", "D6_ACCOUNT_DIRECTION"],
+    "groups_per_scenario": 100,
+    "cases_per_group": 2,
+    "target_cases": 1200,
+    "target_groups": 600,
+    "split_by_group": {"train": 0.60, "validation": 0.15, "calibration": 0.15, "locked_test": 0.10},
+    "hyperparameter_metric": "material_average_precision",
+    "hyperparameter_tiebreakers": ["critical_recall", "lower_case_review_workload"],
+    "calibration": "Platt scaling on separate calibration partition",
+    "threshold_rule": "Minimize calibration case workload subject to critical recall >= 0.90 and legitimate-document FPR <= 0.20; if infeasible maximize critical recall then minimize workload; report target unmet.",
+    "models": ["CS_V2", "FROZEN_V3_CS_V2", "FROZEN_V3_LOGISTIC", "FROZEN_V3_XGBOOST", "FROZEN_V3_DEEP_SETS", "SEMANTIC_RULE", "SEMANTIC_LOGISTIC", "SEMANTIC_XGBOOST", "SEMANTIC_DEEP_SETS", "SEMANTIC_HYBRID"]
+  },
+  "generator_c": {
+    "implementation": "evidence_ai/v4_1_generator_c.py",
+    "generator_id": "semantic-ledger-c-v1.0",
+    "seed": 2026110802,
+    "scenarios": ["C1_GROSS_NET_PERIODS", "C2_SAME_PERIOD_CORRUPTION", "C3_CORRECTION_LINEAGE", "C4_TIME_VALIDITY", "C5_NONCOMPARABLE_SUBJECT_ACCOUNT", "C6_TRUE_COMPARABLE_CONFLICT", "C7_HELD_OUT_SOURCE_PAIR"],
+    "groups_per_scenario": 120,
+    "cases_per_group": 2,
+    "target_cases": 1680,
+    "target_groups": 840,
+    "documents_per_case": [2, 6],
+    "held_out_source_pair": ["payroll", "merchant"],
+    "independent_from": ["evidence_ai/v4_generator.py", "evidence_ai/v4_1_generator_dev.py"],
+    "canonical_truth_as_feature": false,
+    "event_ids_as_feature": false,
+    "labels_open_only_after_frozen_release": true
+  },
+  "metrics_primary": ["material_average_precision", "critical_recall", "critical_fnr", "legitimate_discrepancy_fpr", "stale_as_current_recall", "case_review_workload"],
+  "metrics_secondary": ["brier", "log_loss", "document_flag_rate", "precision_at_threshold", "scenario_results", "source_results", "semantic_comparability_counts", "compatibility_rate"],
+  "bootstrap": {"draws": 500, "seed": 2026110803, "unit": "customer_group", "stratify_scenario": true},
+  "acceptance_criteria": {
+    "semantic_hybrid_aggregate_critical_recall_min": 0.90,
+    "C4_stale_recall_min": 0.90,
+    "C1_C3_C5_legitimate_fpr_max": 0.20,
+    "C7_critical_recall_min": 0.85,
+    "aggregate_recall_max_degradation_vs_best_frozen_baseline": 0.02
+  },
+  "ablation": ["remove_temporal_features", "remove_comparability_features", "remove_source_provenance_features"],
+  "safety": {"routing_authorized": false, "approval_authorized": false, "checkout_consumes_research_outputs": false}
+}

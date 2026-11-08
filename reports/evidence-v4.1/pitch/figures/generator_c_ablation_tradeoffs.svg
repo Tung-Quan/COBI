@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1120" height="410" viewBox="0 0 1120 410" role="img">
+<title>Generator C semantic logistic feature ablations</title>
+<desc>Frozen-threshold point estimates for the full semantic logistic model and three registered feature ablations.</desc>
+<rect width="1120" height="410" fill="#fffef9"/>
+<text x="35" y="48" font-family="Arial, sans-serif" font-size="26" font-weight="700" fill="#173e35" text-anchor="start">Feature ablations: recall–false-alert trade-offs</text>
+<text x="35" y="78" font-family="Arial, sans-serif" font-size="14" font-weight="400" fill="#536a63" text-anchor="start">C metrics at each arm’s frozen threshold; C was not used to tune any arm.</text>
+<text x="421.0" y="112" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#294d44" text-anchor="middle">Critical</text>
+<text x="421.0" y="129" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#294d44" text-anchor="middle">recall</text>
+<text x="563.0" y="112" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#294d44" text-anchor="middle">C4 stale</text>
+<text x="563.0" y="129" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#294d44" text-anchor="middle">recall</text>
+<text x="705.0" y="112" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#294d44" text-anchor="middle">C1/C3/C5</text>
+<text x="705.0" y="129" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#294d44" text-anchor="middle">legitimate FPR</text>
+<text x="847.0" y="112" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#294d44" text-anchor="middle">Overall</text>
+<text x="847.0" y="129" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#294d44" text-anchor="middle">legitimate FPR</text>
+<text x="989.0" y="112" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#294d44" text-anchor="middle">Case review</text>
+<text x="989.0" y="129" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#294d44" text-anchor="middle">workload</text>
+<text x="35" y="162" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#243f38" text-anchor="start">Full semantic logistic</text>
+<rect x="352" y="138" width="137" height="42" rx="5" fill="#f2d6cf" opacity="0.9"/>
+<text x="421.0" y="164" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">4.8%</text>
+<rect x="494" y="138" width="137" height="42" rx="5" fill="#f2d6cf" opacity="0.9"/>
+<text x="563.0" y="164" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">0.0%</text>
+<rect x="636" y="138" width="137" height="42" rx="5" fill="#d9eee0" opacity="0.9"/>
+<text x="705.0" y="164" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">0.0%</text>
+<rect x="778" y="138" width="137" height="42" rx="5" fill="#d9eee0" opacity="0.9"/>
+<text x="847.0" y="164" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">0.9%</text>
+<rect x="920" y="138" width="137" height="42" rx="5" fill="#d9eee0" opacity="0.9"/>
+<text x="989.0" y="164" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">4.8%</text>
+<text x="35" y="217" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#243f38" text-anchor="start">Without temporal features</text>
+<rect x="352" y="193" width="137" height="42" rx="5" fill="#f2d6cf" opacity="0.9"/>
+<text x="421.0" y="219" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">5.6%</text>
+<rect x="494" y="193" width="137" height="42" rx="5" fill="#f2d6cf" opacity="0.9"/>
+<text x="563.0" y="219" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">0.0%</text>
+<rect x="636" y="193" width="137" height="42" rx="5" fill="#d9eee0" opacity="0.9"/>
+<text x="705.0" y="219" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">0.0%</text>
+<rect x="778" y="193" width="137" height="42" rx="5" fill="#d9eee0" opacity="0.9"/>
+<text x="847.0" y="219" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">1.0%</text>
+<rect x="920" y="193" width="137" height="42" rx="5" fill="#d9eee0" opacity="0.9"/>
+<text x="989.0" y="219" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">5.6%</text>
+<text x="35" y="272" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#243f38" text-anchor="start">Without comparability features</text>
+<rect x="352" y="248" width="137" height="42" rx="5" fill="#f2d6cf" opacity="0.9"/>
+<text x="421.0" y="274" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">34.4%</text>
+<rect x="494" y="248" width="137" height="42" rx="5" fill="#d9eee0" opacity="0.9"/>
+<text x="563.0" y="274" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">100.0%</text>
+<rect x="636" y="248" width="137" height="42" rx="5" fill="#f8edc9" opacity="0.9"/>
+<text x="705.0" y="274" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">16.9%</text>
+<rect x="778" y="248" width="137" height="42" rx="5" fill="#f8edc9" opacity="0.9"/>
+<text x="847.0" y="274" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">21.5%</text>
+<rect x="920" y="248" width="137" height="42" rx="5" fill="#f2d6cf" opacity="0.9"/>
+<text x="989.0" y="274" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">63.0%</text>
+<text x="35" y="327" font-family="Arial, sans-serif" font-size="14" font-weight="500" fill="#243f38" text-anchor="start">Without source/provenance features</text>
+<rect x="352" y="303" width="137" height="42" rx="5" fill="#f2d6cf" opacity="0.9"/>
+<text x="421.0" y="329" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">15.0%</text>
+<rect x="494" y="303" width="137" height="42" rx="5" fill="#f2d6cf" opacity="0.9"/>
+<text x="563.0" y="329" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">0.0%</text>
+<rect x="636" y="303" width="137" height="42" rx="5" fill="#d9eee0" opacity="0.9"/>
+<text x="705.0" y="329" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">8.9%</text>
+<rect x="778" y="303" width="137" height="42" rx="5" fill="#d9eee0" opacity="0.9"/>
+<text x="847.0" y="329" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">9.9%</text>
+<rect x="920" y="303" width="137" height="42" rx="5" fill="#f8edc9" opacity="0.9"/>
+<text x="989.0" y="329" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#173e35" text-anchor="middle">34.6%</text>
+<text x="35" y="386" font-family="Arial, sans-serif" font-size="12" font-weight="400" fill="#725b4b" text-anchor="start">The full semantic logistic model also had 0% C4 stale recall; this ablation does not show that time features improved it.</text>
+</svg>

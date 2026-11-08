@@ -1,0 +1,6 @@
+model,model_family,critical_recall,c4_stale_recall,overall_legitimate_fpr,case_review_workload,threshold,status
+SEMANTIC_HYBRID,hybrid rules + LR,1.0,1.0,0.06378568011481422,0.30952380952380953,0.5000314904266389,frozen post-unblinding descriptive comparison
+SEMANTIC_LOGISTIC,semantic Logistic Regression,0.04807692307692308,0.0,0.008929995216073992,0.048214285714285716,0.9998951642445423,frozen post-unblinding descriptive comparison
+ABLATION_NO_TEMPORAL,semantic Logistic Regression,0.05576923076923077,0.0,0.010365173018657312,0.055952380952380955,0.6904247436957198,frozen post-unblinding descriptive comparison
+ABLATION_NO_COMPARABILITY,semantic Logistic Regression,0.34423076923076923,1.0,0.21511720618721097,0.6297619047619047,0.044230947146553165,frozen post-unblinding descriptive comparison
+ABLATION_NO_SOURCE_PROVENANCE,semantic Logistic Regression,0.15,0.0,0.09870833997767502,0.3458333333333333,0.5449485244771075,frozen post-unblinding descriptive comparison

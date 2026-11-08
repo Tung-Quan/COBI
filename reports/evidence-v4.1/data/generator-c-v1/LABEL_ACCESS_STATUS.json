@@ -1,0 +1,7 @@
+{
+  "labels_opened_for_evaluation": true,
+  "predictions_frozen": true,
+  "prediction_sha256": "03d1a2a6aa3d52eae483cca2d538e8cf71777eea17aa32215160bc5be3dc7523",
+  "evaluation_manifest_sha256": "8d58f1768cc044a4dd5e3ac048b3149953cf809eaa17f5b252bfcf166969da23",
+  "status": "EVALUATION_COMPLETE_LABELS_NOT_TO_BE_REOPENED"
+}

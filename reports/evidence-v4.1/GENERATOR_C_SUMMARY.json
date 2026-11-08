@@ -1,0 +1,884 @@
+{
+  "release_id": "cobi-evidence-v4.1-generator-c-reporting-1.0",
+  "status": "PARTIAL_INDEPENDENT_SYNTHETIC_EVALUATION",
+  "validation_status": "EVIDENCE_AI_VALIDATION_BLOCKED",
+  "protocol_id": "cobi-evidence-v4.1-c1.0",
+  "generator_id": "semantic-ledger-c-v1.0",
+  "dataset": {
+    "customer_groups": 840,
+    "cases": 1680,
+    "documents": 6791,
+    "critical_documents": 520,
+    "positive_material_documents": 520,
+    "seed": 2026110802
+  },
+  "semantic_hybrid": {
+    "critical_recall": 1.0,
+    "critical_tp": 520,
+    "critical_support": 520,
+    "critical_false_negatives": 0,
+    "c4_stale_as_current_recall": 1.0,
+    "c4_stale_tp": 120,
+    "c4_stale_support": 120,
+    "legitimate_discrepancy_fpr_c1_c3_c5": 0.0,
+    "legitimate_discrepancy_fp": 0,
+    "legitimate_discrepancy_support": 2927,
+    "overall_legitimate_fpr": 0.06378568011481422,
+    "legitimate_fp": 400,
+    "legitimate_support": 6271,
+    "case_review_workload": 0.30952380952380953,
+    "flagged_case_count": 520,
+    "case_count": 1680,
+    "material_average_precision": 0.5652173913043478,
+    "brier_score": 0.033867798953460246,
+    "log_loss": 0.09390396634036388,
+    "frozen_threshold": 0.5000314904266389,
+    "ci95": {
+      "critical_recall": {
+        "lower_95": 1.0,
+        "upper_95": 1.0,
+        "valid_draws": 500
+      },
+      "overall_legitimate_fpr": {
+        "lower_95": 0.059357412989287144,
+        "upper_95": 0.06811442625282735,
+        "valid_draws": 500
+      },
+      "legitimate_discrepancy_fpr_c1_c3_c5": {
+        "lower_95": 0.0,
+        "upper_95": 0.0,
+        "valid_draws": 500
+      },
+      "c4_stale_as_current_recall": {
+        "lower_95": 1.0,
+        "upper_95": 1.0,
+        "valid_draws": 500
+      },
+      "case_review_workload": {
+        "lower_95": 0.29523809523809524,
+        "upper_95": 0.3238095238095238,
+        "valid_draws": 500
+      },
+      "material_average_precision": {
+        "lower_95": 0.5619834710743802,
+        "upper_95": 0.5688073394495413,
+        "valid_draws": 500
+      },
+      "brier_score": {
+        "lower_95": 0.03189561400629648,
+        "upper_95": 0.035769924070388016,
+        "valid_draws": 500
+      },
+      "log_loss": {
+        "lower_95": 0.08843598123692226,
+        "upper_95": 0.09917775256115399,
+        "valid_draws": 500
+      }
+    }
+  },
+  "model_comparison": [
+    {
+      "model": "SEMANTIC_HYBRID",
+      "label": "Semantic hybrid",
+      "critical_recall": 1.0,
+      "critical_tp": 520,
+      "critical_support": 520,
+      "overall_legitimate_fpr": 0.06378568011481422,
+      "legitimate_fp": 400,
+      "legitimate_support": 6271,
+      "case_review_workload": 0.30952380952380953,
+      "flagged_case_count": 520,
+      "case_count": 1680,
+      "material_average_precision": 0.5652173913043478,
+      "ci95": {
+        "critical_recall": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "overall_legitimate_fpr": {
+          "lower_95": 0.059357412989287144,
+          "upper_95": 0.06811442625282735,
+          "valid_draws": 500
+        },
+        "legitimate_discrepancy_fpr_c1_c3_c5": {
+          "lower_95": 0.0,
+          "upper_95": 0.0,
+          "valid_draws": 500
+        },
+        "c4_stale_as_current_recall": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "case_review_workload": {
+          "lower_95": 0.29523809523809524,
+          "upper_95": 0.3238095238095238,
+          "valid_draws": 500
+        },
+        "material_average_precision": {
+          "lower_95": 0.5619834710743802,
+          "upper_95": 0.5688073394495413,
+          "valid_draws": 500
+        },
+        "brier_score": {
+          "lower_95": 0.03189561400629648,
+          "upper_95": 0.035769924070388016,
+          "valid_draws": 500
+        },
+        "log_loss": {
+          "lower_95": 0.08843598123692226,
+          "upper_95": 0.09917775256115399,
+          "valid_draws": 500
+        }
+      }
+    },
+    {
+      "model": "SEMANTIC_RULE",
+      "label": "Semantic rules",
+      "critical_recall": 1.0,
+      "critical_tp": 520,
+      "critical_support": 520,
+      "overall_legitimate_fpr": 0.10381119438686015,
+      "legitimate_fp": 651,
+      "legitimate_support": 6271,
+      "case_review_workload": 0.37083333333333335,
+      "flagged_case_count": 623,
+      "case_count": 1680,
+      "material_average_precision": 0.5652173913043478,
+      "ci95": {
+        "critical_recall": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "overall_legitimate_fpr": {
+          "lower_95": 0.09793548512470193,
+          "upper_95": 0.11043516939029688,
+          "valid_draws": 500
+        },
+        "legitimate_discrepancy_fpr_c1_c3_c5": {
+          "lower_95": 0.0,
+          "upper_95": 0.0,
+          "valid_draws": 500
+        },
+        "c4_stale_as_current_recall": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "case_review_workload": {
+          "lower_95": 0.35654761904761906,
+          "upper_95": 0.3863095238095238,
+          "valid_draws": 500
+        },
+        "material_average_precision": {
+          "lower_95": 0.5619834710743802,
+          "upper_95": 0.5688073394495413,
+          "valid_draws": 500
+        },
+        "brier_score": {
+          "lower_95": null,
+          "upper_95": null,
+          "valid_draws": 0
+        },
+        "log_loss": {
+          "lower_95": null,
+          "upper_95": null,
+          "valid_draws": 0
+        }
+      }
+    },
+    {
+      "model": "M0_CS_V2",
+      "label": "Frozen CS V2",
+      "critical_recall": 1.0,
+      "critical_tp": 520,
+      "critical_support": 520,
+      "overall_legitimate_fpr": 0.9996810715994259,
+      "legitimate_fp": 6269,
+      "legitimate_support": 6271,
+      "case_review_workload": 0.9994047619047619,
+      "flagged_case_count": 1679,
+      "case_count": 1680,
+      "material_average_precision": 0.12794533745687733,
+      "ci95": {
+        "critical_recall": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "overall_legitimate_fpr": {
+          "lower_95": 0.9990352726814165,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "legitimate_discrepancy_fpr_c1_c3_c5": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "c4_stale_as_current_recall": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "case_review_workload": {
+          "lower_95": 0.9982142857142857,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "material_average_precision": {
+          "lower_95": 0.11842332668510555,
+          "upper_95": 0.14014285849623104,
+          "valid_draws": 500
+        },
+        "brier_score": {
+          "lower_95": 0.1998799506247084,
+          "upper_95": 0.20299770891656668,
+          "valid_draws": 500
+        },
+        "log_loss": {
+          "lower_95": 0.5914423676405762,
+          "upper_95": 0.5978535563988153,
+          "valid_draws": 500
+        }
+      }
+    },
+    {
+      "model": "M1_LOGISTIC",
+      "label": "Frozen Logistic Regression",
+      "critical_recall": 1.0,
+      "critical_tp": 520,
+      "critical_support": 520,
+      "overall_legitimate_fpr": 1.0,
+      "legitimate_fp": 6271,
+      "legitimate_support": 6271,
+      "case_review_workload": 1.0,
+      "flagged_case_count": 1680,
+      "case_count": 1680,
+      "material_average_precision": 0.08392803081923361,
+      "ci95": {
+        "critical_recall": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "overall_legitimate_fpr": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "legitimate_discrepancy_fpr_c1_c3_c5": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "c4_stale_as_current_recall": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "case_review_workload": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "material_average_precision": {
+          "lower_95": 0.07956251959820881,
+          "upper_95": 0.08870947343563344,
+          "valid_draws": 500
+        },
+        "brier_score": {
+          "lower_95": 0.9195306247579805,
+          "upper_95": 0.927437690345057,
+          "valid_draws": 500
+        },
+        "log_loss": {
+          "lower_95": 12.437951845566543,
+          "upper_95": 12.544314103816426,
+          "valid_draws": 500
+        }
+      }
+    },
+    {
+      "model": "M3_DEEP_SETS",
+      "label": "Frozen Deep Sets",
+      "critical_recall": 1.0,
+      "critical_tp": 520,
+      "critical_support": 520,
+      "overall_legitimate_fpr": 1.0,
+      "legitimate_fp": 6271,
+      "legitimate_support": 6271,
+      "case_review_workload": 1.0,
+      "flagged_case_count": 1680,
+      "case_count": 1680,
+      "material_average_precision": 0.0927944240141813,
+      "ci95": {
+        "critical_recall": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "overall_legitimate_fpr": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "legitimate_discrepancy_fpr_c1_c3_c5": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "c4_stale_as_current_recall": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "case_review_workload": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "material_average_precision": {
+          "lower_95": 0.08430651939093274,
+          "upper_95": 0.10466780164989326,
+          "valid_draws": 500
+        },
+        "brier_score": {
+          "lower_95": 0.9163912001863889,
+          "upper_95": 0.9242227077953666,
+          "valid_draws": 500
+        },
+        "log_loss": {
+          "lower_95": 6.743463873441118,
+          "upper_95": 6.8334604842600255,
+          "valid_draws": 500
+        }
+      }
+    }
+  ],
+  "ablation_comparison": [
+    {
+      "model": "SEMANTIC_LOGISTIC",
+      "label": "Full semantic Logistic Regression",
+      "critical_recall": 0.04807692307692308,
+      "c4_stale_as_current_recall": 0.0,
+      "legitimate_discrepancy_fpr_c1_c3_c5": 0.0,
+      "overall_legitimate_fpr": 0.008929995216073992,
+      "case_review_workload": 0.048214285714285716,
+      "material_average_precision": 0.37309496607814135,
+      "ci95": {
+        "critical_recall": {
+          "lower_95": 0.03199821211293487,
+          "upper_95": 0.06448620211693548,
+          "valid_draws": 500
+        },
+        "overall_legitimate_fpr": {
+          "lower_95": 0.0065329096275745105,
+          "upper_95": 0.011433904965716757,
+          "valid_draws": 500
+        },
+        "legitimate_discrepancy_fpr_c1_c3_c5": {
+          "lower_95": 0.0,
+          "upper_95": 0.0,
+          "valid_draws": 500
+        },
+        "c4_stale_as_current_recall": {
+          "lower_95": 0.0,
+          "upper_95": 0.0,
+          "valid_draws": 500
+        },
+        "case_review_workload": {
+          "lower_95": 0.0377827380952381,
+          "upper_95": 0.05892857142857143,
+          "valid_draws": 500
+        },
+        "material_average_precision": {
+          "lower_95": 0.3542966673421362,
+          "upper_95": 0.39567619707966034,
+          "valid_draws": 500
+        },
+        "brier_score": {
+          "lower_95": 0.07366075902292879,
+          "upper_95": 0.08640503986452439,
+          "valid_draws": 500
+        },
+        "log_loss": {
+          "lower_95": 0.8240404651125104,
+          "upper_95": 0.9401249845679248,
+          "valid_draws": 500
+        }
+      }
+    },
+    {
+      "model": "ABLATION_NO_TEMPORAL",
+      "label": "Without temporal features",
+      "critical_recall": 0.05576923076923077,
+      "c4_stale_as_current_recall": 0.0,
+      "legitimate_discrepancy_fpr_c1_c3_c5": 0.0,
+      "overall_legitimate_fpr": 0.010365173018657312,
+      "case_review_workload": 0.055952380952380955,
+      "material_average_precision": 0.15584703005181894,
+      "ci95": {
+        "critical_recall": {
+          "lower_95": 0.03751408054069276,
+          "upper_95": 0.0717637860940269,
+          "valid_draws": 500
+        },
+        "overall_legitimate_fpr": {
+          "lower_95": 0.007844016909192933,
+          "upper_95": 0.012975938604557601,
+          "valid_draws": 500
+        },
+        "legitimate_discrepancy_fpr_c1_c3_c5": {
+          "lower_95": 0.0,
+          "upper_95": 0.0,
+          "valid_draws": 500
+        },
+        "c4_stale_as_current_recall": {
+          "lower_95": 0.0,
+          "upper_95": 0.0,
+          "valid_draws": 500
+        },
+        "case_review_workload": {
+          "lower_95": 0.04492559523809524,
+          "upper_95": 0.06607142857142857,
+          "valid_draws": 500
+        },
+        "material_average_precision": {
+          "lower_95": 0.136432484695273,
+          "upper_95": 0.18089030555184743,
+          "valid_draws": 500
+        },
+        "brier_score": {
+          "lower_95": 0.07570888017612722,
+          "upper_95": 0.08722349333568492,
+          "valid_draws": 500
+        },
+        "log_loss": {
+          "lower_95": 1.1452989903408595,
+          "upper_95": 1.307142522968559,
+          "valid_draws": 500
+        }
+      }
+    },
+    {
+      "model": "ABLATION_NO_COMPARABILITY",
+      "label": "Without comparability features",
+      "critical_recall": 0.34423076923076923,
+      "c4_stale_as_current_recall": 1.0,
+      "legitimate_discrepancy_fpr_c1_c3_c5": 0.16877348821318755,
+      "overall_legitimate_fpr": 0.21511720618721097,
+      "case_review_workload": 0.6297619047619047,
+      "material_average_precision": 0.33369712082935554,
+      "ci95": {
+        "critical_recall": {
+          "lower_95": 0.3167546799898811,
+          "upper_95": 0.3729840286831812,
+          "valid_draws": 500
+        },
+        "overall_legitimate_fpr": {
+          "lower_95": 0.2064828069618579,
+          "upper_95": 0.223978732292498,
+          "valid_draws": 500
+        },
+        "legitimate_discrepancy_fpr_c1_c3_c5": {
+          "lower_95": 0.15698056386503265,
+          "upper_95": 0.17988634344373217,
+          "valid_draws": 500
+        },
+        "c4_stale_as_current_recall": {
+          "lower_95": 1.0,
+          "upper_95": 1.0,
+          "valid_draws": 500
+        },
+        "case_review_workload": {
+          "lower_95": 0.6080208333333332,
+          "upper_95": 0.6515029761904761,
+          "valid_draws": 500
+        },
+        "material_average_precision": {
+          "lower_95": 0.3209870050299395,
+          "upper_95": 0.3494666374167518,
+          "valid_draws": 500
+        },
+        "brier_score": {
+          "lower_95": 0.058046324947821186,
+          "upper_95": 0.06520232101688751,
+          "valid_draws": 500
+        },
+        "log_loss": {
+          "lower_95": 0.49953967174626046,
+          "upper_95": 0.5829345627249357,
+          "valid_draws": 500
+        }
+      }
+    },
+    {
+      "model": "ABLATION_NO_SOURCE_PROVENANCE",
+      "label": "Without source/provenance features",
+      "critical_recall": 0.15,
+      "c4_stale_as_current_recall": 0.0,
+      "legitimate_discrepancy_fpr_c1_c3_c5": 0.08882815169115135,
+      "overall_legitimate_fpr": 0.09870833997767502,
+      "case_review_workload": 0.3458333333333333,
+      "material_average_precision": 0.0876151003371986,
+      "ci95": {
+        "critical_recall": {
+          "lower_95": 0.12254013265404211,
+          "upper_95": 0.1758245558663251,
+          "valid_draws": 500
+        },
+        "overall_legitimate_fpr": {
+          "lower_95": 0.09170013427365212,
+          "upper_95": 0.1062710843373494,
+          "valid_draws": 500
+        },
+        "legitimate_discrepancy_fpr_c1_c3_c5": {
+          "lower_95": 0.07890191684090596,
+          "upper_95": 0.09868838074134952,
+          "valid_draws": 500
+        },
+        "c4_stale_as_current_recall": {
+          "lower_95": 0.0,
+          "upper_95": 0.0,
+          "valid_draws": 500
+        },
+        "case_review_workload": {
+          "lower_95": 0.32321428571428573,
+          "upper_95": 0.37055059523809525,
+          "valid_draws": 500
+        },
+        "material_average_precision": {
+          "lower_95": 0.08075374124853021,
+          "upper_95": 0.09636731784170377,
+          "valid_draws": 500
+        },
+        "brier_score": {
+          "lower_95": 0.14750325891056273,
+          "upper_95": 0.16230514061574247,
+          "valid_draws": 500
+        },
+        "log_loss": {
+          "lower_95": 2.170165720251842,
+          "upper_95": 2.392245711825741,
+          "valid_draws": 500
+        }
+      }
+    }
+  ],
+  "scenario_metrics": [
+    {
+      "scenario": "C1_GROSS_NET_PERIODS",
+      "documents": 974,
+      "critical_support": 0,
+      "critical_recall": null,
+      "legitimate_fp": 0,
+      "legitimate_support": 974,
+      "overall_legitimate_fpr": 0.0,
+      "case_review_workload": 0.0
+    },
+    {
+      "scenario": "C2_SAME_PERIOD_CORRUPTION",
+      "documents": 982,
+      "critical_support": 160,
+      "critical_recall": 1.0,
+      "legitimate_fp": 160,
+      "legitimate_support": 822,
+      "overall_legitimate_fpr": 0.19464720194647203,
+      "case_review_workload": 0.6666666666666666
+    },
+    {
+      "scenario": "C3_CORRECTION_LINEAGE",
+      "documents": 964,
+      "critical_support": 0,
+      "critical_recall": null,
+      "legitimate_fp": 0,
+      "legitimate_support": 964,
+      "overall_legitimate_fpr": 0.0,
+      "case_review_workload": 0.0
+    },
+    {
+      "scenario": "C4_TIME_VALIDITY",
+      "documents": 949,
+      "critical_support": 120,
+      "critical_recall": 1.0,
+      "legitimate_fp": 0,
+      "legitimate_support": 829,
+      "overall_legitimate_fpr": 0.0,
+      "case_review_workload": 0.5
+    },
+    {
+      "scenario": "C5_NONCOMPARABLE_SUBJECT_ACCOUNT",
+      "documents": 989,
+      "critical_support": 0,
+      "critical_recall": null,
+      "legitimate_fp": 0,
+      "legitimate_support": 989,
+      "overall_legitimate_fpr": 0.0,
+      "case_review_workload": 0.0
+    },
+    {
+      "scenario": "C6_TRUE_COMPARABLE_CONFLICT",
+      "documents": 981,
+      "critical_support": 120,
+      "critical_recall": 1.0,
+      "legitimate_fp": 120,
+      "legitimate_support": 861,
+      "overall_legitimate_fpr": 0.13937282229965156,
+      "case_review_workload": 0.5
+    },
+    {
+      "scenario": "C7_HELD_OUT_SOURCE_PAIR",
+      "documents": 952,
+      "critical_support": 120,
+      "critical_recall": 1.0,
+      "legitimate_fp": 120,
+      "legitimate_support": 832,
+      "overall_legitimate_fpr": 0.14423076923076922,
+      "case_review_workload": 0.5
+    }
+  ],
+  "false_positive_breakdown": [
+    {
+      "scenario": "C2_SAME_PERIOD_CORRUPTION",
+      "false_positives": 160,
+      "legitimate_support": 822
+    },
+    {
+      "scenario": "C6_TRUE_COMPARABLE_CONFLICT",
+      "false_positives": 120,
+      "legitimate_support": 861
+    },
+    {
+      "scenario": "C7_HELD_OUT_SOURCE_PAIR",
+      "false_positives": 120,
+      "legitimate_support": 832
+    }
+  ],
+  "acceptance": {
+    "semantic_hybrid_aggregate_critical_recall_min_0_90": true,
+    "C4_stale_recall_min_0_90": true,
+    "C1_C3_C5_legitimate_fpr_max_0_20": true,
+    "C7_critical_recall_min_0_85": true,
+    "aggregate_recall_degradation_vs_best_complete_frozen_baseline_max_0_02": "UNASSESSABLE_XGBOOST_REPLAY_BLOCKED",
+    "best_available_baseline_critical_recall_partial": 1.0,
+    "full_registered_acceptance_status": "INCOMPLETE_XGBOOST_DEPENDENCY_BLOCKER"
+  },
+  "model_availability": {
+    "SEMANTIC_LOGISTIC": "AVAILABLE",
+    "SEMANTIC_DEEP_SETS": "AVAILABLE",
+    "ABLATION_NO_TEMPORAL": "AVAILABLE",
+    "ABLATION_NO_COMPARABILITY": "AVAILABLE",
+    "ABLATION_NO_SOURCE_PROVENANCE": "AVAILABLE",
+    "SEMANTIC_RULE": "AVAILABLE",
+    "SEMANTIC_XGBOOST": "BLOCKED_DEPENDENCY",
+    "SEMANTIC_HYBRID": "AVAILABLE",
+    "M0_CS_V2": "AVAILABLE",
+    "M1_LOGISTIC": "AVAILABLE",
+    "M3_DEEP_SETS": "AVAILABLE",
+    "M2_XGBOOST": "BLOCKED_DEPENDENCY"
+  },
+  "boundary_uncertainty": {
+    "definition": "Exact Clopper-Pearson intervals on group-level success/failure events; the event is that all critical records in a positive group are detected, or that a legitimate group contains any false positive.",
+    "by_scenario": {
+      "C1_GROSS_NET_PERIODS": {
+        "critical_positive_groups": 0,
+        "groups_with_all_critical_docs_detected": 0,
+        "group_level_all_critical_detected_rate": null,
+        "group_success_cp_95": {
+          "lower_95": null,
+          "upper_95": null
+        },
+        "groups_with_legitimate_docs": 120,
+        "groups_with_any_legitimate_fp": 0,
+        "group_any_fp_cp_95_two_sided": {
+          "lower_95": 0.0,
+          "upper_95": 0.03027297257742007
+        },
+        "group_any_fp_upper_one_sided_95": 0.024655401055656334
+      },
+      "C2_SAME_PERIOD_CORRUPTION": {
+        "critical_positive_groups": 120,
+        "groups_with_all_critical_docs_detected": 120,
+        "group_level_all_critical_detected_rate": 1.0,
+        "group_success_cp_95": {
+          "lower_95": 0.9697270274225799,
+          "upper_95": 1.0
+        },
+        "groups_with_legitimate_docs": 120,
+        "groups_with_any_legitimate_fp": 120,
+        "group_any_fp_cp_95_two_sided": {
+          "lower_95": 0.9697270274225799,
+          "upper_95": 1.0
+        },
+        "group_any_fp_upper_one_sided_95": null
+      },
+      "C3_CORRECTION_LINEAGE": {
+        "critical_positive_groups": 0,
+        "groups_with_all_critical_docs_detected": 0,
+        "group_level_all_critical_detected_rate": null,
+        "group_success_cp_95": {
+          "lower_95": null,
+          "upper_95": null
+        },
+        "groups_with_legitimate_docs": 120,
+        "groups_with_any_legitimate_fp": 0,
+        "group_any_fp_cp_95_two_sided": {
+          "lower_95": 0.0,
+          "upper_95": 0.03027297257742007
+        },
+        "group_any_fp_upper_one_sided_95": 0.024655401055656334
+      },
+      "C4_TIME_VALIDITY": {
+        "critical_positive_groups": 120,
+        "groups_with_all_critical_docs_detected": 120,
+        "group_level_all_critical_detected_rate": 1.0,
+        "group_success_cp_95": {
+          "lower_95": 0.9697270274225799,
+          "upper_95": 1.0
+        },
+        "groups_with_legitimate_docs": 120,
+        "groups_with_any_legitimate_fp": 0,
+        "group_any_fp_cp_95_two_sided": {
+          "lower_95": 0.0,
+          "upper_95": 0.03027297257742007
+        },
+        "group_any_fp_upper_one_sided_95": 0.024655401055656334
+      },
+      "C5_NONCOMPARABLE_SUBJECT_ACCOUNT": {
+        "critical_positive_groups": 0,
+        "groups_with_all_critical_docs_detected": 0,
+        "group_level_all_critical_detected_rate": null,
+        "group_success_cp_95": {
+          "lower_95": null,
+          "upper_95": null
+        },
+        "groups_with_legitimate_docs": 120,
+        "groups_with_any_legitimate_fp": 0,
+        "group_any_fp_cp_95_two_sided": {
+          "lower_95": 0.0,
+          "upper_95": 0.03027297257742007
+        },
+        "group_any_fp_upper_one_sided_95": 0.024655401055656334
+      },
+      "C6_TRUE_COMPARABLE_CONFLICT": {
+        "critical_positive_groups": 120,
+        "groups_with_all_critical_docs_detected": 120,
+        "group_level_all_critical_detected_rate": 1.0,
+        "group_success_cp_95": {
+          "lower_95": 0.9697270274225799,
+          "upper_95": 1.0
+        },
+        "groups_with_legitimate_docs": 120,
+        "groups_with_any_legitimate_fp": 120,
+        "group_any_fp_cp_95_two_sided": {
+          "lower_95": 0.9697270274225799,
+          "upper_95": 1.0
+        },
+        "group_any_fp_upper_one_sided_95": null
+      },
+      "C7_HELD_OUT_SOURCE_PAIR": {
+        "critical_positive_groups": 60,
+        "groups_with_all_critical_docs_detected": 60,
+        "group_level_all_critical_detected_rate": 1.0,
+        "group_success_cp_95": {
+          "lower_95": 0.9403705077138331,
+          "upper_95": 1.0
+        },
+        "groups_with_legitimate_docs": 120,
+        "groups_with_any_legitimate_fp": 60,
+        "group_any_fp_cp_95_two_sided": {
+          "lower_95": 0.40736926744019714,
+          "upper_95": 0.5926307325598028
+        },
+        "group_any_fp_upper_one_sided_95": null
+      }
+    },
+    "c1_c3_c5_group_any_fp_events": 0,
+    "c1_c3_c5_groups_with_legitimate_records": 360,
+    "c1_c3_c5_one_sided_95_upper_bound_group_any_fp": 0.008286950875235677,
+    "c1_c3_c5_hoeffding_one_sided_95_ucb_equal_group_weighted_fpr": 0.0645037926700825,
+    "warning": "These group-level bounds estimate cluster events or equal-group-weighted FPR under independent customer-group sampling. They are not document-weighted FPR confidence limits and do not cover generator or label-rule misspecification."
+  },
+  "data_quality_audit": {
+    "audit_id": "cobi-v4.1-d1.1-temporal-label-consistency",
+    "stale_as_current_records": 200,
+    "critical_labels_missing": 100,
+    "counts_by_split": {
+      "train": {
+        "stale_as_current": 120,
+        "critical_label_missing": 60,
+        "material_label_missing": 60
+      },
+      "validation": {
+        "stale_as_current": 30,
+        "critical_label_missing": 15,
+        "material_label_missing": 15
+      },
+      "calibration": {
+        "stale_as_current": 30,
+        "critical_label_missing": 15,
+        "material_label_missing": 15
+      },
+      "locked_test": {
+        "stale_as_current": 20,
+        "critical_label_missing": 10,
+        "material_label_missing": 10
+      }
+    },
+    "consequence": "Training, validation, calibration, and locked development-test evidence for temporal defects is label-inconsistent. C results remain observed measurements for the frozen release but are exploratory and cannot be interpreted as confirmatory evidence for learned feature effects.",
+    "generator_c_labels_changed_or_reopened": false,
+    "generator_c_metrics_or_thresholds_changed": false
+  },
+  "label_rule_overlap": {
+    "classification": "TARGET_CONSTRUCT_OVERLAP_NOT_DIRECT_LABEL_LEAKAGE",
+    "shared_field_thresholds_vnd": {
+      "income": 500000,
+      "debt": 250000,
+      "purchase": 500000
+    },
+    "comparator_critical_delta_multiple": 2.0,
+    "generator_conflict_delta_multiples": {
+      "C2": [
+        2.4,
+        4.2
+      ],
+      "C6": [
+        2.1,
+        3.8
+      ],
+      "C7": [
+        2.2,
+        3.4
+      ]
+    },
+    "shared_stale_critical_age_days": 180,
+    "generator_c4_stale_record_age_days": 432,
+    "direct_hidden_gold_or_corruption_ids_used_as_predictor_inputs": false,
+    "interpretation": "The 100% critical recall is not a fully independent validation of the monetary and stale-evidence criteria because the gold constructs align with deterministic rule criteria. It demonstrates performance on these generated constructs, not generalization to independently adjudicated criteria."
+  },
+  "reconciliation": {
+    "prediction_freeze_verified": true,
+    "all_previous_aggregate_metrics_match": true,
+    "models_or_thresholds_changed": false,
+    "bootstrap_draws": 500,
+    "bootstrap_unit": "customer_group",
+    "bootstrap_seed": 2026110803
+  },
+  "decision": {
+    "routing_authorized": false,
+    "approval_authorized": false,
+    "checkout_consumes_research_outputs": false
+  },
+  "limitations": [
+    "All data and labels are programmatically generated; no real bank-document validation was conducted.",
+    "Structured metadata is supplied; OCR and evidence extraction accuracy were not measured.",
+    "The D1.1 development audit found 100 stale records missing critical labels across training, validation, calibration, and locked development test; learned feature-effect claims are exploratory.",
+    "XGBoost replay was blocked by the unavailable xgboost==3.0.5 dependency; the complete registered baseline acceptance comparison is unassessable.",
+    "The hybrid includes deterministic semantic rules; its C recall cannot be attributed to learned features alone.",
+    "Generator C's C2/C6/C7 monetary defect and C4 stale-age gold constructs overlap with deterministic rule criteria; this is construct overlap, not direct hidden-label leakage.",
+    "Bootstrap intervals condition on the synthetic generator, label rules, frozen models, and thresholds."
+  ]
+}

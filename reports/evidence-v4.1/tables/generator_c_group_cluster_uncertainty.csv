@@ -1,0 +1,8 @@
+scenario,critical_positive_groups,groups_with_all_critical_docs_detected,group_level_all_critical_detected_rate,group_success_cp_95,groups_with_legitimate_docs,groups_with_any_legitimate_fp,group_any_fp_cp_95_two_sided,group_any_fp_upper_one_sided_95
+C1_GROSS_NET_PERIODS,0,0,,"{""lower_95"": null, ""upper_95"": null}",120,0,"{""lower_95"": 0.0, ""upper_95"": 0.03027297257742007}",0.024655401055656334
+C2_SAME_PERIOD_CORRUPTION,120,120,1.0,"{""lower_95"": 0.9697270274225799, ""upper_95"": 1.0}",120,120,"{""lower_95"": 0.9697270274225799, ""upper_95"": 1.0}",
+C3_CORRECTION_LINEAGE,0,0,,"{""lower_95"": null, ""upper_95"": null}",120,0,"{""lower_95"": 0.0, ""upper_95"": 0.03027297257742007}",0.024655401055656334
+C4_TIME_VALIDITY,120,120,1.0,"{""lower_95"": 0.9697270274225799, ""upper_95"": 1.0}",120,0,"{""lower_95"": 0.0, ""upper_95"": 0.03027297257742007}",0.024655401055656334
+C5_NONCOMPARABLE_SUBJECT_ACCOUNT,0,0,,"{""lower_95"": null, ""upper_95"": null}",120,0,"{""lower_95"": 0.0, ""upper_95"": 0.03027297257742007}",0.024655401055656334
+C6_TRUE_COMPARABLE_CONFLICT,120,120,1.0,"{""lower_95"": 0.9697270274225799, ""upper_95"": 1.0}",120,120,"{""lower_95"": 0.9697270274225799, ""upper_95"": 1.0}",
+C7_HELD_OUT_SOURCE_PAIR,60,60,1.0,"{""lower_95"": 0.9403705077138331, ""upper_95"": 1.0}",120,60,"{""lower_95"": 0.40736926744019714, ""upper_95"": 0.5926307325598028}",

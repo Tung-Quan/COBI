@@ -1,0 +1,4 @@
+source_type,documents,material_errors,critical_errors,critical_false_negatives,critical_recall,critical_fnr,material_average_precision,critical_average_precision,legitimate_discrepancy_fpr,legitimate_discrepancy_support,aggregate_legitimate_fpr,aggregate_legitimate_support,stale_as_current_recall,stale_as_current_support,review_workload,flagged_cases,case_count,brier,log_loss,score_kind,frozen_threshold
+merchant,2127,180,180,0,1.0,0.0,0.1486517645630068,0.1486517645630068,1.0,968,1.0,1947,,0,1.0,1313,1313,0.9129212825302297,6.622556790247958,CALIBRATED_PROBABILITY,0.9236921847680296
+payroll,2071,200,200,0,1.0,0.0,0.21726019360837845,0.21726019360837845,1.0,707,1.0,1871,1.0,120,1.0,1315,1315,0.9019339434433706,6.927750487075552,CALIBRATED_PROBABILITY,0.9236921847680296
+statement,2593,140,140,0,1.0,0.0,0.08765424378404675,0.08765424378404675,1.0,1252,1.0,2453,,0,1.0,1560,1560,0.9439086981676742,7.112552408492566,CALIBRATED_PROBABILITY,0.9236921847680296

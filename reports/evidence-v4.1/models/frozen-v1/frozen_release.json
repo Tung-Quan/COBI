@@ -1,0 +1,17 @@
+{
+  "release_id": "cobi-evidence-v4.1-semantic-v1",
+  "manifest_sha256": "9e960f45b0b4607f243de7429cd329e8317dea0a2020cf0ebe859e4641a78c1a",
+  "artifact_sha256": {
+    "ablation_no_comparability.joblib": "e0053d055e0c7978431f5576121c6a943c58c2ac0bc081f4a12b18a365cb11a6",
+    "ablation_no_source_provenance.joblib": "27f6bee7dcbb155c6a2187049a943b0f78a6556ba3a8c156b1685956bc5c710c",
+    "ablation_no_temporal.joblib": "5994c11addb0485cf85cfbd394a77f7f32c8012e68eb66c90e1e8db647055e9b",
+    "frozen_model_manifest.json": "9e960f45b0b4607f243de7429cd329e8317dea0a2020cf0ebe859e4641a78c1a",
+    "semantic_deepsets.pt": "e32c5b4cada444859c54a508a7acf4c3c48a7410b3092306a2f9db7c3d7a3980",
+    "semantic_logistic.joblib": "24e33a2f4bb653535044853e935fb2d6197c775c91db6534432790071bd1a21a",
+    "training_configuration.json": "e40863c73df366dccfda487abcc5ca137685ab574e645020acf4bfe7e5046df7",
+    "training_log.json": "34c8071513f19654430dfb974a3e9ed45e2d44d791bdd6ae16c87f1905e08c58"
+  },
+  "frozen_before_generator_c": true,
+  "generator_c_created": false,
+  "validation_status": "EVIDENCE_AI_VALIDATION_BLOCKED"
+}

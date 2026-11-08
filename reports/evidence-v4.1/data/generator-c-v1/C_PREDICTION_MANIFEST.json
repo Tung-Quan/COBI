@@ -1,0 +1,30 @@
+{
+  "status": "PREDICTIONS_FROZEN_LABELS_NOT_OPENED",
+  "generator_c_manifest_sha256": "7a15e685acafbbf0ff537021cad7d17d269876d129c7674d793146df7c634502",
+  "observed_sha256": "712d667a8918749f8c7bccd702c72b631215fabe5eb19a99853b4bbcac79251f",
+  "frozen_model_release_sha256": "ed00c2ef2f9adec2193990d4edb10cba7ba13c60387ca7d0b161d3d24a399b30",
+  "model_manifest_sha256": "9e960f45b0b4607f243de7429cd329e8317dea0a2020cf0ebe859e4641a78c1a",
+  "prediction_sha256": "03d1a2a6aa3d52eae483cca2d538e8cf71777eea17aa32215160bc5be3dc7523",
+  "predictor_source_sha256": "70ff583b83ad7441fb8745a8f6bd85bbaab92e8e9eeabd883cd48c8094bc0a0f",
+  "explanation_sha256": "cc31d8d6e5a849cf72b0a85ffad6418740053c5050f7e3249baef28e27ce981e",
+  "prediction_rows": 67910,
+  "case_count": 1680,
+  "document_count": 6791,
+  "model_availability": {
+    "SEMANTIC_LOGISTIC": "AVAILABLE",
+    "SEMANTIC_DEEP_SETS": "AVAILABLE",
+    "ABLATION_NO_TEMPORAL": "AVAILABLE",
+    "ABLATION_NO_COMPARABILITY": "AVAILABLE",
+    "ABLATION_NO_SOURCE_PROVENANCE": "AVAILABLE",
+    "SEMANTIC_RULE": "AVAILABLE",
+    "SEMANTIC_XGBOOST": "BLOCKED_DEPENDENCY",
+    "SEMANTIC_HYBRID": "AVAILABLE",
+    "M0_CS_V2": "AVAILABLE",
+    "M1_LOGISTIC": "AVAILABLE",
+    "M3_DEEP_SETS": "AVAILABLE",
+    "M2_XGBOOST": "BLOCKED_DEPENDENCY"
+  },
+  "routing_authorized": false,
+  "approval_authorized": false,
+  "checkout_consumes_research_outputs": false
+}

@@ -1,0 +1,68 @@
+{
+  "dataset_id": "cobi-evidence-generator-c-v1.0",
+  "generator_id": "semantic-ledger-c-v1.0",
+  "seed": 2026110802,
+  "groups_per_scenario": 120,
+  "cases_per_group": 2,
+  "case_count": 1680,
+  "group_count": 840,
+  "document_count": 6791,
+  "scenario_counts": {
+    "C1_GROSS_NET_PERIODS": {
+      "cases": 240,
+      "groups": 120,
+      "documents": 974
+    },
+    "C2_SAME_PERIOD_CORRUPTION": {
+      "cases": 240,
+      "groups": 120,
+      "documents": 982
+    },
+    "C3_CORRECTION_LINEAGE": {
+      "cases": 240,
+      "groups": 120,
+      "documents": 964
+    },
+    "C4_TIME_VALIDITY": {
+      "cases": 240,
+      "groups": 120,
+      "documents": 949
+    },
+    "C5_NONCOMPARABLE_SUBJECT_ACCOUNT": {
+      "cases": 240,
+      "groups": 120,
+      "documents": 989
+    },
+    "C6_TRUE_COMPARABLE_CONFLICT": {
+      "cases": 240,
+      "groups": 120,
+      "documents": 981
+    },
+    "C7_HELD_OUT_SOURCE_PAIR": {
+      "cases": 240,
+      "groups": 120,
+      "documents": 952
+    }
+  },
+  "source_types": [
+    "statement",
+    "payroll",
+    "merchant"
+  ],
+  "held_out_source_pair": [
+    "payroll",
+    "merchant"
+  ],
+  "dev_pair_overlap_check": "The payroll+merchant source pair does not occur in D1.1 observed records.",
+  "generator_source_sha256": "4926b7e6b67bab8964f4178fa02d95711c465dcfaf4a0991cb2dbfc44f6fb749",
+  "protocol_sha256": "9ea7842de9004b7349ea0d403d6ffa44dabbe8ae3c7352f1626a03348c9178da",
+  "model_release_sha256": "ed00c2ef2f9adec2193990d4edb10cba7ba13c60387ca7d0b161d3d24a399b30",
+  "canonical_truth_used_as_feature": false,
+  "event_code_used_as_feature": false,
+  "labels_accessed_for_generation_or_prediction": false,
+  "file_sha256": {
+    "observed.json": "712d667a8918749f8c7bccd702c72b631215fabe5eb19a99853b4bbcac79251f",
+    "gold_labels.json": "b113587a7c64d7b3657a4500d8a0461cd8f0df85c68a39fb1c4a0aacc8ac3c1a",
+    "canonical_truth.json": "0467eb347818751091c006a21191be5b4db71519b413dfc380d88559fa25e45d"
+  }
+}

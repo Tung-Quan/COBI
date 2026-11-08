@@ -1,0 +1,4 @@
+phase,generator,result,status
+V3,Original synthetic generator,Deep Sets: 91.0% critical recall; AP 0.9269; 96 test groups,Original synthetic evidence; not equivalent to B/C
+V4,Independent Generator B,B4: learned models missed 80/80 critical stale docs; B5: 95.5–99.4% legitimate FPR for learned models,Independent-generator generalization failures
+V4.1,Registered Generator C,"Hybrid: 520/520 critical; 0/2,927 C1/C3/C5 FP; 400/6,271 overall FP; XGBoost incomplete",Measured after label opening; exploratory

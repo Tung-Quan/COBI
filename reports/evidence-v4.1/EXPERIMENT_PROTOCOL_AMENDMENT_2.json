@@ -1,0 +1,20 @@
+{
+  "amendment_id": "cobi-evidence-v4.1-amendment-2",
+  "protocol_id": "cobi-evidence-v4.1-c1.0",
+  "date": "2026-11-08",
+  "recorded_before_generator_c_generation_and_label_opening": true,
+  "reason": "xgboost==3.0.5 is not installed, no cached wheel is available, and package index access fails from unavailable DNS/network.",
+  "no_substitution_under_xgboost_name": true,
+  "unavailable_arms": ["SEMANTIC_XGBOOST", "FROZEN_V3_XGBOOST_REPLAY"],
+  "available_arms": ["CS_V2", "FROZEN_V3_LOGISTIC", "FROZEN_V3_DEEP_SETS", "SEMANTIC_RULE", "SEMANTIC_LOGISTIC", "SEMANTIC_DEEP_SETS", "SEMANTIC_HYBRID", "ABLATION_NO_TEMPORAL", "ABLATION_NO_COMPARABILITY", "ABLATION_NO_SOURCE_PROVENANCE"],
+  "registered_model_list_changed": false,
+  "seeds_splits_metrics_and_acceptance_criteria_changed": false,
+  "complete_best_baseline_acceptance_assessable": false,
+  "partial_generator_c_evaluation_permitted": true,
+  "partial_evaluation_cannot_be_reported_as_complete_acceptance": true,
+  "development_locked_test_previously_opened": true,
+  "development_locked_test_used_for_model_or_threshold_tuning": false,
+  "generator_c_created": false,
+  "generator_c_labels_opened": false,
+  "validation_status": "EVIDENCE_AI_VALIDATION_BLOCKED"
+}

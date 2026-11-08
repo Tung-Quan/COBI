@@ -1,0 +1,7 @@
+# Speaker script — 60 to 75 seconds
+
+“COBI’s V4 test exposed a specific weakness: fixed evidence scores treated valid financial differences as errors and missed stale documents presented as current. V4.1 adds subject, account, financial meaning, reporting period, gross or net basis, correction lineage and temporal-validity information.
+
+“On the already opened synthetic Generator C labels, the frozen Semantic Hybrid flagged all 520 labeled critical records. It produced no false alerts among 2,927 legitimate documents in the registered gross/net, correction and non-comparable account scenarios. Across all scenarios, 400 of 6,271 legitimate documents were still flagged, and 31 percent of cases entered review. Its average precision was 0.565, Brier score 0.0339 and log loss 0.0939.
+
+“These are measured synthetic results, not a fresh blind confirmation. Our audit found 100 missing critical stale labels in development partitions. The Hybrid includes deterministic rules, and the full Logistic model and no-temporal ablation both had zero stale recall, so we cannot claim a causal benefit from learned temporal features. XGBoost comparisons remain unevaluated, and real banking evidence has not been tested. The honest conclusion is that semantic checks are promising on these registered synthetic constructs, while generalization remains unvalidated. The research output remains blocked from checkout decisions.”
