@@ -1,4 +1,8 @@
-# Mathematical methodology
+# Mathematical methodology · historical V1
+
+The formulas and anchor values below are the V1 record. See the [V2 formula changelog](FORMULA_CHANGELOG_V1_TO_V2.md) for the current workbench.
+
+V3 evaluates learned document-error probabilities in a separate research lane. CS_V2 remains the workbench evidence index. For the learned formulation, calibration, thresholds and authorization boundary, see the [V3 evidence protocol](EVIDENCE_LEARNING_PROTOCOL_V3.md).
 
 This document describes the running implementation. The four reference files named in the original brief were not supplied, so formulas and numeric anchors below are separated from unverified prototype assumptions. No bank thresholds, training results, repayment outcomes or measured business improvements are asserted.
 

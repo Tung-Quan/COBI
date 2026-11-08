@@ -1,4 +1,6 @@
-# Architecture
+# Architecture · V1 foundation and V2 integration
+
+[Data contracts and lineage](DATA_CONTRACTS.md) show the research and checkout boundaries. V2 adds a separate FastAPI router for verified UCI metadata, benchmark-only prediction and read-only artifacts. React adds a Research Lab tab beside the existing pages. The workbench adds sticky consent withdrawal, input-digest audit metadata and versioned calculations. SQLite schema setup is additive.
 
 ```mermaid
 flowchart LR

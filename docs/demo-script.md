@@ -1,29 +1,17 @@
-# Three minute demo script
+# Three-minute walkthrough · COBI V2
 
-## 0:00–0:25 — Queue overview
+## 0:00–0:45 · Workbench
 
-Open the dashboard. Explain that all six cases are synthetic and the metrics are a local scenario snapshot. Point out the route distribution, scoreable count and held cases. Open the case inbox.
+Open a fresh synthetic database and select DEMO-001. The purchase is VND 6m with VND 1m own funds and VND 5m principal. The four-month payment at 0% is VND 1.25m. Open AI Assessment, check the original income observations, evidence subscores and the two affordability constraints.
 
-## 0:25–0:55 — DEMO-001 evidence
+## 0:45–1:25 · Officer review
 
-Select `DEMO-001`. Show the synthetic purchase summary, income records and source provenance. Open AI Assessment and call out the mean income of 12m VND and confidence score near 0.820938. Expand the confidence subscores and show that CS is an evidence quality index, not a probability.
+Show the scenario score and loss sensitivity. Actual checkout PD and expected loss are unavailable. Open Decision Routing to compare only eligible routes, then Officer Review to record an action with a reason. Inspect the audit trail. On a disposable case, withdrawing consent stops scoring.
 
-## 0:55–1:25 — Transparent calculations
+## 1:25–2:00 · What-if
 
-Review the demo PD near 0.039675. Read its warning: the score is not trained or calibrated and its parity with the missing prototype has not been verified. Show stressed payment capacity of 2,906,250 VND per month, the payment buffer, and illustrative expected loss near 119,024 VND with its LGD/EAD inputs.
+Change income or debt and rerun. Compare affordability and eligible routes with the original case. Check UCI compatibility and point out `PD_UNAVAILABLE_SCHEMA_MISMATCH`. The original case retains its inputs.
 
-## 1:25–1:50 — Routing
+## 2:00–3:00 · Research Lab
 
-Open Decision Routing. Walk through the four mandatory gates, eligible route list and illustrative cost comparison. Emphasize that fast-track is only a review candidate and the lowest cost route cannot bypass an eligibility gate.
-
-## 1:50–2:20 — Human review
-
-Open Officer Review. Choose “Confirm review path,” enter a reason, and record the action. Show the timestamped event in the audit history. Explain that the API has no loan approval action.
-
-## 2:20–2:45 — What-if simulator
-
-Raise existing debt or lower evidence quality, then run the scenario. Point out how capacity, CS, demo PD or route eligibility changes, and that the calculation includes an input trace and is not saved to the case. Toggle consent off and rerun to show scoring stops.
-
-## 2:45–3:00 — Monitoring and export
-
-Open Monitoring & export. Show the per-case evaluation log and the explicitly hypothetical baseline comparison. Download the JSON export with calculations and audit history.
+Show the Taiwan credit-card population and next-month label, four locked cohorts and the validation comparison. Select an MLP trace to show its real epoch history. Compare raw and calibrated XGBoost results and reliability bins. The sigmoid raised test log loss slightly. Download the manifest and review its benchmark-only scope and component hashes.

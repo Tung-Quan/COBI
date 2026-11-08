@@ -1,4 +1,6 @@
-# Validation record and limitations
+# Validation record and limitations · historical V1
+
+See [V2 experimental results](../reports/final/RESULTS.md) and the [V2 verification log](../reports/final/verification.log).
 
 ## Verification status
 

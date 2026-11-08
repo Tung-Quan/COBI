@@ -1,4 +1,6 @@
-# Data dictionary
+# Data dictionary · V1 fields
+
+[V2 data contracts](DATA_CONTRACTS.md) define the research schema and added checkout fields.
 
 All values are synthetic. Currency amounts are Vietnamese dong (VND).
 
