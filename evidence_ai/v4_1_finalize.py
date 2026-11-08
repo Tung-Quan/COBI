@@ -456,7 +456,7 @@ Full prediction-level failure rows and explanation records remain in the preserv
 - On the already unblinded, registered synthetic Generator C labels, the frozen Semantic Hybrid recorded 520/520 critical detections, 0/2,927 false alerts in C1/C3/C5, 400/6,271 overall legitimate false alerts, 520/1,680 cases flagged, AP 0.5652, Brier 0.03387, and Log Loss 0.09390.
 - Group bootstrap intervals and cluster-aware boundary uncertainty are conditional descriptive uncertainty summaries.
 - The C1/C3/C5 and C4 result patterns are consistent with semantic and temporal checks being useful in this generator. They do not isolate causal effects.
-- Paired, delayed, frozen-output comparisons are available for CS_V2, frozen V4 Logistic and Deep Sets, semantic rule, semantic Logistic and semantic Deep Sets.
+- Paired, delayed, frozen-output comparisons are available for all four frozen V3 baselines, semantic rule, semantic Logistic, semantic Deep Sets and Hybrid. The semantic XGBoost candidate remains unevaluated.
 
 ## Not supported
 
@@ -560,6 +560,17 @@ python -m evidence_ai.v4_1_replay
 
 The replay checks exact released artifact hashes and compares predictions on the locked development partition. It does not consume C labels.
 
+## Delayed frozen V3 XGBoost replay
+
+The XGBoost prediction stage scores C observed records only. C labels were already open before this delayed evaluation, so its outputs are exploratory rather than blind confirmation. The script checks the exact protected depth-4 checkpoint, V3 preprocessing, calibrator, threshold and `xgboost==3.0.5`; it also compares all 14 aggregate B replay metrics against the preserved V4 report.
+
+```powershell
+backend/.venv/Scripts/python.exe -m evidence_ai.v4_1_delayed_xgb predict
+backend/.venv/Scripts/python.exe -m evidence_ai.v4_1_delayed_xgb evaluate
+```
+
+The first command writes and hashes a separate prediction file without reading C labels. The second reads the already-open labels and writes delayed metrics and paired group-bootstrap comparisons. It does not overwrite `C_PREDICTIONS_FROZEN.csv` or change any model or threshold. Semantic XGBoost remains `NOT_EVALUATED` because no trained frozen artifact exists.
+
 ## Rebuild documents and charts
 
 ```powershell
@@ -570,7 +581,7 @@ This writes the scientific reports, CSV/SVG/PNG pitch charts and a read-only res
 
 ## Known blockers
 
-- `xgboost==3.0.5` and compatible frozen XGBoost artifacts cannot be replayed offline; those model arms remain `NOT_EVALUATED`.
+- Frozen V3 XGBoost is replayable with the existing backend virtual environment but was evaluated only after C unblinding. The separate Semantic XGBoost arm remains `NOT_EVALUATED`.
 - D1.1 contains 100 missing critical labels among records flagged as critical stale by the temporal rule. Do not repair labels after viewing C and call the result confirmatory.
 - HTTP TestClient may be blocked by the Windows sandbox asyncio socketpair restriction; report that as `BLOCKED` if it occurs. A direct route call is not an HTTP test.
 - Real-document validation is unavailable. Keep `EVIDENCE_AI_VALIDATION_BLOCKED`.
@@ -592,7 +603,7 @@ Semantic Hybrid: 520/520 critical recall (100%); 0/2,927 C1/C3/C5 legitimate-doc
 
 The D1.1 development split has 100 critical temporal-label omissions across train, validation, calibration and locked test. The Hybrid's full recall is materially supported by deterministic rules; C's label constructs share thresholds and stale semantics with those rules. Therefore the observed results do not demonstrate a causal learned-feature improvement. The controlled Logistic ablations show no C4 stale recall in either the full Logistic model or its no-temporal variant.
 
-Replayable frozen non-XGBoost baselines all record 100% critical recall at extremely high legitimate FPR/workload; XGBoost is `NOT_EVALUATED`. This is an incomplete registered baseline comparison, so no all-baseline superiority claim is made. No real banking evidence, measured operational savings, or regulatory validation is available.
+The four frozen V3 baselines are now present in the delayed C comparison. Each recorded 100% observed critical recall, but frozen V3 XGBoost also flagged every legitimate document and every case. Semantic XGBoost remains `NOT_EVALUATED`, so the candidate-family comparison is incomplete. No all-candidate superiority, real banking accuracy, measured operational savings, or regulatory validation is claimed.
 
 The scientific answer is **suggestive but inconclusive**: the Hybrid and frozen V3 baselines share 100% observed critical recall, while Hybrid has lower legitimate FPR and workload than the delayed XGBoost replay on this inspected synthetic C set. The XGBoost replay was post-unblinding, and label inconsistency, rule-target overlap, and the unevaluated Semantic XGBoost candidate prevent a complete candidate-family or confirmatory generalization claim. Maintain `EVIDENCE_AI_VALIDATION_BLOCKED`.
 """)
@@ -617,7 +628,7 @@ Development generator D1.1 supplied train/validation/calibration/locked test par
 
 ## 4. Results
 
-On C, the frozen Semantic Hybrid recorded 520/520 critical recalls and 0/2,927 legitimate false positives in C1/C3/C5; overall it made 400/6,271 legitimate-document false alerts. It flagged 520/1,680 cases. AP was 0.5652, Brier 0.03387 and Log Loss 0.09390. Group-stratified 500-draw percentile intervals are reported in `STATISTICAL_AUDIT.md`, with separate cluster-aware bounds for boundary outcomes. The 400 false-positive records arose in mixed comparable-conflict cases; the pair rule flags both members and cannot determine the erroneous source without adjudication.
+On C, the frozen Semantic Hybrid recorded 520/520 critical recalls and 0/2,927 legitimate false positives in C1/C3/C5; overall it made 400/6,271 legitimate-document false alerts. It flagged 520/1,680 cases. AP was 0.5652, Brier 0.03387 and Log Loss 0.09390. A delayed, post-unblinding frozen V3 XGBoost replay also detected 520/520 critical records but flagged all 6,271 legitimate records and all 1,680 cases; its AP was 0.1396, Brier 0.9214 and Log Loss 6.9027. Group-stratified 500-draw percentile intervals and paired contrasts are reported in `STATISTICAL_AUDIT.md`. The 400 false-positive records arose in mixed comparable-conflict cases; the pair rule flags both members and cannot determine the erroneous source without adjudication.
 
 ## 5. Ablation and integrity audit
 
@@ -627,7 +638,7 @@ A post-evaluation label audit found 100 records in D4 for which observable tempo
 
 ## 6. Limitations
 
-All data and labels are generated; record semantics are structured inputs, so this does not measure document parsing or authenticity. Scenarios, sources and mechanisms are finite. C labels were opened and the study is now exploratory. Two XGBoost arms remain NOT_EVALUATED because the exact offline dependency/artifact could not be replayed. The registered all-baseline criterion is incomplete. Cluster intervals condition on the fixed generation processes and do not quantify generator misspecification. No external or banking validation, measured savings, authorization, or regulatory assessment exists.
+All data and labels are generated; record semantics are structured inputs, so this does not measure document parsing or authenticity. Scenarios, sources and mechanisms are finite. C labels were opened and the study is now exploratory. The frozen V3 XGBoost baseline was evaluated late after unblinding and cannot be described as a fresh blind comparison. The separate Semantic XGBoost candidate remains `NOT_EVALUATED`, so candidate-family comparison is incomplete. Cluster intervals condition on the fixed generation processes and do not quantify generator misspecification. No external or banking validation, measured savings, authorization, or regulatory assessment exists.
 
 ## 7. Conclusion
 
@@ -642,13 +653,13 @@ Frozen models evaluated on independent synthetic Generator B missed all 80 B4 st
 
 ## Generator C — measured frozen-output results
 
-After prediction freeze and subsequent label opening, the Semantic Hybrid recorded **520/520 critical detections (100%)**, **0/2,927 C1/C3/C5 legitimate false alerts**, **400/6,271 overall legitimate false alerts (6.38%)**, **520/1,680 cases flagged (31.0%)**, AP **0.5652**, Brier **0.0339**, and Log Loss **0.0939**. C4 stale-as-current recall was 120/120. These are synthetic observed results with grouped uncertainty; they do not imply zero population risk.
+After prediction freeze and subsequent label opening, the Semantic Hybrid recorded **520/520 critical detections (100%)**, **0/2,927 C1/C3/C5 legitimate false alerts**, **400/6,271 overall legitimate false alerts (6.38%)**, **520/1,680 cases flagged (31.0%)**, AP **0.5652**, Brier **0.0339**, and Log Loss **0.0939**. C4 stale-as-current recall was 120/120. A later frozen V3 XGBoost replay, explicitly post-unblinding, recorded 520/520 critical detections but 6,271/6,271 legitimate false alerts and 1,680/1,680 cases flagged; its AP was 0.1396, Brier 0.9214 and Log Loss 6.9027. These are synthetic observed results with grouped uncertainty; they do not imply zero population risk.
 
 ## Scientific qualification
 
 The labels are open, so this is post-unblinding exploratory analysis. A development audit found 100 missing critical stale labels across training, validation, calibration and locked-test partitions. The full Logistic model and no-temporal ablation both had 0% C4 recall; the Hybrid combines rules and Logistic Regression. Therefore temporal-feature causality is not established. Comparability ablation results also combine separate frozen thresholds and a different model family from Hybrid.
 
-Frozen XGBoost branches remain **NOT_EVALUATED** because the exact dependency was unavailable offline. The full baseline comparison is incomplete. All results are synthetic; real financial-document validation, bank performance, regulatory readiness and measured operational savings remain unvalidated.
+The four frozen V3 baselines are now compared using unchanged artifacts and thresholds, but this XGBoost evaluation occurred after unblinding. The separate Semantic XGBoost research arm remains **NOT_EVALUATED**, so comparison across all new candidate families is incomplete. All results are synthetic; real financial-document validation, bank performance, regulatory readiness and measured operational savings remain unvalidated.
 
 **Status:** `EVIDENCE_AI_VALIDATION_BLOCKED`.
 """)
@@ -671,7 +682,7 @@ Frozen XGBoost branches remain **NOT_EVALUATED** because the exact dependency wa
 
 **Ablation caveat:** the full Logistic Regression and no-temporal variant both had 0/120 stale recall; the Hybrid's 120/120 result includes deterministic rules. No causal feature effect is established.
 
-**Validation:** synthetic only. XGBoost baselines not evaluated. Development stale-label inconsistency found. No real-bank validation or measured operational savings. `EVIDENCE_AI_VALIDATION_BLOCKED`.
+**Baseline note:** frozen V3 XGBoost was evaluated after label unblinding and flagged all legitimate C records; the new Semantic XGBoost arm remains `NOT_EVALUATED`. Development stale-label inconsistency found. No real-bank validation or measured operational savings. `EVIDENCE_AI_VALIDATION_BLOCKED`.
 
 *Method note: document metrics use frozen thresholds and customer-group bootstrap; workload is case-level. Generator C differs from V3 and V4 challenge distributions.*
 """)
@@ -682,7 +693,7 @@ Frozen XGBoost branches remain **NOT_EVALUATED** because the exact dependency wa
 
 “On the already opened synthetic Generator C labels, the frozen Semantic Hybrid flagged all 520 labeled critical records. It produced no false alerts among 2,927 legitimate documents in the registered gross/net, correction and non-comparable account scenarios. Across all scenarios, 400 of 6,271 legitimate documents were still flagged, and 31 percent of cases entered review. Its average precision was 0.565, Brier score 0.0339 and log loss 0.0939.
 
-“These are measured synthetic results, not a fresh blind confirmation. Our audit found 100 missing critical stale labels in development partitions. The Hybrid includes deterministic rules, and the full Logistic model and no-temporal ablation both had zero stale recall, so we cannot claim a causal benefit from learned temporal features. XGBoost comparisons remain unevaluated, and real banking evidence has not been tested. The honest conclusion is that semantic checks are promising on these registered synthetic constructs, while generalization remains unvalidated. The research output remains blocked from checkout decisions.”
+"These are measured synthetic results, not a fresh blind confirmation. Our audit found 100 missing critical stale labels in development partitions. The Hybrid includes deterministic rules, and the full Logistic model and no-temporal ablation both had zero stale recall, so we cannot claim a causal benefit from learned temporal features. We later replayed the exact frozen V3 XGBoost baseline after unblinding: it detected all critical records but flagged every legitimate record and every case. The new Semantic XGBoost candidate remains unevaluated. Real banking evidence has not been tested. Generalization remains unvalidated, and research output remains blocked from checkout decisions."
 """)
     write(PITCH / "JUDGE_QA.md", """# Judge Q&A — Evidence AI V4.1
 
@@ -708,7 +719,7 @@ The implementation, seed, templates and held-out source pair differ from the ear
 
 ### Did Semantic Hybrid beat all frozen baselines?
 
-Not established. CS_V2, V4 Logistic and Deep Sets, semantic rule, semantic Logistic and semantic Deep Sets were replayed from frozen outputs after unblinding. Both XGBoost arms remain NOT_EVALUATED because the exact dependency was unavailable offline. We do not claim superiority to all baselines.
+Not established across the full candidate family. All four frozen V3 baselines were replayed without changes; XGBoost was a delayed post-unblinding replay and recorded 100% critical recall but 100% legitimate FPR and 100% case workload. The separate Semantic XGBoost arm remains `NOT_EVALUATED`. No superiority to all candidate models is claimed.
 
 ### Are the results bank-ready or operational savings?
 
