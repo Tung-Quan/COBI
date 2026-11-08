@@ -1,0 +1,36 @@
+{
+  "seed": 42,
+  "strategy": "STRATIFIED_RANDOM_60_15_10_15_NOT_OOT",
+  "normalized_sha256": "957a8f0c61a409fca9831da6dc9eb38a710503f0a09a19d5725a574f48db5809",
+  "protocol_sha256": "d1d886a8509a6828207d9f85bc72da6d6b7936818cfbfc19f3ba38a98b869b26",
+  "split_code_sha256": "14b132cd164329f346552d8fcfb28962b4672153aa37c54ad575ee9139f3796d",
+  "split_overlap": false,
+  "cohorts": {
+    "train": {
+      "n": 18000,
+      "events": 3982,
+      "non_events": 14018,
+      "prevalence": 0.2212222222222222
+    },
+    "validation": {
+      "n": 4500,
+      "events": 995,
+      "non_events": 3505,
+      "prevalence": 0.22111111111111112
+    },
+    "calibration": {
+      "n": 3000,
+      "events": 664,
+      "non_events": 2336,
+      "prevalence": 0.22133333333333333
+    },
+    "test": {
+      "n": 4500,
+      "events": 995,
+      "non_events": 3505,
+      "prevalence": 0.22111111111111112
+    }
+  },
+  "locked_at": "2026-11-07T17:17:45.970585+00:00",
+  "lock_sha256": "ccd6e0653d40afeb821f160bc9a9803446de3d4506eccf348c4339cfd04d12a5"
+}

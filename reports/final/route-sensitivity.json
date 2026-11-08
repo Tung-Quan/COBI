@@ -1,0 +1,1195 @@
+{
+  "status": "SIMULATED_ROUTE_COMPARISON",
+  "policy": "cobi-checkout-policy-v2.0",
+  "comparison": "fixed eligible order standard, enhanced, hold versus minimum eligible assumed cost",
+  "grid": [
+    {
+      "max_dti": 0.25,
+      "buffer": 0.15,
+      "fast_track_cost_vnd": 42000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "FAST_TRACK_CANDIDATE",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 68000
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 68000
+    },
+    {
+      "max_dti": 0.25,
+      "buffer": 0.15,
+      "fast_track_cost_vnd": 130000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 0
+    },
+    {
+      "max_dti": 0.25,
+      "buffer": 0.25,
+      "fast_track_cost_vnd": 42000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "FAST_TRACK_CANDIDATE",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 68000
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 68000
+    },
+    {
+      "max_dti": 0.25,
+      "buffer": 0.25,
+      "fast_track_cost_vnd": 130000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 0
+    },
+    {
+      "max_dti": 0.25,
+      "buffer": 0.35,
+      "fast_track_cost_vnd": 42000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "FAST_TRACK_CANDIDATE",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 68000
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 68000
+    },
+    {
+      "max_dti": 0.25,
+      "buffer": 0.35,
+      "fast_track_cost_vnd": 130000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 0
+    },
+    {
+      "max_dti": 0.35,
+      "buffer": 0.15,
+      "fast_track_cost_vnd": 42000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "FAST_TRACK_CANDIDATE",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 68000
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 68000
+    },
+    {
+      "max_dti": 0.35,
+      "buffer": 0.15,
+      "fast_track_cost_vnd": 130000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 0
+    },
+    {
+      "max_dti": 0.35,
+      "buffer": 0.25,
+      "fast_track_cost_vnd": 42000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "FAST_TRACK_CANDIDATE",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 68000
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 68000
+    },
+    {
+      "max_dti": 0.35,
+      "buffer": 0.25,
+      "fast_track_cost_vnd": 130000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 0
+    },
+    {
+      "max_dti": 0.35,
+      "buffer": 0.35,
+      "fast_track_cost_vnd": 42000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "FAST_TRACK_CANDIDATE",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 68000
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 68000
+    },
+    {
+      "max_dti": 0.35,
+      "buffer": 0.35,
+      "fast_track_cost_vnd": 130000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 0
+    },
+    {
+      "max_dti": 0.45,
+      "buffer": 0.15,
+      "fast_track_cost_vnd": 42000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "FAST_TRACK_CANDIDATE",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 68000
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 68000
+    },
+    {
+      "max_dti": 0.45,
+      "buffer": 0.15,
+      "fast_track_cost_vnd": 130000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 0
+    },
+    {
+      "max_dti": 0.45,
+      "buffer": 0.25,
+      "fast_track_cost_vnd": 42000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "FAST_TRACK_CANDIDATE",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 68000
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 68000
+    },
+    {
+      "max_dti": 0.45,
+      "buffer": 0.25,
+      "fast_track_cost_vnd": 130000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 0
+    },
+    {
+      "max_dti": 0.45,
+      "buffer": 0.35,
+      "fast_track_cost_vnd": 42000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "FAST_TRACK_CANDIDATE",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 68000
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 68000
+    },
+    {
+      "max_dti": 0.45,
+      "buffer": 0.35,
+      "fast_track_cost_vnd": 130000,
+      "cases": [
+        {
+          "application_id": "DEMO-001",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW",
+            "FAST_TRACK_CANDIDATE"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-002",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-003",
+          "fixed": "ENHANCED_REVIEW",
+          "constrained": "ENHANCED_REVIEW",
+          "eligible": [
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-004",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-005",
+          "fixed": "STANDARD_REVIEW",
+          "constrained": "STANDARD_REVIEW",
+          "eligible": [
+            "STANDARD_REVIEW",
+            "ENHANCED_REVIEW"
+          ],
+          "assumed_difference_vnd": 0
+        },
+        {
+          "application_id": "SYN-006",
+          "fixed": "HOLD_FOR_HUMAN_HANDLING",
+          "constrained": "HOLD_FOR_HUMAN_HANDLING",
+          "eligible": [
+            "HOLD_FOR_HUMAN_HANDLING"
+          ],
+          "assumed_difference_vnd": 0
+        }
+      ],
+      "assumed_difference_vnd": 0
+    }
+  ]
+}

@@ -1,0 +1,713 @@
+{
+  "models": {
+    "dummy": {
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.5,
+          "ci95": [
+            0.5,
+            0.5
+          ]
+        },
+        "average_precision": {
+          "estimate": 0.22111111111111112,
+          "ci95": [
+            0.2088777777777778,
+            0.23378333333333334
+          ]
+        },
+        "brier": {
+          "estimate": 0.172221,
+          "ci95": [
+            0.16540023703703705,
+            0.17928646790123456
+          ]
+        },
+        "log_loss": {
+          "estimate": 0.5283107003455757,
+          "ci95": [
+            0.512914340660107,
+            0.5442594271587246
+          ]
+        },
+        "prevalence": {
+          "estimate": 0.22111111111111112,
+          "ci95": [
+            0.2088777777777778,
+            0.23378333333333334
+          ]
+        },
+        "expected_events": {
+          "estimate": 995.4999999999999,
+          "ci95": [
+            995.4999999999999,
+            995.4999999999999
+          ]
+        },
+        "observed_events": {
+          "estimate": 995,
+          "ci95": [
+            939.95,
+            1052.025
+          ]
+        },
+        "observed_minus_expected": {
+          "estimate": -0.4999999999998863,
+          "ci95": [
+            -55.54999999999988,
+            56.52500000000009
+          ]
+        },
+        "expected_to_observed": {
+          "estimate": 1.000502512562814,
+          "ci95": [
+            0.9462703090752836,
+            1.0590990053531733
+          ]
+        }
+      },
+      "reliability": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "n": 0,
+          "mean_predicted": null,
+          "observed_rate": null
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "n": 0,
+          "mean_predicted": null,
+          "observed_rate": null
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "n": 4500,
+          "mean_predicted": 0.2212222222222222,
+          "observed_rate": 0.22111111111111112
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "n": 0,
+          "mean_predicted": null,
+          "observed_rate": null
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "n": 0,
+          "mean_predicted": null,
+          "observed_rate": null
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "n": 0,
+          "mean_predicted": null,
+          "observed_rate": null
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "n": 0,
+          "mean_predicted": null,
+          "observed_rate": null
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "n": 0,
+          "mean_predicted": null,
+          "observed_rate": null
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "n": 0,
+          "mean_predicted": null,
+          "observed_rate": null
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "n": 0,
+          "mean_predicted": null,
+          "observed_rate": null
+        }
+      ]
+    },
+    "logistic": {
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.7709873189055119,
+          "ci95": [
+            0.7544113465950931,
+            0.7882825703014823
+          ]
+        },
+        "average_precision": {
+          "estimate": 0.5526659841667062,
+          "ci95": [
+            0.5207070340319379,
+            0.5848804294080726
+          ]
+        },
+        "brier": {
+          "estimate": 0.1352042346034476,
+          "ci95": [
+            0.12817899377956704,
+            0.14213159402705827
+          ]
+        },
+        "log_loss": {
+          "estimate": 0.4354029383267403,
+          "ci95": [
+            0.41731003830898844,
+            0.45352752919083067
+          ]
+        },
+        "prevalence": {
+          "estimate": 0.22111111111111112,
+          "ci95": [
+            0.2088777777777778,
+            0.23378333333333334
+          ]
+        },
+        "expected_events": {
+          "estimate": 973.0402611669216,
+          "ci95": [
+            947.6579405156938,
+            999.2208219144018
+          ]
+        },
+        "observed_events": {
+          "estimate": 995,
+          "ci95": [
+            939.95,
+            1052.025
+          ]
+        },
+        "observed_minus_expected": {
+          "estimate": 21.959738833078404,
+          "ci95": [
+            -27.11848098249731,
+            69.9829342147851
+          ]
+        },
+        "expected_to_observed": {
+          "estimate": 0.9779299107205243,
+          "ci95": [
+            0.9328437789533596,
+            1.02879685338175
+          ]
+        },
+        "calibration_intercept": {
+          "estimate": 0.06171411174393836,
+          "ci95": [
+            -0.059289931083574714,
+            0.1863252173576212
+          ]
+        },
+        "calibration_slope": {
+          "estimate": 1.0213457164365065,
+          "ci95": [
+            0.9456243195472012,
+            1.1060980096080915
+          ]
+        }
+      },
+      "reliability": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "n": 653,
+          "mean_predicted": 0.0743104094943972,
+          "observed_rate": 0.05972434915773354
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "n": 2630,
+          "mean_predicted": 0.13834186662586387,
+          "observed_rate": 0.1391634980988593
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "n": 405,
+          "mean_predicted": 0.24391974862761082,
+          "observed_rate": 0.27901234567901234
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "n": 203,
+          "mean_predicted": 0.33709265797846316,
+          "observed_rate": 0.3448275862068966
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "n": 105,
+          "mean_predicted": 0.45566950498159886,
+          "observed_rate": 0.5428571428571428
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "n": 124,
+          "mean_predicted": 0.5643969697699774,
+          "observed_rate": 0.6370967741935484
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "n": 177,
+          "mean_predicted": 0.640359197123225,
+          "observed_rate": 0.655367231638418
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "n": 85,
+          "mean_predicted": 0.7488626014772921,
+          "observed_rate": 0.6941176470588235
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "n": 118,
+          "mean_predicted": 0.8358620803925604,
+          "observed_rate": 0.8135593220338984
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "n": 0,
+          "mean_predicted": null,
+          "observed_rate": null
+        }
+      ]
+    },
+    "selected_raw": {
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.7852887834321393,
+          "ci95": [
+            0.7695524404481294,
+            0.8007555561764961
+          ]
+        },
+        "average_precision": {
+          "estimate": 0.5738230946689142,
+          "ci95": [
+            0.5415078531315322,
+            0.6049071543182684
+          ]
+        },
+        "brier": {
+          "estimate": 0.13251609306072484,
+          "ci95": [
+            0.12559997882944157,
+            0.13935773636983298
+          ]
+        },
+        "log_loss": {
+          "estimate": 0.4242625855566654,
+          "ci95": [
+            0.40695162422205333,
+            0.4417890715066751
+          ]
+        },
+        "prevalence": {
+          "estimate": 0.22111111111111112,
+          "ci95": [
+            0.2088777777777778,
+            0.23378333333333334
+          ]
+        },
+        "expected_events": {
+          "estimate": 977.3902130536735,
+          "ci95": [
+            951.3859333092812,
+            1003.7193828096148
+          ]
+        },
+        "observed_events": {
+          "estimate": 995,
+          "ci95": [
+            939.95,
+            1052.025
+          ]
+        },
+        "observed_minus_expected": {
+          "estimate": 17.609786946326494,
+          "ci95": [
+            -31.111561472155152,
+            65.62077666376712
+          ]
+        },
+        "expected_to_observed": {
+          "estimate": 0.9823017216619834,
+          "ci95": [
+            0.9367640457658838,
+            1.0328955865768272
+          ]
+        },
+        "calibration_intercept": {
+          "estimate": 0.09169514633368267,
+          "ci95": [
+            -0.027867138473346785,
+            0.20187245283447133
+          ]
+        },
+        "calibration_slope": {
+          "estimate": 1.0541485348524031,
+          "ci95": [
+            0.9830293140314882,
+            1.1317059284320434
+          ]
+        }
+      },
+      "reliability": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "n": 1176,
+          "mean_predicted": 0.07342576603310144,
+          "observed_rate": 0.06207482993197279
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "n": 1876,
+          "mean_predicted": 0.14151505144563184,
+          "observed_rate": 0.14019189765458423
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "n": 578,
+          "mean_predicted": 0.2419263534892389,
+          "observed_rate": 0.2647058823529412
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "n": 231,
+          "mean_predicted": 0.34022416013143797,
+          "observed_rate": 0.37662337662337664
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "n": 129,
+          "mean_predicted": 0.4491714232189711,
+          "observed_rate": 0.5038759689922481
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "n": 104,
+          "mean_predicted": 0.55266356582825,
+          "observed_rate": 0.5769230769230769
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "n": 197,
+          "mean_predicted": 0.6501528941435257,
+          "observed_rate": 0.6802030456852792
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "n": 134,
+          "mean_predicted": 0.7543794570574119,
+          "observed_rate": 0.7014925373134329
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "n": 69,
+          "mean_predicted": 0.8265316659125729,
+          "observed_rate": 0.8840579710144928
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "n": 6,
+          "mean_predicted": 0.9193809330463409,
+          "observed_rate": 0.8333333333333334
+        }
+      ]
+    },
+    "selected_calibrated": {
+      "metrics": {
+        "roc_auc": {
+          "estimate": 0.7852887834321393,
+          "ci95": [
+            0.7695524404481294,
+            0.8007555561764961
+          ]
+        },
+        "average_precision": {
+          "estimate": 0.5738230946689142,
+          "ci95": [
+            0.5415078531315322,
+            0.6049071543182684
+          ]
+        },
+        "brier": {
+          "estimate": 0.13266296667215838,
+          "ci95": [
+            0.1258171884332753,
+            0.13937507262984886
+          ]
+        },
+        "log_loss": {
+          "estimate": 0.4246940650933129,
+          "ci95": [
+            0.4075476268350273,
+            0.44201649416116034
+          ]
+        },
+        "prevalence": {
+          "estimate": 0.22111111111111112,
+          "ci95": [
+            0.2088777777777778,
+            0.23378333333333334
+          ]
+        },
+        "expected_events": {
+          "estimate": 973.9693416220654,
+          "ci95": [
+            948.8847383826038,
+            999.3563452859335
+          ]
+        },
+        "observed_events": {
+          "estimate": 995,
+          "ci95": [
+            939.95,
+            1052.025
+          ]
+        },
+        "observed_minus_expected": {
+          "estimate": 21.03065837793463,
+          "ci95": [
+            -27.716951101172203,
+            68.88993954736101
+          ]
+        },
+        "expected_to_observed": {
+          "estimate": 0.9788636599216738,
+          "ci95": [
+            0.9336863847024911,
+            1.0296624970091588
+          ]
+        },
+        "calibration_intercept": {
+          "estimate": 0.14431864753773752,
+          "ci95": [
+            0.022163302415143128,
+            0.2575609555020072
+          ]
+        },
+        "calibration_slope": {
+          "estimate": 1.0947046749671976,
+          "ci95": [
+            1.0208492876874276,
+            1.175245924650059
+          ]
+        }
+      },
+      "reliability": [
+        {
+          "lower": 0.0,
+          "upper": 0.1,
+          "n": 1102,
+          "mean_predicted": 0.07483410386463245,
+          "observed_rate": 0.06170598911070781
+        },
+        {
+          "lower": 0.1,
+          "upper": 0.2,
+          "n": 1944,
+          "mean_predicted": 0.14192888531166822,
+          "observed_rate": 0.13734567901234568
+        },
+        {
+          "lower": 0.2,
+          "upper": 0.3,
+          "n": 597,
+          "mean_predicted": 0.2416816151506333,
+          "observed_rate": 0.2663316582914573
+        },
+        {
+          "lower": 0.3,
+          "upper": 0.4,
+          "n": 232,
+          "mean_predicted": 0.3406822491418135,
+          "observed_rate": 0.3706896551724138
+        },
+        {
+          "lower": 0.4,
+          "upper": 0.5,
+          "n": 127,
+          "mean_predicted": 0.4490395164298366,
+          "observed_rate": 0.5511811023622047
+        },
+        {
+          "lower": 0.5,
+          "upper": 0.6,
+          "n": 113,
+          "mean_predicted": 0.5539044948781776,
+          "observed_rate": 0.584070796460177
+        },
+        {
+          "lower": 0.6,
+          "upper": 0.7,
+          "n": 198,
+          "mean_predicted": 0.6443970386031894,
+          "observed_rate": 0.6616161616161617
+        },
+        {
+          "lower": 0.7,
+          "upper": 0.8,
+          "n": 146,
+          "mean_predicted": 0.7571597247955668,
+          "observed_rate": 0.7671232876712328
+        },
+        {
+          "lower": 0.8,
+          "upper": 0.9,
+          "n": 36,
+          "mean_predicted": 0.8320360546789539,
+          "observed_rate": 0.8611111111111112
+        },
+        {
+          "lower": 0.9,
+          "upper": 1.0,
+          "n": 5,
+          "mean_predicted": 0.9123484263357229,
+          "observed_rate": 1.0
+        }
+      ]
+    }
+  },
+  "paired_log_loss": [
+    {
+      "comparison": [
+        "selected_raw",
+        "dummy"
+      ],
+      "estimate": -0.1040481147889103,
+      "ci95": [
+        -0.11660099679349892,
+        -0.09186182588960244
+      ]
+    },
+    {
+      "comparison": [
+        "selected_raw",
+        "logistic"
+      ],
+      "estimate": -0.011140352770074913,
+      "ci95": [
+        -0.015689472438217254,
+        -0.00668272500521111
+      ]
+    },
+    {
+      "comparison": [
+        "selected_calibrated",
+        "selected_raw"
+      ],
+      "estimate": 0.0004314795366475166,
+      "ci95": [
+        2.408792525568082e-05,
+        0.0008368089354586799
+      ]
+    }
+  ],
+  "bootstrap": {
+    "unit": "UCI sample row",
+    "method": "paired percentile",
+    "confidence": 0.95,
+    "replicates": 1000,
+    "seed": 43
+  },
+  "data_diagnostics": {
+    "test_rows_with_identical_train_predictor_vector": 127,
+    "standardized_mean_shift_numeric_features": {
+      "LIMIT_BAL": 0.003959323065832166,
+      "BILL_AMT1": 0.011538601490526556,
+      "BILL_AMT2": 0.018347515694908202,
+      "BILL_AMT3": 0.011494392147341987,
+      "BILL_AMT4": 0.018719041536097842,
+      "BILL_AMT5": 0.018832579096642776,
+      "BILL_AMT6": 0.016290031276536367,
+      "PAY_AMT1": 0.009103496595112634,
+      "PAY_AMT2": 0.025929834572031855,
+      "PAY_AMT3": 0.0013506735939422495,
+      "PAY_AMT4": 0.018572580127661786,
+      "PAY_AMT5": 0.0025873615774550554,
+      "PAY_AMT6": 0.0033428137919539486
+    },
+    "customer_group_check": "UNAVAILABLE_NO_GROUP_KEY",
+    "fairness_status": "DEMOGRAPHIC_EXCLUSION_ONLY_INDEPENDENT_FAIRNESS_REVIEW_PENDING"
+  },
+  "experiment_id": "uci350-v2.0",
+  "status": "PUBLIC_DATA_BENCHMARKED",
+  "selected_candidate": "xgb-d2-lr0.1",
+  "feature_signature": "8b7b3244093c057dc149a83be81c9238b0586c58049336efabd5e4e1dfbd81ec",
+  "split": {
+    "seed": 42,
+    "strategy": "STRATIFIED_RANDOM_60_15_10_15_NOT_OOT",
+    "normalized_sha256": "957a8f0c61a409fca9831da6dc9eb38a710503f0a09a19d5725a574f48db5809",
+    "protocol_sha256": "d1d886a8509a6828207d9f85bc72da6d6b7936818cfbfc19f3ba38a98b869b26",
+    "split_code_sha256": "14b132cd164329f346552d8fcfb28962b4672153aa37c54ad575ee9139f3796d",
+    "split_overlap": false,
+    "cohorts": {
+      "train": {
+        "n": 18000,
+        "events": 3982,
+        "non_events": 14018,
+        "prevalence": 0.2212222222222222
+      },
+      "validation": {
+        "n": 4500,
+        "events": 995,
+        "non_events": 3505,
+        "prevalence": 0.22111111111111112
+      },
+      "calibration": {
+        "n": 3000,
+        "events": 664,
+        "non_events": 2336,
+        "prevalence": 0.22133333333333333
+      },
+      "test": {
+        "n": 4500,
+        "events": 995,
+        "non_events": 3505,
+        "prevalence": 0.22111111111111112
+      }
+    },
+    "locked_at": "2026-11-07T17:17:45.970585+00:00",
+    "lock_sha256": "ccd6e0653d40afeb821f160bc9a9803446de3d4506eccf348c4339cfd04d12a5"
+  },
+  "target": "default.payment.next.month",
+  "source_domain": "TAIWAN_CREDIT_CARD_2005",
+  "horizon": "next payment month",
+  "calibration": {
+    "intercept": -0.04807095532913616,
+    "slope": 0.9629524388630192
+  },
+  "evaluated_at": "2026-11-07T17:20:57.165533+00:00",
+  "test_predictions_sha256": "832dab358f7c8da232d1ad74304cbcf7169b473f1cec88a91c9a3dae648deb8b"
+}

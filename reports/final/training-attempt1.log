@@ -1,0 +1,25 @@
+dummy: validation log loss 0.52831070
+logistic-C0.1: validation log loss 0.44474741
+logistic-C1: validation log loss 0.44668214
+C:\disk D\COBI\backend\.venv\Lib\site-packages\sklearn\linear_model\_logistic.py:465: ConvergenceWarning: lbfgs failed to converge (status=1):
+STOP: TOTAL NO. OF ITERATIONS REACHED LIMIT.
+
+Increase the number of iterations (max_iter) or scale the data as shown in:
+    https://scikit-learn.org/stable/modules/preprocessing.html
+Please also refer to the documentation for alternative solver options:
+    https://scikit-learn.org/stable/modules/linear_model.html#logistic-regression
+  n_iter_i = _check_optimize_result(
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\disk D\COBI\ml\train_pd.py", line 157, in <module>
+    main()
+    ~~~~^^
+  File "C:\disk D\COBI\ml\train_pd.py", line 147, in main
+    run(out)
+    ~~~^^^^^
+  File "C:\disk D\COBI\ml\train_pd.py", line 76, in run
+    candidates = fit_candidates(config, train, validation, out)
+  File "C:\disk D\COBI\ml\candidates.py", line 124, in fit_candidates
+    raise RuntimeError(f"{name} failed to converge")
+RuntimeError: logistic-C10 failed to converge

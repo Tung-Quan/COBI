@@ -1,0 +1,13 @@
+
+> checkout-credit-copilot-ui@0.1.0 build
+> tsc -b && vite build
+
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 1633 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                   0.62 kB │ gzip:  0.36 kB
+dist/assets/index-yePJ28SE.css   69.49 kB │ gzip: 15.91 kB
+dist/assets/index-DFoiaZUe.js   308.90 kB │ gzip: 91.87 kB
+✓ built in 4.36s

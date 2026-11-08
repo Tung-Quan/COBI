@@ -1,0 +1,91 @@
+dummy: validation log loss 0.52831070
+logistic-C0.1: validation log loss 0.44474741
+logistic-C1: validation log loss 0.44668214
+logistic-C10: validation log loss 0.44948958
+xgb-d2-lr0.03: validation log loss 0.43393961
+xgb-d2-lr0.1: validation log loss 0.43239570
+xgb-d4-lr0.03: validation log loss 0.43380528
+xgb-d4-lr0.1: validation log loss 0.43392911
+mlp-b32: validation log loss 0.43872738
+mlp-b64: validation log loss 0.43731231
+mlp-b128: validation log loss 0.43527308
+Selected xgb-d2-lr0.1. Calibration frozen. Opening test once.
+{
+  "roc_auc": {
+    "estimate": 0.7852887834321393,
+    "ci95": [
+      0.7695524404481294,
+      0.8007555561764961
+    ]
+  },
+  "average_precision": {
+    "estimate": 0.5738230946689142,
+    "ci95": [
+      0.5415078531315322,
+      0.6049071543182684
+    ]
+  },
+  "brier": {
+    "estimate": 0.13266296667215838,
+    "ci95": [
+      0.1258171884332753,
+      0.13937507262984886
+    ]
+  },
+  "log_loss": {
+    "estimate": 0.4246940650933129,
+    "ci95": [
+      0.4075476268350273,
+      0.44201649416116034
+    ]
+  },
+  "prevalence": {
+    "estimate": 0.22111111111111112,
+    "ci95": [
+      0.2088777777777778,
+      0.23378333333333334
+    ]
+  },
+  "expected_events": {
+    "estimate": 973.9693416220654,
+    "ci95": [
+      948.8847383826038,
+      999.3563452859335
+    ]
+  },
+  "observed_events": {
+    "estimate": 995,
+    "ci95": [
+      939.95,
+      1052.025
+    ]
+  },
+  "observed_minus_expected": {
+    "estimate": 21.03065837793463,
+    "ci95": [
+      -27.716951101172203,
+      68.88993954736101
+    ]
+  },
+  "expected_to_observed": {
+    "estimate": 0.9788636599216738,
+    "ci95": [
+      0.9336863847024911,
+      1.0296624970091588
+    ]
+  },
+  "calibration_intercept": {
+    "estimate": 0.14431864753773752,
+    "ci95": [
+      0.022163302415143128,
+      0.2575609555020072
+    ]
+  },
+  "calibration_slope": {
+    "estimate": 1.0947046749671976,
+    "ci95": [
+      1.0208492876874276,
+      1.175245924650059
+    ]
+  }
+}

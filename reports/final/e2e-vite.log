@@ -1,0 +1,11 @@
+
+> checkout-credit-copilot-ui@0.1.0 dev
+> vite --host 0.0.0.0 --host 127.0.0.1 --port 15173
+
+
+  VITE v7.3.7  ready in 622 ms
+
+  ➜  Local:   http://127.0.0.1:15173/
+12:36:20 AM [vite] (client) hmr update /src/index.css
+12:36:54 AM [vite] (client) hmr update /src/App.tsx, /src/index.css
+12:37:09 AM [vite] (client) hmr update /src/App.tsx, /src/index.css

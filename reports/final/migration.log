@@ -1,0 +1,1 @@
+PASS: 6 existing applications and 0 audit events survived V2 startup on a SQLite backup; original database untouched.

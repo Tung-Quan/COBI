@@ -1,0 +1,35 @@
+INFO:     Started server process [16612]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://127.0.0.1:18000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:65264 - "GET /api/applications/DEMO-001 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52062 - "GET /api/applications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52063 - "GET /api/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52065 - "GET /api/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52064 - "GET /api/applications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52072 - "GET /api/research/datasets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52077 - "GET /api/research/datasets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52075 - "GET /api/research/models HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52074 - "GET /api/research/experiments/uci350-v2.0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52079 - "GET /api/research/models HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52081 - "GET /api/research/experiments/uci350-v2.0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52083 - "GET /api/research/experiments/uci350-v2.0/artifacts/reliability.svg HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52085 - "GET /api/research/experiments/uci350-v2.0/artifacts/model_manifest.json HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52087 - "GET /api/applications/DEMO-001 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52090 - "POST /api/applications/DEMO-001/simulate HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52092 - "GET /api/applications/DEMO-001 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52095 - "POST /api/applications HTTP/1.1" 201 Created
+INFO:     127.0.0.1:52098 - "GET /api/applications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52099 - "GET /api/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52102 - "POST /api/applications/SYN-231757/review HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52106 - "GET /api/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52105 - "GET /api/applications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52108 - "POST /api/applications/SYN-231757/revoke-consent HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52111 - "GET /api/applications HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52112 - "GET /api/metrics HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52115 - "GET /api/research/datasets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52120 - "GET /api/research/datasets HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52117 - "GET /api/research/experiments/uci350-v2.0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52118 - "GET /api/research/models HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52123 - "GET /api/research/experiments/uci350-v2.0 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52125 - "GET /api/research/models HTTP/1.1" 200 OK

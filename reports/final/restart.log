@@ -1,0 +1,1 @@
+PASS: 16 held validation rows, raw and calibrated probabilities match across API restarts; domain and feature mismatches rejected.

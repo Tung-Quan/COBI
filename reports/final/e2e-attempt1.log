@@ -1,0 +1,22 @@
+✖ benchmark and synthetic officer workflow stay separate (36082.9637ms)
+ℹ tests 1
+ℹ suites 0
+ℹ pass 0
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 36547.712
+
+✖ failing tests:
+
+test at frontend\tests\workbench.e2e.mjs:5:1
+✖ benchmark and synthetic officer workflow stay separate (36082.9637ms)
+  locator.click: Timeout 30000ms exceeded.
+  Call log:
+  [2m  - waiting for getByRole('navigation').getByRole('button', { name: 'Officer Review', exact: true })[22m
+  
+      at TestContext.<anonymous> (C:\disk D\COBI\frontend\tests\workbench.e2e.mjs:45:33) {
+    name: 'TimeoutError',
+    log: [ "  - waiting for getByRole('navigation').getByRole('button', { name: 'Officer Review', exact: true })" ]
+  }

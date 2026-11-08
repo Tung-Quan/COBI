@@ -1,0 +1,21 @@
+{
+  "selected": "xgb-d2-lr0.1",
+  "logistic": "logistic-C0.1",
+  "validation_log_loss": 0.4323956965887431,
+  "calibrator": {
+    "intercept": -0.04807095532913616,
+    "slope": 0.9629524388630192
+  },
+  "calibration_cohort": {
+    "n": 3000,
+    "events": 664,
+    "non_events": 2336,
+    "prevalence": 0.22133333333333333
+  },
+  "frozen_at": "2026-11-07T17:20:36.420798+00:00",
+  "frozen_components_sha256": {
+    "model.json": "ad56ddec5517e067c4ae3d95e9acd82ec46afd1a0cd29cfd6fd0d776ecbcf32a",
+    "preprocessing.json": "86327655f1630afe251b492a82f8ba98e06d387b2312c49671acbb1c4dd3cc3a",
+    "calibrator.json": "b7bc80db72d450903ffa59127448eb2412034f52a2a124ed7875fada0450c374"
+  }
+}

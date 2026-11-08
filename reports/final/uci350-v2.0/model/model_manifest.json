@@ -1,0 +1,796 @@
+{
+  "model_id": "uci350-v2.0-selected",
+  "version": "uci350-v2.0",
+  "selected_candidate": "xgb-d2-lr0.1",
+  "family": "xgb",
+  "parameters": {
+    "max_depth": 2,
+    "eta": 0.1,
+    "objective": "binary:logistic",
+    "eval_metric": "logloss",
+    "tree_method": "hist",
+    "device": "cpu",
+    "nthread": 1,
+    "seed": 42,
+    "subsample": 1,
+    "colsample_bytree": 1,
+    "reg_lambda": 1,
+    "reg_alpha": 0,
+    "min_child_weight": 1,
+    "gamma": 0,
+    "max_bin": 256,
+    "rounds": 210,
+    "max_rounds": 350,
+    "patience": 20,
+    "resolved_config": {
+      "learner": {
+        "generic_param": {
+          "device": "cpu",
+          "fail_on_invalid_gpu_id": "0",
+          "n_jobs": "1",
+          "nthread": "1",
+          "random_state": "42",
+          "seed": "42",
+          "seed_per_iteration": "0",
+          "validate_parameters": "1"
+        },
+        "gradient_booster": {
+          "gbtree_model_param": {
+            "num_parallel_tree": "1",
+            "num_trees": "230"
+          },
+          "gbtree_train_param": {
+            "process_type": "default",
+            "tree_method": "hist",
+            "updater": "grow_quantile_histmaker",
+            "updater_seq": "grow_quantile_histmaker"
+          },
+          "name": "gbtree",
+          "specified_updater": false,
+          "tree_train_param": {
+            "alpha": "0",
+            "cache_opt": "1",
+            "colsample_bylevel": "1",
+            "colsample_bynode": "1",
+            "colsample_bytree": "1",
+            "eta": "0.100000001",
+            "gamma": "0",
+            "grow_policy": "depthwise",
+            "interaction_constraints": "",
+            "lambda": "1",
+            "learning_rate": "0.100000001",
+            "max_bin": "256",
+            "max_cat_threshold": "64",
+            "max_cat_to_onehot": "4",
+            "max_delta_step": "0",
+            "max_depth": "2",
+            "max_leaves": "0",
+            "min_child_weight": "1",
+            "min_split_loss": "0",
+            "monotone_constraints": "()",
+            "refresh_leaf": "1",
+            "reg_alpha": "0",
+            "reg_lambda": "1",
+            "sampling_method": "uniform",
+            "sketch_ratio": "2",
+            "sparse_threshold": "0.20000000000000001",
+            "subsample": "1"
+          },
+          "updater": [
+            {
+              "hist_train_param": {
+                "debug_synchronize": "0",
+                "extmem_single_page": "0",
+                "max_cached_hist_node": "18446744073709551615"
+              },
+              "name": "grow_quantile_histmaker"
+            }
+          ]
+        },
+        "learner_model_param": {
+          "base_score": "2.2122222E-1",
+          "boost_from_average": "1",
+          "num_class": "0",
+          "num_feature": "85",
+          "num_target": "1"
+        },
+        "learner_train_param": {
+          "booster": "gbtree",
+          "disable_default_eval_metric": "0",
+          "multi_strategy": "one_output_per_tree",
+          "objective": "binary:logistic"
+        },
+        "metrics": [
+          {
+            "name": "logloss"
+          }
+        ],
+        "objective": {
+          "name": "binary:logistic",
+          "reg_loss_param": {
+            "scale_pos_weight": "1"
+          }
+        }
+      },
+      "version": [
+        3,
+        0,
+        5
+      ]
+    }
+  },
+  "training_dataset": {
+    "dataset_id": "UCI_350",
+    "source_url": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
+    "archive_url": "https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip",
+    "provider": "UCI Machine Learning Repository",
+    "citation": "Yeh, I. (2009), DOI 10.24432/C55S3H",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "source_domain": "TAIWAN_CREDIT_CARD_2005",
+    "target": "default.payment.next.month",
+    "label_mapping": {
+      "0": "no default",
+      "1": "default"
+    },
+    "horizon": "next payment month",
+    "population": "Taiwan credit-card customers",
+    "snapshot": "Monthly credit-card histories April\u2013September 2005, no application or customer-group index",
+    "split_protocol": "STRATIFIED_RANDOM_60_15_10_15_NOT_OOT",
+    "feature_allowlist": [
+      "LIMIT_BAL",
+      "PAY_0",
+      "PAY_2",
+      "PAY_3",
+      "PAY_4",
+      "PAY_5",
+      "PAY_6",
+      "BILL_AMT1",
+      "BILL_AMT2",
+      "BILL_AMT3",
+      "BILL_AMT4",
+      "BILL_AMT5",
+      "BILL_AMT6",
+      "PAY_AMT1",
+      "PAY_AMT2",
+      "PAY_AMT3",
+      "PAY_AMT4",
+      "PAY_AMT5",
+      "PAY_AMT6"
+    ],
+    "feature_signature": "8b7b3244093c057dc149a83be81c9238b0586c58049336efabd5e4e1dfbd81ec",
+    "application_compatibility": "BENCHMARK_ONLY",
+    "status": "VERIFIED",
+    "retrieved_utc": "2026-11-07T17:17:06.010619+00:00",
+    "original_filename": "default of credit card clients.xls",
+    "csv_url": "https://archive.ics.uci.edu/static/public/350/data.csv",
+    "original_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+    "raw_archive_sha256": "56c885f84457f6680f8438f02bfcdac9579323d8a94465ee5f26e32baa727602",
+    "raw_csv_sha256": "45bcf4df62ff2e237a74eb155cabfb4bbbc171219a0637daef44fdad07503dd0",
+    "license_snapshot_sha256": "2ba8a9014249210bf44f1ce218e9e1214f6992801856ccf78a7f0196b5227df2",
+    "normalized_sha256": "957a8f0c61a409fca9831da6dc9eb38a710503f0a09a19d5725a574f48db5809",
+    "rows": 30000,
+    "source_features": 23,
+    "source_columns": [
+      "ID",
+      "LIMIT_BAL",
+      "SEX",
+      "EDUCATION",
+      "MARRIAGE",
+      "AGE",
+      "PAY_0",
+      "PAY_2",
+      "PAY_3",
+      "PAY_4",
+      "PAY_5",
+      "PAY_6",
+      "BILL_AMT1",
+      "BILL_AMT2",
+      "BILL_AMT3",
+      "BILL_AMT4",
+      "BILL_AMT5",
+      "BILL_AMT6",
+      "PAY_AMT1",
+      "PAY_AMT2",
+      "PAY_AMT3",
+      "PAY_AMT4",
+      "PAY_AMT5",
+      "PAY_AMT6",
+      "default.payment.next.month"
+    ],
+    "normalized_columns": [
+      "ID",
+      "LIMIT_BAL",
+      "PAY_0",
+      "PAY_2",
+      "PAY_3",
+      "PAY_4",
+      "PAY_5",
+      "PAY_6",
+      "BILL_AMT1",
+      "BILL_AMT2",
+      "BILL_AMT3",
+      "BILL_AMT4",
+      "BILL_AMT5",
+      "BILL_AMT6",
+      "PAY_AMT1",
+      "PAY_AMT2",
+      "PAY_AMT3",
+      "PAY_AMT4",
+      "PAY_AMT5",
+      "PAY_AMT6",
+      "default.payment.next.month"
+    ],
+    "label_counts": {
+      "0": 23364,
+      "1": 6636
+    },
+    "missingness": {
+      "ID": 0,
+      "LIMIT_BAL": 0,
+      "SEX": 0,
+      "EDUCATION": 0,
+      "MARRIAGE": 0,
+      "AGE": 0,
+      "PAY_0": 0,
+      "PAY_2": 0,
+      "PAY_3": 0,
+      "PAY_4": 0,
+      "PAY_5": 0,
+      "PAY_6": 0,
+      "BILL_AMT1": 0,
+      "BILL_AMT2": 0,
+      "BILL_AMT3": 0,
+      "BILL_AMT4": 0,
+      "BILL_AMT5": 0,
+      "BILL_AMT6": 0,
+      "PAY_AMT1": 0,
+      "PAY_AMT2": 0,
+      "PAY_AMT3": 0,
+      "PAY_AMT4": 0,
+      "PAY_AMT5": 0,
+      "PAY_AMT6": 0,
+      "default.payment.next.month": 0
+    },
+    "unique_sample_ids": 30000,
+    "duplicate_predictor_rows": 817,
+    "feature_ranges": {
+      "LIMIT_BAL": [
+        10000,
+        1000000
+      ],
+      "PAY_0": [
+        -2,
+        8
+      ],
+      "PAY_2": [
+        -2,
+        8
+      ],
+      "PAY_3": [
+        -2,
+        8
+      ],
+      "PAY_4": [
+        -2,
+        8
+      ],
+      "PAY_5": [
+        -2,
+        8
+      ],
+      "PAY_6": [
+        -2,
+        8
+      ],
+      "BILL_AMT1": [
+        -165580,
+        964511
+      ],
+      "BILL_AMT2": [
+        -69777,
+        983931
+      ],
+      "BILL_AMT3": [
+        -157264,
+        1664089
+      ],
+      "BILL_AMT4": [
+        -170000,
+        891586
+      ],
+      "BILL_AMT5": [
+        -81334,
+        927171
+      ],
+      "BILL_AMT6": [
+        -339603,
+        961664
+      ],
+      "PAY_AMT1": [
+        0,
+        873552
+      ],
+      "PAY_AMT2": [
+        0,
+        1684259
+      ],
+      "PAY_AMT3": [
+        0,
+        896040
+      ],
+      "PAY_AMT4": [
+        0,
+        621000
+      ],
+      "PAY_AMT5": [
+        0,
+        426529
+      ],
+      "PAY_AMT6": [
+        0,
+        528666
+      ]
+    },
+    "repayment_code_counts": {
+      "PAY_0": {
+        "0": 14737,
+        "-1": 5686,
+        "1": 3688,
+        "-2": 2759,
+        "2": 2667,
+        "3": 322,
+        "4": 76,
+        "5": 26,
+        "8": 19,
+        "6": 11,
+        "7": 9
+      },
+      "PAY_2": {
+        "0": 15730,
+        "-1": 6050,
+        "2": 3927,
+        "-2": 3782,
+        "3": 326,
+        "4": 99,
+        "1": 28,
+        "5": 25,
+        "7": 20,
+        "6": 12,
+        "8": 1
+      },
+      "PAY_3": {
+        "0": 15764,
+        "-1": 5938,
+        "-2": 4085,
+        "2": 3819,
+        "3": 240,
+        "4": 76,
+        "7": 27,
+        "6": 23,
+        "5": 21,
+        "1": 4,
+        "8": 3
+      },
+      "PAY_4": {
+        "0": 16455,
+        "-1": 5687,
+        "-2": 4348,
+        "2": 3159,
+        "3": 180,
+        "4": 69,
+        "7": 58,
+        "5": 35,
+        "6": 5,
+        "1": 2,
+        "8": 2
+      },
+      "PAY_5": {
+        "0": 16947,
+        "-1": 5539,
+        "-2": 4546,
+        "2": 2626,
+        "3": 178,
+        "4": 84,
+        "7": 58,
+        "5": 17,
+        "6": 4,
+        "8": 1
+      },
+      "PAY_6": {
+        "0": 16286,
+        "-1": 5740,
+        "-2": 4895,
+        "2": 2766,
+        "3": 184,
+        "4": 49,
+        "7": 46,
+        "6": 19,
+        "5": 13,
+        "8": 2
+      }
+    },
+    "training_eligibility": "UCI research benchmark only",
+    "restrictions": "CC BY 4.0 attribution; excluded ID and demographics",
+    "limitations": [
+      "No per-application dates",
+      "No customer grouping key",
+      "No Vietnamese checkout outcomes",
+      "Some repayment codes are undocumented in the UCI description; encoded as categories"
+    ]
+  },
+  "source_domain": "TAIWAN_CREDIT_CARD_2005",
+  "label_horizon": "next payment month",
+  "target": "default.payment.next.month",
+  "class_mapping": {
+    "0": "no default",
+    "1": "default"
+  },
+  "feature_signature": "8b7b3244093c057dc149a83be81c9238b0586c58049336efabd5e4e1dfbd81ec",
+  "feature_contract": {
+    "features": [
+      {
+        "name": "LIMIT_BAL",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          1,
+          10000000
+        ],
+        "semantics": "Credit limit including supplementary credit"
+      },
+      {
+        "name": "PAY_0",
+        "type": "integer",
+        "unit": "status code",
+        "bounds": [
+          -2,
+          9
+        ],
+        "semantics": "Repayment status 9/2005, preserved categorically including undocumented codes"
+      },
+      {
+        "name": "PAY_2",
+        "type": "integer",
+        "unit": "status code",
+        "bounds": [
+          -2,
+          9
+        ],
+        "semantics": "Repayment status 8/2005, preserved categorically including undocumented codes"
+      },
+      {
+        "name": "PAY_3",
+        "type": "integer",
+        "unit": "status code",
+        "bounds": [
+          -2,
+          9
+        ],
+        "semantics": "Repayment status 7/2005, preserved categorically including undocumented codes"
+      },
+      {
+        "name": "PAY_4",
+        "type": "integer",
+        "unit": "status code",
+        "bounds": [
+          -2,
+          9
+        ],
+        "semantics": "Repayment status 6/2005, preserved categorically including undocumented codes"
+      },
+      {
+        "name": "PAY_5",
+        "type": "integer",
+        "unit": "status code",
+        "bounds": [
+          -2,
+          9
+        ],
+        "semantics": "Repayment status 5/2005, preserved categorically including undocumented codes"
+      },
+      {
+        "name": "PAY_6",
+        "type": "integer",
+        "unit": "status code",
+        "bounds": [
+          -2,
+          9
+        ],
+        "semantics": "Repayment status 4/2005, preserved categorically including undocumented codes"
+      },
+      {
+        "name": "BILL_AMT1",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          -10000000,
+          10000000
+        ],
+        "semantics": "Statement amount 9/2005"
+      },
+      {
+        "name": "BILL_AMT2",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          -10000000,
+          10000000
+        ],
+        "semantics": "Statement amount 8/2005"
+      },
+      {
+        "name": "BILL_AMT3",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          -10000000,
+          10000000
+        ],
+        "semantics": "Statement amount 7/2005"
+      },
+      {
+        "name": "BILL_AMT4",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          -10000000,
+          10000000
+        ],
+        "semantics": "Statement amount 6/2005"
+      },
+      {
+        "name": "BILL_AMT5",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          -10000000,
+          10000000
+        ],
+        "semantics": "Statement amount 5/2005"
+      },
+      {
+        "name": "BILL_AMT6",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          -10000000,
+          10000000
+        ],
+        "semantics": "Statement amount 4/2005"
+      },
+      {
+        "name": "PAY_AMT1",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          0,
+          10000000
+        ],
+        "semantics": "Prior payment amount 9/2005"
+      },
+      {
+        "name": "PAY_AMT2",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          0,
+          10000000
+        ],
+        "semantics": "Prior payment amount 8/2005"
+      },
+      {
+        "name": "PAY_AMT3",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          0,
+          10000000
+        ],
+        "semantics": "Prior payment amount 7/2005"
+      },
+      {
+        "name": "PAY_AMT4",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          0,
+          10000000
+        ],
+        "semantics": "Prior payment amount 6/2005"
+      },
+      {
+        "name": "PAY_AMT5",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          0,
+          10000000
+        ],
+        "semantics": "Prior payment amount 5/2005"
+      },
+      {
+        "name": "PAY_AMT6",
+        "type": "integer",
+        "unit": "NTD",
+        "bounds": [
+          0,
+          10000000
+        ],
+        "semantics": "Prior payment amount 4/2005"
+      }
+    ],
+    "target": "default.payment.next.month",
+    "horizon": "next payment month",
+    "source_domain": "TAIWAN_CREDIT_CARD_2005",
+    "preprocessing_version": "train-zscore-fixed-status-onehot-v1"
+  },
+  "feature_allowlist": [
+    "LIMIT_BAL",
+    "PAY_0",
+    "PAY_2",
+    "PAY_3",
+    "PAY_4",
+    "PAY_5",
+    "PAY_6",
+    "BILL_AMT1",
+    "BILL_AMT2",
+    "BILL_AMT3",
+    "BILL_AMT4",
+    "BILL_AMT5",
+    "BILL_AMT6",
+    "PAY_AMT1",
+    "PAY_AMT2",
+    "PAY_AMT3",
+    "PAY_AMT4",
+    "PAY_AMT5",
+    "PAY_AMT6"
+  ],
+  "calibrated": true,
+  "status": "BENCHMARK_ONLY",
+  "evaluation_status": "PUBLIC_DATA_BENCHMARKED",
+  "human_risk_review": "PENDING_INDEPENDENT_REVIEW",
+  "checkout_compatible": false,
+  "split": {
+    "seed": 42,
+    "strategy": "STRATIFIED_RANDOM_60_15_10_15_NOT_OOT",
+    "normalized_sha256": "957a8f0c61a409fca9831da6dc9eb38a710503f0a09a19d5725a574f48db5809",
+    "protocol_sha256": "d1d886a8509a6828207d9f85bc72da6d6b7936818cfbfc19f3ba38a98b869b26",
+    "split_code_sha256": "14b132cd164329f346552d8fcfb28962b4672153aa37c54ad575ee9139f3796d",
+    "split_overlap": false,
+    "cohorts": {
+      "train": {
+        "n": 18000,
+        "events": 3982,
+        "non_events": 14018,
+        "prevalence": 0.2212222222222222
+      },
+      "validation": {
+        "n": 4500,
+        "events": 995,
+        "non_events": 3505,
+        "prevalence": 0.22111111111111112
+      },
+      "calibration": {
+        "n": 3000,
+        "events": 664,
+        "non_events": 2336,
+        "prevalence": 0.22133333333333333
+      },
+      "test": {
+        "n": 4500,
+        "events": 995,
+        "non_events": 3505,
+        "prevalence": 0.22111111111111112
+      }
+    },
+    "locked_at": "2026-11-07T17:17:45.970585+00:00",
+    "lock_sha256": "ccd6e0653d40afeb821f160bc9a9803446de3d4506eccf348c4339cfd04d12a5"
+  },
+  "protocol_sha256": "d1d886a8509a6828207d9f85bc72da6d6b7936818cfbfc19f3ba38a98b869b26",
+  "code_sha256": {
+    "candidates.py": "172e0d18fc90eae326b7ebcb6609275696c9e95b8cefa49475903ed23e53e456",
+    "contracts.py": "f79f8474ff1fe23f19d5f456b7518a4c7062a816b7ca906d5b3c226a09fa5a29",
+    "evaluation.py": "fbd5903b81b4403e9a28f63dcd146bb303e25fe3b16522f2d4786a81bfb542cc",
+    "net.py": "7af29c87cf64d526ac09319c728549838049f579b0a370872253319cd14cb091",
+    "predict.py": "ec65b3e476c28a7f2b8f5e1594f7b5d0bfd6d3597abb9577dd71a425e5341d1c",
+    "preprocessing.py": "770a8fb8eae254a523dfce8c40f127f6a2dbb5b4fda39f42a665b91defd4f995",
+    "split.py": "14b132cd164329f346552d8fcfb28962b4672153aa37c54ad575ee9139f3796d",
+    "train_pd.py": "a7dba6a1f49949843b12c50cb1ff5f138b2edcd9b3b83a34ccf668daa5bfb3bb"
+  },
+  "libraries": {
+    "numpy": "2.2.6",
+    "pandas": "2.2.3",
+    "scipy": "1.15.3",
+    "scikit-learn": "1.6.1",
+    "xgboost": "3.0.5",
+    "torch": "2.7.1+cpu"
+  },
+  "python": "3.13.13",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "sha256": {
+    "model.json": "ad56ddec5517e067c4ae3d95e9acd82ec46afd1a0cd29cfd6fd0d776ecbcf32a",
+    "preprocessing.json": "86327655f1630afe251b492a82f8ba98e06d387b2312c49671acbb1c4dd3cc3a",
+    "calibrator.json": "b7bc80db72d450903ffa59127448eb2412034f52a2a124ed7875fada0450c374"
+  },
+  "report_sha256": "b7bbe69a3a7329cc5755a27b206e49a6c8d32db9319c72594661115a2f36ef6a",
+  "test_metrics": {
+    "roc_auc": {
+      "estimate": 0.7852887834321393,
+      "ci95": [
+        0.7695524404481294,
+        0.8007555561764961
+      ]
+    },
+    "average_precision": {
+      "estimate": 0.5738230946689142,
+      "ci95": [
+        0.5415078531315322,
+        0.6049071543182684
+      ]
+    },
+    "brier": {
+      "estimate": 0.13266296667215838,
+      "ci95": [
+        0.1258171884332753,
+        0.13937507262984886
+      ]
+    },
+    "log_loss": {
+      "estimate": 0.4246940650933129,
+      "ci95": [
+        0.4075476268350273,
+        0.44201649416116034
+      ]
+    },
+    "prevalence": {
+      "estimate": 0.22111111111111112,
+      "ci95": [
+        0.2088777777777778,
+        0.23378333333333334
+      ]
+    },
+    "expected_events": {
+      "estimate": 973.9693416220654,
+      "ci95": [
+        948.8847383826038,
+        999.3563452859335
+      ]
+    },
+    "observed_events": {
+      "estimate": 995,
+      "ci95": [
+        939.95,
+        1052.025
+      ]
+    },
+    "observed_minus_expected": {
+      "estimate": 21.03065837793463,
+      "ci95": [
+        -27.716951101172203,
+        68.88993954736101
+      ]
+    },
+    "expected_to_observed": {
+      "estimate": 0.9788636599216738,
+      "ci95": [
+        0.9336863847024911,
+        1.0296624970091588
+      ]
+    },
+    "calibration_intercept": {
+      "estimate": 0.14431864753773752,
+      "ci95": [
+        0.022163302415143128,
+        0.2575609555020072
+      ]
+    },
+    "calibration_slope": {
+      "estimate": 1.0947046749671976,
+      "ci95": [
+        1.0208492876874276,
+        1.175245924650059
+      ]
+    }
+  }
+}

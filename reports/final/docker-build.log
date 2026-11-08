@@ -1,0 +1,83 @@
+ Image cobi-api Building 
+ Image cobi-frontend Building 
+#1 [internal] load local bake definitions
+#1 reading from stdin 905B done
+#1 DONE 0.0s
+
+#2 [frontend internal] load build definition from Dockerfile
+#2 transferring dockerfile:
+#2 transferring dockerfile: 196B 0.0s done
+#2 DONE 0.2s
+
+#3 [api internal] load build definition from Dockerfile
+#3 transferring dockerfile: 378B 0.0s done
+#3 DONE 0.2s
+
+#4 [api internal] load metadata for docker.io/library/python:3.13-slim
+#4 ...
+
+#5 [frontend internal] load metadata for docker.io/library/node:24-alpine
+#5 DONE 0.4s
+
+#6 [frontend 1/5] FROM docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8
+#6 resolve docker.io/library/node:24-alpine@sha256:a34ab6d7f6f4813f4d0c5469d74685604b962fbdbf5793a7bc7b4998ecb867c8 0.1s done
+#6 sha256:60ef5f57e09d3f24d91cfd5547a102a028a7bd629f03e79409f53a202cf9df54 441B / 441B 0.3s done
+#6 sha256:89a151fddb377af33d0dda6a24f40061bbde4b159f82c349fe01208baba8a84f 1.26MB / 1.26MB 0.8s done
+#6 sha256:881fc932939efef04ca120ad44bbd2c0917851eb247aa4995428afb1e80ede17 3.85MB / 3.85MB 2.1s done
+#6 extracting sha256:881fc932939efef04ca120ad44bbd2c0917851eb247aa4995428afb1e80ede17 0.6s done
+#6 sha256:b72829bc75b7701104d057fde78fe0aef6dc0c3eaf2423e7249e8a14c37ead57 57.38MB / 57.38MB 6.0s done
+#6 extracting sha256:b72829bc75b7701104d057fde78fe0aef6dc0c3eaf2423e7249e8a14c37ead57 4.7s done
+#6 extracting sha256:89a151fddb377af33d0dda6a24f40061bbde4b159f82c349fe01208baba8a84f 0.2s done
+#6 extracting sha256:60ef5f57e09d3f24d91cfd5547a102a028a7bd629f03e79409f53a202cf9df54 0.0s done
+#6 DONE 12.3s
+
+#7 [frontend 2/5] WORKDIR /app
+#7 DONE 0.2s
+
+#8 [frontend internal] load .dockerignore
+#8 transferring context: 58B 0.0s done
+#8 DONE 0.1s
+
+#4 [api internal] load metadata for docker.io/library/python:3.13-slim
+#4 ...
+
+#9 [frontend 3/5] COPY package.json package-lock.json ./
+#9 DONE 0.1s
+
+#10 [frontend internal] load build context
+#10 transferring context: 259.54kB 0.1s done
+#10 DONE 0.1s
+
+#11 [frontend 4/5] RUN npm ci
+#11 ...
+
+#4 [api internal] load metadata for docker.io/library/python:3.13-slim
+#4 DONE 2.1s
+
+#12 [api 1/6] FROM docker.io/library/python:3.13-slim@sha256:09a17cad02668ae61ece136b4fd36ac3849e14f670ebedb637ea3e15580525bc
+#12 resolve docker.io/library/python:3.13-slim@sha256:09a17cad02668ae61ece136b4fd36ac3849e14f670ebedb637ea3e15580525bc 0.1s done
+#12 sha256:f7a79299dedd5c817d47e3f61cf6eecae73b92cb193a1ef52180a46b0161c50a 248B / 248B 0.6s done
+#12 sha256:0069ea31add00b9f63dbb3f0bcee44990654c5e2c17ccfeaeae47e74edf44498 1.29MB / 1.29MB 0.6s done
+#12 sha256:faa890a31e98e11bc3138d9549c86441024fdb24bd555bb0bca17dc9a6c5b565 11.92MB / 11.92MB 3.2s done
+#12 sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 29.86MB / 29.86MB 4.3s done
+#12 extracting sha256:37fb86c2a767b88d500c6872195f88078f64765fe0d2f9cc375cc2efbd4c0a41 3.1s done
+#12 extracting sha256:0069ea31add00b9f63dbb3f0bcee44990654c5e2c17ccfeaeae47e74edf44498 0.3s done
+#12 extracting sha256:faa890a31e98e11bc3138d9549c86441024fdb24bd555bb0bca17dc9a6c5b565 1.7s done
+#12 extracting sha256:f7a79299dedd5c817d47e3f61cf6eecae73b92cb193a1ef52180a46b0161c50a 0.0s done
+#12 DONE 10.0s
+
+#13 [api 2/6] WORKDIR /app
+#13 DONE 0.5s
+
+#14 [api internal] load .dockerignore
+#14 transferring context: 128B done
+#14 DONE 0.1s
+
+#15 [api internal] load build context
+#15 transferring context: 161.83kB 0.1s done
+#15 DONE 0.1s
+
+#16 [api 3/6] COPY requirements.txt ./requirements.txt
+#16 DONE 0.1s
+
+#17 [api 4/6] RUN pip install --no-cache-dir -r requirements.txt
