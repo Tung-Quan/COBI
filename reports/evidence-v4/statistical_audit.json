@@ -1,0 +1,96 @@
+{
+  "audit_id": "cobi-evidence-v4-final-audit",
+  "created_at_utc": "2026-11-08T10:38:18.361234+00:00",
+  "validation_status": "EVIDENCE_AI_VALIDATION_BLOCKED",
+  "protected_baseline_manifest_sha256": "3ef9c5d33eb33e0879ccb628213dbd5d27300c52d72166781335221751599585",
+  "protected_baseline_artifacts_verified": 109,
+  "protected_baseline_mismatches": [],
+  "original_protocol_sha256": "f1eb2df747451e18a511d18c9679eb6685d2640056d3eb9054566468789d9a65",
+  "amendment_sha256": "f6651efee06938c6203cfc44e0ef8009ba438838fa0dd4034ce9e2181ecada69",
+  "generator_code_sha256": "2e1a35e5b757b348b98f29a307024a87571a073ba2318e2d0f0f6c2edf7fca69",
+  "generator_data_hashes": {
+    "observed.json": "ceba6639871826aec07f6c4eece19b9e14ace2c784879a3b376225f026bf6412",
+    "canonical_facts.json": "afd2dae8436d3a52857460b4ffe7a57e7aebeb5cb4f0821fe7af931140eee4d5",
+    "gold_labels.json": "5d28c658d69ca7728c8ba6e5a141c35975580dc2b9412d9df950df263d16eefd"
+  },
+  "generator_counts": {
+    "cases": 1920,
+    "customer_groups": 960,
+    "documents": 7744
+  },
+  "generator_schema": {
+    "compatible_documents": 7744,
+    "incompatible_documents": 0,
+    "errors": []
+  },
+  "frozen_feature_count": 32,
+  "frozen_feature_names": [
+    "log_amount_income",
+    "log_amount_debt",
+    "log_amount_purchase",
+    "missing_income",
+    "missing_debt",
+    "missing_purchase",
+    "ocr_quality",
+    "age_days",
+    "reported_verified",
+    "source_statement",
+    "source_payroll",
+    "source_merchant",
+    "peer_gap_income",
+    "peer_gap_debt",
+    "peer_gap_purchase",
+    "document_count",
+    "coverage",
+    "consistency",
+    "recency",
+    "verification",
+    "hashed_text_0",
+    "hashed_text_1",
+    "hashed_text_2",
+    "hashed_text_3",
+    "hashed_text_4",
+    "hashed_text_5",
+    "hashed_text_6",
+    "hashed_text_7",
+    "hashed_text_8",
+    "hashed_text_9",
+    "hashed_text_10",
+    "hashed_text_11"
+  ],
+  "v3_split_group_counts": {
+    "train": 352,
+    "validation": 96,
+    "calibration": 96,
+    "test": 96
+  },
+  "v3_customer_group_overlap_pairs": 0,
+  "v3_locked_test_cases_replayed": 192,
+  "v3_frozen_thresholds": {
+    "M0_CS_V2": 0.2664026678255962,
+    "M1_LOGISTIC": 0.5265371299544362,
+    "M2_XGBOOST": 0.9236921847680296,
+    "M3_DEEP_SETS": 0.6561391478347606
+  },
+  "v3_replay_matches_frozen_report": true,
+  "e1_cases_documents_critical_support": [
+    192,
+    753,
+    200
+  ],
+  "e2_cases_groups_documents": [
+    1920,
+    960,
+    7744
+  ],
+  "bootstrap": {
+    "draws": 300,
+    "seed": 20261109,
+    "unit": "customer_group"
+  },
+  "e3_rows": 84,
+  "e3_cost_inputs_are_assumptions": true,
+  "v4_training_performed": false,
+  "routing_authorized": false,
+  "approval_authorized": false
+}

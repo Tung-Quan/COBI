@@ -1,0 +1,61 @@
+{
+  "protocol_id": "cobi-evidence-v4.0",
+  "registered_at": "2026-11-08",
+  "registered_before_generator_b_evaluation": true,
+  "research_question": "Can learned evidence-quality models reduce financial-document verification workload while maintaining critical-error detection performance, and do these improvements remain robust when the synthetic data-generating process changes?",
+  "bank_validation_status": "EVIDENCE_AI_VALIDATION_BLOCKED",
+  "e1": {
+    "design": "retrospective_v3_locked_test_replay",
+    "unit_document": "document",
+    "unit_workload": "case",
+    "models": ["M0_CS_V2", "M1_LOGISTIC", "M2_XGBOOST", "M3_DEEP_SETS"],
+    "threshold_source": "reports/evidence-v3/synthetic/selection_lock.json",
+    "thresholds_frozen": true,
+    "primary_metrics": ["critical_recall", "critical_false_negative_count", "case_review_workload"],
+    "secondary_metrics": ["average_precision", "brier", "log_loss", "document_flag_rate", "precision_at_threshold", "flagged_cases_per_100"]
+  },
+  "e2": {
+    "generator": "evidence_ai/v4_generator.py",
+    "generator_must_not_import_v3_generator": true,
+    "seed": 20261108,
+    "scenarios": ["B1_income_reconciliation", "B2_duplicate_overlap", "B3_format_units", "B4_freshness", "B5_legitimate_discrepancies", "B6_source_combinations"],
+    "customer_groups_per_scenario": 160,
+    "cases_per_group": 2,
+    "total_cases": 1920,
+    "total_customer_groups": 960,
+    "documents_per_case": [2, 6],
+    "profile_vnd_ranges": {"income": [3000000, 30000000], "debt": [0, 18000000], "purchase": [1000000, 30000000]},
+    "income_history_months": [6, 24],
+    "materiality_thresholds_vnd": {"income": 500000, "debt": 250000, "purchase": 500000},
+    "criticality_multiplier": 2,
+    "scenario_event_rates": {"B1": 0.12, "B2": 0.15, "B3": 0.12, "B4": 0.12, "B5": 0.08, "B6": 0.12},
+    "source_combinations_B6": [["statement", "payroll"], ["statement", "merchant"], ["payroll", "merchant"]],
+    "model_set": ["M0_CS_V2", "M1_LOGISTIC", "M2_XGBOOST", "M3_DEEP_SETS"],
+    "training": false,
+    "recalibration": false,
+    "threshold_retuning": false,
+    "primary_metrics": ["critical_recall", "critical_fnr", "critical_false_negative_count", "case_review_workload"],
+    "secondary_metrics": ["average_precision", "brier", "log_loss", "document_flag_rate", "precision_at_threshold", "calibration_error", "compatibility_rate", "scenario_metrics"],
+    "generalization_gaps": ["AP_A_minus_AP_B", "Recall_A_minus_Recall_B", "LogLoss_B_minus_LogLoss_A"]
+  },
+  "bootstrap": {
+    "draws": 300,
+    "seed": 20261109,
+    "unit": "customer_group",
+    "paired_within_dataset": true,
+    "generalization_gap_resampling": "independent_by_dataset"
+  },
+  "e3": {
+    "cost_unit": "VND",
+    "missed_error_unit": "critical_evidence_document",
+    "cost_config": "reports/evidence-v4/config/cost_scenarios.yaml",
+    "interpretation": "scenario_based_economic_feasibility_not_realized_operational_savings"
+  },
+  "e4": {"status": "deferred_until_e1_e3_complete"},
+  "feature_compatibility": {
+    "frozen_v3_schema": true,
+    "capacity": 6,
+    "sources": ["statement", "payroll", "merchant"],
+    "silent_coercion": false
+  }
+}

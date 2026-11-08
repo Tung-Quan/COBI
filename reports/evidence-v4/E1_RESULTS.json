@@ -1,0 +1,503 @@
+{
+  "experiment_id": "cobi-evidence-v4-e1",
+  "status": "RETROSPECTIVE_SYNTHETIC_TECHNICAL_ONLY",
+  "validation_status": "EVIDENCE_AI_VALIDATION_BLOCKED",
+  "dataset": {
+    "id": "evidence-synthetic-v3.0",
+    "cases": 192,
+    "customer_groups": 96,
+    "documents": 753,
+    "material_defects": 293,
+    "critical_defects": 200,
+    "previously_inspected": true
+  },
+  "models": {
+    "M0_CS_V2": {
+      "cases": 192,
+      "documents": 753,
+      "material_errors": 293,
+      "critical_errors": 200,
+      "critical_false_negatives": 24,
+      "critical_recall": 0.88,
+      "critical_fnr": 0.12,
+      "average_precision": 0.49574899081209134,
+      "brier": 0.23075502279770246,
+      "log_loss": 0.652882392809165,
+      "document_flag_rate": 0.8339973439575034,
+      "precision_at_threshold": 0.4140127388535032,
+      "flagged_documents": 628,
+      "false_positive_documents": 368,
+      "flagged_cases": 157,
+      "review_workload": 0.8177083333333334,
+      "flagged_cases_per_100": 81.77083333333333,
+      "critical_fn_per_case": 0.125,
+      "ci95": {
+        "critical_recall": [
+          0.8137841786306904,
+          0.9425464298593581
+        ],
+        "critical_fnr": [
+          0.0574535701406419,
+          0.18621582136930953
+        ],
+        "average_precision": [
+          0.45065352310141676,
+          0.5400204887928073
+        ],
+        "brier": [
+          0.2196145098902296,
+          0.2406230912913145
+        ],
+        "log_loss": [
+          0.6287012341662644,
+          0.673730534733348
+        ],
+        "review_workload": [
+          0.765625,
+          0.8673177083333332
+        ],
+        "document_flag_rate": [
+          0.7817788454645811,
+          0.884145675028625
+        ],
+        "precision_at_threshold": [
+          0.3791680132450331,
+          0.4486794421260707
+        ],
+        "critical_fn_per_case": [
+          0.059765625,
+          0.19544270833333321
+        ]
+      },
+      "frozen_threshold": 0.2664026678255962,
+      "threshold_source": "V3 calibration selection lock"
+    },
+    "M1_LOGISTIC": {
+      "cases": 192,
+      "documents": 753,
+      "material_errors": 293,
+      "critical_errors": 200,
+      "critical_false_negatives": 18,
+      "critical_recall": 0.91,
+      "critical_fnr": 0.09,
+      "average_precision": 0.9063163529173767,
+      "brier": 0.0839683149408891,
+      "log_loss": 0.2763195387038298,
+      "document_flag_rate": 0.41301460823373176,
+      "precision_at_threshold": 0.819935691318328,
+      "flagged_documents": 311,
+      "false_positive_documents": 56,
+      "flagged_cases": 152,
+      "review_workload": 0.7916666666666666,
+      "flagged_cases_per_100": 79.16666666666667,
+      "critical_fn_per_case": 0.09375,
+      "ci95": {
+        "critical_recall": [
+          0.8630708746230074,
+          0.9502599009900989
+        ],
+        "critical_fnr": [
+          0.04974009900990099,
+          0.13692912537699264
+        ],
+        "average_precision": [
+          0.881029825633472,
+          0.9356379394385317
+        ],
+        "brier": [
+          0.06984901827745332,
+          0.09633214088843912
+        ],
+        "log_loss": [
+          0.23325799321623794,
+          0.31584493747932435
+        ],
+        "review_workload": [
+          0.734375,
+          0.8412760416666666
+        ],
+        "document_flag_rate": [
+          0.3800080836200785,
+          0.4428243790444453
+        ],
+        "precision_at_threshold": [
+          0.7794526954254294,
+          0.8644102564102564
+        ],
+        "critical_fn_per_case": [
+          0.04934895833333334,
+          0.1433593749999999
+        ]
+      },
+      "frozen_threshold": 0.5265371299544362,
+      "threshold_source": "V3 calibration selection lock"
+    },
+    "M2_XGBOOST": {
+      "cases": 192,
+      "documents": 753,
+      "material_errors": 293,
+      "critical_errors": 200,
+      "critical_false_negatives": 19,
+      "critical_recall": 0.905,
+      "critical_fnr": 0.095,
+      "average_precision": 0.9827733303012222,
+      "brier": 0.03501263793141351,
+      "log_loss": 0.13004014848633158,
+      "document_flag_rate": 0.3107569721115538,
+      "precision_at_threshold": 0.9786324786324786,
+      "flagged_documents": 234,
+      "false_positive_documents": 5,
+      "flagged_cases": 136,
+      "review_workload": 0.7083333333333334,
+      "flagged_cases_per_100": 70.83333333333333,
+      "critical_fn_per_case": 0.09895833333333333,
+      "ci95": {
+        "critical_recall": [
+          0.8636363636363636,
+          0.9462271031613181
+        ],
+        "critical_fnr": [
+          0.05377289683868191,
+          0.13636363636363635
+        ],
+        "average_precision": [
+          0.9702581788326364,
+          0.9919935053654605
+        ],
+        "brier": [
+          0.023111829996684808,
+          0.048208990986053364
+        ],
+        "log_loss": [
+          0.08986865856584514,
+          0.18010592893625568
+        ],
+        "review_workload": [
+          0.6430989583333333,
+          0.7708333333333334
+        ],
+        "document_flag_rate": [
+          0.28062997850550003,
+          0.3412064917221485
+        ],
+        "precision_at_threshold": [
+          0.9621509935249852,
+          0.9937496417448458
+        ],
+        "critical_fn_per_case": [
+          0.05455729166666667,
+          0.14583333333333334
+        ]
+      },
+      "frozen_threshold": 0.9236921847680296,
+      "threshold_source": "V3 calibration selection lock"
+    },
+    "M3_DEEP_SETS": {
+      "cases": 192,
+      "documents": 753,
+      "material_errors": 293,
+      "critical_errors": 200,
+      "critical_false_negatives": 18,
+      "critical_recall": 0.91,
+      "critical_fnr": 0.09,
+      "average_precision": 0.9268753155235573,
+      "brier": 0.07402051849201387,
+      "log_loss": 0.23561521645249095,
+      "document_flag_rate": 0.3944223107569721,
+      "precision_at_threshold": 0.8484848484848485,
+      "flagged_documents": 297,
+      "false_positive_documents": 45,
+      "flagged_cases": 147,
+      "review_workload": 0.765625,
+      "flagged_cases_per_100": 76.5625,
+      "critical_fn_per_case": 0.09375,
+      "ci95": {
+        "critical_recall": [
+          0.8691395348837209,
+          0.9473684210526315
+        ],
+        "critical_fnr": [
+          0.05263157894736842,
+          0.13086046511627905
+        ],
+        "average_precision": [
+          0.9016055917653061,
+          0.9532816245348799
+        ],
+        "brier": [
+          0.05844971988189504,
+          0.08851441658256504
+        ],
+        "log_loss": [
+          0.19084845304306833,
+          0.2794716356337396
+        ],
+        "review_workload": [
+          0.7055989583333333,
+          0.8229166666666666
+        ],
+        "document_flag_rate": [
+          0.3573216374783396,
+          0.42624602887474417
+        ],
+        "precision_at_threshold": [
+          0.8108657243816254,
+          0.8882100750267953
+        ],
+        "critical_fn_per_case": [
+          0.052083333333333336,
+          0.140625
+        ]
+      },
+      "frozen_threshold": 0.6561391478347606,
+      "threshold_source": "V3 calibration selection lock"
+    }
+  },
+  "pairwise_differences": {
+    "M0_CS_V2_minus_M1_LOGISTIC": {
+      "critical_recall": [
+        -0.11363871635610771,
+        0.05861601085481673
+      ],
+      "critical_fnr": [
+        -0.05861601085481682,
+        0.11363871635610764
+      ],
+      "average_precision": [
+        -0.46195322425875307,
+        -0.3683248379221965
+      ],
+      "brier": [
+        0.13086556259305376,
+        0.16130510112240237
+      ],
+      "log_loss": [
+        0.3334681106618803,
+        0.4227352818107338
+      ],
+      "review_workload": [
+        -0.03645833333333326,
+        0.10169270833333327
+      ],
+      "document_flag_rate": [
+        0.36277448749969093,
+        0.47954159331600865
+      ],
+      "precision_at_threshold": [
+        -0.4537469489309092,
+        -0.36752554957674466
+      ],
+      "critical_fn_per_case": [
+        -0.05755208333333333,
+        0.10937500000000001
+      ]
+    },
+    "M0_CS_V2_minus_M2_XGBOOST": {
+      "critical_recall": [
+        -0.11126208535868806,
+        0.04980121737223068
+      ],
+      "critical_fnr": [
+        -0.049801217372230755,
+        0.11126208535868798
+      ],
+      "average_precision": [
+        -0.5339556238899609,
+        -0.44158833993096264
+      ],
+      "brier": [
+        0.18075190162692326,
+        0.2101829408924758
+      ],
+      "log_loss": [
+        0.47474599106376947,
+        0.5621488377473517
+      ],
+      "review_workload": [
+        0.036458333333333315,
+        0.1875
+      ],
+      "document_flag_rate": [
+        0.46688720189385086,
+        0.5794839771490249
+      ],
+      "precision_at_threshold": [
+        -0.6098955299299232,
+        -0.52606858054819
+      ],
+      "critical_fn_per_case": [
+        -0.052083333333333336,
+        0.11210937499999987
+      ]
+    },
+    "M0_CS_V2_minus_M3_DEEP_SETS": {
+      "critical_recall": [
+        -0.10609144844517185,
+        0.047329531366228556
+      ],
+      "critical_fnr": [
+        -0.04732953136622862,
+        0.10609144844517185
+      ],
+      "average_precision": [
+        -0.479142402106146,
+        -0.3869896426053817
+      ],
+      "brier": [
+        0.13983689035523642,
+        0.17327529464985428
+      ],
+      "log_loss": [
+        0.3708535491571217,
+        0.4629035060195755
+      ],
+      "review_workload": [
+        -0.00794270833333333,
+        0.125
+      ],
+      "document_flag_rate": [
+        0.38886908173793416,
+        0.49112756725918805
+      ],
+      "precision_at_threshold": [
+        -0.48003074044373156,
+        -0.39453602882475447
+      ],
+      "critical_fn_per_case": [
+        -0.049609375000000004,
+        0.11458333333333334
+      ]
+    },
+    "M1_LOGISTIC_minus_M2_XGBOOST": {
+      "critical_recall": [
+        -0.03812350166267113,
+        0.04249918503473005
+      ],
+      "critical_fnr": [
+        -0.04249918503473006,
+        0.038123501662671005
+      ],
+      "average_precision": [
+        -0.09964599029231946,
+        -0.05208935728914485
+      ],
+      "brier": [
+        0.035864054655823374,
+        0.060394301227124476
+      ],
+      "log_loss": [
+        0.10360212666541772,
+        0.18447955085070494
+      ],
+      "review_workload": [
+        0.03645833333333337,
+        0.140625
+      ],
+      "document_flag_rate": [
+        0.07029239755969348,
+        0.1361772808296872
+      ],
+      "precision_at_threshold": [
+        -0.1959849431579796,
+        -0.11729746864113672
+      ],
+      "critical_fn_per_case": [
+        -0.046875,
+        0.03919270833333322
+      ]
+    },
+    "M1_LOGISTIC_minus_M3_DEEP_SETS": {
+      "critical_recall": [
+        -0.03194849299561338,
+        0.03466071428571421
+      ],
+      "critical_fnr": [
+        -0.03466071428571429,
+        0.03194849299561339
+      ],
+      "average_precision": [
+        -0.03354496430941541,
+        -0.00912593177218995
+      ],
+      "brier": [
+        0.0036118519177542018,
+        0.016163917167721246
+      ],
+      "log_loss": [
+        0.020396542198324735,
+        0.05944065846327765
+      ],
+      "review_workload": [
+        -0.005208333333333317,
+        0.060026041666666585
+      ],
+      "document_flag_rate": [
+        -0.0033953207451204804,
+        0.04308508325724968
+      ],
+      "precision_at_threshold": [
+        -0.05710171216235759,
+        -0.0010577029275414935
+      ],
+      "critical_fn_per_case": [
+        -0.033984375,
+        0.031250000000000014
+      ]
+    },
+    "M2_XGBOOST_minus_M3_DEEP_SETS": {
+      "critical_recall": [
+        -0.044463345039508384,
+        0.043186041709683994
+      ],
+      "critical_fnr": [
+        -0.04318604170968408,
+        0.04446334503950832
+      ],
+      "average_precision": [
+        0.0353834015389258,
+        0.07802193579716454
+      ],
+      "brier": [
+        -0.05122864945892528,
+        -0.027001060044364606
+      ],
+      "log_loss": [
+        -0.13964352010115996,
+        -0.06736109492380958
+      ],
+      "review_workload": [
+        -0.11210937499999996,
+        -0.01041666666666674
+      ],
+      "document_flag_rate": [
+        -0.11326165113182425,
+        -0.054914162143077774
+      ],
+      "precision_at_threshold": [
+        0.09441560292567544,
+        0.16928283419147575
+      ],
+      "critical_fn_per_case": [
+        -0.04440104166666667,
+        0.04687500000000001
+      ]
+    }
+  },
+  "bootstrap": {
+    "draws": 300,
+    "seed": 20261109,
+    "unit": "customer_group",
+    "conditions_on": [
+      "frozen models",
+      "frozen V3 calibrators",
+      "frozen V3 thresholds"
+    ]
+  },
+  "threshold_sweep": "retrospective_descriptive_only",
+  "limitations": [
+    "V3 test has previously been inspected",
+    "synthetic programmatic labels",
+    "intervals condition on fitted models and thresholds",
+    "not bank validation"
+  ]
+}

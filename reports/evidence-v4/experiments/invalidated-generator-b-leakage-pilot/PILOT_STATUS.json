@@ -1,0 +1,15 @@
+{
+  "status": "INVALIDATED_PRE_CONFIRMATORY_FEATURE_LEAKAGE",
+  "reason": "Event-dependent explanatory phrases in model-visible text failed the feature-leakage audit.",
+  "protocol_amendment": "reports/evidence-v4/EXPERIMENT_PROTOCOL_AMENDMENT_1.md",
+  "confirmatory_run": "reports/evidence-v4/data/generator-b-confirmatory-v1",
+  "sha256": {
+    "E2_RESULTS.json": "670d482db1d98534b3aec2e0bf7a31b8d38da7347fb66e6cd3ff74d540671513",
+    "tables/robustness_by_scenario.csv": "c5c2921a5672f64fd1527c48b5f58c227fe2e0b497429f7948069308921ec787",
+    "data/canonical_facts.json": "0f85f64fa79aee16b6a337904aae48d54aaed99b417e916c327640131d4406c7",
+    "data/generator_b_manifest.json": "c8f51d2427b27a3d66ce415ce76b23ebbb15eb466b479d91ff0742e30bb73f34",
+    "tables/e2_prediction_level.csv": "82ed282ac993642880b171e912893ba9706cde91fb846ac8283e3bfff1555ce3",
+    "data/observed.json": "97bab0dfae561173a06f3be3b1db55e4b9c1e9684ee7505f05979a6494a3fae2",
+    "data/gold_labels.json": "df3e11a5f637780c7e7d154d2d2e58c2279b8299f44b37d509bbc42cb79e8124"
+  }
+}

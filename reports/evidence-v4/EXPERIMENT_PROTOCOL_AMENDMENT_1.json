@@ -1,0 +1,28 @@
+{
+  "amendment_id": "cobi-evidence-v4.0-amendment-1",
+  "registered_at": "2026-11-08",
+  "status": "REGISTERED_BEFORE_CONFIRMATORY_EVALUATION",
+  "original_protocol_id": "cobi-evidence-v4.0",
+  "original_protocol_sha256": "f1eb2df747451e18a511d18c9679eb6685d2640056d3eb9054566468789d9a65",
+  "trigger": "Feature-leakage audit found event-dependent explanatory text in the first Generator B implementation.",
+  "initial_pilot_status": "INVALIDATED_PRE_CONFIRMATORY_FEATURE_LEAKAGE",
+  "preserve_invalidated_pilot": true,
+  "confirmatory_generator_version": "independent-event-ledger-v1.1",
+  "changes": [
+    "Remove gold-coded/evaluative event wording from model-visible text.",
+    "Write the corrected deterministic corpus to a new directory.",
+    "Keep canonical facts and programmatic labels physically separate from observed features."
+  ],
+  "unchanged": [
+    "research question and hypotheses",
+    "generator seed and sample size",
+    "scenario set and event rates",
+    "model set and frozen model artifacts",
+    "preprocessing, calibrators, and thresholds",
+    "metrics and evaluation units",
+    "bootstrap draws and resampling unit",
+    "cost assumptions"
+  ],
+  "pilot_metrics_used_for_selection": false,
+  "no_outcome_driven_changes": true
+}

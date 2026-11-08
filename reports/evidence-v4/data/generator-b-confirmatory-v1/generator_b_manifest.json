@@ -1,0 +1,79 @@
+{
+  "protocol_id": "cobi-evidence-v4.0",
+  "generator_id": "independent-event-ledger-v1.1",
+  "generator_code_sha256": "2e1a35e5b757b348b98f29a307024a87571a073ba2318e2d0f0f6c2edf7fca69",
+  "protocol_amendment_id": "cobi-evidence-v4.0-amendment-1",
+  "protocol_amendment_sha256": "f6651efee06938c6203cfc44e0ef8009ba438838fa0dd4034ce9e2181ecada69",
+  "generator_seed": 20261108,
+  "protocol_sha256": "f1eb2df747451e18a511d18c9679eb6685d2640056d3eb9054566468789d9a65",
+  "scope": "SYNTHETIC_PROGRAMMATIC_GOLD_ONLY",
+  "model_training": false,
+  "calibration_or_threshold_changes": false,
+  "schema_compatible": true,
+  "compatibility": {
+    "compatible_documents": 7744,
+    "incompatible_documents": 0,
+    "errors": []
+  },
+  "counts": {
+    "cases": 1920,
+    "customer_groups": 960,
+    "documents": 7744
+  },
+  "scenario_counts": {
+    "B1": {
+      "cases": 320,
+      "customer_groups": 160,
+      "documents": 1308,
+      "material_defects": 152,
+      "critical_defects": 117,
+      "case_keys_sha256": "e42efc4a8f89ede008d108a1c797a63474988c78d400a69e90a452c2cb51bf12"
+    },
+    "B2": {
+      "cases": 320,
+      "customer_groups": 160,
+      "documents": 1289,
+      "material_defects": 179,
+      "critical_defects": 172,
+      "case_keys_sha256": "3fa8f8470e8e143e017dcec72b0f86d1e7f9fc3cc4d0d49c509b0ac27fc4e930"
+    },
+    "B3": {
+      "cases": 320,
+      "customer_groups": 160,
+      "documents": 1246,
+      "material_defects": 143,
+      "critical_defects": 143,
+      "case_keys_sha256": "ec285af02f52ce6fd1e056168ac90cb42b2559c4c04cf9c5c6d578b34b9a605c"
+    },
+    "B4": {
+      "cases": 320,
+      "customer_groups": 160,
+      "documents": 1289,
+      "material_defects": 119,
+      "critical_defects": 80,
+      "case_keys_sha256": "cadd48a9a86e95bb11b91f628d37f63fbafc5a506b67004b0c24b9fe8fef3e2f"
+    },
+    "B5": {
+      "cases": 320,
+      "customer_groups": 160,
+      "documents": 1293,
+      "material_defects": 94,
+      "critical_defects": 68,
+      "case_keys_sha256": "755a74d86af78138cb0bae282ce7c6377d73189e4e6a29701bdccd0976e7bd17"
+    },
+    "B6": {
+      "cases": 320,
+      "customer_groups": 160,
+      "documents": 1319,
+      "material_defects": 167,
+      "critical_defects": 167,
+      "case_keys_sha256": "f23784b48dcc6b75a47b531c18cd712b784e18f35a5959ae138f288f96311e71"
+    }
+  },
+  "file_sha256": {
+    "observed.json": "ceba6639871826aec07f6c4eece19b9e14ace2c784879a3b376225f026bf6412",
+    "canonical_facts.json": "afd2dae8436d3a52857460b4ffe7a57e7aebeb5cb4f0821fe7af931140eee4d5",
+    "gold_labels.json": "5d28c658d69ca7728c8ba6e5a141c35975580dc2b9412d9df950df263d16eefd"
+  },
+  "labels_are_human_reviewed_bank_truth": false
+}

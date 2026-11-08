@@ -1,0 +1,1734 @@
+{
+  "experiment_id": "cobi-evidence-v4-e3",
+  "status": "ILLUSTRATIVE_ASSUMPTION_BASED_SIMULATION",
+  "interpretation": "Scenario-based economic feasibility, not realized operational savings.",
+  "currency": "VND",
+  "assumption_file": "config/cost_scenarios.yaml",
+  "assumptions": {
+    "version": 1,
+    "currency": "VND",
+    "description": "Illustrative sensitivity inputs only. These are not bank quotations or measured operating costs. All cost assumptions must remain visible in reports and UI.",
+    "application_volumes": [
+      1000,
+      10000,
+      50000
+    ],
+    "review_cost_per_flagged_case": {
+      "low": 30000,
+      "medium": 100000,
+      "high": 250000
+    },
+    "missed_critical_document_cost": {
+      "low": 100000,
+      "medium": 500000,
+      "high": 2000000
+    },
+    "inference_cost_per_application": {
+      "cs_v2": 0,
+      "learned_model": 300
+    },
+    "fixed_operating_cost": {
+      "cs_v2": 0,
+      "learned_model": 10000000
+    },
+    "scenario_grid": [
+      {
+        "id": "low_low",
+        "review": "low",
+        "missed": "low"
+      },
+      {
+        "id": "low_medium",
+        "review": "low",
+        "missed": "medium"
+      },
+      {
+        "id": "medium_low",
+        "review": "medium",
+        "missed": "low"
+      },
+      {
+        "id": "medium_medium",
+        "review": "medium",
+        "missed": "medium"
+      },
+      {
+        "id": "medium_high",
+        "review": "medium",
+        "missed": "high"
+      },
+      {
+        "id": "high_medium",
+        "review": "high",
+        "missed": "medium"
+      },
+      {
+        "id": "high_high",
+        "review": "high",
+        "missed": "high"
+      }
+    ]
+  },
+  "measured_v3_synthetic_rates": {
+    "M0_CS_V2": {
+      "cases": 192,
+      "documents": 753,
+      "case_workload": 0.8177083333333334,
+      "critical_false_negatives": 24,
+      "critical_fn_per_case": 0.125,
+      "case_workload_ci95": [
+        0.765625,
+        0.8673177083333332
+      ],
+      "critical_fn_per_case_ci95": [
+        0.059765625,
+        0.19544270833333321
+      ]
+    },
+    "M1_LOGISTIC": {
+      "cases": 192,
+      "documents": 753,
+      "case_workload": 0.7916666666666666,
+      "critical_false_negatives": 18,
+      "critical_fn_per_case": 0.09375,
+      "case_workload_ci95": [
+        0.734375,
+        0.8412760416666666
+      ],
+      "critical_fn_per_case_ci95": [
+        0.04934895833333334,
+        0.1433593749999999
+      ]
+    },
+    "M2_XGBOOST": {
+      "cases": 192,
+      "documents": 753,
+      "case_workload": 0.7083333333333334,
+      "critical_false_negatives": 19,
+      "critical_fn_per_case": 0.09895833333333333,
+      "case_workload_ci95": [
+        0.6430989583333333,
+        0.7708333333333334
+      ],
+      "critical_fn_per_case_ci95": [
+        0.05455729166666667,
+        0.14583333333333334
+      ]
+    },
+    "M3_DEEP_SETS": {
+      "cases": 192,
+      "documents": 753,
+      "case_workload": 0.765625,
+      "critical_false_negatives": 18,
+      "critical_fn_per_case": 0.09375,
+      "case_workload_ci95": [
+        0.7055989583333333,
+        0.8229166666666666
+      ],
+      "critical_fn_per_case_ci95": [
+        0.052083333333333336,
+        0.140625
+      ]
+    }
+  },
+  "scenario_rows": 84,
+  "sampling_uncertainty": {
+    "source": "300 customer-cluster bootstrap resamples of the frozen V3 synthetic test",
+    "interpretation": "sampling variability conditional on the selected cost assumptions; does not cover uncertainty in assumed costs",
+    "by_model_scenario_volume": {
+      "M0_CS_V2": {
+        "low_low_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_low_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_low_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_medium_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_medium_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_medium_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_low_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_low_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_low_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_medium_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_medium_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_medium_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_high_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_high_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_high_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_medium_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_medium_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_medium_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_high_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_high_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_high_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            0.0,
+            0.0
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        }
+      },
+      "M1_LOGISTIC": {
+        "low_low_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -14732291.666666668,
+            834114.5833333218
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_low_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -57322916.66666671,
+            98341145.83333322
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_low_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -246614583.33333364,
+            531705729.16666603
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_medium_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -37728385.41666667,
+            44559374.999999985
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_medium_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -287283854.16666675,
+            535593749.9999999
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_medium_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -1396419270.833334,
+            2717968749.999999
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_low_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -12383333.333333336,
+            4035937.4999999856
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_low_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -33833333.33333331,
+            130359374.9999999
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_low_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -129166666.66666654,
+            691796874.999999
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_medium_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -34583854.166666664,
+            44960416.66666661
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_medium_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -255838541.66666666,
+            539604166.6666662
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_medium_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -1239192708.3333333,
+            2738020833.333331
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_high_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -120911979.16666666,
+            209022916.66666663
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_high_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -1119119791.666667,
+            2180229166.666666
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_high_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -5555598958.333333,
+            10941145833.33333
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_medium_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -28529166.666666657,
+            46991666.66666667
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_medium_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -195291666.6666665,
+            559916666.6666667
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_medium_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -936458333.333334,
+            2839583333.333335
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_high_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -114173697.91666666,
+            209882291.66666654
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_high_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -1051736979.1666666,
+            2188822916.6666656
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_high_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -5218684895.833333,
+            10984114583.333326
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        }
+      },
+      "M2_XGBOOST": {
+        "low_low_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -11004427.083333336,
+            4239062.499999991
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_low_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -20044270.833333366,
+            132390624.9999999
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_low_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -60221354.16666704,
+            701953124.9999994
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_medium_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -31669791.666666675,
+            49192187.49999994
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_medium_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -226697916.6666667,
+            581921874.9999994
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_medium_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -1093489583.3333335,
+            2949609374.9999967
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_low_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -6133333.333333336,
+            12369270.833333313
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_low_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            28666666.666666683,
+            213692708.33333322
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_low_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            183333333.33333325,
+            1108463541.6666663
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_medium_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -19675000.000000015,
+            57213020.83333326
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_medium_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -106750000.00000012,
+            662130208.3333325
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_medium_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -493750000.0000005,
+            3350651041.6666627
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_high_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -98893750.00000003,
+            225377083.33333305
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_high_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -898937500.0,
+            2343770833.3333306
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_high_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -4454687500.000002,
+            11758854166.666653
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_medium_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -5091666.666666673,
+            73716927.08333331
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_medium_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            39083333.33333324,
+            827169270.8333331
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_medium_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            235416666.66666594,
+            4175846354.166665
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_high_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -72799999.99999997,
+            242564583.33333305
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_high_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -637999999.9999998,
+            2515645833.33333
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_high_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -3149999999.999998,
+            12618229166.666653
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        }
+      },
+      "M3_DEEP_SETS": {
+        "low_low_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -13427604.166666666,
+            1627083.3333333358
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_low_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -44276041.666666634,
+            106270833.33333334
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_low_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -181380208.33333334,
+            571354166.6666667
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_medium_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -32550000.00000001,
+            47237760.416666664
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_medium_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -235500000.00000003,
+            562377604.1666666
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "low_medium_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -1137500000.0000007,
+            2851888020.833333
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_low_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -10299999.999999993,
+            5845833.333333328
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_low_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -12999999.999999944,
+            148458333.3333333
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_low_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -24999999.999999546,
+            782291666.6666665
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_medium_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -28307812.5,
+            48827604.16666668
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_medium_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -193078125.0,
+            578276041.6666667
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_medium_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -925390625.0,
+            2931380208.333334
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_high_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -101003124.99999999,
+            219686979.16666666
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_high_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -920031250.0000002,
+            2286869791.6666665
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "medium_high_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -4560156250.0,
+            11474348958.333332
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_medium_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -19479687.500000007,
+            54250781.249999925
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_medium_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -104796875.00000015,
+            632507812.4999992
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_medium_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -483984375.00000036,
+            3202539062.499995
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_high_volume_1000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -88620312.5,
+            222772916.6666667
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_high_volume_10000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -796203125.0,
+            2317729166.666667
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        },
+        "high_high_volume_50000": {
+          "savings_vnd_percentile_2_5_97_5": [
+            -3941015625.0000014,
+            11628645833.333332
+          ],
+          "draws": 300,
+          "assumptions_held_fixed": true,
+          "sampling_unit": "customer_group"
+        }
+      }
+    }
+  },
+  "assumption_grid_sensitivity_at_10000_applications": {
+    "review_cost_levels": {
+      "low": 30000,
+      "medium": 100000,
+      "high": 250000
+    },
+    "missed_error_cost_levels": {
+      "low": 100000,
+      "medium": 500000,
+      "high": 2000000
+    },
+    "savings_vs_cs_v2_vnd": {
+      "M1_LOGISTIC": [
+        [
+          26062500.0,
+          44291666.666666746,
+          83354166.66666698
+        ],
+        [
+          151062500.0,
+          169291666.66666698,
+          208354166.66666698
+        ],
+        [
+          619812500.0,
+          638041666.666667,
+          677104166.6666675
+        ]
+      ],
+      "M2_XGBOOST": [
+        [
+          45854166.66666663,
+          122416666.66666663,
+          286479166.66666675
+        ],
+        [
+          150020833.33333337,
+          226583333.3333335,
+          390645833.3333335
+        ],
+        [
+          540645833.3333335,
+          617208333.3333335,
+          781270833.333334
+        ]
+      ],
+      "M3_DEEP_SETS": [
+        [
+          33875000.0,
+          70333333.33333337,
+          148458333.3333335
+        ],
+        [
+          158875000.0,
+          195333333.3333335,
+          273458333.3333335
+        ],
+        [
+          627625000.0,
+          664083333.3333335,
+          742208333.333334
+        ]
+      ]
+    }
+  },
+  "break_even_frontier_at_10000_applications": {
+    "M1_LOGISTIC": [
+      {
+        "review_cost_per_case_vnd": 30000.0,
+        "break_even_missed_cost_vnd": 16599.999999999927,
+        "finite_nonnegative": true
+      },
+      {
+        "review_cost_per_case_vnd": 34489.795918367345,
+        "break_even_missed_cost_vnd": 12858.503401360464,
+        "finite_nonnegative": true
+      },
+      {
+        "review_cost_per_case_vnd": 38979.59183673469,
+        "break_even_missed_cost_vnd": 9117.006802721,
+        "finite_nonnegative": true
+      },
+      {
+        "review_cost_per_case_vnd": 43469.38775510204,
+        "break_even_missed_cost_vnd": 5375.510204081529,
+        "finite_nonnegative": true
+      },
+      {
+        "review_cost_per_case_vnd": 47959.183673469386,
+        "break_even_missed_cost_vnd": 1634.013605442059,
+        "finite_nonnegative": true
+      },
+      {
+        "review_cost_per_case_vnd": 52448.97959183673,
+        "break_even_missed_cost_vnd": -2107.4829931974054,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 56938.77551020408,
+        "break_even_missed_cost_vnd": -5848.979591836875,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 61428.57142857143,
+        "break_even_missed_cost_vnd": -9590.47619047634,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 65918.36734693877,
+        "break_even_missed_cost_vnd": -13331.972789115798,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 70408.16326530612,
+        "break_even_missed_cost_vnd": -17073.469387755275,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 74897.95918367346,
+        "break_even_missed_cost_vnd": -20814.965986394727,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 79387.75510204081,
+        "break_even_missed_cost_vnd": -24556.4625850342,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 83877.55102040817,
+        "break_even_missed_cost_vnd": -28297.95918367368,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 88367.3469387755,
+        "break_even_missed_cost_vnd": -32039.455782313133,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 92857.14285714286,
+        "break_even_missed_cost_vnd": -35780.95238095261,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 97346.93877551019,
+        "break_even_missed_cost_vnd": -39522.44897959206,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 101836.73469387754,
+        "break_even_missed_cost_vnd": -43263.945578231534,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 106326.5306122449,
+        "break_even_missed_cost_vnd": -47005.442176871,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 110816.32653061223,
+        "break_even_missed_cost_vnd": -50746.93877551047,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 115306.12244897959,
+        "break_even_missed_cost_vnd": -54488.43537414993,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 119795.91836734692,
+        "break_even_missed_cost_vnd": -58229.931972789396,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 124285.71428571428,
+        "break_even_missed_cost_vnd": -61971.428571428856,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 128775.51020408163,
+        "break_even_missed_cost_vnd": -65712.92517006834,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 133265.30612244896,
+        "break_even_missed_cost_vnd": -69454.4217687078,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 137755.10204081633,
+        "break_even_missed_cost_vnd": -73195.91836734729,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 142244.89795918367,
+        "break_even_missed_cost_vnd": -76937.41496598673,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 146734.693877551,
+        "break_even_missed_cost_vnd": -80678.91156462619,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 151224.48979591834,
+        "break_even_missed_cost_vnd": -84420.40816326566,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 155714.2857142857,
+        "break_even_missed_cost_vnd": -88161.90476190514,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 160204.08163265305,
+        "break_even_missed_cost_vnd": -91903.40136054458,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 164693.87755102038,
+        "break_even_missed_cost_vnd": -95644.89795918405,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 169183.67346938775,
+        "break_even_missed_cost_vnd": -99386.39455782354,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 173673.4693877551,
+        "break_even_missed_cost_vnd": -103127.891156463,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 178163.26530612243,
+        "break_even_missed_cost_vnd": -106869.38775510245,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 182653.0612244898,
+        "break_even_missed_cost_vnd": -110610.88435374193,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 187142.85714285713,
+        "break_even_missed_cost_vnd": -114352.3809523814,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 191632.65306122447,
+        "break_even_missed_cost_vnd": -118093.87755102087,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 196122.44897959183,
+        "break_even_missed_cost_vnd": -121835.37414966035,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 200612.24489795917,
+        "break_even_missed_cost_vnd": -125576.87074829979,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 205102.0408163265,
+        "break_even_missed_cost_vnd": -129318.36734693925,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 209591.83673469385,
+        "break_even_missed_cost_vnd": -133059.86394557872,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 214081.6326530612,
+        "break_even_missed_cost_vnd": -136801.36054421822,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 218571.42857142855,
+        "break_even_missed_cost_vnd": -140542.85714285765,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 223061.2244897959,
+        "break_even_missed_cost_vnd": -144284.35374149712,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 227551.02040816325,
+        "break_even_missed_cost_vnd": -148025.8503401366,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 232040.8163265306,
+        "break_even_missed_cost_vnd": -151767.34693877606,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 236530.61224489793,
+        "break_even_missed_cost_vnd": -155508.8435374155,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 241020.4081632653,
+        "break_even_missed_cost_vnd": -159250.340136055,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 245510.20408163263,
+        "break_even_missed_cost_vnd": -162991.83673469446,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 250000.0,
+        "break_even_missed_cost_vnd": -166733.33333333395,
+        "finite_nonnegative": false
+      }
+    ],
+    "M2_XGBOOST": [
+      {
+        "review_cost_per_case_vnd": 30000.0,
+        "break_even_missed_cost_vnd": -76080.0,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 34489.795918367345,
+        "break_even_missed_cost_vnd": -94937.14285714284,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 38979.59183673469,
+        "break_even_missed_cost_vnd": -113794.2857142857,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 43469.38775510204,
+        "break_even_missed_cost_vnd": -132651.42857142858,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 47959.183673469386,
+        "break_even_missed_cost_vnd": -151508.57142857142,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 52448.97959183673,
+        "break_even_missed_cost_vnd": -170365.71428571426,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 56938.77551020408,
+        "break_even_missed_cost_vnd": -189222.85714285713,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 61428.57142857143,
+        "break_even_missed_cost_vnd": -208079.99999999997,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 65918.36734693877,
+        "break_even_missed_cost_vnd": -226937.14285714284,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 70408.16326530612,
+        "break_even_missed_cost_vnd": -245794.28571428568,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 74897.95918367346,
+        "break_even_missed_cost_vnd": -264651.4285714285,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 79387.75510204081,
+        "break_even_missed_cost_vnd": -283508.57142857136,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 83877.55102040817,
+        "break_even_missed_cost_vnd": -302365.71428571426,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 88367.3469387755,
+        "break_even_missed_cost_vnd": -321222.85714285704,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 92857.14285714286,
+        "break_even_missed_cost_vnd": -340080.0,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 97346.93877551019,
+        "break_even_missed_cost_vnd": -358937.1428571428,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 101836.73469387754,
+        "break_even_missed_cost_vnd": -377794.2857142857,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 106326.5306122449,
+        "break_even_missed_cost_vnd": -396651.4285714285,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 110816.32653061223,
+        "break_even_missed_cost_vnd": -415508.57142857136,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 115306.12244897959,
+        "break_even_missed_cost_vnd": -434365.7142857142,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 119795.91836734692,
+        "break_even_missed_cost_vnd": -453222.85714285704,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 124285.71428571428,
+        "break_even_missed_cost_vnd": -472079.99999999994,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 128775.51020408163,
+        "break_even_missed_cost_vnd": -490937.1428571428,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 133265.30612244896,
+        "break_even_missed_cost_vnd": -509794.2857142857,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 137755.10204081633,
+        "break_even_missed_cost_vnd": -528651.4285714285,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 142244.89795918367,
+        "break_even_missed_cost_vnd": -547508.5714285714,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 146734.693877551,
+        "break_even_missed_cost_vnd": -566365.7142857142,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 151224.48979591834,
+        "break_even_missed_cost_vnd": -585222.857142857,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 155714.2857142857,
+        "break_even_missed_cost_vnd": -604080.0,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 160204.08163265305,
+        "break_even_missed_cost_vnd": -622937.1428571427,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 164693.87755102038,
+        "break_even_missed_cost_vnd": -641794.2857142856,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 169183.67346938775,
+        "break_even_missed_cost_vnd": -660651.4285714285,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 173673.4693877551,
+        "break_even_missed_cost_vnd": -679508.5714285714,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 178163.26530612243,
+        "break_even_missed_cost_vnd": -698365.7142857141,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 182653.0612244898,
+        "break_even_missed_cost_vnd": -717222.857142857,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 187142.85714285713,
+        "break_even_missed_cost_vnd": -736080.0,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 191632.65306122447,
+        "break_even_missed_cost_vnd": -754937.1428571427,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 196122.44897959183,
+        "break_even_missed_cost_vnd": -773794.2857142857,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 200612.24489795917,
+        "break_even_missed_cost_vnd": -792651.4285714284,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 205102.0408163265,
+        "break_even_missed_cost_vnd": -811508.5714285714,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 209591.83673469385,
+        "break_even_missed_cost_vnd": -830365.7142857141,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 214081.6326530612,
+        "break_even_missed_cost_vnd": -849222.857142857,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 218571.42857142855,
+        "break_even_missed_cost_vnd": -868079.9999999998,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 223061.2244897959,
+        "break_even_missed_cost_vnd": -886937.1428571426,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 227551.02040816325,
+        "break_even_missed_cost_vnd": -905794.2857142857,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 232040.8163265306,
+        "break_even_missed_cost_vnd": -924651.4285714284,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 236530.61224489793,
+        "break_even_missed_cost_vnd": -943508.5714285712,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 241020.4081632653,
+        "break_even_missed_cost_vnd": -962365.7142857141,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 245510.20408163263,
+        "break_even_missed_cost_vnd": -981222.8571428569,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 250000.0,
+        "break_even_missed_cost_vnd": -1000079.9999999999,
+        "finite_nonnegative": false
+      }
+    ],
+    "M3_DEEP_SETS": [
+      {
+        "review_cost_per_case_vnd": 30000.0,
+        "break_even_missed_cost_vnd": -8400.000000000036,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 34489.795918367345,
+        "break_even_missed_cost_vnd": -15882.993197278953,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 38979.59183673469,
+        "break_even_missed_cost_vnd": -23365.986394557858,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 43469.38775510204,
+        "break_even_missed_cost_vnd": -30848.979591836785,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 47959.183673469386,
+        "break_even_missed_cost_vnd": -38331.9727891157,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 52448.97959183673,
+        "break_even_missed_cost_vnd": -45814.96598639462,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 56938.77551020408,
+        "break_even_missed_cost_vnd": -53297.959183673534,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 61428.57142857143,
+        "break_even_missed_cost_vnd": -60780.952380952454,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 65918.36734693877,
+        "break_even_missed_cost_vnd": -68263.94557823136,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 70408.16326530612,
+        "break_even_missed_cost_vnd": -75746.9387755103,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 74897.95918367346,
+        "break_even_missed_cost_vnd": -83229.93197278919,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 79387.75510204081,
+        "break_even_missed_cost_vnd": -90712.92517006812,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 83877.55102040817,
+        "break_even_missed_cost_vnd": -98195.91836734705,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 88367.3469387755,
+        "break_even_missed_cost_vnd": -105678.91156462596,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 92857.14285714286,
+        "break_even_missed_cost_vnd": -113161.90476190487,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 97346.93877551019,
+        "break_even_missed_cost_vnd": -120644.89795918377,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 101836.73469387754,
+        "break_even_missed_cost_vnd": -128127.89115646269,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 106326.5306122449,
+        "break_even_missed_cost_vnd": -135610.88435374163,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 110816.32653061223,
+        "break_even_missed_cost_vnd": -143093.87755102053,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 115306.12244897959,
+        "break_even_missed_cost_vnd": -150576.87074829947,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 119795.91836734692,
+        "break_even_missed_cost_vnd": -158059.86394557837,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 124285.71428571428,
+        "break_even_missed_cost_vnd": -165542.85714285728,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 128775.51020408163,
+        "break_even_missed_cost_vnd": -173025.85034013618,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 133265.30612244896,
+        "break_even_missed_cost_vnd": -180508.84353741512,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 137755.10204081633,
+        "break_even_missed_cost_vnd": -187991.83673469405,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 142244.89795918367,
+        "break_even_missed_cost_vnd": -195474.82993197293,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 146734.693877551,
+        "break_even_missed_cost_vnd": -202957.82312925186,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 151224.48979591834,
+        "break_even_missed_cost_vnd": -210440.81632653074,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 155714.2857142857,
+        "break_even_missed_cost_vnd": -217923.80952380973,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 160204.08163265305,
+        "break_even_missed_cost_vnd": -225406.8027210886,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 164693.87755102038,
+        "break_even_missed_cost_vnd": -232889.79591836754,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 169183.67346938775,
+        "break_even_missed_cost_vnd": -240372.78911564645,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 173673.4693877551,
+        "break_even_missed_cost_vnd": -247855.78231292535,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 178163.26530612243,
+        "break_even_missed_cost_vnd": -255338.77551020426,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 182653.0612244898,
+        "break_even_missed_cost_vnd": -262821.7687074832,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 187142.85714285713,
+        "break_even_missed_cost_vnd": -270304.7619047621,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 191632.65306122447,
+        "break_even_missed_cost_vnd": -277787.755102041,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 196122.44897959183,
+        "break_even_missed_cost_vnd": -285270.74829932,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 200612.24489795917,
+        "break_even_missed_cost_vnd": -292753.7414965989,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 205102.0408163265,
+        "break_even_missed_cost_vnd": -300236.73469387775,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 209591.83673469385,
+        "break_even_missed_cost_vnd": -307719.7278911567,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 214081.6326530612,
+        "break_even_missed_cost_vnd": -315202.7210884356,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 218571.42857142855,
+        "break_even_missed_cost_vnd": -322685.71428571455,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 223061.2244897959,
+        "break_even_missed_cost_vnd": -330168.7074829934,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 227551.02040816325,
+        "break_even_missed_cost_vnd": -337651.70068027236,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 232040.8163265306,
+        "break_even_missed_cost_vnd": -345134.6938775513,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 236530.61224489793,
+        "break_even_missed_cost_vnd": -352617.6870748302,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 241020.4081632653,
+        "break_even_missed_cost_vnd": -360100.6802721091,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 245510.20408163263,
+        "break_even_missed_cost_vnd": -367583.673469388,
+        "finite_nonnegative": false
+      },
+      {
+        "review_cost_per_case_vnd": 250000.0,
+        "break_even_missed_cost_vnd": -375066.666666667,
+        "finite_nonnegative": false
+      }
+    ]
+  },
+  "limitations": [
+    "cost inputs are illustrative assumptions, not bank quotations",
+    "event rates are from a previously inspected synthetic test",
+    "case workload and missed-document counts have different denominators",
+    "no realized operational savings are measured"
+  ]
+}

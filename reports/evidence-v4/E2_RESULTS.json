@@ -1,0 +1,2162 @@
+{
+  "experiment_id": "cobi-evidence-v4-e2",
+  "status": "SYNTHETIC_PROGRAMMATIC_GOLD_ONLY",
+  "validation_status": "EVIDENCE_AI_VALIDATION_BLOCKED",
+  "protocol_sha256": "f1eb2df747451e18a511d18c9679eb6685d2640056d3eb9054566468789d9a65",
+  "generator_manifest": {
+    "protocol_id": "cobi-evidence-v4.0",
+    "generator_id": "independent-event-ledger-v1.1",
+    "generator_code_sha256": "2e1a35e5b757b348b98f29a307024a87571a073ba2318e2d0f0f6c2edf7fca69",
+    "protocol_amendment_id": "cobi-evidence-v4.0-amendment-1",
+    "protocol_amendment_sha256": "f6651efee06938c6203cfc44e0ef8009ba438838fa0dd4034ce9e2181ecada69",
+    "generator_seed": 20261108,
+    "protocol_sha256": "f1eb2df747451e18a511d18c9679eb6685d2640056d3eb9054566468789d9a65",
+    "scope": "SYNTHETIC_PROGRAMMATIC_GOLD_ONLY",
+    "model_training": false,
+    "calibration_or_threshold_changes": false,
+    "schema_compatible": true,
+    "compatibility": {
+      "compatible_documents": 7744,
+      "incompatible_documents": 0,
+      "errors": []
+    },
+    "counts": {
+      "cases": 1920,
+      "customer_groups": 960,
+      "documents": 7744
+    },
+    "scenario_counts": {
+      "B1": {
+        "cases": 320,
+        "customer_groups": 160,
+        "documents": 1308,
+        "material_defects": 152,
+        "critical_defects": 117,
+        "case_keys_sha256": "e42efc4a8f89ede008d108a1c797a63474988c78d400a69e90a452c2cb51bf12"
+      },
+      "B2": {
+        "cases": 320,
+        "customer_groups": 160,
+        "documents": 1289,
+        "material_defects": 179,
+        "critical_defects": 172,
+        "case_keys_sha256": "3fa8f8470e8e143e017dcec72b0f86d1e7f9fc3cc4d0d49c509b0ac27fc4e930"
+      },
+      "B3": {
+        "cases": 320,
+        "customer_groups": 160,
+        "documents": 1246,
+        "material_defects": 143,
+        "critical_defects": 143,
+        "case_keys_sha256": "ec285af02f52ce6fd1e056168ac90cb42b2559c4c04cf9c5c6d578b34b9a605c"
+      },
+      "B4": {
+        "cases": 320,
+        "customer_groups": 160,
+        "documents": 1289,
+        "material_defects": 119,
+        "critical_defects": 80,
+        "case_keys_sha256": "cadd48a9a86e95bb11b91f628d37f63fbafc5a506b67004b0c24b9fe8fef3e2f"
+      },
+      "B5": {
+        "cases": 320,
+        "customer_groups": 160,
+        "documents": 1293,
+        "material_defects": 94,
+        "critical_defects": 68,
+        "case_keys_sha256": "755a74d86af78138cb0bae282ce7c6377d73189e4e6a29701bdccd0976e7bd17"
+      },
+      "B6": {
+        "cases": 320,
+        "customer_groups": 160,
+        "documents": 1319,
+        "material_defects": 167,
+        "critical_defects": 167,
+        "case_keys_sha256": "f23784b48dcc6b75a47b531c18cd712b784e18f35a5959ae138f288f96311e71"
+      }
+    },
+    "file_sha256": {
+      "observed.json": "ceba6639871826aec07f6c4eece19b9e14ace2c784879a3b376225f026bf6412",
+      "canonical_facts.json": "afd2dae8436d3a52857460b4ffe7a57e7aebeb5cb4f0821fe7af931140eee4d5",
+      "gold_labels.json": "5d28c658d69ca7728c8ba6e5a141c35975580dc2b9412d9df950df263d16eefd"
+    },
+    "labels_are_human_reviewed_bank_truth": false
+  },
+  "compatibility": {
+    "compatible_documents": 7744,
+    "incompatible_documents": 0,
+    "errors": []
+  },
+  "models": {
+    "M0_CS_V2": {
+      "cases": 1920,
+      "documents": 7744,
+      "material_errors": 854,
+      "critical_errors": 747,
+      "critical_false_negatives": 277,
+      "critical_recall": 0.6291834002677377,
+      "critical_fnr": 0.3708165997322624,
+      "average_precision": 0.11031333226283506,
+      "brier": 0.1544698506347109,
+      "log_loss": 0.48611104969219376,
+      "document_flag_rate": 0.6044679752066116,
+      "precision_at_threshold": 0.11792352061525316,
+      "flagged_documents": 4681,
+      "false_positive_documents": 4129,
+      "flagged_cases": 1169,
+      "review_workload": 0.6088541666666667,
+      "flagged_cases_per_100": 60.885416666666664,
+      "critical_fn_per_case": 0.14427083333333332,
+      "ci95": {
+        "critical_recall": [
+          0.5864594505403845,
+          0.6667002101093472
+        ],
+        "critical_fnr": [
+          0.3332997898906528,
+          0.41354054945961544
+        ],
+        "average_precision": [
+          0.10199599304846599,
+          0.12034746863321744
+        ],
+        "brier": [
+          0.15115196423584584,
+          0.15897929018384824
+        ],
+        "log_loss": [
+          0.47870810708258327,
+          0.4962919167586265
+        ],
+        "review_workload": [
+          0.5895833333333333,
+          0.6281770833333332
+        ],
+        "document_flag_rate": [
+          0.5834513285717643,
+          0.6262220532458834
+        ],
+        "precision_at_threshold": [
+          0.10870864698115627,
+          0.12712768662255772
+        ],
+        "critical_fn_per_case": [
+          0.12552083333333333,
+          0.16145833333333334
+        ]
+      },
+      "frozen_threshold": 0.2664026678255962
+    },
+    "M1_LOGISTIC": {
+      "cases": 1920,
+      "documents": 7744,
+      "material_errors": 854,
+      "critical_errors": 747,
+      "critical_false_negatives": 100,
+      "critical_recall": 0.8661311914323963,
+      "critical_fnr": 0.13386880856760375,
+      "average_precision": 0.22295850150989152,
+      "brier": 0.3743478098209277,
+      "log_loss": 2.0267784295466793,
+      "document_flag_rate": 0.5160123966942148,
+      "precision_at_threshold": 0.1781781781781782,
+      "flagged_documents": 3996,
+      "false_positive_documents": 3284,
+      "flagged_cases": 1252,
+      "review_workload": 0.6520833333333333,
+      "flagged_cases_per_100": 65.20833333333333,
+      "critical_fn_per_case": 0.052083333333333336,
+      "ci95": {
+        "critical_recall": [
+          0.8408163486243829,
+          0.8919078914913093
+        ],
+        "critical_fnr": [
+          0.10809210850869068,
+          0.15918365137561707
+        ],
+        "average_precision": [
+          0.20550484090599053,
+          0.24630211392363527
+        ],
+        "brier": [
+          0.3668228891652114,
+          0.3816285838181509
+        ],
+        "log_loss": [
+          1.9663138531111592,
+          2.088507223030129
+        ],
+        "review_workload": [
+          0.6385416666666667,
+          0.6690234375
+        ],
+        "document_flag_rate": [
+          0.505807069412742,
+          0.5275824008433915
+        ],
+        "precision_at_threshold": [
+          0.16720235415344656,
+          0.19104737402984082
+        ],
+        "critical_fn_per_case": [
+          0.04087239583333333,
+          0.062252604166666656
+        ]
+      },
+      "frozen_threshold": 0.5265371299544362
+    },
+    "M2_XGBOOST": {
+      "cases": 1920,
+      "documents": 7744,
+      "material_errors": 854,
+      "critical_errors": 747,
+      "critical_false_negatives": 278,
+      "critical_recall": 0.6278447121820616,
+      "critical_fnr": 0.37215528781793844,
+      "average_precision": 0.20148983275890742,
+      "brier": 0.36905489100133543,
+      "log_loss": 1.7621452553066002,
+      "document_flag_rate": 0.40366735537190085,
+      "precision_at_threshold": 0.1692258477287268,
+      "flagged_documents": 3126,
+      "false_positive_documents": 2597,
+      "flagged_cases": 1049,
+      "review_workload": 0.5463541666666667,
+      "flagged_cases_per_100": 54.635416666666664,
+      "critical_fn_per_case": 0.14479166666666668,
+      "ci95": {
+        "critical_recall": [
+          0.5928520878183801,
+          0.6616455605933221
+        ],
+        "critical_fnr": [
+          0.33835443940667786,
+          0.4071479121816199
+        ],
+        "average_precision": [
+          0.18123927033009204,
+          0.22938704179460825
+        ],
+        "brier": [
+          0.357940680664496,
+          0.3796111540828948
+        ],
+        "log_loss": [
+          1.7056256763352384,
+          1.8172004950907614
+        ],
+        "review_workload": [
+          0.5346223958333334,
+          0.5591276041666666
+        ],
+        "document_flag_rate": [
+          0.39336147828462475,
+          0.4146153378211115
+        ],
+        "precision_at_threshold": [
+          0.15554533748971097,
+          0.1848246598046809
+        ],
+        "critical_fn_per_case": [
+          0.12809895833333332,
+          0.16381510416666664
+        ]
+      },
+      "frozen_threshold": 0.9236921847680296
+    },
+    "M3_DEEP_SETS": {
+      "cases": 1920,
+      "documents": 7744,
+      "material_errors": 854,
+      "critical_errors": 747,
+      "critical_false_negatives": 144,
+      "critical_recall": 0.8072289156626506,
+      "critical_fnr": 0.1927710843373494,
+      "average_precision": 0.28704638507664726,
+      "brier": 0.3372779763964241,
+      "log_loss": 1.0790334282317564,
+      "document_flag_rate": 0.4150309917355372,
+      "precision_at_threshold": 0.20535158680771623,
+      "flagged_documents": 3214,
+      "false_positive_documents": 2554,
+      "flagged_cases": 1139,
+      "review_workload": 0.5932291666666667,
+      "flagged_cases_per_100": 59.322916666666664,
+      "critical_fn_per_case": 0.075,
+      "ci95": {
+        "critical_recall": [
+          0.7788332923255866,
+          0.8394322344322345
+        ],
+        "critical_fnr": [
+          0.16056776556776556,
+          0.2211667076744134
+        ],
+        "average_precision": [
+          0.26506184600271415,
+          0.31805406431181
+        ],
+        "brier": [
+          0.33080192767291494,
+          0.3443227947632372
+        ],
+        "log_loss": [
+          1.0563557261211498,
+          1.103964265315754
+        ],
+        "review_workload": [
+          0.5802083333333333,
+          0.6088541666666667
+        ],
+        "document_flag_rate": [
+          0.405853636446426,
+          0.42621833448733876
+        ],
+        "precision_at_threshold": [
+          0.19208191888667805,
+          0.22043539502777615
+        ],
+        "critical_fn_per_case": [
+          0.0609375,
+          0.08725260416666665
+        ]
+      },
+      "frozen_threshold": 0.6561391478347606
+    }
+  },
+  "paired_model_difference_ci95": {
+    "M0_CS_V2_minus_M1_LOGISTIC": {
+      "critical_recall": [
+        -0.2870280675608544,
+        -0.19256298342541453
+      ],
+      "critical_fnr": [
+        0.1925629834254144,
+        0.2870280675608544
+      ],
+      "average_precision": [
+        -0.1287641288866283,
+        -0.09895885640396554
+      ],
+      "brier": [
+        -0.22708636536778942,
+        -0.21118731077880804
+      ],
+      "log_loss": [
+        -1.5995862025118577,
+        -1.4798922891404238
+      ],
+      "review_workload": [
+        -0.06718750000000007,
+        -0.020312500000000008
+      ],
+      "document_flag_rate": [
+        0.0655224728519146,
+        0.11271233017862319
+      ],
+      "precision_at_threshold": [
+        -0.06775272324988628,
+        -0.05291941963701974
+      ],
+      "critical_fn_per_case": [
+        0.07447916666666667,
+        0.11016927083333332
+      ]
+    },
+    "M0_CS_V2_minus_M2_XGBOOST": {
+      "critical_recall": [
+        -0.05162909836065577,
+        0.04996811644429042
+      ],
+      "critical_fnr": [
+        -0.04996811644429043,
+        0.05162909836065572
+      ],
+      "average_precision": [
+        -0.11387079875856722,
+        -0.07491423352480851
+      ],
+      "brier": [
+        -0.22497874336275425,
+        -0.20300306187611764
+      ],
+      "log_loss": [
+        -1.3278540376629762,
+        -1.2211203006777949
+      ],
+      "review_workload": [
+        0.042187500000000044,
+        0.08464843749999995
+      ],
+      "document_flag_rate": [
+        0.18120307851538645,
+        0.22271966096307286
+      ],
+      "precision_at_threshold": [
+        -0.06086671325689408,
+        -0.04186155364744798
+      ],
+      "critical_fn_per_case": [
+        -0.0190234375,
+        0.02058593749999997
+      ]
+    },
+    "M0_CS_V2_minus_M3_DEEP_SETS": {
+      "critical_recall": [
+        -0.23046878320370606,
+        -0.1297629542194597
+      ],
+      "critical_fnr": [
+        0.12976295421945971,
+        0.23046878320370603
+      ],
+      "average_precision": [
+        -0.20011006876453066,
+        -0.15504728104744428
+      ],
+      "brier": [
+        -0.1895286711035082,
+        -0.17498374971203923
+      ],
+      "log_loss": [
+        -0.6170432005447769,
+        -0.5677750771410498
+      ],
+      "review_workload": [
+        -0.008359374999999968,
+        0.038541666666666696
+      ],
+      "document_flag_rate": [
+        0.1701588318885298,
+        0.21117971004375657
+      ],
+      "precision_at_threshold": [
+        -0.09728102634092302,
+        -0.07920086255692013
+      ],
+      "critical_fn_per_case": [
+        0.04942708333333334,
+        0.08908854166666663
+      ]
+    },
+    "M1_LOGISTIC_minus_M2_XGBOOST": {
+      "critical_recall": [
+        0.20828522562598997,
+        0.2666347126559584
+      ],
+      "critical_fnr": [
+        -0.26663471265595834,
+        -0.20828522562598997
+      ],
+      "average_precision": [
+        0.002157349852209281,
+        0.03837113408346028
+      ],
+      "brier": [
+        -0.0018540758455139262,
+        0.012680393361882859
+      ],
+      "log_loss": [
+        0.21950886111090745,
+        0.31776723840469023
+      ],
+      "review_workload": [
+        0.09270833333333339,
+        0.12214843750000004
+      ],
+      "document_flag_rate": [
+        0.10307687902813134,
+        0.1236815508245745
+      ],
+      "precision_at_threshold": [
+        0.0015043702785780537,
+        0.01659550697659679
+      ],
+      "critical_fn_per_case": [
+        -0.10677083333333334,
+        -0.08097656250000002
+      ]
+    },
+    "M1_LOGISTIC_minus_M3_DEEP_SETS": {
+      "critical_recall": [
+        0.041949537507594586,
+        0.07982051282051283
+      ],
+      "critical_fnr": [
+        -0.07982051282051282,
+        -0.04194953750759464
+      ],
+      "average_precision": [
+        -0.08334612741625849,
+        -0.04691980095080171
+      ],
+      "brier": [
+        0.03348840555904839,
+        0.04066066903114124
+      ],
+      "log_loss": [
+        0.9018369141317818,
+        0.9949664326212577
+      ],
+      "review_workload": [
+        0.04843749999999997,
+        0.0697916666666667
+      ],
+      "document_flag_rate": [
+        0.09313898919891375,
+        0.11093366500251019
+      ],
+      "precision_at_threshold": [
+        -0.03300159182486392,
+        -0.021840614118962307
+      ],
+      "critical_fn_per_case": [
+        -0.03125,
+        -0.016145833333333328
+      ]
+    },
+    "M2_XGBOOST_minus_M3_DEEP_SETS": {
+      "critical_recall": [
+        -0.21470494425365763,
+        -0.14933260270136364
+      ],
+      "critical_fnr": [
+        0.1493326027013636,
+        0.2147049442536576
+      ],
+      "average_precision": [
+        -0.10675111115758466,
+        -0.057998780287088846
+      ],
+      "brier": [
+        0.023398168467400456,
+        0.03926393324216761
+      ],
+      "log_loss": [
+        0.6380515987971555,
+        0.7245806672912718
+      ],
+      "review_workload": [
+        -0.06093749999999998,
+        -0.03566406249999998
+      ],
+      "document_flag_rate": [
+        -0.02241431393881667,
+        -0.0002558529508954647
+      ],
+      "precision_at_threshold": [
+        -0.044044364237380486,
+        -0.02908979103511955
+      ],
+      "critical_fn_per_case": [
+        0.05677083333333333,
+        0.08492187499999998
+      ]
+    }
+  },
+  "scenario_results": {
+    "B1": {
+      "M0_CS_V2": {
+        "cases": 320,
+        "documents": 1308,
+        "material_errors": 152,
+        "critical_errors": 117,
+        "critical_false_negatives": 14,
+        "critical_recall": 0.8803418803418803,
+        "critical_fnr": 0.11965811965811966,
+        "average_precision": 0.12823944239785268,
+        "brier": 0.14955422324767884,
+        "log_loss": 0.4801454922825992,
+        "document_flag_rate": 0.7629969418960245,
+        "precision_at_threshold": 0.13226452905811623,
+        "flagged_documents": 998,
+        "false_positive_documents": 866,
+        "flagged_cases": 243,
+        "review_workload": 0.759375,
+        "flagged_cases_per_100": 75.9375,
+        "critical_fn_per_case": 0.04375,
+        "ci95": {
+          "critical_recall": [
+            0.8212761324041812,
+            0.9327966101694914
+          ],
+          "critical_fnr": [
+            0.06720338983050847,
+            0.17872386759581882
+          ],
+          "average_precision": [
+            0.10988448223360803,
+            0.15842806432157652
+          ],
+          "brier": [
+            0.1429156840796935,
+            0.15679547468362962
+          ],
+          "log_loss": [
+            0.4652155321587504,
+            0.4956314839901711
+          ],
+          "review_workload": [
+            0.713984375,
+            0.8110156249999999
+          ],
+          "document_flag_rate": [
+            0.710653482240334,
+            0.8155564570655848
+          ],
+          "precision_at_threshold": [
+            0.11385980842851763,
+            0.1553942428035044
+          ],
+          "critical_fn_per_case": [
+            0.025,
+            0.06875
+          ]
+        }
+      },
+      "M1_LOGISTIC": {
+        "cases": 320,
+        "documents": 1308,
+        "material_errors": 152,
+        "critical_errors": 117,
+        "critical_false_negatives": 6,
+        "critical_recall": 0.9487179487179487,
+        "critical_fnr": 0.05128205128205128,
+        "average_precision": 0.7363337891245259,
+        "brier": 0.5171741418988686,
+        "log_loss": 1.4176651697262228,
+        "document_flag_rate": 0.8753822629969419,
+        "precision_at_threshold": 0.125764192139738,
+        "flagged_documents": 1145,
+        "false_positive_documents": 1001,
+        "flagged_cases": 317,
+        "review_workload": 0.990625,
+        "flagged_cases_per_100": 99.0625,
+        "critical_fn_per_case": 0.01875,
+        "ci95": {
+          "critical_recall": [
+            0.9055986696230599,
+            0.9820738773539353
+          ],
+          "critical_fnr": [
+            0.017926122646064704,
+            0.09440133037693998
+          ],
+          "average_precision": [
+            0.6789294096958375,
+            0.7907445471580576
+          ],
+          "brier": [
+            0.49846887451812394,
+            0.5346372605114555
+          ],
+          "log_loss": [
+            1.3607169518926792,
+            1.4738217432849998
+          ],
+          "review_workload": [
+            0.978125,
+            1.0
+          ],
+          "document_flag_rate": [
+            0.8590502325581395,
+            0.8900763358778626
+          ],
+          "precision_at_threshold": [
+            0.10963203067455819,
+            0.14327579229792728
+          ],
+          "critical_fn_per_case": [
+            0.00625,
+            0.034375
+          ]
+        }
+      },
+      "M2_XGBOOST": {
+        "cases": 320,
+        "documents": 1308,
+        "material_errors": 152,
+        "critical_errors": 117,
+        "critical_false_negatives": 41,
+        "critical_recall": 0.6495726495726496,
+        "critical_fnr": 0.3504273504273504,
+        "average_precision": 0.44194494928599193,
+        "brier": 0.5646375149963714,
+        "log_loss": 2.326062175372369,
+        "document_flag_rate": 0.5948012232415902,
+        "precision_at_threshold": 0.13496143958868895,
+        "flagged_documents": 778,
+        "false_positive_documents": 673,
+        "flagged_cases": 289,
+        "review_workload": 0.903125,
+        "flagged_cases_per_100": 90.3125,
+        "critical_fn_per_case": 0.128125,
+        "ci95": {
+          "critical_recall": [
+            0.5504025423728813,
+            0.7281148867313916
+          ],
+          "critical_fnr": [
+            0.2718851132686084,
+            0.44959745762711867
+          ],
+          "average_precision": [
+            0.3719226424452986,
+            0.5108385651514918
+          ],
+          "brier": [
+            0.5399340542408999,
+            0.5939051927438385
+          ],
+          "log_loss": [
+            2.2136236325064185,
+            2.4492947975344213
+          ],
+          "review_workload": [
+            0.8733593749999999,
+            0.934375
+          ],
+          "document_flag_rate": [
+            0.5599965916171534,
+            0.6279717230443975
+          ],
+          "precision_at_threshold": [
+            0.11311337034813926,
+            0.15811430593183964
+          ],
+          "critical_fn_per_case": [
+            0.090625,
+            0.16875
+          ]
+        }
+      },
+      "M3_DEEP_SETS": {
+        "cases": 320,
+        "documents": 1308,
+        "material_errors": 152,
+        "critical_errors": 117,
+        "critical_false_negatives": 39,
+        "critical_recall": 0.6666666666666666,
+        "critical_fnr": 0.3333333333333333,
+        "average_precision": 0.6127533375126676,
+        "brier": 0.3330017754095318,
+        "log_loss": 0.8770151080596323,
+        "document_flag_rate": 0.40519877675840976,
+        "precision_at_threshold": 0.19811320754716982,
+        "flagged_documents": 530,
+        "false_positive_documents": 425,
+        "flagged_cases": 248,
+        "review_workload": 0.775,
+        "flagged_cases_per_100": 77.5,
+        "critical_fn_per_case": 0.121875,
+        "ci95": {
+          "critical_recall": [
+            0.58365,
+            0.7403116531165311
+          ],
+          "critical_fnr": [
+            0.25968834688346887,
+            0.41635
+          ],
+          "average_precision": [
+            0.5435509405111989,
+            0.6782811416737285
+          ],
+          "brier": [
+            0.32032132183719153,
+            0.34717113683032835
+          ],
+          "log_loss": [
+            0.8461582313831983,
+            0.9100027573095024
+          ],
+          "review_workload": [
+            0.734375,
+            0.81875
+          ],
+          "document_flag_rate": [
+            0.36906979473392226,
+            0.44323544623037314
+          ],
+          "precision_at_threshold": [
+            0.17037658802177857,
+            0.23183201581027665
+          ],
+          "critical_fn_per_case": [
+            0.085859375,
+            0.1625
+          ]
+        }
+      }
+    },
+    "B2": {
+      "M0_CS_V2": {
+        "cases": 320,
+        "documents": 1289,
+        "material_errors": 179,
+        "critical_errors": 172,
+        "critical_false_negatives": 31,
+        "critical_recall": 0.8197674418604651,
+        "critical_fnr": 0.18023255813953487,
+        "average_precision": 0.21440302208813383,
+        "brier": 0.14997905597870917,
+        "log_loss": 0.48002868878244825,
+        "document_flag_rate": 0.7207137315748642,
+        "precision_at_threshold": 0.15931108719052745,
+        "flagged_documents": 929,
+        "false_positive_documents": 781,
+        "flagged_cases": 228,
+        "review_workload": 0.7125,
+        "flagged_cases_per_100": 71.25,
+        "critical_fn_per_case": 0.096875,
+        "ci95": {
+          "critical_recall": [
+            0.7454545454545455,
+            0.885057128663686
+          ],
+          "critical_fnr": [
+            0.11494287133631396,
+            0.2545454545454545
+          ],
+          "average_precision": [
+            0.18183622892080809,
+            0.2655867603127845
+          ],
+          "brier": [
+            0.14209891723143744,
+            0.16005889451743477
+          ],
+          "log_loss": [
+            0.4625110381975945,
+            0.5017890794973098
+          ],
+          "review_workload": [
+            0.665625,
+            0.7610156249999999
+          ],
+          "document_flag_rate": [
+            0.672131551929154,
+            0.7688494349054553
+          ],
+          "precision_at_threshold": [
+            0.14008155486543586,
+            0.18532022330217252
+          ],
+          "critical_fn_per_case": [
+            0.059375,
+            0.140625
+          ]
+        }
+      },
+      "M1_LOGISTIC": {
+        "cases": 320,
+        "documents": 1289,
+        "material_errors": 179,
+        "critical_errors": 172,
+        "critical_false_negatives": 8,
+        "critical_recall": 0.9534883720930233,
+        "critical_fnr": 0.046511627906976744,
+        "average_precision": 0.75746296530925,
+        "brier": 0.5081635774255344,
+        "log_loss": 1.399871171823901,
+        "document_flag_rate": 0.8743211792086889,
+        "precision_at_threshold": 0.15173025732031944,
+        "flagged_documents": 1127,
+        "false_positive_documents": 956,
+        "flagged_cases": 311,
+        "review_workload": 0.971875,
+        "flagged_cases_per_100": 97.1875,
+        "critical_fn_per_case": 0.025,
+        "ci95": {
+          "critical_recall": [
+            0.9136463187325257,
+            0.9838748374042492
+          ],
+          "critical_fnr": [
+            0.016125162595750833,
+            0.08635368126747436
+          ],
+          "average_precision": [
+            0.7089226076543013,
+            0.8121845062377231
+          ],
+          "brier": [
+            0.4860003484460549,
+            0.5275546597029218
+          ],
+          "log_loss": [
+            1.3288513529477906,
+            1.4634422460868597
+          ],
+          "review_workload": [
+            0.953125,
+            0.9875
+          ],
+          "document_flag_rate": [
+            0.8576537856402778,
+            0.892129926505351
+          ],
+          "precision_at_threshold": [
+            0.13323708381801022,
+            0.17904149493509963
+          ],
+          "critical_fn_per_case": [
+            0.009375,
+            0.046875
+          ]
+        }
+      },
+      "M2_XGBOOST": {
+        "cases": 320,
+        "documents": 1289,
+        "material_errors": 179,
+        "critical_errors": 172,
+        "critical_false_negatives": 10,
+        "critical_recall": 0.9418604651162791,
+        "critical_fnr": 0.05813953488372093,
+        "average_precision": 0.3755911094886093,
+        "brier": 0.6272439328739671,
+        "log_loss": 2.8703665755122425,
+        "document_flag_rate": 0.7292474786656322,
+        "precision_at_threshold": 0.1797872340425532,
+        "flagged_documents": 940,
+        "false_positive_documents": 771,
+        "flagged_cases": 294,
+        "review_workload": 0.91875,
+        "flagged_cases_per_100": 91.875,
+        "critical_fn_per_case": 0.03125,
+        "ci95": {
+          "critical_recall": [
+            0.9002950310559007,
+            0.9778505132460508
+          ],
+          "critical_fnr": [
+            0.02214948675394923,
+            0.09970496894409936
+          ],
+          "average_precision": [
+            0.30211331142710146,
+            0.4844323607442962
+          ],
+          "brier": [
+            0.591925159919369,
+            0.6627919340658903
+          ],
+          "log_loss": [
+            2.691381658034276,
+            3.05782441789738
+          ],
+          "review_workload": [
+            0.8875,
+            0.946875
+          ],
+          "document_flag_rate": [
+            0.6921747385103011,
+            0.7671385271665918
+          ],
+          "precision_at_threshold": [
+            0.15543818457422282,
+            0.2107463706327342
+          ],
+          "critical_fn_per_case": [
+            0.0125,
+            0.05476562499999993
+          ]
+        }
+      },
+      "M3_DEEP_SETS": {
+        "cases": 320,
+        "documents": 1289,
+        "material_errors": 179,
+        "critical_errors": 172,
+        "critical_false_negatives": 11,
+        "critical_recall": 0.936046511627907,
+        "critical_fnr": 0.06395348837209303,
+        "average_precision": 0.6428309521271114,
+        "brier": 0.5485869437234981,
+        "log_loss": 1.540365270812788,
+        "document_flag_rate": 0.8463925523661753,
+        "precision_at_threshold": 0.153987167736022,
+        "flagged_documents": 1091,
+        "false_positive_documents": 923,
+        "flagged_cases": 315,
+        "review_workload": 0.984375,
+        "flagged_cases_per_100": 98.4375,
+        "critical_fn_per_case": 0.034375,
+        "ci95": {
+          "critical_recall": [
+            0.8930879637401377,
+            0.971917116434681
+          ],
+          "critical_fnr": [
+            0.02808288356531894,
+            0.1069120362598623
+          ],
+          "average_precision": [
+            0.5913214111590926,
+            0.7037871726252369
+          ],
+          "brier": [
+            0.5259817939434251,
+            0.5672569413170453
+          ],
+          "log_loss": [
+            1.46847703244678,
+            1.6067480438788195
+          ],
+          "review_workload": [
+            0.96875,
+            0.996875
+          ],
+          "document_flag_rate": [
+            0.8273339776151382,
+            0.8661821382249398
+          ],
+          "precision_at_threshold": [
+            0.13556937048367598,
+            0.18190480775184983
+          ],
+          "critical_fn_per_case": [
+            0.015625,
+            0.059375
+          ]
+        }
+      }
+    },
+    "B3": {
+      "M0_CS_V2": {
+        "cases": 320,
+        "documents": 1246,
+        "material_errors": 143,
+        "critical_errors": 143,
+        "critical_false_negatives": 91,
+        "critical_recall": 0.36363636363636365,
+        "critical_fnr": 0.6363636363636364,
+        "average_precision": 0.16411819376951536,
+        "brier": 0.11613080445637347,
+        "log_loss": 0.39613617093124187,
+        "document_flag_rate": 0.29213483146067415,
+        "precision_at_threshold": 0.14285714285714285,
+        "flagged_documents": 364,
+        "false_positive_documents": 312,
+        "flagged_cases": 100,
+        "review_workload": 0.3125,
+        "flagged_cases_per_100": 31.25,
+        "critical_fn_per_case": 0.284375,
+        "ci95": {
+          "critical_recall": [
+            0.26446976854038734,
+            0.45920177383592
+          ],
+          "critical_fnr": [
+            0.5407982261640798,
+            0.7355302314596126
+          ],
+          "average_precision": [
+            0.12593446815646483,
+            0.21987327581408847
+          ],
+          "brier": [
+            0.10587433914233038,
+            0.12660097850044313
+          ],
+          "log_loss": [
+            0.37182473965239754,
+            0.4214134170770717
+          ],
+          "review_workload": [
+            0.259375,
+            0.36875
+          ],
+          "document_flag_rate": [
+            0.23465379684258453,
+            0.34946969696969693
+          ],
+          "precision_at_threshold": [
+            0.1082347784442803,
+            0.17931111207120015
+          ],
+          "critical_fn_per_case": [
+            0.225,
+            0.346875
+          ]
+        }
+      },
+      "M1_LOGISTIC": {
+        "cases": 320,
+        "documents": 1246,
+        "material_errors": 143,
+        "critical_errors": 143,
+        "critical_false_negatives": 2,
+        "critical_recall": 0.986013986013986,
+        "critical_fnr": 0.013986013986013986,
+        "average_precision": 0.9797685575108177,
+        "brier": 0.04844161345884265,
+        "log_loss": 0.2164109627372245,
+        "document_flag_rate": 0.12520064205457465,
+        "precision_at_threshold": 0.9038461538461539,
+        "flagged_documents": 156,
+        "false_positive_documents": 15,
+        "flagged_cases": 123,
+        "review_workload": 0.384375,
+        "flagged_cases_per_100": 38.4375,
+        "critical_fn_per_case": 0.00625,
+        "ci95": {
+          "critical_recall": [
+            0.9564539007092199,
+            1.0
+          ],
+          "critical_fnr": [
+            0.0,
+            0.0435460992907801
+          ],
+          "average_precision": [
+            0.9463444626786547,
+            0.9989015400628849
+          ],
+          "brier": [
+            0.04113887531286146,
+            0.05567005558000894
+          ],
+          "log_loss": [
+            0.19533194630859801,
+            0.23871502518237617
+          ],
+          "review_workload": [
+            0.325,
+            0.4422656249999999
+          ],
+          "document_flag_rate": [
+            0.1067373584152166,
+            0.14237287009728564
+          ],
+          "precision_at_threshold": [
+            0.8484901685393258,
+            0.9610499683744466
+          ],
+          "critical_fn_per_case": [
+            0.0,
+            0.01875
+          ]
+        }
+      },
+      "M2_XGBOOST": {
+        "cases": 320,
+        "documents": 1246,
+        "material_errors": 143,
+        "critical_errors": 143,
+        "critical_false_negatives": 49,
+        "critical_recall": 0.6573426573426573,
+        "critical_fnr": 0.34265734265734266,
+        "average_precision": 0.9622737929399042,
+        "brier": 0.020099992186589675,
+        "log_loss": 0.09048785507093711,
+        "document_flag_rate": 0.08105939004815409,
+        "precision_at_threshold": 0.9306930693069307,
+        "flagged_documents": 101,
+        "false_positive_documents": 7,
+        "flagged_cases": 82,
+        "review_workload": 0.25625,
+        "flagged_cases_per_100": 25.625,
+        "critical_fn_per_case": 0.153125,
+        "ci95": {
+          "critical_recall": [
+            0.5878033730974908,
+            0.7245684744217842
+          ],
+          "critical_fnr": [
+            0.2754315255782158,
+            0.41219662690250924
+          ],
+          "average_precision": [
+            0.9220368364526869,
+            0.988424528814623
+          ],
+          "brier": [
+            0.009981247472198387,
+            0.03184765851892865
+          ],
+          "log_loss": [
+            0.060945397970261946,
+            0.12816071174765595
+          ],
+          "review_workload": [
+            0.2125,
+            0.30476562499999993
+          ],
+          "document_flag_rate": [
+            0.06608556725061186,
+            0.09554689507307691
+          ],
+          "precision_at_threshold": [
+            0.8769574175824176,
+            0.9782742316784869
+          ],
+          "critical_fn_per_case": [
+            0.1125,
+            0.19375
+          ]
+        }
+      },
+      "M3_DEEP_SETS": {
+        "cases": 320,
+        "documents": 1246,
+        "material_errors": 143,
+        "critical_errors": 143,
+        "critical_false_negatives": 10,
+        "critical_recall": 0.9300699300699301,
+        "critical_fnr": 0.06993006993006994,
+        "average_precision": 0.9699678357150174,
+        "brier": 0.06359116034288334,
+        "log_loss": 0.26333661641873757,
+        "document_flag_rate": 0.11235955056179775,
+        "precision_at_threshold": 0.95,
+        "flagged_documents": 140,
+        "false_positive_documents": 7,
+        "flagged_cases": 113,
+        "review_workload": 0.353125,
+        "flagged_cases_per_100": 35.3125,
+        "critical_fn_per_case": 0.03125,
+        "ci95": {
+          "critical_recall": [
+            0.8730488712478294,
+            0.9755681818181817
+          ],
+          "critical_fnr": [
+            0.024431818181818183,
+            0.12695112875217054
+          ],
+          "average_precision": [
+            0.9249866298179491,
+            0.9961346694383502
+          ],
+          "brier": [
+            0.05697982577876676,
+            0.07011882054944776
+          ],
+          "log_loss": [
+            0.2456392234509876,
+            0.2811958239211028
+          ],
+          "review_workload": [
+            0.30148437499999997,
+            0.4110156249999999
+          ],
+          "document_flag_rate": [
+            0.09488306468852879,
+            0.1287677956393618
+          ],
+          "precision_at_threshold": [
+            0.9062865579302587,
+            0.9856691335183472
+          ],
+          "critical_fn_per_case": [
+            0.010859375000000001,
+            0.05476562499999993
+          ]
+        }
+      }
+    },
+    "B4": {
+      "M0_CS_V2": {
+        "cases": 320,
+        "documents": 1289,
+        "material_errors": 119,
+        "critical_errors": 80,
+        "critical_false_negatives": 34,
+        "critical_recall": 0.575,
+        "critical_fnr": 0.425,
+        "average_precision": 0.09888231757716007,
+        "brier": 0.12689289117021893,
+        "log_loss": 0.42990436417624855,
+        "document_flag_rate": 0.5244375484871994,
+        "precision_at_threshold": 0.09763313609467456,
+        "flagged_documents": 676,
+        "false_positive_documents": 610,
+        "flagged_cases": 169,
+        "review_workload": 0.528125,
+        "flagged_cases_per_100": 52.8125,
+        "critical_fn_per_case": 0.10625,
+        "ci95": {
+          "critical_recall": [
+            0.44348816029143895,
+            0.686350210970464
+          ],
+          "critical_fnr": [
+            0.3136497890295359,
+            0.556511839708561
+          ],
+          "average_precision": [
+            0.07979438549915635,
+            0.12920684494652945
+          ],
+          "brier": [
+            0.1172942990461218,
+            0.1351998318879505
+          ],
+          "log_loss": [
+            0.40808952499348017,
+            0.4482493836583404
+          ],
+          "review_workload": [
+            0.471875,
+            0.584375
+          ],
+          "document_flag_rate": [
+            0.4677126902393589,
+            0.5815288524380969
+          ],
+          "precision_at_threshold": [
+            0.07172190201729106,
+            0.12314935710028097
+          ],
+          "critical_fn_per_case": [
+            0.071875,
+            0.14375
+          ]
+        }
+      },
+      "M1_LOGISTIC": {
+        "cases": 320,
+        "documents": 1289,
+        "material_errors": 119,
+        "critical_errors": 80,
+        "critical_false_negatives": 80,
+        "critical_recall": 0.0,
+        "critical_fnr": 1.0,
+        "average_precision": 0.0801836800405028,
+        "brier": 0.12856629057439112,
+        "log_loss": 0.42688287352763615,
+        "document_flag_rate": 0.026377036462373934,
+        "precision_at_threshold": 0.029411764705882353,
+        "flagged_documents": 34,
+        "false_positive_documents": 33,
+        "flagged_cases": 22,
+        "review_workload": 0.06875,
+        "flagged_cases_per_100": 6.875,
+        "critical_fn_per_case": 0.25,
+        "ci95": {
+          "critical_recall": [
+            0.0,
+            0.0
+          ],
+          "critical_fnr": [
+            1.0,
+            1.0
+          ],
+          "average_precision": [
+            0.061843132080872824,
+            0.10331417677862219
+          ],
+          "brier": [
+            0.11637315971813196,
+            0.14172099772136645
+          ],
+          "log_loss": [
+            0.3974412848309606,
+            0.4593759112811058
+          ],
+          "review_workload": [
+            0.0375,
+            0.10476562499999992
+          ],
+          "document_flag_rate": [
+            0.013487011450658493,
+            0.041736405476451126
+          ],
+          "precision_at_threshold": [
+            0.0,
+            0.075
+          ],
+          "critical_fn_per_case": [
+            0.190625,
+            0.30476562499999993
+          ]
+        }
+      },
+      "M2_XGBOOST": {
+        "cases": 320,
+        "documents": 1289,
+        "material_errors": 119,
+        "critical_errors": 80,
+        "critical_false_negatives": 80,
+        "critical_recall": 0.0,
+        "critical_fnr": 1.0,
+        "average_precision": 0.10484654618623065,
+        "brier": 0.09019025259859177,
+        "log_loss": 0.3610079137203538,
+        "document_flag_rate": 0.0,
+        "precision_at_threshold": null,
+        "flagged_documents": 0,
+        "false_positive_documents": 0,
+        "flagged_cases": 0,
+        "review_workload": 0.0,
+        "flagged_cases_per_100": 0.0,
+        "critical_fn_per_case": 0.25,
+        "ci95": {
+          "critical_recall": [
+            0.0,
+            0.0
+          ],
+          "critical_fnr": [
+            1.0,
+            1.0
+          ],
+          "average_precision": [
+            0.08343698934794956,
+            0.140326899118888
+          ],
+          "brier": [
+            0.07420121114057193,
+            0.10518391015112899
+          ],
+          "log_loss": [
+            0.2985188097621986,
+            0.4174471345158186
+          ],
+          "review_workload": [
+            0.0,
+            0.0
+          ],
+          "document_flag_rate": [
+            0.0,
+            0.0
+          ],
+          "precision_at_threshold": null,
+          "critical_fn_per_case": [
+            0.190625,
+            0.30476562499999993
+          ]
+        }
+      },
+      "M3_DEEP_SETS": {
+        "cases": 320,
+        "documents": 1289,
+        "material_errors": 119,
+        "critical_errors": 80,
+        "critical_false_negatives": 80,
+        "critical_recall": 0.0,
+        "critical_fnr": 1.0,
+        "average_precision": 0.09149702363712067,
+        "brier": 0.1074753357423502,
+        "log_loss": 0.37963068034352176,
+        "document_flag_rate": 0.0,
+        "precision_at_threshold": null,
+        "flagged_documents": 0,
+        "false_positive_documents": 0,
+        "flagged_cases": 0,
+        "review_workload": 0.0,
+        "flagged_cases_per_100": 0.0,
+        "critical_fn_per_case": 0.25,
+        "ci95": {
+          "critical_recall": [
+            0.0,
+            0.0
+          ],
+          "critical_fnr": [
+            1.0,
+            1.0
+          ],
+          "average_precision": [
+            0.06880608787163073,
+            0.1255852743053203
+          ],
+          "brier": [
+            0.09391781184717146,
+            0.12000860395128266
+          ],
+          "log_loss": [
+            0.343608169880163,
+            0.4149193828649251
+          ],
+          "review_workload": [
+            0.0,
+            0.0
+          ],
+          "document_flag_rate": [
+            0.0,
+            0.0
+          ],
+          "precision_at_threshold": null,
+          "critical_fn_per_case": [
+            0.190625,
+            0.30476562499999993
+          ]
+        }
+      }
+    },
+    "B5": {
+      "M0_CS_V2": {
+        "cases": 320,
+        "documents": 1293,
+        "material_errors": 94,
+        "critical_errors": 68,
+        "critical_false_negatives": 1,
+        "critical_recall": 0.9852941176470589,
+        "critical_fnr": 0.014705882352941176,
+        "average_precision": 0.0651478093142989,
+        "brier": 0.2611847764131215,
+        "log_loss": 0.7168915501485646,
+        "document_flag_rate": 0.9984532095901005,
+        "precision_at_threshold": 0.07203718048024788,
+        "flagged_documents": 1291,
+        "false_positive_documents": 1198,
+        "flagged_cases": 319,
+        "review_workload": 0.996875,
+        "flagged_cases_per_100": 99.6875,
+        "critical_fn_per_case": 0.003125,
+        "ci95": {
+          "critical_recall": [
+            0.9417699239650803,
+            1.0
+          ],
+          "critical_fnr": [
+            0.0,
+            0.05823007603491967
+          ],
+          "average_precision": [
+            0.05378161962190586,
+            0.080801109877403
+          ],
+          "brier": [
+            0.25238816355044963,
+            0.26922345653490853
+          ],
+          "log_loss": [
+            0.6984945344515967,
+            0.7336882087954488
+          ],
+          "review_workload": [
+            0.988984375,
+            1.0
+          ],
+          "document_flag_rate": [
+            0.9945278641531435,
+            1.0
+          ],
+          "precision_at_threshold": [
+            0.05796155155705717,
+            0.08530830811267469
+          ],
+          "critical_fn_per_case": [
+            0.0,
+            0.011015624999999928
+          ]
+        }
+      },
+      "M1_LOGISTIC": {
+        "cases": 320,
+        "documents": 1293,
+        "material_errors": 94,
+        "critical_errors": 68,
+        "critical_false_negatives": 0,
+        "critical_recall": 1.0,
+        "critical_fnr": 0.0,
+        "average_precision": 0.22527378395467784,
+        "brier": 0.9102669287286227,
+        "log_loss": 8.256133622311811,
+        "document_flag_rate": 0.9930394431554525,
+        "precision_at_threshold": 0.07165109034267912,
+        "flagged_documents": 1284,
+        "false_positive_documents": 1192,
+        "flagged_cases": 320,
+        "review_workload": 1.0,
+        "flagged_cases_per_100": 100.0,
+        "critical_fn_per_case": 0.0,
+        "ci95": {
+          "critical_recall": [
+            1.0,
+            1.0
+          ],
+          "critical_fnr": [
+            0.0,
+            0.0
+          ],
+          "average_precision": [
+            0.14412871127600882,
+            0.309931902627683
+          ],
+          "brier": [
+            0.8972082423693558,
+            0.9243346883277741
+          ],
+          "log_loss": [
+            8.055605876766352,
+            8.467800853213202
+          ],
+          "review_workload": [
+            1.0,
+            1.0
+          ],
+          "document_flag_rate": [
+            0.9886954650395277,
+            0.9965662092234486
+          ],
+          "precision_at_threshold": [
+            0.0566400580551524,
+            0.08402548094709582
+          ],
+          "critical_fn_per_case": [
+            0.0,
+            0.0
+          ]
+        }
+      },
+      "M2_XGBOOST": {
+        "cases": 320,
+        "documents": 1293,
+        "material_errors": 94,
+        "critical_errors": 68,
+        "critical_false_negatives": 3,
+        "critical_recall": 0.9558823529411765,
+        "critical_fnr": 0.04411764705882353,
+        "average_precision": 0.15631020449123223,
+        "brier": 0.884188232335862,
+        "log_loss": 4.799230368968121,
+        "document_flag_rate": 0.954369682907966,
+        "precision_at_threshold": 0.07212317666126418,
+        "flagged_documents": 1234,
+        "false_positive_documents": 1145,
+        "flagged_cases": 318,
+        "review_workload": 0.99375,
+        "flagged_cases_per_100": 99.375,
+        "critical_fn_per_case": 0.009375,
+        "ci95": {
+          "critical_recall": [
+            0.9015322580645161,
+            1.0
+          ],
+          "critical_fnr": [
+            0.0,
+            0.0984677419354838
+          ],
+          "average_precision": [
+            0.09516379163017895,
+            0.2413408564211359
+          ],
+          "brier": [
+            0.8677664273540217,
+            0.9002749376669382
+          ],
+          "log_loss": [
+            4.66658063133305,
+            4.918656026768257
+          ],
+          "review_workload": [
+            0.984375,
+            1.0
+          ],
+          "document_flag_rate": [
+            0.9414945778853198,
+            0.9676897012723584
+          ],
+          "precision_at_threshold": [
+            0.05700830619721176,
+            0.08549112908298392
+          ],
+          "critical_fn_per_case": [
+            0.0,
+            0.021875
+          ]
+        }
+      },
+      "M3_DEEP_SETS": {
+        "cases": 320,
+        "documents": 1293,
+        "material_errors": 94,
+        "critical_errors": 68,
+        "critical_false_negatives": 0,
+        "critical_recall": 1.0,
+        "critical_fnr": 0.0,
+        "average_precision": 0.15878556702649094,
+        "brier": 0.8248644000614225,
+        "log_loss": 2.952596449362383,
+        "document_flag_rate": 0.9783449342614076,
+        "precision_at_threshold": 0.07193675889328063,
+        "flagged_documents": 1265,
+        "false_positive_documents": 1174,
+        "flagged_cases": 320,
+        "review_workload": 1.0,
+        "flagged_cases_per_100": 100.0,
+        "critical_fn_per_case": 0.0,
+        "ci95": {
+          "critical_recall": [
+            1.0,
+            1.0
+          ],
+          "critical_fnr": [
+            0.0,
+            0.0
+          ],
+          "average_precision": [
+            0.09184423898132595,
+            0.24634677059950072
+          ],
+          "brier": [
+            0.8112828038402459,
+            0.8379541563602713
+          ],
+          "log_loss": [
+            2.8928156893380153,
+            3.0103007897408167
+          ],
+          "review_workload": [
+            1.0,
+            1.0
+          ],
+          "document_flag_rate": [
+            0.9712317980230085,
+            0.9854105671752731
+          ],
+          "precision_at_threshold": [
+            0.0571526791141341,
+            0.08477373494891656
+          ],
+          "critical_fn_per_case": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    "B6": {
+      "M0_CS_V2": {
+        "cases": 320,
+        "documents": 1319,
+        "material_errors": 167,
+        "critical_errors": 167,
+        "critical_false_negatives": 106,
+        "critical_recall": 0.3652694610778443,
+        "critical_fnr": 0.6347305389221557,
+        "average_precision": 0.1714923097268784,
+        "brier": 0.12228867412999353,
+        "log_loss": 0.41166301465089256,
+        "document_flag_rate": 0.3206974981046247,
+        "precision_at_threshold": 0.14420803782505912,
+        "flagged_documents": 423,
+        "false_positive_documents": 362,
+        "flagged_cases": 110,
+        "review_workload": 0.34375,
+        "flagged_cases_per_100": 34.375,
+        "critical_fn_per_case": 0.33125,
+        "ci95": {
+          "critical_recall": [
+            0.28042696629213487,
+            0.45569891467065865
+          ],
+          "critical_fnr": [
+            0.5443010853293413,
+            0.7195730337078651
+          ],
+          "average_precision": [
+            0.1372628568188053,
+            0.20974325183389173
+          ],
+          "brier": [
+            0.11221229428677655,
+            0.13227222723348905
+          ],
+          "log_loss": [
+            0.3876143221896037,
+            0.4355252732507228
+          ],
+          "review_workload": [
+            0.290625,
+            0.396875
+          ],
+          "document_flag_rate": [
+            0.2629033553740253,
+            0.37646773140883366
+          ],
+          "precision_at_threshold": [
+            0.11493241984383733,
+            0.17157996355432142
+          ],
+          "critical_fn_per_case": [
+            0.26875,
+            0.4
+          ]
+        }
+      },
+      "M1_LOGISTIC": {
+        "cases": 320,
+        "documents": 1319,
+        "material_errors": 167,
+        "critical_errors": 167,
+        "critical_false_negatives": 4,
+        "critical_recall": 0.9760479041916168,
+        "critical_fnr": 0.023952095808383235,
+        "average_precision": 0.9742066700917167,
+        "brier": 0.12464554403473323,
+        "log_loss": 0.4105771938815003,
+        "document_flag_rate": 0.18953752843062927,
+        "precision_at_threshold": 0.652,
+        "flagged_documents": 250,
+        "false_positive_documents": 87,
+        "flagged_cases": 159,
+        "review_workload": 0.496875,
+        "flagged_cases_per_100": 49.6875,
+        "critical_fn_per_case": 0.0125,
+        "ci95": {
+          "critical_recall": [
+            0.9406434911242604,
+            1.0
+          ],
+          "critical_fnr": [
+            0.0,
+            0.059356508875739636
+          ],
+          "average_precision": [
+            0.9438405432038851,
+            0.9971050736199834
+          ],
+          "brier": [
+            0.11400624340176632,
+            0.13590024618178542
+          ],
+          "log_loss": [
+            0.3867759348869167,
+            0.43640980024534143
+          ],
+          "review_workload": [
+            0.448359375,
+            0.5547656249999999
+          ],
+          "document_flag_rate": [
+            0.16455441460917056,
+            0.2173038527693328
+          ],
+          "precision_at_threshold": [
+            0.5552603827127354,
+            0.7595240140905575
+          ],
+          "critical_fn_per_case": [
+            0.0,
+            0.03125
+          ]
+        }
+      },
+      "M2_XGBOOST": {
+        "cases": 320,
+        "documents": 1319,
+        "material_errors": 167,
+        "critical_errors": 167,
+        "critical_false_negatives": 95,
+        "critical_recall": 0.4311377245508982,
+        "critical_fnr": 0.5688622754491018,
+        "average_precision": 0.9532525223530314,
+        "brier": 0.019971619825776783,
+        "log_loss": 0.09110620211695913,
+        "document_flag_rate": 0.05534495830174375,
+        "precision_at_threshold": 0.9863013698630136,
+        "flagged_documents": 73,
+        "false_positive_documents": 1,
+        "flagged_cases": 66,
+        "review_workload": 0.20625,
+        "flagged_cases_per_100": 20.625,
+        "critical_fn_per_case": 0.296875,
+        "ci95": {
+          "critical_recall": [
+            0.35445365999601086,
+            0.5144972826086955
+          ],
+          "critical_fnr": [
+            0.48550271739130435,
+            0.645546340003989
+          ],
+          "average_precision": [
+            0.9207359220397577,
+            0.9802947587009435
+          ],
+          "brier": [
+            0.010815088315538032,
+            0.029369319029455825
+          ],
+          "log_loss": [
+            0.06538468673847556,
+            0.11740699307019227
+          ],
+          "review_workload": [
+            0.165625,
+            0.2516406249999999
+          ],
+          "document_flag_rate": [
+            0.043643566795303394,
+            0.06772718941520132
+          ],
+          "precision_at_threshold": [
+            0.9568167701863355,
+            1.0
+          ],
+          "critical_fn_per_case": [
+            0.238984375,
+            0.35164062499999993
+          ]
+        }
+      },
+      "M3_DEEP_SETS": {
+        "cases": 320,
+        "documents": 1319,
+        "material_errors": 167,
+        "critical_errors": 167,
+        "critical_false_negatives": 4,
+        "critical_recall": 0.9760479041916168,
+        "critical_fnr": 0.023952095808383235,
+        "average_precision": 0.9676228690798896,
+        "brier": 0.14015602250197912,
+        "log_loss": 0.44594366395824886,
+        "document_flag_rate": 0.1425322213798332,
+        "precision_at_threshold": 0.8670212765957447,
+        "flagged_documents": 188,
+        "false_positive_documents": 25,
+        "flagged_cases": 143,
+        "review_workload": 0.446875,
+        "flagged_cases_per_100": 44.6875,
+        "critical_fn_per_case": 0.0125,
+        "ci95": {
+          "critical_recall": [
+            0.9406434911242604,
+            1.0
+          ],
+          "critical_fnr": [
+            0.0,
+            0.059356508875739636
+          ],
+          "average_precision": [
+            0.9430127579067432,
+            0.9892325441729166
+          ],
+          "brier": [
+            0.13071846142377203,
+            0.15105528248145625
+          ],
+          "log_loss": [
+            0.4242409235004554,
+            0.47087343566542317
+          ],
+          "review_workload": [
+            0.39523437499999997,
+            0.4939062499999999
+          ],
+          "document_flag_rate": [
+            0.12309912310553645,
+            0.15882239819004523
+          ],
+          "precision_at_threshold": [
+            0.8146347279148299,
+            0.9189359441408621
+          ],
+          "critical_fn_per_case": [
+            0.0,
+            0.03125
+          ]
+        }
+      }
+    }
+  },
+  "generalization_gaps": {
+    "M0_CS_V2": {
+      "AP_A_minus_AP_B": 0.38543565854925627,
+      "CriticalRecall_A_minus_B": 0.25081659973226234,
+      "LogLoss_B_minus_A": -0.16677134311697128,
+      "independent_customer_bootstrap_ci95": {
+        "AP_A_minus_AP_B": [
+          0.3388031199707272,
+          0.4288731642628133
+        ],
+        "CriticalRecall_A_minus_B": [
+          0.17845662071329146,
+          0.3213782260417371
+        ],
+        "LogLoss_B_minus_A": [
+          -0.18784403630090718,
+          -0.1407306916107707
+        ]
+      }
+    },
+    "M1_LOGISTIC": {
+      "AP_A_minus_AP_B": 0.6833578514074852,
+      "CriticalRecall_A_minus_B": 0.04386880856760378,
+      "LogLoss_B_minus_A": 1.7504588908428496,
+      "independent_customer_bootstrap_ci95": {
+        "AP_A_minus_AP_B": [
+          0.6527201220880784,
+          0.7163325462143445
+        ],
+        "CriticalRecall_A_minus_B": [
+          -0.00882469730115575,
+          0.0949104094191289
+        ],
+        "LogLoss_B_minus_A": [
+          1.6775882671699418,
+          1.8242265979945809
+        ]
+      }
+    },
+    "M2_XGBOOST": {
+      "AP_A_minus_AP_B": 0.7812834975423147,
+      "CriticalRecall_A_minus_B": 0.2771552878179384,
+      "LogLoss_B_minus_A": 1.6321051068202685,
+      "independent_customer_bootstrap_ci95": {
+        "AP_A_minus_AP_B": [
+          0.7500455280797066,
+          0.8051152530634419
+        ],
+        "CriticalRecall_A_minus_B": [
+          0.22270289630734702,
+          0.3388386471508861
+        ],
+        "LogLoss_B_minus_A": [
+          1.548854974106592,
+          1.6971981723352794
+        ]
+      }
+    },
+    "M3_DEEP_SETS": {
+      "AP_A_minus_AP_B": 0.63982893044691,
+      "CriticalRecall_A_minus_B": 0.10277108433734938,
+      "LogLoss_B_minus_A": 0.8434182117792655,
+      "independent_customer_bootstrap_ci95": {
+        "AP_A_minus_AP_B": [
+          0.5996019604308992,
+          0.6736911806487662
+        ],
+        "CriticalRecall_A_minus_B": [
+          0.0515795934660875,
+          0.15111070563617035
+        ],
+        "LogLoss_B_minus_A": [
+          0.7960872846091577,
+          0.8903629468939969
+        ]
+      }
+    }
+  },
+  "base_rates": {
+    "V3_A": {
+      "cases": 192,
+      "documents": 753,
+      "material_prevalence": 0.3891102257636122,
+      "critical_prevalence": 0.2656042496679947
+    },
+    "Generator_B": {
+      "cases": 1920,
+      "documents": 7744,
+      "material_prevalence": 0.11027892561983471,
+      "critical_prevalence": 0.09646177685950413
+    }
+  },
+  "calibration": {
+    "M0_CS_V2": {
+      "brier": 0.1544698506347109,
+      "log_loss": 0.48611104969219376,
+      "ece_10_equal_width": 0.2065642799436835
+    },
+    "M1_LOGISTIC": {
+      "brier": 0.3743478098209277,
+      "log_loss": 2.0267784295466793,
+      "ece_10_equal_width": 0.46441973084032495
+    },
+    "M2_XGBOOST": {
+      "brier": 0.36905489100133543,
+      "log_loss": 1.7621452553066002,
+      "ece_10_equal_width": 0.3629180006972712
+    },
+    "M3_DEEP_SETS": {
+      "brier": 0.3372779763964241,
+      "log_loss": 1.0790334282317564,
+      "ece_10_equal_width": 0.4331351279405765
+    }
+  },
+  "legitimate_discrepancies_B5": {
+    "M0_CS_V2": {
+      "cases": 320,
+      "documents": 1293,
+      "programmatic_gold_errors": 94,
+      "flagged_legitimate_documents": 1198,
+      "false_positive_rate_on_legitimate_documents": 0.9991659716430359
+    },
+    "M1_LOGISTIC": {
+      "cases": 320,
+      "documents": 1293,
+      "programmatic_gold_errors": 94,
+      "flagged_legitimate_documents": 1192,
+      "false_positive_rate_on_legitimate_documents": 0.994161801501251
+    },
+    "M2_XGBOOST": {
+      "cases": 320,
+      "documents": 1293,
+      "programmatic_gold_errors": 94,
+      "flagged_legitimate_documents": 1145,
+      "false_positive_rate_on_legitimate_documents": 0.9549624687239366
+    },
+    "M3_DEEP_SETS": {
+      "cases": 320,
+      "documents": 1293,
+      "programmatic_gold_errors": 94,
+      "flagged_legitimate_documents": 1174,
+      "false_positive_rate_on_legitimate_documents": 0.9791492910758965
+    }
+  },
+  "failure_taxonomy": {
+    "missed_critical_defects": {
+      "M0_CS_V2": 277,
+      "M1_LOGISTIC": 100,
+      "M2_XGBOOST": 278,
+      "M3_DEEP_SETS": 144
+    },
+    "false_positives_on_legitimate_B5": {
+      "M0_CS_V2": 1198,
+      "M1_LOGISTIC": 1192,
+      "M2_XGBOOST": 1145,
+      "M3_DEEP_SETS": 1174
+    },
+    "parsing_or_schema_incompatibilities": 0,
+    "calibration_deterioration_vs_A": {
+      "M0_CS_V2": {
+        "delta_brier_B_minus_A": -0.07628517216299158,
+        "delta_log_loss_B_minus_A": -0.16677134311697128,
+        "delta_ece_B_minus_A": 0.16153804703818103
+      },
+      "M1_LOGISTIC": {
+        "delta_brier_B_minus_A": 0.29037949488003856,
+        "delta_log_loss_B_minus_A": 1.7504588908428496,
+        "delta_ece_B_minus_A": 0.41510639702478813
+      },
+      "M2_XGBOOST": {
+        "delta_brier_B_minus_A": 0.3340422530699219,
+        "delta_log_loss_B_minus_A": 1.6321051068202685,
+        "delta_ece_B_minus_A": 0.3467372810148162
+      },
+      "M3_DEEP_SETS": {
+        "delta_brier_B_minus_A": 0.26325745790441024,
+        "delta_log_loss_B_minus_A": 0.8434182117792655,
+        "delta_ece_B_minus_A": 0.414578590028837
+      }
+    },
+    "unseen_source_combinations": {
+      "M0_CS_V2": 0.34375,
+      "M1_LOGISTIC": 0.496875,
+      "M2_XGBOOST": 0.20625,
+      "M3_DEEP_SETS": 0.446875
+    }
+  },
+  "bootstrap": {
+    "draws": 300,
+    "seed": 20261109,
+    "unit": "customer_group",
+    "stratified_aggregate": true,
+    "conditions_on": [
+      "frozen models",
+      "frozen V3 calibrators",
+      "frozen V3 thresholds"
+    ]
+  },
+  "limitations": [
+    "programmatic synthetic gold, not human-reviewed bank truth",
+    "the V3 feature contract is limited to three known source categories",
+    "AP is prevalence-sensitive; compare alongside base rates",
+    "bootstrap intervals condition on frozen models and thresholds"
+  ]
+}

@@ -1,0 +1,42 @@
+version: 1
+currency: VND
+description: >-
+  Illustrative sensitivity inputs only. These are not bank quotations or measured
+  operating costs. All cost assumptions must remain visible in reports and UI.
+application_volumes: [1000, 10000, 50000]
+review_cost_per_flagged_case:
+  low: 30000
+  medium: 100000
+  high: 250000
+missed_critical_document_cost:
+  low: 100000
+  medium: 500000
+  high: 2000000
+inference_cost_per_application:
+  cs_v2: 0
+  learned_model: 300
+fixed_operating_cost:
+  cs_v2: 0
+  learned_model: 10000000
+scenario_grid:
+  - id: low_low
+    review: low
+    missed: low
+  - id: low_medium
+    review: low
+    missed: medium
+  - id: medium_low
+    review: medium
+    missed: low
+  - id: medium_medium
+    review: medium
+    missed: medium
+  - id: medium_high
+    review: medium
+    missed: high
+  - id: high_medium
+    review: high
+    missed: medium
+  - id: high_high
+    review: high
+    missed: high
