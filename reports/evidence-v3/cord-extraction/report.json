@@ -1,0 +1,334 @@
+{
+  "status": "PUBLIC_RECEIPT_EXTRACTION_PILOT",
+  "scope": "Small non-commercial post-OCR receipt extraction pilot, no authenticity or bank defect labels",
+  "validation": {
+    "documents": 40,
+    "exact_field_micro_f1": 0.6610348468848997,
+    "exact_field_precision": 0.6548117154811716,
+    "exact_field_recall": 0.6673773987206824,
+    "word_tag_accuracy_including_truncation": 0.7312722948870393,
+    "cross_entropy_labeled_tokens": 0.9267632246017456,
+    "counts": {
+      "words": 841,
+      "visible_words": 841,
+      "unknown_words": 3,
+      "word_correct": 615,
+      "tp": 313,
+      "fp": 165,
+      "fn": 156
+    },
+    "field_metrics": {
+      "menu.cnt": {
+        "f1": 0.906832298136646,
+        "gold": 73,
+        "predicted": 88
+      },
+      "menu.discountprice": {
+        "f1": 0.0,
+        "gold": 3,
+        "predicted": 0
+      },
+      "menu.nm": {
+        "f1": 0.7301587301587301,
+        "gold": 78,
+        "predicted": 111
+      },
+      "menu.num": {
+        "f1": 0.0,
+        "gold": 2,
+        "predicted": 0
+      },
+      "menu.price": {
+        "f1": 0.7715736040609137,
+        "gold": 78,
+        "predicted": 119
+      },
+      "menu.sub.cnt": {
+        "f1": 0.0,
+        "gold": 11,
+        "predicted": 0
+      },
+      "menu.sub.nm": {
+        "f1": 0.0,
+        "gold": 25,
+        "predicted": 0
+      },
+      "menu.sub.price": {
+        "f1": 0.0,
+        "gold": 7,
+        "predicted": 0
+      },
+      "menu.unitprice": {
+        "f1": 0.7555555555555555,
+        "gold": 23,
+        "predicted": 22
+      },
+      "menu.vatyn": {
+        "f1": 0.0,
+        "gold": 1,
+        "predicted": 0
+      },
+      "sub_total.discount_price": {
+        "f1": 0.0,
+        "gold": 2,
+        "predicted": 0
+      },
+      "sub_total.etc": {
+        "f1": 0.0,
+        "gold": 2,
+        "predicted": 0
+      },
+      "sub_total.service_price": {
+        "f1": 0.0,
+        "gold": 4,
+        "predicted": 0
+      },
+      "sub_total.subtotal_price": {
+        "f1": 0.0,
+        "gold": 27,
+        "predicted": 0
+      },
+      "sub_total.tax_price": {
+        "f1": 0.5384615384615384,
+        "gold": 18,
+        "predicted": 8
+      },
+      "total.cashprice": {
+        "f1": 0.7058823529411765,
+        "gold": 28,
+        "predicted": 23
+      },
+      "total.changeprice": {
+        "f1": 0.6071428571428571,
+        "gold": 29,
+        "predicted": 27
+      },
+      "total.creditcardprice": {
+        "f1": 0.0,
+        "gold": 4,
+        "predicted": 0
+      },
+      "total.emoneyprice": {
+        "f1": 0.0,
+        "gold": 1,
+        "predicted": 0
+      },
+      "total.menuqty_cnt": {
+        "f1": 0.5,
+        "gold": 9,
+        "predicted": 3
+      },
+      "total.menutype_cnt": {
+        "f1": 0.0,
+        "gold": 1,
+        "predicted": 0
+      },
+      "total.total_etc": {
+        "f1": 0.0,
+        "gold": 3,
+        "predicted": 0
+      },
+      "total.total_price": {
+        "f1": 0.5641025641025641,
+        "gold": 40,
+        "predicted": 77
+      }
+    }
+  },
+  "test": {
+    "documents": 60,
+    "exact_field_micro_f1": 0.6257449344457687,
+    "exact_field_precision": 0.6169212690951822,
+    "exact_field_recall": 0.6348246674727932,
+    "word_tag_accuracy_including_truncation": 0.7370892018779343,
+    "cross_entropy_labeled_tokens": 1.0153340250253677,
+    "counts": {
+      "words": 1491,
+      "visible_words": 1491,
+      "unknown_words": 0,
+      "word_correct": 1099,
+      "tp": 525,
+      "fp": 326,
+      "fn": 302
+    },
+    "field_metrics": {
+      "menu.cnt": {
+        "f1": 0.8823529411764706,
+        "gold": 139,
+        "predicted": 167
+      },
+      "menu.discountprice": {
+        "f1": 0.0,
+        "gold": 6,
+        "predicted": 0
+      },
+      "menu.itemsubtotal": {
+        "f1": 0.0,
+        "gold": 6,
+        "predicted": 0
+      },
+      "menu.nm": {
+        "f1": 0.6685236768802229,
+        "gold": 153,
+        "predicted": 206
+      },
+      "menu.num": {
+        "f1": 0.0,
+        "gold": 10,
+        "predicted": 0
+      },
+      "menu.price": {
+        "f1": 0.7878787878787878,
+        "gold": 149,
+        "predicted": 214
+      },
+      "menu.sub.cnt": {
+        "f1": 0.0,
+        "gold": 15,
+        "predicted": 0
+      },
+      "menu.sub.nm": {
+        "f1": 0.0,
+        "gold": 28,
+        "predicted": 1
+      },
+      "menu.sub.price": {
+        "f1": 0.0,
+        "gold": 18,
+        "predicted": 0
+      },
+      "menu.unitprice": {
+        "f1": 0.6666666666666666,
+        "gold": 50,
+        "predicted": 43
+      },
+      "sub_total.discount_price": {
+        "f1": 0.0,
+        "gold": 5,
+        "predicted": 0
+      },
+      "sub_total.etc": {
+        "f1": 0.0,
+        "gold": 9,
+        "predicted": 0
+      },
+      "sub_total.service_price": {
+        "f1": 0.0,
+        "gold": 7,
+        "predicted": 0
+      },
+      "sub_total.subtotal_price": {
+        "f1": 0.0,
+        "gold": 38,
+        "predicted": 0
+      },
+      "sub_total.tax_price": {
+        "f1": 0.3076923076923077,
+        "gold": 27,
+        "predicted": 12
+      },
+      "total.cashprice": {
+        "f1": 0.6216216216216216,
+        "gold": 37,
+        "predicted": 37
+      },
+      "total.changeprice": {
+        "f1": 0.48484848484848486,
+        "gold": 31,
+        "predicted": 35
+      },
+      "total.creditcardprice": {
+        "f1": 0.0,
+        "gold": 14,
+        "predicted": 0
+      },
+      "total.emoneyprice": {
+        "f1": 0.0,
+        "gold": 1,
+        "predicted": 0
+      },
+      "total.menuqty_cnt": {
+        "f1": 0.3333333333333333,
+        "gold": 19,
+        "predicted": 5
+      },
+      "total.menutype_cnt": {
+        "f1": 0.0,
+        "gold": 5,
+        "predicted": 0
+      },
+      "total.total_etc": {
+        "f1": 0.0,
+        "gold": 3,
+        "predicted": 0
+      },
+      "total.total_price": {
+        "f1": 0.5,
+        "gold": 57,
+        "predicted": 131
+      }
+    }
+  },
+  "cohorts": {
+    "train": 128,
+    "validation": 40,
+    "test": 60
+  },
+  "labels": [
+    "O",
+    "B-menu.cnt",
+    "I-menu.cnt",
+    "B-menu.discountprice",
+    "I-menu.discountprice",
+    "B-menu.itemsubtotal",
+    "I-menu.itemsubtotal",
+    "B-menu.nm",
+    "I-menu.nm",
+    "B-menu.num",
+    "I-menu.num",
+    "B-menu.price",
+    "I-menu.price",
+    "B-menu.sub.cnt",
+    "I-menu.sub.cnt",
+    "B-menu.sub.nm",
+    "I-menu.sub.nm",
+    "B-menu.sub.price",
+    "I-menu.sub.price",
+    "B-menu.sub.unitprice",
+    "I-menu.sub.unitprice",
+    "B-menu.unitprice",
+    "I-menu.unitprice",
+    "B-sub_total.discount_price",
+    "I-sub_total.discount_price",
+    "B-sub_total.etc",
+    "I-sub_total.etc",
+    "B-sub_total.service_price",
+    "I-sub_total.service_price",
+    "B-sub_total.subtotal_price",
+    "I-sub_total.subtotal_price",
+    "B-sub_total.tax_price",
+    "I-sub_total.tax_price",
+    "B-total.cashprice",
+    "I-total.cashprice",
+    "B-total.changeprice",
+    "I-total.changeprice",
+    "B-total.creditcardprice",
+    "I-total.creditcardprice",
+    "B-total.emoneyprice",
+    "I-total.emoneyprice",
+    "B-total.menuqty_cnt",
+    "I-total.menuqty_cnt",
+    "B-total.menutype_cnt",
+    "I-total.menutype_cnt",
+    "B-total.total_etc",
+    "I-total.total_etc",
+    "B-total.total_price",
+    "I-total.total_price",
+    "B-void_menu.nm",
+    "I-void_menu.nm",
+    "B-void_menu.price",
+    "I-void_menu.price"
+  ],
+  "best_epoch": 5,
+  "model_inputs": "Dataset-supplied annotated words and bounding boxes. No images, OCR detector or unannotated background words."
+}

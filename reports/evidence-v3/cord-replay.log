@@ -1,0 +1,16 @@
+Some weights of LayoutLMv3ForTokenClassification were not initialized from the model checkpoint at C:\disk D\COBI\data\raw\evidence-v3\layoutlmv3 and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+C:\disk D\COBI\backend\.venv\Lib\site-packages\transformers\modeling_utils.py:1575: FutureWarning: The `device` argument is deprecated and will be removed in v5 of Transformers.
+  warnings.warn(
+{
+  "documents": 60,
+  "exact_field_micro_f1": 0.6257449344457687,
+  "ci95": [
+    0.565333277866261,
+    0.6826176178338446
+  ],
+  "replicates": 1000,
+  "seed": 73,
+  "unit": "receipt",
+  "scope": "Conditional on one seed, frozen adapter and sampled public receipts"
+}

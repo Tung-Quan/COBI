@@ -1,0 +1,38 @@
+{
+  "bank_validation": "EVIDENCE_AI_VALIDATION_BLOCKED",
+  "datasets": [
+    {
+      "name": "Controlled evidence defects",
+      "status": "SYNTHETIC_TECHNICAL_ONLY",
+      "license": "Locally generated fixtures",
+      "task": "Document material and critical errors, with auxiliary field extraction labels",
+      "labels": "Programmatic comparison of canonical, documented and extracted values. No human annotation.",
+      "source": null
+    },
+    {
+      "name": "CORD v2",
+      "status": "ACQUIRED_RECEIPT_EXTRACTION_ONLY",
+      "license": "CC BY 4.0",
+      "task": "Indonesian receipt post-OCR field tagging",
+      "labels": "Receipt image and ground_truth JSON with words, quadrilateral boxes and semantic categories. Official 800/100/100.",
+      "source": "https://huggingface.co/datasets/naver-clova-ix/cord-v2",
+      "revision": "7f0115a4b758a71d6473b8d085751692da2fef98"
+    },
+    {
+      "name": "DocILE",
+      "status": "ACCESS_REQUEST_AND_TOKEN_REQUIRED",
+      "license": "Owner access form limits use to non-commercial research and prohibits redistribution. Separate from the repository code license.",
+      "task": "Business-document KILE and line item recognition",
+      "labels": "Published benchmark describes 6,680 annotated business documents and 55 field classes. Access not granted.",
+      "source": "https://docile.rossum.ai/"
+    },
+    {
+      "name": "Bank documents",
+      "status": "EVIDENCE_AI_VALIDATION_BLOCKED",
+      "license": "Pending bank authorization, lawful purpose and usage terms",
+      "task": "Material error detection and verification requirements on decision-time evidence",
+      "labels": "Independent reviewers, reviewer agreement, adjudication and outcome availability required.",
+      "source": null
+    }
+  ]
+}

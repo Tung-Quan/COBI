@@ -1,0 +1,13 @@
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "C:\disk D\COBI\evidence_ai\cord.py", line 242, in <module>
+    main()
+    ~~~~^^
+  File "C:\disk D\COBI\evidence_ai\cord.py", line 238, in main
+    run(args.out, args.threads)
+    ~~~^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\disk D\COBI\evidence_ai\cord.py", line 167, in run
+    assert not ({key for key, _ in train} & {key for key, _ in valid})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

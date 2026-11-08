@@ -1,0 +1,63 @@
+ds-1: mean validation document log loss=0.187597
+ds-2: mean validation document log loss=0.191158
+ds-3: mean validation document log loss=0.189251
+ds-4: mean validation document log loss=0.190601
+drop-metadata: mean validation document log loss=0.191842
+drop-relationships: mean validation document log loss=0.299110
+drop-cs: mean validation document log loss=0.197374
+drop-embedding: mean validation document log loss=0.177888
+Selection, calibrators and thresholds frozen. Opening synthetic test once.
+{
+  "M0_CS_V2": {
+    "cases": 192,
+    "documents": 753,
+    "material_errors": 293,
+    "critical_errors": 200,
+    "critical_recall": 0.88,
+    "critical_fnr": 0.12,
+    "average_precision": 0.49574899081209134,
+    "brier": 0.23075502279770246,
+    "log_loss": 0.652882392809165,
+    "document_flag_rate": 0.8339973439575034,
+    "review_workload": 0.8177083333333334
+  },
+  "M1_LOGISTIC": {
+    "cases": 192,
+    "documents": 753,
+    "material_errors": 293,
+    "critical_errors": 200,
+    "critical_recall": 0.91,
+    "critical_fnr": 0.08999999999999997,
+    "average_precision": 0.9063163529173767,
+    "brier": 0.0839683149408891,
+    "log_loss": 0.2763195387038298,
+    "document_flag_rate": 0.41301460823373176,
+    "review_workload": 0.7916666666666666
+  },
+  "M2_XGBOOST": {
+    "cases": 192,
+    "documents": 753,
+    "material_errors": 293,
+    "critical_errors": 200,
+    "critical_recall": 0.905,
+    "critical_fnr": 0.09499999999999997,
+    "average_precision": 0.9827733303012222,
+    "brier": 0.03501263793141351,
+    "log_loss": 0.13004014848633158,
+    "document_flag_rate": 0.3107569721115538,
+    "review_workload": 0.7083333333333334
+  },
+  "M3_DEEP_SETS": {
+    "cases": 192,
+    "documents": 753,
+    "material_errors": 293,
+    "critical_errors": 200,
+    "critical_recall": 0.91,
+    "critical_fnr": 0.08999999999999997,
+    "average_precision": 0.9268753155235573,
+    "brier": 0.0740205183206073,
+    "log_loss": 0.23561521464485552,
+    "document_flag_rate": 0.3944223107569721,
+    "review_workload": 0.765625
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "status": "SYNTHETIC_TECHNICAL_ONLY",
+  "results": {
+    "M0_CS_V2": {
+      "cases": 240,
+      "documents": 973,
+      "material_errors": 383,
+      "critical_errors": 270,
+      "critical_recall": 0.8592592592592593,
+      "critical_fnr": 0.14074074074074072,
+      "average_precision": 0.49067165798923285,
+      "brier": 0.23251845477317581,
+      "log_loss": 0.6574182450305024,
+      "document_flag_rate": 0.8129496402877698,
+      "review_workload": 0.8291666666666667
+    },
+    "M1_LOGISTIC": {
+      "cases": 240,
+      "documents": 973,
+      "material_errors": 383,
+      "critical_errors": 270,
+      "critical_recall": 0.9888888888888889,
+      "critical_fnr": 0.011111111111111072,
+      "average_precision": 0.9020336901600065,
+      "brier": 0.1026173714368193,
+      "log_loss": 0.36314855975046434,
+      "document_flag_rate": 0.5046248715313464,
+      "review_workload": 0.8583333333333333
+    },
+    "M2_XGBOOST": {
+      "cases": 240,
+      "documents": 973,
+      "material_errors": 383,
+      "critical_errors": 270,
+      "critical_recall": 0.7666666666666667,
+      "critical_fnr": 0.23333333333333328,
+      "average_precision": 0.9775887290305113,
+      "brier": 0.04194029277012323,
+      "log_loss": 0.1683981209041138,
+      "document_flag_rate": 0.302158273381295,
+      "review_workload": 0.7
+    },
+    "M3_DEEP_SETS": {
+      "cases": 240,
+      "documents": 973,
+      "material_errors": 383,
+      "critical_errors": 270,
+      "critical_recall": 0.9592592592592593,
+      "critical_fnr": 0.040740740740740744,
+      "average_precision": 0.8912250943368497,
+      "brier": 0.09840405596569012,
+      "log_loss": 0.3156263901245163,
+      "document_flag_rate": 0.4676258992805755,
+      "review_workload": 0.8458333333333333
+    }
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "selected_deep_sets": "ds-1",
+  "parameters": {
+    "batch": 32,
+    "lr": 0.001,
+    "hidden": 32,
+    "weight_decay": 0.0001
+  },
+  "xgb_depth": 4,
+  "all_model_calibrators": {
+    "M0_CS_V2": {
+      "intercept": 0.24104843751948934,
+      "slope": 1.0891886585656592
+    },
+    "M1_LOGISTIC": {
+      "intercept": 0.03402626835015361,
+      "slope": 0.9839106474539551
+    },
+    "M2_XGBOOST": {
+      "intercept": -0.05747091929375128,
+      "slope": 1.1034258702434248
+    },
+    "M3_DEEP_SETS": {
+      "intercept": 0.19494333353661855,
+      "slope": 0.8249113623571148
+    },
+    "ABLATE_metadata": {
+      "intercept": 0.1014375846746724,
+      "slope": 0.8303025108118238
+    },
+    "ABLATE_relationships": {
+      "intercept": 0.10750294310987299,
+      "slope": 1.1439226646411638
+    },
+    "ABLATE_cs": {
+      "intercept": 0.11851103199337862,
+      "slope": 0.8304178493489206
+    },
+    "ABLATE_embedding": {
+      "intercept": 0.22761579422337885,
+      "slope": 0.7032009659370273
+    }
+  },
+  "all_thresholds": {
+    "M0_CS_V2": 0.2664026678255962,
+    "M1_LOGISTIC": 0.5265371299544362,
+    "M2_XGBOOST": 0.9236921847680296,
+    "M3_DEEP_SETS": 0.6561391478347606,
+    "ABLATE_metadata": 0.655440227464496,
+    "ABLATE_relationships": 0.5125468472021283,
+    "ABLATE_cs": 0.5859893168587473,
+    "ABLATE_embedding": 0.6731876059236938
+  },
+  "field_calibrators": [
+    {
+      "intercept": 0.31061185259475804,
+      "slope": 1.9740355885047607
+    },
+    {
+      "intercept": 0.2691315890637784,
+      "slope": 1.4474386683599678
+    },
+    {
+      "intercept": 0.4615716562672965,
+      "slope": 1.3245635826968538
+    }
+  ],
+  "deep_sets_seed_locks": [
+    {
+      "seed": 13,
+      "calibrator": {
+        "intercept": 0.23234002824709518,
+        "slope": 0.8106912745184556
+      },
+      "threshold": 0.6376191097825897
+    },
+    {
+      "seed": 29,
+      "calibrator": {
+        "intercept": 0.3046004545802446,
+        "slope": 0.62293425984868
+      },
+      "threshold": 0.6806301246239598
+    },
+    {
+      "seed": 43,
+      "calibrator": {
+        "intercept": 0.14973907848832502,
+        "slope": 0.7910226940291109
+      },
+      "threshold": 0.6247657650610546
+    }
+  ],
+  "selected_artifacts": {
+    "ds-1-s13.pt": "6edff283013bbf05d7835253d3cbf90a8b3f499b17cf53430e07c3dbd6d72908",
+    "ds-1-s29.pt": "98dc859159e585828e1f800925e3bf4d31e30f9a759979b8b11cb075d088de73",
+    "ds-1-s43.pt": "60497d2ddcd1fa75966fab493341c0c4fe95ff7a61341a14c45a57ce0f2c9ef6",
+    "preprocessing.json": "777d409a0dca92cc064e7c5d05679780cc7b6d2e5a649d8d872ad4671695f9d2"
+  },
+  "frozen_at": "2026-11-08T05:49:51.869450+00:00"
+}

@@ -1,0 +1,1397 @@
+{
+  "experiment_id": "evidence-synthetic-v3.0",
+  "status": "SYNTHETIC_TECHNICAL_ONLY",
+  "validation_status": "EVIDENCE_AI_VALIDATION_BLOCKED",
+  "created_at": "2026-11-08T05:49:59.578641+00:00",
+  "models": {
+    "M0_CS_V2": {
+      "calibrator": {
+        "intercept": 0.24104843751948934,
+        "slope": 1.0891886585656592
+      },
+      "threshold_lock": {
+        "threshold": 0.2664026678255962,
+        "critical_support": 187,
+        "achieved_critical_recall": 0.9090909090909091
+      },
+      "test": {
+        "cases": 192,
+        "documents": 753,
+        "material_errors": 293,
+        "critical_errors": 200,
+        "critical_recall": 0.88,
+        "critical_fnr": 0.12,
+        "average_precision": 0.49574899081209134,
+        "brier": 0.23075502279770246,
+        "log_loss": 0.652882392809165,
+        "document_flag_rate": 0.8339973439575034,
+        "review_workload": 0.8177083333333334
+      },
+      "ci95": {
+        "critical_recall": [
+          0.8006498963849874,
+          0.9410234505862646
+        ],
+        "critical_fnr": [
+          0.05897654941373538,
+          0.19935010361501246
+        ],
+        "average_precision": [
+          0.45202628940356504,
+          0.5420133226891548
+        ],
+        "brier": [
+          0.22099238762405396,
+          0.2407803793022744
+        ],
+        "log_loss": [
+          0.6309157852501197,
+          0.6737714380833681
+        ],
+        "review_workload": [
+          0.765625,
+          0.8645833333333334
+        ]
+      },
+      "test_raw": null,
+      "reliability": [
+        {
+          "lower": 0.0,
+          "count": 4,
+          "mean_prediction": 0.05292565916458902,
+          "event_rate": 0.0
+        },
+        {
+          "lower": 0.1,
+          "count": 35,
+          "mean_prediction": 0.17087470070328822,
+          "event_rate": 0.17142857142857143
+        },
+        {
+          "lower": 0.2,
+          "count": 147,
+          "mean_prediction": 0.2586596457967092,
+          "event_rate": 0.3469387755102041
+        },
+        {
+          "lower": 0.3,
+          "count": 245,
+          "mean_prediction": 0.3461027465470853,
+          "event_rate": 0.35918367346938773
+        },
+        {
+          "lower": 0.4,
+          "count": 224,
+          "mean_prediction": 0.455961211567179,
+          "event_rate": 0.4017857142857143
+        },
+        {
+          "lower": 0.5,
+          "count": 75,
+          "mean_prediction": 0.5406543395389247,
+          "event_rate": 0.5866666666666667
+        },
+        {
+          "lower": 0.6,
+          "count": 21,
+          "mean_prediction": 0.6340532794150835,
+          "event_rate": 0.5714285714285714
+        },
+        {
+          "lower": 0.7,
+          "count": 2,
+          "mean_prediction": 0.7047743456966252,
+          "event_rate": 1.0
+        }
+      ]
+    },
+    "M1_LOGISTIC": {
+      "calibrator": {
+        "intercept": 0.03402626835015361,
+        "slope": 0.9839106474539551
+      },
+      "threshold_lock": {
+        "threshold": 0.5265371299544362,
+        "critical_support": 187,
+        "achieved_critical_recall": 0.9037433155080213
+      },
+      "test": {
+        "cases": 192,
+        "documents": 753,
+        "material_errors": 293,
+        "critical_errors": 200,
+        "critical_recall": 0.91,
+        "critical_fnr": 0.08999999999999997,
+        "average_precision": 0.9063163529173767,
+        "brier": 0.0839683149408891,
+        "log_loss": 0.2763195387038298,
+        "document_flag_rate": 0.41301460823373176,
+        "review_workload": 0.7916666666666666
+      },
+      "ci95": {
+        "critical_recall": [
+          0.8537756598240469,
+          0.9570253505933117
+        ],
+        "critical_fnr": [
+          0.04297464940668823,
+          0.14622434017595304
+        ],
+        "average_precision": [
+          0.8795108327348793,
+          0.9331265594687956
+        ],
+        "brier": [
+          0.06935990483472704,
+          0.10008875517314504
+        ],
+        "log_loss": [
+          0.23040458351384088,
+          0.33041814076758524
+        ],
+        "review_workload": [
+          0.7316406249999999,
+          0.8385416666666666
+        ]
+      },
+      "test_raw": {
+        "brier": 0.08426287893333403,
+        "log_loss": 0.2766083141507261
+      },
+      "reliability": [
+        {
+          "lower": 0.0,
+          "count": 373,
+          "mean_prediction": 0.024086703732516725,
+          "event_rate": 0.00804289544235925
+        },
+        {
+          "lower": 0.1,
+          "count": 1,
+          "mean_prediction": 0.1455087045450578,
+          "event_rate": 0.0
+        },
+        {
+          "lower": 0.2,
+          "count": 14,
+          "mean_prediction": 0.2614019585335984,
+          "event_rate": 0.2857142857142857
+        },
+        {
+          "lower": 0.3,
+          "count": 11,
+          "mean_prediction": 0.34055280036495406,
+          "event_rate": 0.2727272727272727
+        },
+        {
+          "lower": 0.4,
+          "count": 32,
+          "mean_prediction": 0.4534627255246967,
+          "event_rate": 0.65625
+        },
+        {
+          "lower": 0.5,
+          "count": 49,
+          "mean_prediction": 0.554513620356298,
+          "event_rate": 0.6326530612244898
+        },
+        {
+          "lower": 0.6,
+          "count": 46,
+          "mean_prediction": 0.6539444565693321,
+          "event_rate": 0.8043478260869565
+        },
+        {
+          "lower": 0.7,
+          "count": 52,
+          "mean_prediction": 0.7468139044895726,
+          "event_rate": 0.75
+        },
+        {
+          "lower": 0.8,
+          "count": 39,
+          "mean_prediction": 0.8490640310101997,
+          "event_rate": 0.717948717948718
+        },
+        {
+          "lower": 0.9,
+          "count": 136,
+          "mean_prediction": 0.9882417883991136,
+          "event_rate": 0.9338235294117647
+        }
+      ]
+    },
+    "M2_XGBOOST": {
+      "calibrator": {
+        "intercept": -0.05747091929375128,
+        "slope": 1.1034258702434248
+      },
+      "threshold_lock": {
+        "threshold": 0.9236921847680296,
+        "critical_support": 187,
+        "achieved_critical_recall": 0.9037433155080213
+      },
+      "test": {
+        "cases": 192,
+        "documents": 753,
+        "material_errors": 293,
+        "critical_errors": 200,
+        "critical_recall": 0.905,
+        "critical_fnr": 0.09499999999999997,
+        "average_precision": 0.9827733303012222,
+        "brier": 0.03501263793141351,
+        "log_loss": 0.13004014848633158,
+        "document_flag_rate": 0.3107569721115538,
+        "review_workload": 0.7083333333333334
+      },
+      "ci95": {
+        "critical_recall": [
+          0.8520377799329923,
+          0.9518751933188988
+        ],
+        "critical_fnr": [
+          0.04812480668110117,
+          0.14796222006700752
+        ],
+        "average_precision": [
+          0.9672954983831114,
+          0.994433083323666
+        ],
+        "brier": [
+          0.021037227610413226,
+          0.051523592393547736
+        ],
+        "log_loss": [
+          0.0825589210458446,
+          0.18431641539158808
+        ],
+        "review_workload": [
+          0.640625,
+          0.7708333333333334
+        ]
+      },
+      "test_raw": {
+        "brier": 0.034983800229021096,
+        "log_loss": 0.13146870123566062
+      },
+      "reliability": [
+        {
+          "lower": 0.0,
+          "count": 419,
+          "mean_prediction": 0.01606696815809991,
+          "event_rate": 0.016706443914081145
+        },
+        {
+          "lower": 0.1,
+          "count": 22,
+          "mean_prediction": 0.14424595668008394,
+          "event_rate": 0.18181818181818182
+        },
+        {
+          "lower": 0.2,
+          "count": 10,
+          "mean_prediction": 0.2445034875338369,
+          "event_rate": 0.1
+        },
+        {
+          "lower": 0.3,
+          "count": 13,
+          "mean_prediction": 0.3447198196519587,
+          "event_rate": 0.3076923076923077
+        },
+        {
+          "lower": 0.4,
+          "count": 10,
+          "mean_prediction": 0.4479627047209284,
+          "event_rate": 0.8
+        },
+        {
+          "lower": 0.5,
+          "count": 3,
+          "mean_prediction": 0.5612775299391631,
+          "event_rate": 1.0
+        },
+        {
+          "lower": 0.6,
+          "count": 8,
+          "mean_prediction": 0.6457372587242944,
+          "event_rate": 0.875
+        },
+        {
+          "lower": 0.7,
+          "count": 5,
+          "mean_prediction": 0.7470845755579333,
+          "event_rate": 0.6
+        },
+        {
+          "lower": 0.8,
+          "count": 10,
+          "mean_prediction": 0.8593864234535395,
+          "event_rate": 0.8
+        },
+        {
+          "lower": 0.9,
+          "count": 253,
+          "mean_prediction": 0.975639404388235,
+          "event_rate": 0.9802371541501976
+        }
+      ]
+    },
+    "M3_DEEP_SETS": {
+      "calibrator": {
+        "intercept": 0.19494333353661855,
+        "slope": 0.8249113623571148
+      },
+      "threshold_lock": {
+        "threshold": 0.6561391478347606,
+        "critical_support": 187,
+        "achieved_critical_recall": 0.9037433155080213
+      },
+      "test": {
+        "cases": 192,
+        "documents": 753,
+        "material_errors": 293,
+        "critical_errors": 200,
+        "critical_recall": 0.91,
+        "critical_fnr": 0.08999999999999997,
+        "average_precision": 0.9268753155235573,
+        "brier": 0.0740205183206073,
+        "log_loss": 0.23561521464485552,
+        "document_flag_rate": 0.3944223107569721,
+        "review_workload": 0.765625
+      },
+      "ci95": {
+        "critical_recall": [
+          0.8651324805847419,
+          0.9478817435593136
+        ],
+        "critical_fnr": [
+          0.05211825644068632,
+          0.1348675194152581
+        ],
+        "average_precision": [
+          0.8997464918045968,
+          0.9529816645371747
+        ],
+        "brier": [
+          0.0587193617985559,
+          0.0899896221669119
+        ],
+        "log_loss": [
+          0.1910318468473679,
+          0.2837471996796837
+        ],
+        "review_workload": [
+          0.703125,
+          0.8177083333333334
+        ]
+      },
+      "test_raw": {
+        "brier": 0.07461904875564955,
+        "log_loss": 0.2424976447583005
+      },
+      "reliability": [
+        {
+          "lower": 0.0,
+          "count": 376,
+          "mean_prediction": 0.004985533676525575,
+          "event_rate": 0.007978723404255319
+        },
+        {
+          "lower": 0.1,
+          "count": 6,
+          "mean_prediction": 0.1405547323843009,
+          "event_rate": 0.3333333333333333
+        },
+        {
+          "lower": 0.2,
+          "count": 8,
+          "mean_prediction": 0.2624383615516318,
+          "event_rate": 0.125
+        },
+        {
+          "lower": 0.3,
+          "count": 14,
+          "mean_prediction": 0.3620191872957062,
+          "event_rate": 0.2857142857142857
+        },
+        {
+          "lower": 0.4,
+          "count": 14,
+          "mean_prediction": 0.46140279101810133,
+          "event_rate": 0.5
+        },
+        {
+          "lower": 0.5,
+          "count": 21,
+          "mean_prediction": 0.564173967936853,
+          "event_rate": 0.6190476190476191
+        },
+        {
+          "lower": 0.6,
+          "count": 37,
+          "mean_prediction": 0.6580412372405267,
+          "event_rate": 0.6216216216216216
+        },
+        {
+          "lower": 0.7,
+          "count": 65,
+          "mean_prediction": 0.7549542666528303,
+          "event_rate": 0.7538461538461538
+        },
+        {
+          "lower": 0.8,
+          "count": 74,
+          "mean_prediction": 0.8497497739853591,
+          "event_rate": 0.8243243243243243
+        },
+        {
+          "lower": 0.9,
+          "count": 138,
+          "mean_prediction": 0.9748510309658925,
+          "event_rate": 0.9420289855072463
+        }
+      ]
+    },
+    "ABLATE_metadata": {
+      "calibrator": {
+        "intercept": 0.1014375846746724,
+        "slope": 0.8303025108118238
+      },
+      "threshold_lock": {
+        "threshold": 0.655440227464496,
+        "critical_support": 187,
+        "achieved_critical_recall": 0.9037433155080213
+      },
+      "test": {
+        "cases": 192,
+        "documents": 753,
+        "material_errors": 293,
+        "critical_errors": 200,
+        "critical_recall": 0.895,
+        "critical_fnr": 0.10499999999999998,
+        "average_precision": 0.9323836054602873,
+        "brier": 0.07019960211693578,
+        "log_loss": 0.22538678840836737,
+        "document_flag_rate": 0.3851261620185923,
+        "review_workload": 0.75
+      },
+      "ci95": {
+        "critical_recall": [
+          0.8431822395253986,
+          0.9392400733205969
+        ],
+        "critical_fnr": [
+          0.06075992667940306,
+          0.15681776047460136
+        ],
+        "average_precision": [
+          0.9061789482771253,
+          0.95640329212366
+        ],
+        "brier": [
+          0.05620136082011456,
+          0.0855719444349042
+        ],
+        "log_loss": [
+          0.18438014350540843,
+          0.2744565901277747
+        ],
+        "review_workload": [
+          0.6875,
+          0.8020833333333334
+        ]
+      },
+      "test_raw": {
+        "brier": 0.07011631703705644,
+        "log_loss": 0.2299591856171389
+      },
+      "reliability": [
+        {
+          "lower": 0.0,
+          "count": 376,
+          "mean_prediction": 0.004904474880943059,
+          "event_rate": 0.007978723404255319
+        },
+        {
+          "lower": 0.1,
+          "count": 4,
+          "mean_prediction": 0.18506610753273944,
+          "event_rate": 0.25
+        },
+        {
+          "lower": 0.2,
+          "count": 10,
+          "mean_prediction": 0.2440905421841975,
+          "event_rate": 0.2
+        },
+        {
+          "lower": 0.3,
+          "count": 12,
+          "mean_prediction": 0.35923224144360627,
+          "event_rate": 0.08333333333333333
+        },
+        {
+          "lower": 0.4,
+          "count": 15,
+          "mean_prediction": 0.4552821246923451,
+          "event_rate": 0.3333333333333333
+        },
+        {
+          "lower": 0.5,
+          "count": 28,
+          "mean_prediction": 0.5587480964685255,
+          "event_rate": 0.7142857142857143
+        },
+        {
+          "lower": 0.6,
+          "count": 39,
+          "mean_prediction": 0.6556491353107511,
+          "event_rate": 0.6153846153846154
+        },
+        {
+          "lower": 0.7,
+          "count": 64,
+          "mean_prediction": 0.7511314136094267,
+          "event_rate": 0.796875
+        },
+        {
+          "lower": 0.8,
+          "count": 72,
+          "mean_prediction": 0.8518956282793062,
+          "event_rate": 0.8333333333333334
+        },
+        {
+          "lower": 0.9,
+          "count": 133,
+          "mean_prediction": 0.9760219556538888,
+          "event_rate": 0.9473684210526315
+        }
+      ]
+    },
+    "ABLATE_relationships": {
+      "calibrator": {
+        "intercept": 0.10750294310987299,
+        "slope": 1.1439226646411638
+      },
+      "threshold_lock": {
+        "threshold": 0.5125468472021283,
+        "critical_support": 187,
+        "achieved_critical_recall": 0.9037433155080213
+      },
+      "test": {
+        "cases": 192,
+        "documents": 753,
+        "material_errors": 293,
+        "critical_errors": 200,
+        "critical_recall": 0.9,
+        "critical_fnr": 0.09999999999999998,
+        "average_precision": 0.9048603264531806,
+        "brier": 0.09150305213465325,
+        "log_loss": 0.30037956644303265,
+        "document_flag_rate": 0.398406374501992,
+        "review_workload": 0.7916666666666666
+      },
+      "ci95": {
+        "critical_recall": [
+          0.8577273044205829,
+          0.9489461103867883
+        ],
+        "critical_fnr": [
+          0.05105388961321165,
+          0.14227269557941705
+        ],
+        "average_precision": [
+          0.8787395543814323,
+          0.9321371870603254
+        ],
+        "brier": [
+          0.07434246196450628,
+          0.10848814112407289
+        ],
+        "log_loss": [
+          0.2485613578954763,
+          0.35143701964417867
+        ],
+        "review_workload": [
+          0.734375,
+          0.8489583333333334
+        ]
+      },
+      "test_raw": {
+        "brier": 0.09159890217298601,
+        "log_loss": 0.29668392248450687
+      },
+      "reliability": [
+        {
+          "lower": 0.0,
+          "count": 332,
+          "mean_prediction": 0.029795524831010962,
+          "event_rate": 0.018072289156626505
+        },
+        {
+          "lower": 0.1,
+          "count": 55,
+          "mean_prediction": 0.13345744222337616,
+          "event_rate": 0.12727272727272726
+        },
+        {
+          "lower": 0.2,
+          "count": 22,
+          "mean_prediction": 0.24606778819758512,
+          "event_rate": 0.3181818181818182
+        },
+        {
+          "lower": 0.3,
+          "count": 19,
+          "mean_prediction": 0.3491451404513704,
+          "event_rate": 0.2631578947368421
+        },
+        {
+          "lower": 0.4,
+          "count": 20,
+          "mean_prediction": 0.43934605608082206,
+          "event_rate": 0.6
+        },
+        {
+          "lower": 0.5,
+          "count": 20,
+          "mean_prediction": 0.5499733360214282,
+          "event_rate": 0.75
+        },
+        {
+          "lower": 0.6,
+          "count": 31,
+          "mean_prediction": 0.6527155332306429,
+          "event_rate": 0.8064516129032258
+        },
+        {
+          "lower": 0.7,
+          "count": 38,
+          "mean_prediction": 0.7539836560970111,
+          "event_rate": 0.8157894736842105
+        },
+        {
+          "lower": 0.8,
+          "count": 46,
+          "mean_prediction": 0.8510097495714988,
+          "event_rate": 0.717391304347826
+        },
+        {
+          "lower": 0.9,
+          "count": 170,
+          "mean_prediction": 0.9699010356070903,
+          "event_rate": 0.8941176470588236
+        }
+      ]
+    },
+    "ABLATE_cs": {
+      "calibrator": {
+        "intercept": 0.11851103199337862,
+        "slope": 0.8304178493489206
+      },
+      "threshold_lock": {
+        "threshold": 0.5859893168587473,
+        "critical_support": 187,
+        "achieved_critical_recall": 0.9037433155080213
+      },
+      "test": {
+        "cases": 192,
+        "documents": 753,
+        "material_errors": 293,
+        "critical_errors": 200,
+        "critical_recall": 0.93,
+        "critical_fnr": 0.06999999999999995,
+        "average_precision": 0.9210251097021704,
+        "brier": 0.0747116189693981,
+        "log_loss": 0.23880249510905427,
+        "document_flag_rate": 0.4209827357237716,
+        "review_workload": 0.7916666666666666
+      },
+      "ci95": {
+        "critical_recall": [
+          0.8872046796910495,
+          0.9673066642908054
+        ],
+        "critical_fnr": [
+          0.03269333570919462,
+          0.11279532030895045
+        ],
+        "average_precision": [
+          0.8948183090596405,
+          0.9453084810860323
+        ],
+        "brier": [
+          0.060074819978219916,
+          0.08976500771951414
+        ],
+        "log_loss": [
+          0.19580072636212636,
+          0.285195752865624
+        ],
+        "review_workload": [
+          0.7291666666666666,
+          0.84375
+        ]
+      },
+      "test_raw": {
+        "brier": 0.07516418833087912,
+        "log_loss": 0.24443123025426067
+      },
+      "reliability": [
+        {
+          "lower": 0.0,
+          "count": 374,
+          "mean_prediction": 0.006502535230296957,
+          "event_rate": 0.008021390374331552
+        },
+        {
+          "lower": 0.1,
+          "count": 3,
+          "mean_prediction": 0.1527569369233702,
+          "event_rate": 0.0
+        },
+        {
+          "lower": 0.2,
+          "count": 15,
+          "mean_prediction": 0.2595028556494544,
+          "event_rate": 0.2
+        },
+        {
+          "lower": 0.3,
+          "count": 7,
+          "mean_prediction": 0.33953388261947504,
+          "event_rate": 0.14285714285714285
+        },
+        {
+          "lower": 0.4,
+          "count": 16,
+          "mean_prediction": 0.4570000922910131,
+          "event_rate": 0.5
+        },
+        {
+          "lower": 0.5,
+          "count": 26,
+          "mean_prediction": 0.5525364927878992,
+          "event_rate": 0.6153846153846154
+        },
+        {
+          "lower": 0.6,
+          "count": 39,
+          "mean_prediction": 0.65381277343489,
+          "event_rate": 0.6666666666666666
+        },
+        {
+          "lower": 0.7,
+          "count": 74,
+          "mean_prediction": 0.7528054964353406,
+          "event_rate": 0.7567567567567568
+        },
+        {
+          "lower": 0.8,
+          "count": 62,
+          "mean_prediction": 0.8526492651407566,
+          "event_rate": 0.8870967741935484
+        },
+        {
+          "lower": 0.9,
+          "count": 137,
+          "mean_prediction": 0.9698499456727443,
+          "event_rate": 0.9124087591240876
+        }
+      ]
+    },
+    "ABLATE_embedding": {
+      "calibrator": {
+        "intercept": 0.22761579422337885,
+        "slope": 0.7032009659370273
+      },
+      "threshold_lock": {
+        "threshold": 0.6731876059236938,
+        "critical_support": 187,
+        "achieved_critical_recall": 0.9037433155080213
+      },
+      "test": {
+        "cases": 192,
+        "documents": 753,
+        "material_errors": 293,
+        "critical_errors": 200,
+        "critical_recall": 0.935,
+        "critical_fnr": 0.06499999999999995,
+        "average_precision": 0.9482931868563068,
+        "brier": 0.06594228163315818,
+        "log_loss": 0.21595753660556039,
+        "document_flag_rate": 0.37184594953519257,
+        "review_workload": 0.7447916666666666
+      },
+      "ci95": {
+        "critical_recall": [
+          0.8829236690044551,
+          0.975743601059135
+        ],
+        "critical_fnr": [
+          0.024256398940864978,
+          0.11707633099554494
+        ],
+        "average_precision": [
+          0.9252111347180847,
+          0.9683483833583857
+        ],
+        "brier": [
+          0.05274781873090525,
+          0.0821396167935768
+        ],
+        "log_loss": [
+          0.17328135998223618,
+          0.2718472908103237
+        ],
+        "review_workload": [
+          0.6822916666666666,
+          0.8020833333333334
+        ]
+      },
+      "test_raw": {
+        "brier": 0.06431995906714151,
+        "log_loss": 0.22297562226272727
+      },
+      "reliability": [
+        {
+          "lower": 0.0,
+          "count": 378,
+          "mean_prediction": 0.004697409608425054,
+          "event_rate": 0.007936507936507936
+        },
+        {
+          "lower": 0.1,
+          "count": 5,
+          "mean_prediction": 0.13992454617481878,
+          "event_rate": 0.0
+        },
+        {
+          "lower": 0.2,
+          "count": 6,
+          "mean_prediction": 0.26422363194623744,
+          "event_rate": 0.5
+        },
+        {
+          "lower": 0.3,
+          "count": 10,
+          "mean_prediction": 0.3414078609552452,
+          "event_rate": 0.3
+        },
+        {
+          "lower": 0.4,
+          "count": 11,
+          "mean_prediction": 0.45020466196652525,
+          "event_rate": 0.2727272727272727
+        },
+        {
+          "lower": 0.5,
+          "count": 30,
+          "mean_prediction": 0.5607101117751622,
+          "event_rate": 0.4
+        },
+        {
+          "lower": 0.6,
+          "count": 52,
+          "mean_prediction": 0.6526766937476889,
+          "event_rate": 0.5384615384615384
+        },
+        {
+          "lower": 0.7,
+          "count": 65,
+          "mean_prediction": 0.7578794556471128,
+          "event_rate": 0.8769230769230769
+        },
+        {
+          "lower": 0.8,
+          "count": 76,
+          "mean_prediction": 0.847111573125282,
+          "event_rate": 0.8947368421052632
+        },
+        {
+          "lower": 0.9,
+          "count": 120,
+          "mean_prediction": 0.9773813291739266,
+          "event_rate": 0.9666666666666667
+        }
+      ]
+    }
+  },
+  "test_field_extraction_heads": {
+    "income": {
+      "n": 753,
+      "errors": 97,
+      "average_precision": 0.7119450740038249,
+      "brier": 0.06582704990556897,
+      "log_loss": 0.20350353007254934
+    },
+    "debt": {
+      "n": 753,
+      "errors": 90,
+      "average_precision": 0.6178099425619437,
+      "brier": 0.07013287762207018,
+      "log_loss": 0.22922956547252413
+    },
+    "purchase": {
+      "n": 753,
+      "errors": 96,
+      "average_precision": 0.7286220067214694,
+      "brier": 0.062137728705335946,
+      "log_loss": 0.2014483441338055
+    }
+  },
+  "subgroups": {
+    "late_only_template": {
+      "M0_CS_V2": {
+        "cases": 64,
+        "documents": 240,
+        "material_errors": 89,
+        "critical_errors": 60,
+        "critical_recall": 0.9166666666666666,
+        "critical_fnr": 0.08333333333333337,
+        "average_precision": 0.4694175009845938,
+        "brier": 0.22579898379862257,
+        "log_loss": 0.642398146228478,
+        "document_flag_rate": 0.8708333333333333,
+        "review_workload": 0.84375
+      },
+      "M1_LOGISTIC": {
+        "cases": 64,
+        "documents": 240,
+        "material_errors": 89,
+        "critical_errors": 60,
+        "critical_recall": 0.95,
+        "critical_fnr": 0.050000000000000044,
+        "average_precision": 0.883324871797599,
+        "brier": 0.0894497512539841,
+        "log_loss": 0.3086985879541942,
+        "document_flag_rate": 0.4375,
+        "review_workload": 0.765625
+      },
+      "M2_XGBOOST": {
+        "cases": 64,
+        "documents": 240,
+        "material_errors": 89,
+        "critical_errors": 60,
+        "critical_recall": 0.9333333333333333,
+        "critical_fnr": 0.06666666666666665,
+        "average_precision": 0.9772941387103612,
+        "brier": 0.03551966195827394,
+        "log_loss": 0.1322754817317065,
+        "document_flag_rate": 0.29583333333333334,
+        "review_workload": 0.625
+      },
+      "M3_DEEP_SETS": {
+        "cases": 64,
+        "documents": 240,
+        "material_errors": 89,
+        "critical_errors": 60,
+        "critical_recall": 0.95,
+        "critical_fnr": 0.050000000000000044,
+        "average_precision": 0.9275119313867006,
+        "brier": 0.06930250524686014,
+        "log_loss": 0.22584686823127795,
+        "document_flag_rate": 0.3958333333333333,
+        "review_workload": 0.734375
+      }
+    },
+    "seen_template": {
+      "M0_CS_V2": {
+        "cases": 128,
+        "documents": 513,
+        "material_errors": 204,
+        "critical_errors": 140,
+        "critical_recall": 0.8642857142857143,
+        "critical_fnr": 0.13571428571428568,
+        "average_precision": 0.5078637494866097,
+        "brier": 0.23307363753411414,
+        "log_loss": 0.6577873034901881,
+        "document_flag_rate": 0.8167641325536062,
+        "review_workload": 0.8046875
+      },
+      "M1_LOGISTIC": {
+        "cases": 128,
+        "documents": 513,
+        "material_errors": 204,
+        "critical_errors": 140,
+        "critical_recall": 0.8928571428571429,
+        "critical_fnr": 0.1071428571428571,
+        "average_precision": 0.9178486522752909,
+        "brier": 0.08140390029148793,
+        "log_loss": 0.26117144548728505,
+        "document_flag_rate": 0.4015594541910331,
+        "review_workload": 0.8046875
+      },
+      "M2_XGBOOST": {
+        "cases": 128,
+        "documents": 513,
+        "material_errors": 204,
+        "critical_errors": 140,
+        "critical_recall": 0.8928571428571429,
+        "critical_fnr": 0.1071428571428571,
+        "average_precision": 0.985045298817588,
+        "brier": 0.03477543370832091,
+        "log_loss": 0.1289943785469749,
+        "document_flag_rate": 0.31773879142300193,
+        "review_workload": 0.75
+      },
+      "M3_DEEP_SETS": {
+        "cases": 128,
+        "documents": 513,
+        "material_errors": 204,
+        "critical_errors": 140,
+        "critical_recall": 0.8928571428571429,
+        "critical_fnr": 0.1071428571428571,
+        "average_precision": 0.9271393753100866,
+        "brier": 0.07622777589896854,
+        "log_loss": 0.2401852012710906,
+        "document_flag_rate": 0.3937621832358674,
+        "review_workload": 0.78125
+      }
+    },
+    "early_test_dates": {
+      "M0_CS_V2": {
+        "cases": 96,
+        "documents": 371,
+        "material_errors": 148,
+        "critical_errors": 106,
+        "critical_recall": 0.9339622641509434,
+        "critical_fnr": 0.06603773584905659,
+        "average_precision": 0.536749418913123,
+        "brier": 0.22672587350409137,
+        "log_loss": 0.6445529542653492,
+        "document_flag_rate": 0.876010781671159,
+        "review_workload": 0.8541666666666666
+      },
+      "M1_LOGISTIC": {
+        "cases": 96,
+        "documents": 371,
+        "material_errors": 148,
+        "critical_errors": 106,
+        "critical_recall": 0.8773584905660378,
+        "critical_fnr": 0.12264150943396224,
+        "average_precision": 0.9114032723065868,
+        "brier": 0.08509452231669185,
+        "log_loss": 0.2879822718930171,
+        "document_flag_rate": 0.3908355795148248,
+        "review_workload": 0.8020833333333334
+      },
+      "M2_XGBOOST": {
+        "cases": 96,
+        "documents": 371,
+        "material_errors": 148,
+        "critical_errors": 106,
+        "critical_recall": 0.8679245283018868,
+        "critical_fnr": 0.13207547169811318,
+        "average_precision": 0.9771856568849766,
+        "brier": 0.04563032939886667,
+        "log_loss": 0.1549536591365006,
+        "document_flag_rate": 0.30997304582210244,
+        "review_workload": 0.7291666666666666
+      },
+      "M3_DEEP_SETS": {
+        "cases": 96,
+        "documents": 371,
+        "material_errors": 148,
+        "critical_errors": 106,
+        "critical_recall": 0.8773584905660378,
+        "critical_fnr": 0.12264150943396224,
+        "average_precision": 0.9295032972172664,
+        "brier": 0.07070731024114188,
+        "log_loss": 0.23220133752915315,
+        "document_flag_rate": 0.3881401617250674,
+        "review_workload": 0.7604166666666666
+      }
+    },
+    "late_test_dates": {
+      "M0_CS_V2": {
+        "cases": 96,
+        "documents": 382,
+        "material_errors": 145,
+        "critical_errors": 94,
+        "critical_recall": 0.8191489361702128,
+        "critical_fnr": 0.18085106382978722,
+        "average_precision": 0.4373701303972194,
+        "brier": 0.23466814946767556,
+        "log_loss": 0.6609719784106196,
+        "document_flag_rate": 0.7931937172774869,
+        "review_workload": 0.78125
+      },
+      "M1_LOGISTIC": {
+        "cases": 96,
+        "documents": 382,
+        "material_errors": 145,
+        "critical_errors": 94,
+        "critical_recall": 0.9468085106382979,
+        "critical_fnr": 0.05319148936170215,
+        "average_precision": 0.9015045574710745,
+        "brier": 0.08287453762041054,
+        "log_loss": 0.26499264338134687,
+        "document_flag_rate": 0.43455497382198954,
+        "review_workload": 0.78125
+      },
+      "M2_XGBOOST": {
+        "cases": 96,
+        "documents": 382,
+        "material_errors": 145,
+        "critical_errors": 94,
+        "critical_recall": 0.9468085106382979,
+        "critical_fnr": 0.05319148936170215,
+        "average_precision": 0.9868272123105766,
+        "brier": 0.024700691506216857,
+        "log_loss": 0.10584404259310456,
+        "document_flag_rate": 0.31151832460732987,
+        "review_workload": 0.6875
+      },
+      "M3_DEEP_SETS": {
+        "cases": 96,
+        "documents": 382,
+        "material_errors": 145,
+        "critical_errors": 94,
+        "critical_recall": 0.9468085106382979,
+        "critical_fnr": 0.05319148936170215,
+        "average_precision": 0.9261454462603673,
+        "brier": 0.07723831988469544,
+        "log_loss": 0.2389307863985873,
+        "document_flag_rate": 0.4005235602094241,
+        "review_workload": 0.7708333333333334
+      }
+    }
+  },
+  "test_by_deep_sets_seed": [
+    {
+      "seed": 13,
+      "test": {
+        "cases": 192,
+        "documents": 753,
+        "material_errors": 293,
+        "critical_errors": 200,
+        "critical_recall": 0.895,
+        "critical_fnr": 0.10499999999999998,
+        "average_precision": 0.9205111377497799,
+        "brier": 0.07720940693710546,
+        "log_loss": 0.2426274919391546,
+        "document_flag_rate": 0.3930942895086321,
+        "review_workload": 0.7604166666666666
+      }
+    },
+    {
+      "seed": 29,
+      "test": {
+        "cases": 192,
+        "documents": 753,
+        "material_errors": 293,
+        "critical_errors": 200,
+        "critical_recall": 0.855,
+        "critical_fnr": 0.14500000000000002,
+        "average_precision": 0.9310974637900797,
+        "brier": 0.07364517430347566,
+        "log_loss": 0.23169033893506583,
+        "document_flag_rate": 0.3745019920318725,
+        "review_workload": 0.7708333333333334
+      }
+    },
+    {
+      "seed": 43,
+      "test": {
+        "cases": 192,
+        "documents": 753,
+        "material_errors": 293,
+        "critical_errors": 200,
+        "critical_recall": 0.925,
+        "critical_fnr": 0.07499999999999996,
+        "average_precision": 0.9143487167978087,
+        "brier": 0.07812198617320804,
+        "log_loss": 0.24862464360486364,
+        "document_flag_rate": 0.40903054448871184,
+        "review_workload": 0.78125
+      }
+    }
+  ],
+  "paired_ci95_deep_sets_minus_baselines": {
+    "M0_CS_V2": {
+      "critical_recall": [
+        -0.05481310948706931,
+        0.11449646162221008
+      ],
+      "critical_fnr": [
+        -0.11449646162221011,
+        0.05481310948706921
+      ],
+      "average_precision": [
+        0.3841602088305877,
+        0.4736845281771899
+      ],
+      "brier": [
+        -0.1722690060521795,
+        -0.140948187157248
+      ],
+      "log_loss": [
+        -0.45876204912839075,
+        -0.3714388750254049
+      ],
+      "review_workload": [
+        -0.11731770833333333,
+        0.015625
+      ]
+    },
+    "M1_LOGISTIC": {
+      "critical_recall": [
+        -0.03743315508021394,
+        0.03295444478894452
+      ],
+      "critical_fnr": [
+        -0.032954444788944534,
+        0.03743315508021394
+      ],
+      "average_precision": [
+        0.006574738903981017,
+        0.03414106220268931
+      ],
+      "brier": [
+        -0.01687104517372117,
+        -0.002144773491314612
+      ],
+      "log_loss": [
+        -0.06210330338351741,
+        -0.01689653132727644
+      ],
+      "review_workload": [
+        -0.05729166666666663,
+        0.01041666666666663
+      ]
+    },
+    "M2_XGBOOST": {
+      "critical_recall": [
+        -0.03768596193324372,
+        0.05211611502984261
+      ],
+      "critical_fnr": [
+        -0.05211611502984263,
+        0.03768596193324371
+      ],
+      "average_precision": [
+        -0.07702719924360185,
+        -0.03570217169869855
+      ],
+      "brier": [
+        0.02631853975858057,
+        0.052591967962585175
+      ],
+      "log_loss": [
+        0.06930300218180162,
+        0.14071307852791917
+      ],
+      "review_workload": [
+        0.01041666666666674,
+        0.10416666666666663
+      ]
+    }
+  },
+  "cohorts": {
+    "train": {
+      "cases": 704,
+      "groups": 352,
+      "start": "2024-01-01",
+      "end": "2025-12-04",
+      "case_keys_sha256": "536b323f2e78c900fe42b2268596c7328d5b6a3bd02f876ab9b5e9c3a59e232f"
+    },
+    "validation": {
+      "cases": 192,
+      "groups": 96,
+      "start": "2025-12-05",
+      "end": "2026-06-14",
+      "case_keys_sha256": "1ed18edfda843ae4772aa412c1189c27428ee2300b3a04cd1dc3ed9d19e1b71e"
+    },
+    "calibration": {
+      "cases": 192,
+      "groups": 96,
+      "start": "2026-06-15",
+      "end": "2026-12-23",
+      "case_keys_sha256": "86eaaffbdb14dd790a18289916a6f56762e7e39822bcdf5d6a16d56e8806bd13"
+    },
+    "test": {
+      "cases": 192,
+      "groups": 96,
+      "start": "2026-12-24",
+      "end": "2027-07-03",
+      "case_keys_sha256": "1ecf3353c345bc817ea6e720f28e7617a7c38a7a412f13ad77590553c346b37d"
+    }
+  },
+  "selected_deep_sets": "ds-1",
+  "selected_parameters": {
+    "batch": 32,
+    "lr": 0.001,
+    "hidden": 32,
+    "weight_decay": 0.0001
+  },
+  "bootstrap": {
+    "draws": 300,
+    "unit": "customer_group",
+    "confidence": 0.95
+  },
+  "example": {
+    "case": "g-0352-0",
+    "partition": "synthetic validation",
+    "documents": [
+      {
+        "source": "statement",
+        "material_probability": 0.00649537685391798,
+        "field_probabilities": {
+          "income": 4.5275516420655495e-05,
+          "debt": 0.0023692015732231873,
+          "purchase": 0.0034653304979406436
+        },
+        "other_documents_mean_probability_change_without_this_source": -0.005835482067529181
+      },
+      {
+        "source": "payroll",
+        "material_probability": 0.005907190232128206,
+        "field_probabilities": {
+          "income": 4.0056170231117875e-05,
+          "debt": 0.002288257601077003,
+          "purchase": 0.003260914089993609
+        },
+        "other_documents_mean_probability_change_without_this_source": -0.007144583108476676
+      },
+      {
+        "source": "merchant",
+        "material_probability": 0.9176065131780523,
+        "field_probabilities": {
+          "income": 0.06118459058340475,
+          "debt": 0.23915636651966807,
+          "purchase": 0.5485757941384649
+        },
+        "other_documents_mean_probability_change_without_this_source": 0.002191896079025735
+      },
+      {
+        "source": "statement",
+        "material_probability": 0.006447495481654901,
+        "field_probabilities": {
+          "income": 4.424830132297259e-05,
+          "debt": 0.0023373150630017912,
+          "purchase": 0.003423398232116689
+        },
+        "other_documents_mean_probability_change_without_this_source": -0.005836231250938465
+      },
+      {
+        "source": "payroll",
+        "material_probability": 0.9632959606068061,
+        "field_probabilities": {
+          "income": 0.6288852968153857,
+          "debt": 0.47614682353409954,
+          "purchase": 0.3067596617152457
+        },
+        "other_documents_mean_probability_change_without_this_source": 0.008165505330029063
+      }
+    ],
+    "explanation": "Drop one encoded document from the mask with other features fixed. Descriptive model sensitivity."
+  },
+  "limitations": [
+    "Generated defects and labels",
+    "No independent bank labels or templates",
+    "Technical estimates are conditional on the generator",
+    "Field extraction is distinct from authenticity"
+  ]
+}

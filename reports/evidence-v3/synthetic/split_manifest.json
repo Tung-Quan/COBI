@@ -1,0 +1,41 @@
+{
+  "experiment_id": "evidence-synthetic-v3.0",
+  "created_at": "2026-11-08T05:47:27.150063+00:00",
+  "data_sha256": {
+    "observed.json": "50b6f6331aa4a014114e3bede0e7d0200348adcaf7202567277d9add6eba4ea4",
+    "technical_labels.json": "454dee829323b4399e94928615bd9716e6013bff5f4b5ac6ea57caec74bbfdd7",
+    "locked_split.json": "9423748f6ef4bc2322e0545c644dc6a14217c8002d0faf77c8ca269e76633058"
+  },
+  "protocol_sha256": "2a8dc3e037fd8e9490819c83d6edb2ee5734f045e24a22a5d1dc5a0dcb7102ff",
+  "grouping": "customer_group; chronological, no overlap",
+  "cohorts": {
+    "train": {
+      "cases": 704,
+      "groups": 352,
+      "start": "2024-01-01",
+      "end": "2025-12-04",
+      "case_keys_sha256": "536b323f2e78c900fe42b2268596c7328d5b6a3bd02f876ab9b5e9c3a59e232f"
+    },
+    "validation": {
+      "cases": 192,
+      "groups": 96,
+      "start": "2025-12-05",
+      "end": "2026-06-14",
+      "case_keys_sha256": "1ed18edfda843ae4772aa412c1189c27428ee2300b3a04cd1dc3ed9d19e1b71e"
+    },
+    "calibration": {
+      "cases": 192,
+      "groups": 96,
+      "start": "2026-06-15",
+      "end": "2026-12-23",
+      "case_keys_sha256": "86eaaffbdb14dd790a18289916a6f56762e7e39822bcdf5d6a16d56e8806bd13"
+    },
+    "test": {
+      "cases": 192,
+      "groups": 96,
+      "start": "2026-12-24",
+      "end": "2027-07-03",
+      "case_keys_sha256": "1ecf3353c345bc817ea6e720f28e7617a7c38a7a412f13ad77590553c346b37d"
+    }
+  }
+}

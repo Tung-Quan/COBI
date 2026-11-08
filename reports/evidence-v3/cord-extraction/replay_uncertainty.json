@@ -1,0 +1,12 @@
+{
+  "documents": 60,
+  "exact_field_micro_f1": 0.6257449344457687,
+  "ci95": [
+    0.565333277866261,
+    0.6826176178338446
+  ],
+  "replicates": 1000,
+  "seed": 73,
+  "unit": "receipt",
+  "scope": "Conditional on one seed, frozen adapter and sampled public receipts"
+}

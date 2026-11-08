@@ -1,0 +1,124 @@
+{
+  "status": "SYNTHETIC_TECHNICAL_ONLY",
+  "purpose": "Research example; no checkout compatibility",
+  "experiment_id": "evidence-synthetic-v3.0",
+  "feature_names": [
+    "log_amount_income",
+    "log_amount_debt",
+    "log_amount_purchase",
+    "missing_income",
+    "missing_debt",
+    "missing_purchase",
+    "ocr_quality",
+    "age_days",
+    "reported_verified",
+    "source_statement",
+    "source_payroll",
+    "source_merchant",
+    "peer_gap_income",
+    "peer_gap_debt",
+    "peer_gap_purchase",
+    "document_count",
+    "coverage",
+    "consistency",
+    "recency",
+    "verification",
+    "hashed_text_0",
+    "hashed_text_1",
+    "hashed_text_2",
+    "hashed_text_3",
+    "hashed_text_4",
+    "hashed_text_5",
+    "hashed_text_6",
+    "hashed_text_7",
+    "hashed_text_8",
+    "hashed_text_9",
+    "hashed_text_10",
+    "hashed_text_11"
+  ],
+  "source_feature_groups": {
+    "base": [
+      "log_amount_income",
+      "log_amount_debt",
+      "log_amount_purchase",
+      "missing_income",
+      "missing_debt",
+      "missing_purchase",
+      "ocr_quality"
+    ],
+    "metadata": [
+      "age_days",
+      "reported_verified",
+      "source_statement",
+      "source_payroll",
+      "source_merchant"
+    ],
+    "relationships": [
+      "peer_gap_income",
+      "peer_gap_debt",
+      "peer_gap_purchase",
+      "document_count"
+    ],
+    "cs": [
+      "coverage",
+      "consistency",
+      "recency",
+      "verification"
+    ],
+    "embedding": [
+      "hashed_text_0",
+      "hashed_text_1",
+      "hashed_text_2",
+      "hashed_text_3",
+      "hashed_text_4",
+      "hashed_text_5",
+      "hashed_text_6",
+      "hashed_text_7",
+      "hashed_text_8",
+      "hashed_text_9",
+      "hashed_text_10",
+      "hashed_text_11"
+    ]
+  },
+  "field_names": [
+    "income",
+    "debt",
+    "purchase"
+  ],
+  "capacity": 6,
+  "hidden": 32,
+  "selected_variant": "ds-1",
+  "seeds": [
+    13,
+    29,
+    43
+  ],
+  "material_calibrator": {
+    "intercept": 0.19494333353661855,
+    "slope": 0.8249113623571148
+  },
+  "field_calibrators": [
+    {
+      "intercept": 0.31061185259475804,
+      "slope": 1.9740355885047607
+    },
+    {
+      "intercept": 0.2691315890637784,
+      "slope": 1.4474386683599678
+    },
+    {
+      "intercept": 0.4615716562672965,
+      "slope": 1.3245635826968538
+    }
+  ],
+  "checksums": {
+    "ds-1-s13.pt": "6edff283013bbf05d7835253d3cbf90a8b3f499b17cf53430e07c3dbd6d72908",
+    "ds-1-s29.pt": "98dc859159e585828e1f800925e3bf4d31e30f9a759979b8b11cb075d088de73",
+    "ds-1-s43.pt": "60497d2ddcd1fa75966fab493341c0c4fe95ff7a61341a14c45a57ce0f2c9ef6",
+    "preprocessing.json": "777d409a0dca92cc064e7c5d05679780cc7b6d2e5a649d8d872ad4671695f9d2"
+  },
+  "protocol_sha256": "2a8dc3e037fd8e9490819c83d6edb2ee5734f045e24a22a5d1dc5a0dcb7102ff",
+  "frozen_at": "2026-11-08T05:49:51.863940+00:00",
+  "policy_authorized": false,
+  "bank_validated": false
+}

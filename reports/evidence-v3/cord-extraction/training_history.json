@@ -1,0 +1,722 @@
+[
+  {
+    "epoch": 1,
+    "training_loss": 2.91011506319046,
+    "validation": {
+      "documents": 40,
+      "exact_field_micro_f1": 0.3875432525951557,
+      "exact_field_precision": 0.4221105527638191,
+      "exact_field_recall": 0.3582089552238806,
+      "word_tag_accuracy_including_truncation": 0.4982164090368609,
+      "cross_entropy_labeled_tokens": 2.1445875644683836,
+      "counts": {
+        "words": 841,
+        "visible_words": 841,
+        "unknown_words": 3,
+        "word_correct": 419,
+        "tp": 168,
+        "fp": 230,
+        "fn": 301
+      },
+      "field_metrics": {
+        "menu.cnt": {
+          "f1": 0.7857142857142857,
+          "gold": 73,
+          "predicted": 67
+        },
+        "menu.discountprice": {
+          "f1": 0.0,
+          "gold": 3,
+          "predicted": 0
+        },
+        "menu.nm": {
+          "f1": 0.4228571428571429,
+          "gold": 78,
+          "predicted": 97
+        },
+        "menu.num": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "menu.price": {
+          "f1": 0.48717948717948717,
+          "gold": 78,
+          "predicted": 234
+        },
+        "menu.sub.cnt": {
+          "f1": 0.0,
+          "gold": 11,
+          "predicted": 0
+        },
+        "menu.sub.nm": {
+          "f1": 0.0,
+          "gold": 25,
+          "predicted": 0
+        },
+        "menu.sub.price": {
+          "f1": 0.0,
+          "gold": 7,
+          "predicted": 0
+        },
+        "menu.unitprice": {
+          "f1": 0.0,
+          "gold": 23,
+          "predicted": 0
+        },
+        "menu.vatyn": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "sub_total.discount_price": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "sub_total.etc": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "sub_total.service_price": {
+          "f1": 0.0,
+          "gold": 4,
+          "predicted": 0
+        },
+        "sub_total.subtotal_price": {
+          "f1": 0.0,
+          "gold": 27,
+          "predicted": 0
+        },
+        "sub_total.tax_price": {
+          "f1": 0.0,
+          "gold": 18,
+          "predicted": 0
+        },
+        "total.cashprice": {
+          "f1": 0.0,
+          "gold": 28,
+          "predicted": 0
+        },
+        "total.changeprice": {
+          "f1": 0.0,
+          "gold": 29,
+          "predicted": 0
+        },
+        "total.creditcardprice": {
+          "f1": 0.0,
+          "gold": 4,
+          "predicted": 0
+        },
+        "total.emoneyprice": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "total.menuqty_cnt": {
+          "f1": 0.0,
+          "gold": 9,
+          "predicted": 0
+        },
+        "total.menutype_cnt": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "total.total_etc": {
+          "f1": 0.0,
+          "gold": 3,
+          "predicted": 0
+        },
+        "total.total_price": {
+          "f1": 0.0,
+          "gold": 40,
+          "predicted": 0
+        }
+      }
+    },
+    "gradient_l2_preclip_mean": 3.00569748878479,
+    "gradient_l2_preclip_max": 4.270692348480225,
+    "learning_rate": 0.0001,
+    "checkpoint_sha256": "1aad225fcfa36c4c4d0107d516ac7e2ab1109d676eae2a96a0b6a908e64de08d",
+    "best_epoch": 1,
+    "decision": "BEST"
+  },
+  {
+    "epoch": 2,
+    "training_loss": 1.7853112518787384,
+    "validation": {
+      "documents": 40,
+      "exact_field_micro_f1": 0.4442036836403034,
+      "exact_field_precision": 0.45154185022026433,
+      "exact_field_recall": 0.43710021321961623,
+      "word_tag_accuracy_including_truncation": 0.5873959571938169,
+      "cross_entropy_labeled_tokens": 1.4689593076705934,
+      "counts": {
+        "words": 841,
+        "visible_words": 841,
+        "unknown_words": 3,
+        "word_correct": 494,
+        "tp": 205,
+        "fp": 249,
+        "fn": 264
+      },
+      "field_metrics": {
+        "menu.cnt": {
+          "f1": 0.8280254777070064,
+          "gold": 73,
+          "predicted": 84
+        },
+        "menu.discountprice": {
+          "f1": 0.0,
+          "gold": 3,
+          "predicted": 0
+        },
+        "menu.nm": {
+          "f1": 0.5803108808290155,
+          "gold": 78,
+          "predicted": 115
+        },
+        "menu.num": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "menu.price": {
+          "f1": 0.4827586206896552,
+          "gold": 78,
+          "predicted": 241
+        },
+        "menu.sub.cnt": {
+          "f1": 0.0,
+          "gold": 11,
+          "predicted": 0
+        },
+        "menu.sub.nm": {
+          "f1": 0.0,
+          "gold": 25,
+          "predicted": 0
+        },
+        "menu.sub.price": {
+          "f1": 0.0,
+          "gold": 7,
+          "predicted": 0
+        },
+        "menu.unitprice": {
+          "f1": 0.0,
+          "gold": 23,
+          "predicted": 0
+        },
+        "menu.vatyn": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "sub_total.discount_price": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "sub_total.etc": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "sub_total.service_price": {
+          "f1": 0.0,
+          "gold": 4,
+          "predicted": 0
+        },
+        "sub_total.subtotal_price": {
+          "f1": 0.0,
+          "gold": 27,
+          "predicted": 0
+        },
+        "sub_total.tax_price": {
+          "f1": 0.0,
+          "gold": 18,
+          "predicted": 0
+        },
+        "total.cashprice": {
+          "f1": 0.0,
+          "gold": 28,
+          "predicted": 0
+        },
+        "total.changeprice": {
+          "f1": 0.24242424242424243,
+          "gold": 29,
+          "predicted": 4
+        },
+        "total.creditcardprice": {
+          "f1": 0.0,
+          "gold": 4,
+          "predicted": 0
+        },
+        "total.emoneyprice": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "total.menuqty_cnt": {
+          "f1": 0.0,
+          "gold": 9,
+          "predicted": 0
+        },
+        "total.menutype_cnt": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "total.total_etc": {
+          "f1": 0.0,
+          "gold": 3,
+          "predicted": 0
+        },
+        "total.total_price": {
+          "f1": 0.12,
+          "gold": 40,
+          "predicted": 10
+        }
+      }
+    },
+    "gradient_l2_preclip_mean": 1.7176693379878998,
+    "gradient_l2_preclip_max": 2.1395440101623535,
+    "learning_rate": 0.0001,
+    "checkpoint_sha256": "9b36c8e30115e19a4bb8800e7ca0b8b7817021000601274c556ca47da6b8c1c7",
+    "best_epoch": 2,
+    "decision": "BEST"
+  },
+  {
+    "epoch": 3,
+    "training_loss": 1.303057424724102,
+    "validation": {
+      "documents": 40,
+      "exact_field_micro_f1": 0.5425867507886435,
+      "exact_field_precision": 0.5352697095435685,
+      "exact_field_recall": 0.5501066098081023,
+      "word_tag_accuracy_including_truncation": 0.6706302021403091,
+      "cross_entropy_labeled_tokens": 1.2101420283317565,
+      "counts": {
+        "words": 841,
+        "visible_words": 841,
+        "unknown_words": 3,
+        "word_correct": 564,
+        "tp": 258,
+        "fp": 224,
+        "fn": 211
+      },
+      "field_metrics": {
+        "menu.cnt": {
+          "f1": 0.8452380952380952,
+          "gold": 73,
+          "predicted": 95
+        },
+        "menu.discountprice": {
+          "f1": 0.0,
+          "gold": 3,
+          "predicted": 0
+        },
+        "menu.nm": {
+          "f1": 0.6461538461538462,
+          "gold": 78,
+          "predicted": 117
+        },
+        "menu.num": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "menu.price": {
+          "f1": 0.5945945945945946,
+          "gold": 78,
+          "predicted": 181
+        },
+        "menu.sub.cnt": {
+          "f1": 0.0,
+          "gold": 11,
+          "predicted": 0
+        },
+        "menu.sub.nm": {
+          "f1": 0.0,
+          "gold": 25,
+          "predicted": 0
+        },
+        "menu.sub.price": {
+          "f1": 0.0,
+          "gold": 7,
+          "predicted": 0
+        },
+        "menu.unitprice": {
+          "f1": 0.42424242424242425,
+          "gold": 23,
+          "predicted": 10
+        },
+        "menu.vatyn": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "sub_total.discount_price": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "sub_total.etc": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "sub_total.service_price": {
+          "f1": 0.0,
+          "gold": 4,
+          "predicted": 0
+        },
+        "sub_total.subtotal_price": {
+          "f1": 0.0,
+          "gold": 27,
+          "predicted": 0
+        },
+        "sub_total.tax_price": {
+          "f1": 0.0,
+          "gold": 18,
+          "predicted": 0
+        },
+        "total.cashprice": {
+          "f1": 0.3888888888888889,
+          "gold": 28,
+          "predicted": 8
+        },
+        "total.changeprice": {
+          "f1": 0.5306122448979592,
+          "gold": 29,
+          "predicted": 20
+        },
+        "total.creditcardprice": {
+          "f1": 0.0,
+          "gold": 4,
+          "predicted": 0
+        },
+        "total.emoneyprice": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "total.menuqty_cnt": {
+          "f1": 0.0,
+          "gold": 9,
+          "predicted": 0
+        },
+        "total.menutype_cnt": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "total.total_etc": {
+          "f1": 0.0,
+          "gold": 3,
+          "predicted": 0
+        },
+        "total.total_price": {
+          "f1": 0.43956043956043955,
+          "gold": 40,
+          "predicted": 51
+        }
+      }
+    },
+    "gradient_l2_preclip_mean": 1.5380775406956673,
+    "gradient_l2_preclip_max": 2.2244443893432617,
+    "learning_rate": 0.0001,
+    "checkpoint_sha256": "b84cf944367a793ee16cb7d85886c07054ec7ff5577efa62d8625575180c5975",
+    "best_epoch": 3,
+    "decision": "BEST"
+  },
+  {
+    "epoch": 4,
+    "training_loss": 1.0693856328725815,
+    "validation": {
+      "documents": 40,
+      "exact_field_micro_f1": 0.5932203389830508,
+      "exact_field_precision": 0.5894736842105263,
+      "exact_field_recall": 0.5970149253731343,
+      "word_tag_accuracy_including_truncation": 0.6920332936979786,
+      "cross_entropy_labeled_tokens": 1.06310076713562,
+      "counts": {
+        "words": 841,
+        "visible_words": 841,
+        "unknown_words": 3,
+        "word_correct": 582,
+        "tp": 280,
+        "fp": 195,
+        "fn": 189
+      },
+      "field_metrics": {
+        "menu.cnt": {
+          "f1": 0.8834355828220859,
+          "gold": 73,
+          "predicted": 90
+        },
+        "menu.discountprice": {
+          "f1": 0.0,
+          "gold": 3,
+          "predicted": 0
+        },
+        "menu.nm": {
+          "f1": 0.7165775401069518,
+          "gold": 78,
+          "predicted": 109
+        },
+        "menu.num": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "menu.price": {
+          "f1": 0.6609442060085837,
+          "gold": 78,
+          "predicted": 155
+        },
+        "menu.sub.cnt": {
+          "f1": 0.0,
+          "gold": 11,
+          "predicted": 0
+        },
+        "menu.sub.nm": {
+          "f1": 0.0,
+          "gold": 25,
+          "predicted": 0
+        },
+        "menu.sub.price": {
+          "f1": 0.0,
+          "gold": 7,
+          "predicted": 0
+        },
+        "menu.unitprice": {
+          "f1": 0.6,
+          "gold": 23,
+          "predicted": 17
+        },
+        "menu.vatyn": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "sub_total.discount_price": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "sub_total.etc": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "sub_total.service_price": {
+          "f1": 0.0,
+          "gold": 4,
+          "predicted": 0
+        },
+        "sub_total.subtotal_price": {
+          "f1": 0.0,
+          "gold": 27,
+          "predicted": 0
+        },
+        "sub_total.tax_price": {
+          "f1": 0.2,
+          "gold": 18,
+          "predicted": 2
+        },
+        "total.cashprice": {
+          "f1": 0.43243243243243246,
+          "gold": 28,
+          "predicted": 9
+        },
+        "total.changeprice": {
+          "f1": 0.5660377358490566,
+          "gold": 29,
+          "predicted": 24
+        },
+        "total.creditcardprice": {
+          "f1": 0.0,
+          "gold": 4,
+          "predicted": 0
+        },
+        "total.emoneyprice": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "total.menuqty_cnt": {
+          "f1": 0.0,
+          "gold": 9,
+          "predicted": 0
+        },
+        "total.menutype_cnt": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "total.total_etc": {
+          "f1": 0.0,
+          "gold": 3,
+          "predicted": 0
+        },
+        "total.total_price": {
+          "f1": 0.4954128440366973,
+          "gold": 40,
+          "predicted": 69
+        }
+      }
+    },
+    "gradient_l2_preclip_mean": 1.5478417202830315,
+    "gradient_l2_preclip_max": 2.4757397174835205,
+    "learning_rate": 0.0001,
+    "checkpoint_sha256": "dab521fbefa9ecdef97636406f80b4c6d11c5b38fb7e95176f41d371be39e152",
+    "best_epoch": 4,
+    "decision": "BEST"
+  },
+  {
+    "epoch": 5,
+    "training_loss": 0.9385078214108944,
+    "validation": {
+      "documents": 40,
+      "exact_field_micro_f1": 0.6610348468848997,
+      "exact_field_precision": 0.6548117154811716,
+      "exact_field_recall": 0.6673773987206824,
+      "word_tag_accuracy_including_truncation": 0.7312722948870393,
+      "cross_entropy_labeled_tokens": 0.9267632246017456,
+      "counts": {
+        "words": 841,
+        "visible_words": 841,
+        "unknown_words": 3,
+        "word_correct": 615,
+        "tp": 313,
+        "fp": 165,
+        "fn": 156
+      },
+      "field_metrics": {
+        "menu.cnt": {
+          "f1": 0.906832298136646,
+          "gold": 73,
+          "predicted": 88
+        },
+        "menu.discountprice": {
+          "f1": 0.0,
+          "gold": 3,
+          "predicted": 0
+        },
+        "menu.nm": {
+          "f1": 0.7301587301587301,
+          "gold": 78,
+          "predicted": 111
+        },
+        "menu.num": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "menu.price": {
+          "f1": 0.7715736040609137,
+          "gold": 78,
+          "predicted": 119
+        },
+        "menu.sub.cnt": {
+          "f1": 0.0,
+          "gold": 11,
+          "predicted": 0
+        },
+        "menu.sub.nm": {
+          "f1": 0.0,
+          "gold": 25,
+          "predicted": 0
+        },
+        "menu.sub.price": {
+          "f1": 0.0,
+          "gold": 7,
+          "predicted": 0
+        },
+        "menu.unitprice": {
+          "f1": 0.7555555555555555,
+          "gold": 23,
+          "predicted": 22
+        },
+        "menu.vatyn": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "sub_total.discount_price": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "sub_total.etc": {
+          "f1": 0.0,
+          "gold": 2,
+          "predicted": 0
+        },
+        "sub_total.service_price": {
+          "f1": 0.0,
+          "gold": 4,
+          "predicted": 0
+        },
+        "sub_total.subtotal_price": {
+          "f1": 0.0,
+          "gold": 27,
+          "predicted": 0
+        },
+        "sub_total.tax_price": {
+          "f1": 0.5384615384615384,
+          "gold": 18,
+          "predicted": 8
+        },
+        "total.cashprice": {
+          "f1": 0.7058823529411765,
+          "gold": 28,
+          "predicted": 23
+        },
+        "total.changeprice": {
+          "f1": 0.6071428571428571,
+          "gold": 29,
+          "predicted": 27
+        },
+        "total.creditcardprice": {
+          "f1": 0.0,
+          "gold": 4,
+          "predicted": 0
+        },
+        "total.emoneyprice": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "total.menuqty_cnt": {
+          "f1": 0.5,
+          "gold": 9,
+          "predicted": 3
+        },
+        "total.menutype_cnt": {
+          "f1": 0.0,
+          "gold": 1,
+          "predicted": 0
+        },
+        "total.total_etc": {
+          "f1": 0.0,
+          "gold": 3,
+          "predicted": 0
+        },
+        "total.total_price": {
+          "f1": 0.5641025641025641,
+          "gold": 40,
+          "predicted": 77
+        }
+      }
+    },
+    "gradient_l2_preclip_mean": 1.5718326568603516,
+    "gradient_l2_preclip_max": 2.166475772857666,
+    "learning_rate": 0.0001,
+    "checkpoint_sha256": "4e5b4a0eb03d013c4e03f9fb07f826cdd8c02a0001f45d08158a311dc1a5b4a6",
+    "best_epoch": 5,
+    "decision": "BEST"
+  }
+]

@@ -1,0 +1,15 @@
+{
+  "experiment_id": "evidence-synthetic-v3.0-unseen-format",
+  "generator_seed": 1732,
+  "customers": 120,
+  "cases_per_customer": 2,
+  "template": "new machine-formatted locale and lower OCR confidence",
+  "changes": [
+    "Pipe-separated abbreviated keys and comma-separated amount strings",
+    "Subtract 0.15 from observed OCR confidence with floor zero"
+  ],
+  "evaluation": "Frozen v3.0 predictions, same calibrators and thresholds, no tuning",
+  "scope": "SYNTHETIC_TECHNICAL_ONLY",
+  "observed_sha256": "956df617f3b1fe79b29ebaf9d28b0c11dfb44beec42ee069d32558aa0daee937",
+  "labels_sha256": "4475b1e4d7c4844043b4e9716a0f044ac872a998bb17b589be800a461469f21f"
+}

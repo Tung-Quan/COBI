@@ -1,0 +1,221 @@
+{
+  "$defs": {
+    "Provenance": {
+      "additionalProperties": false,
+      "properties": {
+        "document_key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Document Key",
+          "type": "string"
+        },
+        "customer_group_key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Customer Group Key",
+          "type": "string"
+        },
+        "case_key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Case Key",
+          "type": "string"
+        },
+        "template_group_key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Template Group Key",
+          "type": "string"
+        },
+        "source_system": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Source System",
+          "type": "string"
+        },
+        "document_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "title": "Document Sha256",
+          "type": "string"
+        },
+        "observed_at": {
+          "format": "date-time",
+          "title": "Observed At",
+          "type": "string"
+        },
+        "decision_at": {
+          "format": "date-time",
+          "title": "Decision At",
+          "type": "string"
+        },
+        "access_authorization_ref": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Access Authorization Ref",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        }
+      },
+      "required": [
+        "document_key",
+        "customer_group_key",
+        "case_key",
+        "template_group_key",
+        "source_system",
+        "document_sha256",
+        "observed_at",
+        "decision_at",
+        "access_authorization_ref",
+        "evidence_refs"
+      ],
+      "title": "Provenance",
+      "type": "object"
+    },
+    "Review": {
+      "additionalProperties": false,
+      "properties": {
+        "reviewer_key": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Reviewer Key",
+          "type": "string"
+        },
+        "verdict": {
+          "enum": [
+            "PRESENT",
+            "ABSENT",
+            "UNVERIFIABLE"
+          ],
+          "title": "Verdict",
+          "type": "string"
+        },
+        "reviewed_at": {
+          "format": "date-time",
+          "title": "Reviewed At",
+          "type": "string"
+        },
+        "verification_method": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Verification Method",
+          "type": "string"
+        },
+        "evidence_refs": {
+          "items": {
+            "maxLength": 128,
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "title": "Evidence Refs",
+          "type": "array"
+        },
+        "reason_code": {
+          "maxLength": 128,
+          "minLength": 1,
+          "title": "Reason Code",
+          "type": "string"
+        }
+      },
+      "required": [
+        "reviewer_key",
+        "verdict",
+        "reviewed_at",
+        "verification_method",
+        "evidence_refs",
+        "reason_code"
+      ],
+      "title": "Review",
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "properties": {
+    "label_status": {
+      "enum": [
+        "PENDING",
+        "DISPUTED",
+        "CONSENSUS",
+        "ADJUDICATED"
+      ],
+      "title": "Label Status",
+      "type": "string"
+    },
+    "provenance": {
+      "$ref": "#/$defs/Provenance"
+    },
+    "target": {
+      "enum": [
+        "field_extraction_error",
+        "cross_source_inconsistency",
+        "material_evidence_error",
+        "verification_required"
+      ],
+      "title": "Target",
+      "type": "string"
+    },
+    "field_key": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Field Key"
+    },
+    "second_document_key": {
+      "anyOf": [
+        {
+          "maxLength": 128,
+          "minLength": 1,
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "title": "Second Document Key"
+    },
+    "reviews": {
+      "items": {
+        "$ref": "#/$defs/Review"
+      },
+      "maxItems": 2,
+      "title": "Reviews",
+      "type": "array"
+    },
+    "adjudication": {
+      "anyOf": [
+        {
+          "$ref": "#/$defs/Review"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null
+    }
+  },
+  "required": [
+    "label_status",
+    "provenance",
+    "target"
+  ],
+  "title": "Annotation",
+  "type": "object"
+}
