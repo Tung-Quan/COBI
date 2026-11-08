@@ -1,0 +1,10 @@
+ml/*.py text eol=lf
+ml/protocol.json text eol=lf
+# Released checksums bind the original bytes, including line endings.
+reports/final/uci350-v2.0/model/* -text
+reports/final/uci350-v2.0/report.json -text
+reports/final/uci350-v2.0/checkpoints/* -text
+evidence_ai/*.json text eol=lf
+reports/evidence-v3/synthetic/*.json -text
+reports/evidence-v3/synthetic/model/* -text
+reports/evidence-v3/cord-extraction/*.json -text

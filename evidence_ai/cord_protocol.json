@@ -1,0 +1,16 @@
+{
+  "experiment_id": "cord-layoutlmv3-text-box-v1",
+  "receipt_revision": "7f0115a4b758a71d6473b8d085751692da2fef98",
+  "model_revision": "cfbbbff0762e6aab37086fdd4739ad14fe7d5db4",
+  "cohort_sizes": {"train": 128, "validation": 40, "test": 60},
+  "seed": 319,
+  "batch_size": 8,
+  "learning_rate": 0.0001,
+  "weight_decay": 0.01,
+  "max_tokens": 192,
+  "epochs": 5,
+  "patience": 2,
+  "trainable": "last text-layout encoder block and token head",
+  "primary_metric": "Exact category and word-span micro F1 over supplied annotated OCR boxes",
+  "scope": "Small non-commercial post-OCR receipt extraction pilot, no authenticity or bank defect labels"
+}

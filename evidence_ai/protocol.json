@@ -1,0 +1,29 @@
+{
+  "experiment_id": "evidence-synthetic-v3.0",
+  "population": "Controlled synthetic corruption, no bank documents",
+  "generator_seed": 731,
+  "customers": 640,
+  "cases_per_customer": 2,
+  "split_fractions": [0.55, 0.15, 0.15, 0.15],
+  "training_seeds": [13, 29, 43],
+  "calibration_critical_recall_target": 0.90,
+  "bootstrap_seed": 197,
+  "bootstrap_draws": 300,
+  "logistic_C": 1,
+  "xgb_depth": [2, 4],
+  "xgb_rounds": 140,
+  "xgb_learning_rate": 0.06,
+  "xgb_patience": 12,
+  "deep_sets": [
+    {"batch": 32, "lr": 0.001, "hidden": 32, "weight_decay": 0.0001},
+    {"batch": 64, "lr": 0.001, "hidden": 32, "weight_decay": 0.0001},
+    {"batch": 32, "lr": 0.003, "hidden": 64, "weight_decay": 0.0001},
+    {"batch": 64, "lr": 0.003, "hidden": 64, "weight_decay": 0.001}
+  ],
+  "neural_max_epochs": 28,
+  "neural_patience": 5,
+  "auxiliary_loss_weight": 0.35,
+  "selection_metric": "Validation document log loss averaged across three seeds",
+  "ablate_one_at_a_time": ["metadata", "relationships", "cs", "embedding"],
+  "material_vnd_thresholds": {"income": 500000, "debt": 250000, "purchase": 500000}
+}

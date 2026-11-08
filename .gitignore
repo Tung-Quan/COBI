@@ -10,3 +10,11 @@ backend/data/checkout_credit.sqlite
 backend/data/checkout_credit.sqlite-shm
 backend/data/checkout_credit.sqlite-wal
 .env
+data/raw/
+data/processed/
+data/quarantine/
+reports/final/*/test_predictions.csv
+reports/final/*/.test-opened
+reports/final/*/run.log
+reports/final/*-request.json
+reports/evidence-v3/cord-extraction/adapter.safetensors

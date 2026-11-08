@@ -1,0 +1,300 @@
+{
+  "dataset_id": "UCI_350",
+  "source_url": "https://archive.ics.uci.edu/dataset/350/default+of+credit+card+clients",
+  "archive_url": "https://archive.ics.uci.edu/static/public/350/default+of+credit+card+clients.zip",
+  "provider": "UCI Machine Learning Repository",
+  "citation": "Yeh, I. (2009), DOI 10.24432/C55S3H",
+  "license": "CC BY 4.0",
+  "license_url": "https://creativecommons.org/licenses/by/4.0/",
+  "source_domain": "TAIWAN_CREDIT_CARD_2005",
+  "target": "default.payment.next.month",
+  "label_mapping": {
+    "0": "no default",
+    "1": "default"
+  },
+  "horizon": "next payment month",
+  "population": "Taiwan credit-card customers",
+  "snapshot": "Monthly credit-card histories April\u2013September 2005, no application or customer-group index",
+  "split_protocol": "STRATIFIED_RANDOM_60_15_10_15_NOT_OOT",
+  "feature_allowlist": [
+    "LIMIT_BAL",
+    "PAY_0",
+    "PAY_2",
+    "PAY_3",
+    "PAY_4",
+    "PAY_5",
+    "PAY_6",
+    "BILL_AMT1",
+    "BILL_AMT2",
+    "BILL_AMT3",
+    "BILL_AMT4",
+    "BILL_AMT5",
+    "BILL_AMT6",
+    "PAY_AMT1",
+    "PAY_AMT2",
+    "PAY_AMT3",
+    "PAY_AMT4",
+    "PAY_AMT5",
+    "PAY_AMT6"
+  ],
+  "feature_signature": "8b7b3244093c057dc149a83be81c9238b0586c58049336efabd5e4e1dfbd81ec",
+  "application_compatibility": "BENCHMARK_ONLY",
+  "status": "VERIFIED",
+  "retrieved_utc": "2026-11-07T17:17:06.010619+00:00",
+  "original_filename": "default of credit card clients.xls",
+  "csv_url": "https://archive.ics.uci.edu/static/public/350/data.csv",
+  "original_sha256": "30c6be3abd8dcfd3e6096c828bad8c2f011238620f5369220bd60cfc82700933",
+  "raw_archive_sha256": "56c885f84457f6680f8438f02bfcdac9579323d8a94465ee5f26e32baa727602",
+  "raw_csv_sha256": "45bcf4df62ff2e237a74eb155cabfb4bbbc171219a0637daef44fdad07503dd0",
+  "license_snapshot_sha256": "2ba8a9014249210bf44f1ce218e9e1214f6992801856ccf78a7f0196b5227df2",
+  "normalized_sha256": "957a8f0c61a409fca9831da6dc9eb38a710503f0a09a19d5725a574f48db5809",
+  "rows": 30000,
+  "source_features": 23,
+  "source_columns": [
+    "ID",
+    "LIMIT_BAL",
+    "SEX",
+    "EDUCATION",
+    "MARRIAGE",
+    "AGE",
+    "PAY_0",
+    "PAY_2",
+    "PAY_3",
+    "PAY_4",
+    "PAY_5",
+    "PAY_6",
+    "BILL_AMT1",
+    "BILL_AMT2",
+    "BILL_AMT3",
+    "BILL_AMT4",
+    "BILL_AMT5",
+    "BILL_AMT6",
+    "PAY_AMT1",
+    "PAY_AMT2",
+    "PAY_AMT3",
+    "PAY_AMT4",
+    "PAY_AMT5",
+    "PAY_AMT6",
+    "default.payment.next.month"
+  ],
+  "normalized_columns": [
+    "ID",
+    "LIMIT_BAL",
+    "PAY_0",
+    "PAY_2",
+    "PAY_3",
+    "PAY_4",
+    "PAY_5",
+    "PAY_6",
+    "BILL_AMT1",
+    "BILL_AMT2",
+    "BILL_AMT3",
+    "BILL_AMT4",
+    "BILL_AMT5",
+    "BILL_AMT6",
+    "PAY_AMT1",
+    "PAY_AMT2",
+    "PAY_AMT3",
+    "PAY_AMT4",
+    "PAY_AMT5",
+    "PAY_AMT6",
+    "default.payment.next.month"
+  ],
+  "label_counts": {
+    "0": 23364,
+    "1": 6636
+  },
+  "missingness": {
+    "ID": 0,
+    "LIMIT_BAL": 0,
+    "SEX": 0,
+    "EDUCATION": 0,
+    "MARRIAGE": 0,
+    "AGE": 0,
+    "PAY_0": 0,
+    "PAY_2": 0,
+    "PAY_3": 0,
+    "PAY_4": 0,
+    "PAY_5": 0,
+    "PAY_6": 0,
+    "BILL_AMT1": 0,
+    "BILL_AMT2": 0,
+    "BILL_AMT3": 0,
+    "BILL_AMT4": 0,
+    "BILL_AMT5": 0,
+    "BILL_AMT6": 0,
+    "PAY_AMT1": 0,
+    "PAY_AMT2": 0,
+    "PAY_AMT3": 0,
+    "PAY_AMT4": 0,
+    "PAY_AMT5": 0,
+    "PAY_AMT6": 0,
+    "default.payment.next.month": 0
+  },
+  "unique_sample_ids": 30000,
+  "duplicate_predictor_rows": 817,
+  "feature_ranges": {
+    "LIMIT_BAL": [
+      10000,
+      1000000
+    ],
+    "PAY_0": [
+      -2,
+      8
+    ],
+    "PAY_2": [
+      -2,
+      8
+    ],
+    "PAY_3": [
+      -2,
+      8
+    ],
+    "PAY_4": [
+      -2,
+      8
+    ],
+    "PAY_5": [
+      -2,
+      8
+    ],
+    "PAY_6": [
+      -2,
+      8
+    ],
+    "BILL_AMT1": [
+      -165580,
+      964511
+    ],
+    "BILL_AMT2": [
+      -69777,
+      983931
+    ],
+    "BILL_AMT3": [
+      -157264,
+      1664089
+    ],
+    "BILL_AMT4": [
+      -170000,
+      891586
+    ],
+    "BILL_AMT5": [
+      -81334,
+      927171
+    ],
+    "BILL_AMT6": [
+      -339603,
+      961664
+    ],
+    "PAY_AMT1": [
+      0,
+      873552
+    ],
+    "PAY_AMT2": [
+      0,
+      1684259
+    ],
+    "PAY_AMT3": [
+      0,
+      896040
+    ],
+    "PAY_AMT4": [
+      0,
+      621000
+    ],
+    "PAY_AMT5": [
+      0,
+      426529
+    ],
+    "PAY_AMT6": [
+      0,
+      528666
+    ]
+  },
+  "repayment_code_counts": {
+    "PAY_0": {
+      "0": 14737,
+      "-1": 5686,
+      "1": 3688,
+      "-2": 2759,
+      "2": 2667,
+      "3": 322,
+      "4": 76,
+      "5": 26,
+      "8": 19,
+      "6": 11,
+      "7": 9
+    },
+    "PAY_2": {
+      "0": 15730,
+      "-1": 6050,
+      "2": 3927,
+      "-2": 3782,
+      "3": 326,
+      "4": 99,
+      "1": 28,
+      "5": 25,
+      "7": 20,
+      "6": 12,
+      "8": 1
+    },
+    "PAY_3": {
+      "0": 15764,
+      "-1": 5938,
+      "-2": 4085,
+      "2": 3819,
+      "3": 240,
+      "4": 76,
+      "7": 27,
+      "6": 23,
+      "5": 21,
+      "1": 4,
+      "8": 3
+    },
+    "PAY_4": {
+      "0": 16455,
+      "-1": 5687,
+      "-2": 4348,
+      "2": 3159,
+      "3": 180,
+      "4": 69,
+      "7": 58,
+      "5": 35,
+      "6": 5,
+      "1": 2,
+      "8": 2
+    },
+    "PAY_5": {
+      "0": 16947,
+      "-1": 5539,
+      "-2": 4546,
+      "2": 2626,
+      "3": 178,
+      "4": 84,
+      "7": 58,
+      "5": 17,
+      "6": 4,
+      "8": 1
+    },
+    "PAY_6": {
+      "0": 16286,
+      "-1": 5740,
+      "-2": 4895,
+      "2": 2766,
+      "3": 184,
+      "4": 49,
+      "7": 46,
+      "6": 19,
+      "5": 13,
+      "8": 2
+    }
+  },
+  "training_eligibility": "UCI research benchmark only",
+  "restrictions": "CC BY 4.0 attribution; excluded ID and demographics",
+  "limitations": [
+    "No per-application dates",
+    "No customer grouping key",
+    "No Vietnamese checkout outcomes",
+    "Some repayment codes are undocumented in the UCI description; encoded as categories"
+  ]
+}

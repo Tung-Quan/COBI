@@ -1,0 +1,4 @@
+-r ../ml/requirements.txt
+transformers==4.51.3
+pyarrow==20.0.0
+safetensors==0.5.3

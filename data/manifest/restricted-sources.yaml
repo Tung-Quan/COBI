@@ -1,0 +1,17 @@
+HOME_CREDIT:
+  status: DOWNLOAD_NOT_AUTHORIZED
+  source: https://www.kaggle.com/competitions/home-credit-default-risk/data
+  gate: Authorized Kaggle access and acceptance of competition rules
+  training: NOT_EXECUTED
+GIVE_ME_SOME_CREDIT:
+  status: OPTIONAL_NOT_ACQUIRED
+  source: https://www.kaggle.com/c/GiveMeSomeCredit/data
+  training: NOT_EXECUTED
+CORD_V2:
+  status: OPTIONAL_NOT_ACQUIRED
+  source: https://github.com/clovaai/cord
+  task: Receipt extraction only
+BANK_PARTNER:
+  status: BANK_EXTERNAL_VALIDATION_BLOCKED
+  gate: Lawful data sharing agreement and independent outcome and model governance
+  training: NOT_EXECUTED
