@@ -1,0 +1,3 @@
+Verified source hashes, locked membership, train-only scaler, 11 validation checkpoints and 4,500 reloaded test predictions.
+Reproduced all published test point metrics, reliability bins and 1,000-draw paired bootstrap CIs.
+Verified duplicate sensitivity, TreeSHAP additivity, API parity, schema rejection and DEMO-001 trace.
