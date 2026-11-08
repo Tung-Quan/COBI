@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 import sqlite3
 from datetime import datetime, timezone
 from pathlib import Path
@@ -9,7 +10,7 @@ from typing import Any
 from .calculations import calculate_application
 
 ROOT = Path(__file__).resolve().parents[1]
-DB_PATH = ROOT / "data" / "checkout_credit.sqlite"
+DB_PATH = Path(os.environ.get("COBI_DB_PATH", ROOT / "data" / "checkout_credit.sqlite"))
 SEED_PATH = ROOT / "data" / "seed_applications.json"
 
 
@@ -46,6 +47,7 @@ def initialize_database() -> None:
                 routing_json TEXT NOT NULL,
                 computed_at TEXT NOT NULL
             );
+            CREATE INDEX IF NOT EXISTS audit_application_action ON audit_events(application_id, action);
             CREATE TRIGGER IF NOT EXISTS audit_events_no_update
             BEFORE UPDATE ON audit_events BEGIN
                 SELECT RAISE(ABORT, 'audit events are append-only');
@@ -56,9 +58,17 @@ def initialize_database() -> None:
             END;
             """
         )
+        connection.execute("BEGIN IMMEDIATE")
         existing = connection.execute("SELECT COUNT(*) FROM applications").fetchone()[0]
         if existing == 0:
             seeds = json.loads(SEED_PATH.read_text(encoding="utf-8"))
+            v2 = json.loads((ROOT / "data" / "demo_001_v2.json").read_text(encoding="utf-8"))
+            seeds = [item | (v2 if item["application_id"] == v2["application_id"] else {"fixture_version": "seed-v2.0"})
+                     for item in seeds]
+            for item in seeds:
+                if item["application_id"] == v2["application_id"]:
+                    item.pop("risk_anchor", None)
+                    item["evidence"]["reconciliation_notes"][1] = "Synthetic purchase equals loan principal plus stated own funds."
             now = datetime.now(timezone.utc).isoformat()
             connection.executemany(
                 "INSERT INTO applications(application_id, data_json, created_at) VALUES (?, ?, ?)",
@@ -72,18 +82,22 @@ def list_applications() -> list[dict[str, Any]]:
     return [json.loads(row["data_json"]) for row in rows]
 
 
-def get_application(application_id: str) -> dict[str, Any] | None:
-    with connect() as connection:
-        row = connection.execute("SELECT data_json FROM applications WHERE application_id = ?", (application_id,)).fetchone()
+def get_application(application_id: str, connection: sqlite3.Connection | None = None) -> dict[str, Any] | None:
+    if connection is None:
+        with connect() as own_connection:
+            return get_application(application_id, own_connection)
+    row = connection.execute("SELECT data_json FROM applications WHERE application_id = ?", (application_id,)).fetchone()
     return json.loads(row["data_json"]) if row else None
 
 
-def create_application(data: dict[str, Any]) -> None:
+def create_application(data: dict[str, Any], audit_details: dict[str, Any]) -> None:
     with connect() as connection:
         connection.execute(
             "INSERT INTO applications(application_id, data_json, created_at) VALUES (?, ?, ?)",
             (data["application_id"], json.dumps(data, separators=(",", ":")), datetime.now(timezone.utc).isoformat()),
         )
+        append_audit_event(data["application_id"], "application_received", None,
+                           "Application received in the synthetic workbench.", audit_details, connection=connection)
 
 
 def audit_history(application_id: str) -> list[dict[str, Any]]:
@@ -97,17 +111,19 @@ def audit_history(application_id: str) -> list[dict[str, Any]]:
 
 
 def append_audit_event(application_id: str, action: str, route: str | None, reason: str,
-                       details: dict[str, Any] | None = None) -> dict[str, Any]:
+                       details: dict[str, Any] | None = None, *,
+                       connection: sqlite3.Connection | None = None) -> dict[str, Any]:
+    if connection is None:
+        with connect() as own_connection:
+            return append_audit_event(application_id, action, route, reason, details, connection=own_connection)
     timestamp = datetime.now(timezone.utc).isoformat()
-    with connect() as connection:
-        cursor = connection.execute(
-            "INSERT INTO audit_events(application_id, action, route, reason, created_at, details_json) "
-            "VALUES (?, ?, ?, ?, ?, ?)",
-            (application_id, action, route, reason, timestamp, json.dumps(details or {}, separators=(",", ":"))),
-        )
-        event_id = cursor.lastrowid
+    cursor = connection.execute(
+        "INSERT INTO audit_events(application_id, action, route, reason, created_at, details_json) "
+        "VALUES (?, ?, ?, ?, ?, ?)",
+        (application_id, action, route, reason, timestamp, json.dumps(details or {}, separators=(",", ":"))),
+    )
     return {
-        "event_id": event_id,
+        "event_id": cursor.lastrowid,
         "application_id": application_id,
         "action": action,
         "route": route,
@@ -118,15 +134,26 @@ def append_audit_event(application_id: str, action: str, route: str | None, reas
     }
 
 
-def persist_calculation(application_id: str, assessment: dict[str, Any], routing: dict[str, Any]) -> None:
+def revoke_consent(application: dict[str, Any], reason: str, details: dict[str, Any], connection: sqlite3.Connection) -> dict:
+    application_id = application["application_id"]
+    event = append_audit_event(application_id, "consent_revoked", None, reason, details, connection=connection)
+    revoked = application | {"consent": False, "consent_revoked_at": event["created_at"]}
+    connection.execute("UPDATE applications SET data_json = ? WHERE application_id = ?",
+                       (json.dumps(revoked, separators=(",", ":")), application_id))
+    connection.execute("DELETE FROM calculation_results WHERE application_id = ?", (application_id,))
+    return event
+
+
+def persist_calculation(application: dict[str, Any], assessment: dict[str, Any], routing: dict[str, Any]) -> None:
     """Persist the latest reproducible result; simulator calls do not use this."""
     with connect() as connection:
         connection.execute(
             "INSERT INTO calculation_results(application_id, assessment_json, routing_json, computed_at) "
-            "VALUES (?, ?, ?, ?) ON CONFLICT(application_id) DO UPDATE SET "
+            "SELECT application_id, ?, ?, ? FROM applications WHERE application_id = ? AND data_json = ? "
+            "ON CONFLICT(application_id) DO UPDATE SET "
             "assessment_json = excluded.assessment_json, routing_json = excluded.routing_json, computed_at = excluded.computed_at",
-            (application_id, json.dumps(assessment, separators=(",", ":")),
-             json.dumps(routing, separators=(",", ":")), datetime.now(timezone.utc).isoformat()),
+            (json.dumps(assessment, separators=(",", ":")), json.dumps(routing, separators=(",", ":")),
+             datetime.now(timezone.utc).isoformat(), application["application_id"], json.dumps(application, separators=(",", ":"))),
         )
 
 
@@ -149,7 +176,7 @@ def export_bundle() -> dict[str, Any]:
     applications: list[dict[str, Any]] = []
     for application in list_applications():
         result = calculate_application(application)
-        persist_calculation(application["application_id"], result.assessment, result.routing)
+        persist_calculation(application, result.assessment, result.routing)
         applications.append({
             "application": application,
             "assessment": result.assessment,

@@ -5,7 +5,7 @@ from pathlib import Path
 
 import pytest
 
-from app.calculations import (
+from app.calculations_v1 import (
     CS_WEIGHTS,
     CalculationBundle,
     calculate_application,

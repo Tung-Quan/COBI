@@ -5,6 +5,11 @@ services:
       - "8000:8000"
     volumes:
       - ./backend/data:/app/data
+      - ./reports/final:/research/reports/final:ro
+      - ./reports/evidence-v3:/research/reports/evidence-v3:ro
+      - ./data/manifest:/research/data/manifest:ro
+    environment:
+      COBI_RESEARCH_ROOT: /research
     healthcheck:
       test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/health')"]
       interval: 5s

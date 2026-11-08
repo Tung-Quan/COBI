@@ -1,0 +1,10 @@
+{
+  "application_id": "DEMO-001",
+  "fixture_version": "demo-001-v2.0",
+  "purchase_amount_vnd": 6000000,
+  "own_funds_vnd": 1000000,
+  "loan_amount_vnd": 5000000,
+  "proposed_installment_vnd": 1250000,
+  "term_months": 4,
+  "annual_interest_rate": 0
+}
