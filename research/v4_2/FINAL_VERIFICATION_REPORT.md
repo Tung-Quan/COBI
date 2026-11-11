@@ -2,7 +2,7 @@
 
 **Date:** 2026-11-11 (Asia/Saigon)  
 **Final status:** `PHASE1_COMPLETE_PHASE2_BLOCKED`  
-**Repository:** `C:\disk D\COBI`, branch `main`; Phase 1 baseline `7f5eff1e46a8f0c03a36a11d6892231bf4927182`; closeout is published in four topical commits.
+**Repository:** `C:\disk D\COBI`, branch `main`; Phase 1 baseline `7f5eff1e46a8f0c03a36a11d6892231bf4927182`; closeout was published in four topical commits plus a portability addendum.
 
 ## Verification results
 

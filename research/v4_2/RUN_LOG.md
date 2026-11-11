@@ -108,7 +108,7 @@ Final disposition: **`PHASE1_COMPLETE_PHASE2_BLOCKED`**. Phase 1 documentation a
 
 ## Publication and portable-manifest verification addendum — 2026-11-11
 
-The four topical Phase 1 commits are on `main`; the first three are `fcc5568` (D1.1/ontology), `cbd588f` (literature/novelty), and `79d2d87` (Phase 2 protocol). The final closeout commit contains the reports, release reconciliation and scoped manifest. The checkout was clean under `research/v4_2/` before this verification addendum. Pre-existing edits outside that directory remain unstaged and untouched.
+The Phase 1 package is on `main` in four topic commits plus a portability/verification addendum. The topic commits are `fcc5568` (D1.1/ontology), `cbd588f` (literature/novelty), `79d2d87` (Phase 2 protocol), and `95bfccf` (final reports, release reconciliation and scoped manifest); `b81498c` adds LF-stable generation, cache exclusion, regression tests and final counts. The checkout was clean under `research/v4_2/` before this verification addendum. Pre-existing edits outside that directory remain unstaged and untouched.
 
 To keep raw-byte artifact hashes reproducible across Windows and non-Windows clones, `research/v4_2/.gitattributes` pins the package to LF. The 51 CRLF text files were normalized to LF. The D1.1 audit, fixture builder and manifest writer now explicitly emit LF, including CSV row endings. A regression test checks generated audit output. This changes no dataset labels, model output, release manifest or product logic.
 
@@ -125,4 +125,8 @@ To keep raw-byte artifact hashes reproducible across Windows and non-Windows clo
 | `python -m research.v4_2.tools.make_artifact_manifest --check` (root) | 0 | **63/63** scoped files match; manifest self-hash excluded. |
 | Frontend E2E | `NOT_RUN` | No disposable URL/database; not counted as passed. |
 
-The scoped manifest is generated from the pre-addendum closeout base commit recorded in its `head` field; the manifest intentionally excludes its own hash. The new final report records the exact test counts and keeps the release mismatches and all external research gates open. GitHub push confirmation is recorded in the publication status after the push completes.
+The scoped manifest is generated from the pre-publication-addendum closeout base `b81498cc75f62e466b51d9bb28f4563a2e09b000`, recorded in its `head` field; the manifest intentionally excludes its own hash. The final report records the exact test counts and keeps the release mismatches and all external research gates open.
+
+| Publication command | Exit | Result |
+|---|---:|---|
+| `git push origin main` | 0 | Pushed `7f5eff1..b81498c` directly to `main`; subsequent `git rev-parse HEAD` and `git rev-parse origin/main` both returned `b81498cc75f62e466b51d9bb28f4563a2e09b000`. |

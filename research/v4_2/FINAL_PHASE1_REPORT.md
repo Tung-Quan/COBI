@@ -2,7 +2,7 @@
 
 **Final status:** `PHASE1_COMPLETE_PHASE2_BLOCKED`  
 **Validation status:** `EVIDENCE_AI_VALIDATION_BLOCKED`  
-**Project:** `C:\disk D\COBI` — research baseline audited from `main` at `7f5eff1e46a8f0c03a36a11d6892231bf4927182`; closeout is published as four topical commits.  
+**Project:** `C:\disk D\COBI` — research baseline audited from `main` at `7f5eff1e46a8f0c03a36a11d6892231bf4927182`; closeout was published in four topical commits plus a portability addendum.  
 **Date:** 2026-11-11
 
 ## Decision

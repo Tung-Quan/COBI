@@ -2,7 +2,7 @@
   "manifest_version": "cobi-v4.2-phase1-closeout-1.0",
   "scope": "research/v4_2/",
   "branch": "main",
-  "head": "95bfccf0e6815f27cdc6f69ad8411087e897a6bd",
+  "head": "b81498cc75f62e466b51d9bb28f4563a2e09b000",
   "self_hash_excluded": true,
   "ignored_python_cache_excluded": true,
   "file_count": 63,
@@ -129,13 +129,13 @@
     },
     {
       "path": "FINAL_PHASE1_REPORT.md",
-      "bytes": 5111,
-      "sha256": "4221e0781114eb603c19e94516476e765320ae246ea249499d08b3b4256f1fef"
+      "bytes": 5140,
+      "sha256": "c2bac706e122a1aec81a72fdce3c59a1f609c65d7ab4862ffc582bf9e433e2fc"
     },
     {
       "path": "FINAL_VERIFICATION_REPORT.md",
-      "bytes": 6331,
-      "sha256": "758be81cc9c0bd1c108f33fb41af735bdcd44e53983be2626b17e72653522b8f"
+      "bytes": 6360,
+      "sha256": "d109f1f58d6f254c9ab07a01f1f53c1e0fdd46383e5b68ebc9e52f36ab2d81bd"
     },
     {
       "path": "LABEL_AUDIT_D1_1.md",
@@ -249,8 +249,8 @@
     },
     {
       "path": "RUN_LOG.md",
-      "bytes": 16563,
-      "sha256": "f657037285a36155fbdd6286b1cbb134647b2155f6c377e2cc0e6db56aaa8778"
+      "bytes": 16895,
+      "sha256": "38b19811e776e6870d946c410bca20c720eb2ad84b6ddfb87bb9bd6e9bb28c90"
     },
     {
       "path": "SAMPLE_SIZE_AND_POWER_PLAN.md",
