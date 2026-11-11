@@ -2,7 +2,7 @@
   "manifest_version": "cobi-v4.2-phase1-closeout-1.0",
   "scope": "research/v4_2/",
   "branch": "main",
-  "head": "7f5eff1e46a8f0c03a36a11d6892231bf4927182",
+  "head": "95bfccf0e6815f27cdc6f69ad8411087e897a6bd",
   "self_hash_excluded": true,
   "ignored_python_cache_excluded": true,
   "file_count": 63,
@@ -35,7 +35,7 @@
     {
       "path": "D1_1_AUDIT_SUMMARY.json",
       "bytes": 2346,
-      "sha256": "d7258c0ea5d5c9c7226a9509282c33c270fe5c1a6370e5dae7ec7df0e3a61dee"
+      "sha256": "558729203f77a10e14bcd86c87d9dcf150f5706161f1f339d8fcfd9dd9215c0a"
     },
     {
       "path": "D1_1_LABEL_REVIEW.csv",
@@ -129,13 +129,13 @@
     },
     {
       "path": "FINAL_PHASE1_REPORT.md",
-      "bytes": 4990,
-      "sha256": "e0f72ba910794b306cbb1621c7dcbe6115e086b5571360b32c7149abfe7e7695"
+      "bytes": 5111,
+      "sha256": "4221e0781114eb603c19e94516476e765320ae246ea249499d08b3b4256f1fef"
     },
     {
       "path": "FINAL_VERIFICATION_REPORT.md",
-      "bytes": 5922,
-      "sha256": "f3e53641417d97ba6f38720746f2947f9d4fc787730757e2f2906e1adeca0c99"
+      "bytes": 6331,
+      "sha256": "758be81cc9c0bd1c108f33fb41af735bdcd44e53983be2626b17e72653522b8f"
     },
     {
       "path": "LABEL_AUDIT_D1_1.md",
@@ -240,7 +240,7 @@
     {
       "path": "RESEARCH_READINESS_GATE.md",
       "bytes": 6064,
-      "sha256": "e7f85ba3cb4c0427304918559bb6536ffdd3bb9cf1b9203d2ac35d83a16516a5"
+      "sha256": "99231cbfd5aa7635a6e3b9042a2416dbad4385995e611fc8b0e26e755440465d"
     },
     {
       "path": "RISK_POLICY_APPROVAL_PACKET.md",
@@ -249,8 +249,8 @@
     },
     {
       "path": "RUN_LOG.md",
-      "bytes": 13649,
-      "sha256": "cf3ce727da6033e6c1a57b9fefecb013b0f1a310b25431ee130c5827b3a1abc1"
+      "bytes": 16563,
+      "sha256": "f657037285a36155fbdd6286b1cbb134647b2155f6c377e2cc0e6db56aaa8778"
     },
     {
       "path": "SAMPLE_SIZE_AND_POWER_PLAN.md",
@@ -294,13 +294,13 @@
     },
     {
       "path": "tests/test_contracts_and_audit.py",
-      "bytes": 9827,
-      "sha256": "5eb53c14825540262644f7248b65431f6ff0d248e39d5c9144f853b18b2caddc"
+      "bytes": 10630,
+      "sha256": "584e48c1e0858fc79f7598cc32bedab05edb24f0e16e58d8c1debbdf2150206b"
     },
     {
       "path": "tools/audit_d1_1.py",
-      "bytes": 8265,
-      "sha256": "13ee3cf7645b69a293ab08c90955411ae72942dd4b3be1976316a32d0a16aa8c"
+      "bytes": 8300,
+      "sha256": "8e01f0d3c426ee73283447dc43b8472fd0979bd98ce0f5904cb8433b8f7db86b"
     },
     {
       "path": "tools/audit_release_integrity.py",
@@ -309,13 +309,13 @@
     },
     {
       "path": "tools/build_adjudication_fixtures.py",
-      "bytes": 9297,
-      "sha256": "56c897c6ffbefbe0f4058e1e9fcc08bd8775704effb6c24dca37123b1ffe7397"
+      "bytes": 9332,
+      "sha256": "d8424fd54c2437fd1c83760103d8e4195e949b9fef7692378224fb96de7ae688"
     },
     {
       "path": "tools/make_artifact_manifest.py",
-      "bytes": 2597,
-      "sha256": "120990cda58eba8eb7da3b222a23c45bee3d90bdd4b35b0e8306343bc380d6b9"
+      "bytes": 2737,
+      "sha256": "0fa5a8e7b5836ace01762dc2629ecfb4c7955a1fc90ecff6f008026809df3b88"
     },
     {
       "path": "tools/metric_contracts.py",

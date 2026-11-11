@@ -2,22 +2,23 @@
 
 **Date:** 2026-11-11 (Asia/Saigon)  
 **Final status:** `PHASE1_COMPLETE_PHASE2_BLOCKED`  
-**Repository:** `C:\disk D\COBI`, branch `main`, HEAD `7f5eff1e46a8f0c03a36a11d6892231bf4927182`
+**Repository:** `C:\disk D\COBI`, branch `main`; Phase 1 baseline `7f5eff1e46a8f0c03a36a11d6892231bf4927182`; closeout is published in four topical commits.
 
 ## Verification results
 
 | Area | Actual command / check | Result | Exit / classification |
 |---|---|---|---|
-| V4.2 research contracts, schemas, fixtures, D1.1 and release-audit path | `python -m pytest -q research/v4_2/tests/test_contracts_and_audit.py` | **13 passed** | 0 |
+| V4.2 research contracts, schemas, fixtures, D1.1, reproducible LF audit output, cache exclusion and release-audit path | `python -m pytest -q research/v4_2/tests/test_contracts_and_audit.py` | **15 passed** | 0 |
 | Existing semantic tests | `backend/.venv/Scripts/python.exe -m pytest -q evidence_ai/tests/test_v4_1_semantics.py` | **7 passed** | 0 |
 | Backend regression suite | `.venv/Scripts/python.exe -m pytest -q` from `backend/` | **35 passed, 2 failed** | 1; both stop at the existing V4.1 release-artifact checksum guard |
 | V4.1 API tests | `.venv/Scripts/python.exe -m pytest -q tests/test_evidence_research_v41.py` from `backend/` | **0 passed, 2 failed** | 1; same TONG checksum guard; not bypassed |
 | Frontend production build | `npm run build` from `frontend/` | **Passed; 1,637 modules transformed** | 0 |
 | Frontend E2E | Not run | `COBI_E2E_URL` and disposable DB absent; checked-in flow writes synthetic case/review/consent records | `NOT_RUN`, not counted as passed |
 | Read-only release audit | `python -m research.v4_2.tools.audit_release_integrity` | C hash matches; V4 and V4.1 mismatches reported without modifying manifests | 0; command's hard failure condition is the frozen C digest |
-| Scoped artifact manifest | `python -m research.v4_2.tools.make_artifact_manifest --check` | **62/62 V4.2 scoped files match**; manifest self-hash excluded | 0 |
+| D1.1 proposal audit | `python research/v4_2/tools/audit_d1_1.py` | 200 stale-as-current observations; 100 candidate omissions split 60/15/15/10; proposals remain pending; C and gold unchanged | 0 |
+| Scoped artifact manifest | `python -m research.v4_2.tools.make_artifact_manifest --check` | **63/63 V4.2 scoped files match**; manifest self-hash excluded; LF output pinned for cross-platform hash stability | 0 |
 
-The research test count is 13 after adding a regression check that the audit helper uses the exact lowercase V4 manifest path. No test or helper changes the protected manifests or bypasses the backend guard.
+The research suite has 15 passing tests, including checks for the exact lowercase V4 manifest path, reproducible LF audit output and runtime-cache exclusion. No test or helper changes the protected manifests or bypasses the backend guard.
 
 ## Frozen artifact and manifest results
 
@@ -30,7 +31,7 @@ The research test count is 13 after adding a regression check that the audit hel
 | V4.1 committed manifest applied to the current modified worktree | **13/14 sources, 9/19 artifacts** match current files; this is not the result for the historical commit tree. |
 | V4.1 current modified worktree `RELEASE_MANIFEST.json` | **14/14 source, 51/52 artifact** checksums match. TONG is the single artifact mismatch. |
 | Separate current untracked V4.1 `FINAL_MANIFEST.json` | **100/101** entries match. TONG is the single mismatch. The earlier verification log's 100/100 is a historical result for a prior snapshot. |
-| V4.2 scoped `FINAL_ARTIFACT_MANIFEST.json` | **62 files**, hashes verified; scope is only `research/v4_2/`. |
+| V4.2 scoped `FINAL_ARTIFACT_MANIFEST.json` | **63 files**, hashes verified; scope is only `research/v4_2/`; self-hash excluded |
 
 Exact provenance, bytes, timestamps, supported cause assessment and owner decisions are in `RELEASE_INTEGRITY_RECONCILIATION.md` and `RELEASE_OWNER_APPROVAL_REQUEST.md`.
 

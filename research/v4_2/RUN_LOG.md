@@ -105,3 +105,24 @@ Historical file metadata (Asia/Saigon) shows TONG last written at 16:17:36, afte
 ### Final readiness record
 
 Final disposition: **`PHASE1_COMPLETE_PHASE2_BLOCKED`**. Phase 1 documentation and checks are complete to the available evidence. Phase 2 remains blocked by the release-owner decision, independent D1.1 adjudication, permitted independent data, policy-approved risk parameters, independent literature screening, sealed preregistration and required safe test environment. No Generator D/training/threshold/locked-test action occurred.
+
+## Publication and portable-manifest verification addendum — 2026-11-11
+
+The four topical Phase 1 commits are on `main`; the first three are `fcc5568` (D1.1/ontology), `cbd588f` (literature/novelty), and `79d2d87` (Phase 2 protocol). The final closeout commit contains the reports, release reconciliation and scoped manifest. The checkout was clean under `research/v4_2/` before this verification addendum. Pre-existing edits outside that directory remain unstaged and untouched.
+
+To keep raw-byte artifact hashes reproducible across Windows and non-Windows clones, `research/v4_2/.gitattributes` pins the package to LF. The 51 CRLF text files were normalized to LF. The D1.1 audit, fixture builder and manifest writer now explicitly emit LF, including CSV row endings. A regression test checks generated audit output. This changes no dataset labels, model output, release manifest or product logic.
+
+| Command (working directory) | Exit | Final rerun result |
+|---|---:|---|
+| `python -m research.v4_2.tools.build_adjudication_fixtures` (root) | 0 | Rebuilt 100 blank pending reviewer rows and four illustrative edge fixtures. |
+| `python research/v4_2/tools/audit_d1_1.py` (root) | 0 | 200 stale-as-current; 100 candidate omissions; 60/15/15/10; no gold or C changes; LF outputs. |
+| `python -m pytest -q research/v4_2/tests/test_contracts_and_audit.py` (root) | 0 | **15 passed**. Includes LF writer and runtime-cache exclusion checks. The same command once invoked from `research/v4_2/` failed collection because that working directory does not expose the repository package root; the root invocation above is the verified result. |
+| `backend/.venv/Scripts/python.exe -m pytest -q evidence_ai/tests/test_v4_1_semantics.py` (root) | 0 | **7 passed**. |
+| `.venv/Scripts/python.exe -m pytest -q` (`backend/`) | 1 | **35 passed, 2 failed**, both at the unchanged V4.1 checksum guard for TONG. |
+| `.venv/Scripts/python.exe -m pytest -q tests/test_evidence_research_v41.py` (`backend/`) | 1 | **0 passed, 2 failed**, same guard; not bypassed. |
+| `npm run build` (`frontend/`) | 0 | Production build passed; **1,637 modules transformed**. |
+| `python -m research.v4_2.tools.audit_release_integrity` (root) | 0 | Frozen C SHA-256 matches; V4 remains 95/96; current V4.1 worktree remains 14/14 source and 51/52 artifact. |
+| `python -m research.v4_2.tools.make_artifact_manifest --check` (root) | 0 | **63/63** scoped files match; manifest self-hash excluded. |
+| Frontend E2E | `NOT_RUN` | No disposable URL/database; not counted as passed. |
+
+The scoped manifest is generated from the pre-addendum closeout base commit recorded in its `head` field; the manifest intentionally excludes its own hash. The new final report records the exact test counts and keeps the release mismatches and all external research gates open. GitHub push confirmation is recorded in the publication status after the push completes.

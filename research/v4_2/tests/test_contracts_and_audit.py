@@ -137,6 +137,26 @@ def test_adjudication_csv_has_100_blank_reviewer_decisions():
     assert all(not row["reviewer_decision"] and not row["reviewer_name"] and not row["review_date"] for row in rows)
 
 
+def test_audit_outputs_use_lf_for_reproducible_artifact_hashes(tmp_path):
+    import hashlib
+
+    from research.v4_2.tools.audit_d1_1 import write_audit
+
+    report = write_audit(tmp_path)
+    csv_bytes = (tmp_path / "D1_1_PROPOSED_CHANGELOG.csv").read_bytes()
+    json_bytes = (tmp_path / "D1_1_AUDIT_SUMMARY.json").read_bytes()
+    assert b"\r\n" not in csv_bytes
+    assert b"\r\n" not in json_bytes
+    assert report["proposal_csv_sha256"] == hashlib.sha256(csv_bytes).hexdigest()
+
+
+def test_artifact_manifest_excludes_test_runtime_caches():
+    from research.v4_2.tools.make_artifact_manifest import build
+
+    cache_dirs = {"__pycache__", ".pytest_cache", ".mypy_cache", ".ruff_cache", ".hypothesis"}
+    assert all(not (set(Path(item["path"]).parts) & cache_dirs) for item in build()["files"])
+
+
 def test_claim_group_linkage_keeps_distinct_records_and_documents():
     bundle = json.loads((EXAMPLE_DIR / "multiple_records_one_claim.json").read_text(encoding="utf-8"))
     grouped = [claim for claim in bundle["claims"] if claim["claim_group_id"] == "financial-claim-001"]

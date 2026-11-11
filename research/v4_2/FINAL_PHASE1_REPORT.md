@@ -2,7 +2,7 @@
 
 **Final status:** `PHASE1_COMPLETE_PHASE2_BLOCKED`  
 **Validation status:** `EVIDENCE_AI_VALIDATION_BLOCKED`  
-**Project:** `C:\disk D\COBI` — `main` at `7f5eff1e46a8f0c03a36a11d6892231bf4927182`  
+**Project:** `C:\disk D\COBI` — research baseline audited from `main` at `7f5eff1e46a8f0c03a36a11d6892231bf4927182`; closeout is published as four topical commits.  
 **Date:** 2026-11-11
 
 ## Decision
@@ -25,7 +25,7 @@ No model was trained, Generator C was not rescored, thresholds were not changed,
 
 | Check | Result |
 |---|---:|
-| V4.2 research tests | 13 passed |
+| V4.2 research tests | 15 passed |
 | Existing semantic tests | 7 passed |
 | Backend regression tests | 35 passed, 2 failed at the V4.1 checksum guard |
 | V4.1 API tests | 0 passed, 2 failed at the same guard |
@@ -36,7 +36,7 @@ No model was trained, Generator C was not rescored, thresholds were not changed,
 | V4 separate artifact inventory | 109/109 |
 | Current V4.1 release manifest | 14/14 source; 51/52 artifact |
 | Current separate V4.1 final manifest | 100/101 |
-| V4.2 scoped artifact manifest | 62/62 |
+| V4.2 scoped artifact manifest | 63/63 files hashed; manifest self-hash excluded |
 
 Commands, exact digest values, historical manifest identities and qualifications are in `FINAL_VERIFICATION_REPORT.md` and `RUN_LOG.md`.
 

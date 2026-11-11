@@ -16,7 +16,7 @@ def _load(name: str) -> dict:
 
 
 def _save(name: str, bundle: dict) -> None:
-    (EXAMPLES / name).write_text(json.dumps(bundle, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    (EXAMPLES / name).write_text(json.dumps(bundle, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
 
 
 def _annotated(bundle: dict, rationale: str = "Illustrative edge case; not independently adjudicated.") -> dict:
@@ -48,7 +48,7 @@ def make_review_csv() -> int:
     ]
     output = ROOT / "D1_1_LABEL_REVIEW.csv"
     with output.open("w", newline="", encoding="utf-8-sig") as handle:
-        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer = csv.DictWriter(handle, fieldnames=fields, lineterminator="\n")
         writer.writeheader()
         for audit in rows:
             if audit["candidate_label_status"] != "PENDING_ADJUDICATION":

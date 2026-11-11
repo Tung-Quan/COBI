@@ -148,11 +148,11 @@ def write_audit(output_dir: Path = OUTPUT_DIR, input_dir: Path = INPUT_DIR) -> d
     csv_path = output_dir / "D1_1_PROPOSED_CHANGELOG.csv"
     json_path = output_dir / "D1_1_AUDIT_SUMMARY.json"
     with csv_path.open("w", encoding="utf-8", newline="") as handle:
-        writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+        writer = csv.DictWriter(handle, fieldnames=list(rows[0]), lineterminator="\n")
         writer.writeheader()
         writer.writerows(rows)
     report["proposal_csv_sha256"] = sha256(csv_path)
-    json_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8")
+    json_path.write_text(json.dumps(report, indent=2, ensure_ascii=False) + "\n", encoding="utf-8", newline="\n")
     return report
 
 
