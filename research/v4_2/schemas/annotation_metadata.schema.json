@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cobi.local/research/v4.2/annotation-metadata-1.0.json",
+  "title": "Evidence annotation provenance",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["rater_id", "adjudication_status", "rationale", "independent_evidence_refs", "policy_version", "ambiguity", "disagreement_status"],
+  "properties": {
+    "rater_id": {"type": ["string", "null"]},
+    "adjudication_status": {"enum": ["UNREVIEWED", "INDEPENDENT", "ADJUDICATED", "PENDING_ADJUDICATION"]},
+    "rationale": {"type": "string"},
+    "independent_evidence_refs": {"type": "array", "items": {"type": "string"}},
+    "policy_version": {"type": "string", "minLength": 1},
+    "ambiguity": {"enum": ["NONE_RECORDED", "PRESENT", "UNKNOWN"]},
+    "disagreement_status": {"enum": ["NO_DISAGREEMENT_RECORDED", "DISAGREEMENT", "UNASSESSED"]}
+  }
+}

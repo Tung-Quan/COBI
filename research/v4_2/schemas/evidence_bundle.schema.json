@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cobi.local/research/v4.2/evidence-bundle-1.0.json",
+  "title": "Versioned case evidence annotation bundle",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["bundle_version", "case_id", "requested_period", "claims", "pairs", "case_action", "truth_status"],
+  "properties": {
+    "bundle_version": {"const": "cobi-evidence-bundle-1.0"},
+    "case_id": {"type": "string", "minLength": 1},
+    "requested_period": {"type": ["object", "null"], "properties": {"start": {"type": "string", "format": "date"}, "end": {"type": "string", "format": "date"}}, "required": ["start", "end"], "additionalProperties": false},
+    "claims": {"type": "array", "items": {"$ref": "https://cobi.local/research/v4.2/atomic-evidence-claim-1.0.json"}, "minItems": 1},
+    "pairs": {"type": "array", "items": {"$ref": "https://cobi.local/research/v4.2/pair-annotation-1.0.json"}},
+    "case_action": {"$ref": "https://cobi.local/research/v4.2/case-action-1.0.json"},
+    "truth_status": {
+      "type": "object", "additionalProperties": false,
+      "required": ["world_state", "observable_adjudication"],
+      "properties": {
+        "world_state": {"enum": ["NOT_AVAILABLE", "SYNTHETIC_GENERATOR_ONLY", "INDEPENDENTLY_VERIFIED"]},
+        "observable_adjudication": {"enum": ["UNADJUDICATED", "INDEPENDENT", "ADJUDICATED"]}
+      }
+    }
+  }
+}

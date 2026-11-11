@@ -1,0 +1,40 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cobi.local/research/v4.2/pair-annotation-1.0.json",
+  "title": "Pair comparability and relationship annotation",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["pair_id", "case_id", "claim_ids", "comparability", "relationship", "supersedes_direction", "reason_codes", "document_attribution", "annotation"],
+  "properties": {
+    "pair_id": {"type": "string", "minLength": 1},
+    "case_id": {"type": "string", "minLength": 1},
+    "claim_ids": {"type": "array", "items": {"type": "string"}, "minItems": 2, "maxItems": 2, "uniqueItems": true},
+    "comparability": {"enum": ["COMPARABLE", "NOT_COMPARABLE", "UNKNOWN"]},
+    "relationship": {"enum": ["CONSISTENT", "CONTRADICTORY", "SUPERSEDES", "UNRESOLVED"]},
+    "supersedes_direction": {
+      "oneOf": [
+        {"type": "null"},
+        {"type": "object", "additionalProperties": false, "required": ["superseded_claim_id", "superseding_claim_id"], "properties": {"superseded_claim_id": {"type": "string"}, "superseding_claim_id": {"type": "string"}}}
+      ]
+    },
+    "reason_codes": {"type": "array", "items": {"type": "string"}, "minItems": 1},
+    "document_attribution": {
+      "type": "array", "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["claim_id", "status", "rationale", "independent_evidence_refs"],
+        "properties": {
+          "claim_id": {"type": "string"},
+          "status": {"enum": ["VERIFIED_CORRECT", "VERIFIED_INCORRECT", "UNRESOLVED"]},
+          "rationale": {"type": "string"},
+          "independent_evidence_refs": {"type": "array", "items": {"type": "string"}}
+        },
+        "allOf": [{"if": {"properties": {"status": {"enum": ["VERIFIED_CORRECT", "VERIFIED_INCORRECT"]}}, "required": ["status"]}, "then": {"properties": {"independent_evidence_refs": {"minItems": 1}}}}]
+      }
+    },
+    "annotation": {"$ref": "https://cobi.local/research/v4.2/annotation-metadata-1.0.json"}
+  },
+  "allOf": [
+    {"if": {"properties": {"comparability": {"enum": ["NOT_COMPARABLE", "UNKNOWN"]}}, "required": ["comparability"]}, "then": {"properties": {"relationship": {"const": "UNRESOLVED"}, "supersedes_direction": {"const": null}}}},
+    {"if": {"properties": {"relationship": {"const": "SUPERSEDES"}}, "required": ["relationship"]}, "then": {"properties": {"supersedes_direction": {"type": "object"}}}, "else": {"properties": {"supersedes_direction": {"const": null}}}}
+  ]
+}

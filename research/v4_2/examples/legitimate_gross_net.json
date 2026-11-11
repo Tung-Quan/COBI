@@ -1,0 +1,196 @@
+{
+  "bundle_version": "cobi-evidence-bundle-1.0",
+  "case_id": "case-gross-net",
+  "requested_period": {
+    "start": "2025-01-01",
+    "end": "2025-01-31"
+  },
+  "claims": [
+    {
+      "claim_id": "claim-gross",
+      "case_id": "case-gross-net",
+      "subject_id": "entity-1",
+      "account_id": "account-1",
+      "financial_metric": "monthly_income",
+      "metric_basis": "GROSS",
+      "amount": {
+        "state": "KNOWN",
+        "value": 2000,
+        "currency": "USD",
+        "unit": "USD",
+        "currency_state": "KNOWN",
+        "unit_state": "KNOWN"
+      },
+      "period": {
+        "state": "KNOWN",
+        "start": "2025-01-01",
+        "end": "2025-01-31"
+      },
+      "event_time": "2025-02-01T00:00:00Z",
+      "valid_time": {
+        "state": "KNOWN",
+        "from": "2025-01-01T00:00:00Z",
+        "to": "2025-01-31T23:59:59Z"
+      },
+      "recorded_at": "2025-02-03T12:00:00Z",
+      "assertion_intent": "CURRENT",
+      "source": {
+        "source_id": "source-claim-gross",
+        "source_type": "payroll",
+        "verification_state": "UNVERIFIED",
+        "source_issued_at": null,
+        "source_timestamp_state": "UNKNOWN"
+      },
+      "document": {
+        "document_id": "doc-claim-gross",
+        "version": "1",
+        "supersedes_document_id": null
+      },
+      "provenance": {
+        "document_sha256": null,
+        "span": {
+          "page": 1,
+          "start": 0,
+          "end": 32,
+          "text": "illustrative extracted evidence"
+        },
+        "transformation_ids": []
+      },
+      "extraction": {
+        "confidence": 0.98,
+        "method": "illustrative_structured_entry",
+        "uncertainty_state": "KNOWN"
+      },
+      "policy_version": "illustrative-policy-v1",
+      "claim_group_id": null,
+      "subject_state": "KNOWN",
+      "account_state": "KNOWN",
+      "event_time_state": "KNOWN",
+      "provenance_state": "PARTIAL"
+    },
+    {
+      "claim_id": "claim-net",
+      "case_id": "case-gross-net",
+      "subject_id": "entity-1",
+      "account_id": "account-1",
+      "financial_metric": "monthly_income",
+      "metric_basis": "NET",
+      "amount": {
+        "state": "KNOWN",
+        "value": 1600,
+        "currency": "USD",
+        "unit": "USD",
+        "currency_state": "KNOWN",
+        "unit_state": "KNOWN"
+      },
+      "period": {
+        "state": "KNOWN",
+        "start": "2025-01-01",
+        "end": "2025-01-31"
+      },
+      "event_time": "2025-02-01T00:00:00Z",
+      "valid_time": {
+        "state": "KNOWN",
+        "from": "2025-01-01T00:00:00Z",
+        "to": "2025-01-31T23:59:59Z"
+      },
+      "recorded_at": "2025-02-03T12:00:00Z",
+      "assertion_intent": "CURRENT",
+      "source": {
+        "source_id": "source-claim-net",
+        "source_type": "bank_statement",
+        "verification_state": "UNVERIFIED",
+        "source_issued_at": null,
+        "source_timestamp_state": "UNKNOWN"
+      },
+      "document": {
+        "document_id": "doc-claim-net",
+        "version": "1",
+        "supersedes_document_id": null
+      },
+      "provenance": {
+        "document_sha256": null,
+        "span": {
+          "page": 1,
+          "start": 0,
+          "end": 32,
+          "text": "illustrative extracted evidence"
+        },
+        "transformation_ids": []
+      },
+      "extraction": {
+        "confidence": 0.98,
+        "method": "illustrative_structured_entry",
+        "uncertainty_state": "KNOWN"
+      },
+      "policy_version": "illustrative-policy-v1",
+      "claim_group_id": null,
+      "subject_state": "KNOWN",
+      "account_state": "KNOWN",
+      "event_time_state": "KNOWN",
+      "provenance_state": "PARTIAL"
+    }
+  ],
+  "pairs": [
+    {
+      "pair_id": "pair-case-gross-net",
+      "case_id": "case-gross-net",
+      "claim_ids": [
+        "claim-gross",
+        "claim-net"
+      ],
+      "comparability": "NOT_COMPARABLE",
+      "relationship": "UNRESOLVED",
+      "supersedes_direction": null,
+      "reason_codes": [
+        "BASIS_GROSS_NET_MISMATCH"
+      ],
+      "document_attribution": [
+        {
+          "claim_id": "claim-gross",
+          "status": "UNRESOLVED",
+          "rationale": "No independent source establishes which document is wrong.",
+          "independent_evidence_refs": []
+        },
+        {
+          "claim_id": "claim-net",
+          "status": "UNRESOLVED",
+          "rationale": "No independent source establishes which document is wrong.",
+          "independent_evidence_refs": []
+        }
+      ],
+      "annotation": {
+        "rater_id": null,
+        "adjudication_status": "UNREVIEWED",
+        "rationale": "Illustrative edge case; not independently adjudicated.",
+        "independent_evidence_refs": [],
+        "policy_version": "illustrative-policy-v1",
+        "ambiguity": "UNKNOWN",
+        "disagreement_status": "UNASSESSED"
+      }
+    }
+  ],
+  "case_action": {
+    "case_id": "case-gross-net",
+    "reference_action": "REQUEST_MORE_EVIDENCE",
+    "critical_status": "UNKNOWN",
+    "requested_period": {
+      "start": "2025-01-01",
+      "end": "2025-01-31"
+    },
+    "policy_version": "illustrative-policy-v1",
+    "annotation": {
+      "rater_id": null,
+      "adjudication_status": "UNREVIEWED",
+      "rationale": "Illustrative fixture only; not human-reviewed ground truth.",
+      "independent_evidence_refs": [],
+      "policy_version": "illustrative-policy-v1",
+      "ambiguity": "UNKNOWN",
+      "disagreement_status": "UNASSESSED"
+    }
+  },
+  "truth_status": {
+    "world_state": "NOT_AVAILABLE",
+    "observable_adjudication": "UNADJUDICATED"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cobi.local/research/v4.2/case-action-1.0.json",
+  "title": "Case-level reference action",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["case_id", "reference_action", "critical_status", "requested_period", "policy_version", "annotation"],
+  "properties": {
+    "case_id": {"type": "string", "minLength": 1},
+    "reference_action": {"enum": ["NO_FLAG", "HUMAN_REVIEW", "REQUEST_MORE_EVIDENCE"]},
+    "critical_status": {"enum": ["CRITICAL", "NONCRITICAL", "UNKNOWN"]},
+    "requested_period": {"type": ["object", "null"], "properties": {"start": {"type": "string", "format": "date"}, "end": {"type": "string", "format": "date"}}, "required": ["start", "end"], "additionalProperties": false},
+    "policy_version": {"type": "string", "minLength": 1},
+    "annotation": {"$ref": "https://cobi.local/research/v4.2/annotation-metadata-1.0.json"}
+  }
+}

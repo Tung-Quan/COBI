@@ -1,0 +1,43 @@
+{
+  "audit_id": "cobi-v4.2-read-only-d1.1-proposal-audit",
+  "status": "AUDIT_ONLY_NO_LABELS_CHANGED",
+  "input_dataset_id": "semantic-evidence-development-d1.1",
+  "input_hashes": {
+    "dataset_manifest.json": "2bf617a463cb0a2e046abe49feaed070acb4135c2b537cd7f652c465b9f6ae1e",
+    "observed.json": "588c18c4d08eb5ff74c50e323b1ebc5f283fd7bc0ac1d4e4ed65cf2b866f558f",
+    "gold_labels.json": "f51dcda12dcec77b292610a054101ca178345d59fbd52c69defa6f67882672ed",
+    "split_train.json": "7fc91cbfb96dc8820943422a18899b8a7f58845f0a8546490c4014fe9abdbfee",
+    "split_validation.json": "c6e6f6a011e723a1f8c55df2e3a8b216f99197017ac96460b7ea454be87babc1",
+    "split_calibration.json": "b8480bbba7a66aa7ed472d2466cf7a95cf514fdfe3e67ec86f6e6226ee738d32",
+    "split_locked_test.json": "86ba0676c5a11b62426068ec450960839f8a736f8d131ac0228e8b877b7d8691",
+    "time_validity_source": "675a71c4ecef952c817d3cd9a0537904e932c43495f3cffeedd2fc86e8b40a36",
+    "development_generator_source": "56a4115da9aa4408b1c20b8e722213a5fef291c6a47e16781bbd6e12c1c0d3ca"
+  },
+  "stale_as_current_records": 200,
+  "candidate_critical_omissions": 100,
+  "counts_by_split": {
+    "train": {
+      "stale_as_current_records": 120,
+      "candidate_critical_omissions": 60
+    },
+    "validation": {
+      "stale_as_current_records": 30,
+      "candidate_critical_omissions": 15
+    },
+    "calibration": {
+      "stale_as_current_records": 30,
+      "candidate_critical_omissions": 15
+    },
+    "locked_test": {
+      "stale_as_current_records": 20,
+      "candidate_critical_omissions": 10
+    }
+  },
+  "expected_omissions_match": true,
+  "proposal_rule": "Candidate critical=1 when the registered V4.1 time_validity rule yields STALE_AS_CURRENT and age_days >= 180; this is a semantic consistency proposal, not approved ground truth.",
+  "root_cause_evidence": "D1.1 generator D4 marks only the second deliberately altered record through critical_idx; time_validity independently marks both current-asserted records in each stale case as critical. The first stale record is therefore omitted by generated gold.",
+  "approval_status": "PENDING_INDEPENDENT_ADJUDICATION_AND_POLICY_APPROVAL",
+  "generator_c_modified": false,
+  "generator_c_predictions_or_metrics_modified": false,
+  "proposal_csv_sha256": "075412226428a6a5521d8eb318ef98529ece64bbd9b827ab77d05edf95c4696b"
+}

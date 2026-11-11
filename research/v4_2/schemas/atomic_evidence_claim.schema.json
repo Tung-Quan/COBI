@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://cobi.local/research/v4.2/atomic-evidence-claim-1.0.json",
+  "title": "Atomic financial evidence claim",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["claim_id", "case_id", "subject_id", "subject_state", "account_id", "account_state", "financial_metric", "metric_basis", "amount", "period", "event_time", "event_time_state", "valid_time", "recorded_at", "assertion_intent", "source", "document", "provenance", "provenance_state", "extraction", "policy_version"],
+  "properties": {
+    "claim_id": {"type": "string", "minLength": 1},
+    "claim_group_id": {"type": ["string", "null"], "description": "Optional normalized financial-claim linkage for multiple source records; does not imply truth or merge provenance."},
+    "case_id": {"type": "string", "minLength": 1},
+    "subject_id": {"type": ["string", "null"]},
+    "subject_state": {"enum": ["KNOWN", "MISSING", "UNKNOWN"]},
+    "account_id": {"type": ["string", "null"]},
+    "account_state": {"enum": ["KNOWN", "MISSING", "UNKNOWN"]},
+    "financial_metric": {"type": "string", "minLength": 1},
+    "metric_basis": {"enum": ["GROSS", "NET", "BALANCE", "FLOW", "ACCRUAL", "CASH", "OTHER", "UNKNOWN"]},
+    "amount": {
+      "type": "object", "additionalProperties": false,
+      "required": ["state", "value", "currency_state", "currency", "unit_state", "unit"],
+      "properties": {
+        "state": {"enum": ["KNOWN", "MISSING", "UNKNOWN"]},
+        "value": {"type": ["number", "null"]},
+        "currency_state": {"enum": ["KNOWN", "MISSING", "UNKNOWN"]},
+        "currency": {"type": ["string", "null"]},
+        "unit_state": {"enum": ["KNOWN", "MISSING", "UNKNOWN"]},
+        "unit": {"type": ["string", "null"]}
+      },
+      "allOf": [
+        {"if": {"properties": {"state": {"const": "KNOWN"}}, "required": ["state"]}, "then": {"properties": {"value": {"type": "number"}}}},
+        {"if": {"properties": {"state": {"enum": ["MISSING", "UNKNOWN"]}}, "required": ["state"]}, "then": {"properties": {"value": {"type": "null"}}}},
+        {"if": {"properties": {"currency_state": {"const": "KNOWN"}}, "required": ["currency_state"]}, "then": {"properties": {"currency": {"type": "string", "minLength": 3}}}, "else": {"properties": {"currency": {"type": "null"}}}},
+        {"if": {"properties": {"unit_state": {"const": "KNOWN"}}, "required": ["unit_state"]}, "then": {"properties": {"unit": {"type": "string", "minLength": 1}}}, "else": {"properties": {"unit": {"type": "null"}}}}
+      ]
+    },
+    "period": {
+      "type": "object", "additionalProperties": false,
+      "required": ["state", "start", "end"],
+      "properties": {
+        "state": {"enum": ["KNOWN", "MISSING", "UNKNOWN"]},
+        "start": {"type": ["string", "null"], "format": "date"},
+        "end": {"type": ["string", "null"], "format": "date"}
+      },
+      "allOf": [
+        {"if": {"properties": {"state": {"const": "KNOWN"}}, "required": ["state"]}, "then": {"properties": {"start": {"type": "string"}, "end": {"type": "string"}}}},
+        {"if": {"properties": {"state": {"enum": ["MISSING", "UNKNOWN"]}}, "required": ["state"]}, "then": {"properties": {"start": {"type": "null"}, "end": {"type": "null"}}}}
+      ]
+    },
+    "event_time": {"type": ["string", "null"], "format": "date-time"},
+    "valid_time": {
+      "type": "object", "additionalProperties": false,
+      "required": ["state", "from", "to"],
+      "properties": {"state": {"enum": ["KNOWN", "MISSING", "UNKNOWN"]}, "from": {"type": ["string", "null"], "format": "date-time"}, "to": {"type": ["string", "null"], "format": "date-time"}},
+      "allOf": [
+        {"if": {"properties": {"state": {"const": "KNOWN"}}, "required": ["state"]}, "then": {"properties": {"from": {"type": "string"}, "to": {"type": "string"}}}},
+        {"if": {"properties": {"state": {"enum": ["MISSING", "UNKNOWN"]}}, "required": ["state"]}, "then": {"properties": {"from": {"type": "null"}, "to": {"type": "null"}}}}
+      ]
+    },
+    "recorded_at": {"type": "string", "format": "date-time"},
+    "event_time_state": {"enum": ["KNOWN", "MISSING", "UNKNOWN"]},
+    "assertion_intent": {"enum": ["CURRENT", "HISTORICAL", "UNKNOWN"]},
+    "source": {
+      "type": "object", "additionalProperties": false,
+      "required": ["source_id", "source_type", "verification_state", "source_issued_at", "source_timestamp_state"],
+      "properties": {"source_id": {"type": ["string", "null"]}, "source_type": {"type": "string", "minLength": 1}, "verification_state": {"enum": ["VERIFIED", "UNVERIFIED", "UNKNOWN"]}, "source_issued_at": {"type": ["string", "null"], "format": "date-time"}, "source_timestamp_state": {"enum": ["KNOWN", "MISSING", "UNKNOWN"]}},
+      "allOf": [{"if": {"properties": {"source_timestamp_state": {"const": "KNOWN"}}, "required": ["source_timestamp_state"]}, "then": {"properties": {"source_issued_at": {"type": "string"}}}, "else": {"properties": {"source_issued_at": {"type": "null"}}}}]
+    },
+    "document": {
+      "type": "object", "additionalProperties": false,
+      "required": ["document_id", "version", "supersedes_document_id"],
+      "properties": {"document_id": {"type": "string", "minLength": 1}, "version": {"type": ["string", "null"]}, "supersedes_document_id": {"type": ["string", "null"]}}
+    },
+    "provenance": {
+      "type": "object", "additionalProperties": false,
+      "required": ["document_sha256", "span", "transformation_ids"],
+      "properties": {
+        "document_sha256": {"type": ["string", "null"], "pattern": "^[A-Fa-f0-9]{64}$"},
+        "span": {"type": ["object", "null"], "properties": {"page": {"type": ["integer", "null"], "minimum": 1}, "start": {"type": ["integer", "null"], "minimum": 0}, "end": {"type": ["integer", "null"], "minimum": 0}, "text": {"type": ["string", "null"]}}, "additionalProperties": false},
+        "transformation_ids": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "provenance_state": {"enum": ["COMPLETE", "PARTIAL", "MISSING", "UNKNOWN"]},
+    "extraction": {
+      "type": "object", "additionalProperties": false,
+      "required": ["confidence", "method", "uncertainty_state"],
+      "properties": {"confidence": {"type": ["number", "null"], "minimum": 0, "maximum": 1}, "method": {"type": "string", "minLength": 1}, "uncertainty_state": {"enum": ["KNOWN", "MISSING", "UNKNOWN"]}}
+    },
+    "policy_version": {"type": "string", "minLength": 1}
+  }
+}
