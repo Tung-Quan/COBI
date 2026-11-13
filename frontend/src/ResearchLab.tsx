@@ -92,7 +92,7 @@ export function ResearchLab() {
 
   return <article className="research-lab">
     <header className="research-banner">
-      <div className="research-title"><span><Beaker size={16} /> ADDUDU / RESEARCH RECORD 01</span><h1>Research Lab</h1>
+      <div className="research-title"><span><Beaker size={16} /> Adudu / RESEARCH RECORD 01</span><h1>Research Lab</h1>
         <p>Historical Taiwan credit-card default, next payment month. Vietnamese checkout use requires independent bank validation.</p></div>
       <div className="research-stamp"><ShieldCheck size={19} /><strong>BENCHMARK ONLY</strong><small>{experiment?.status ?? 'Checking release…'}</small></div>
     </header>
