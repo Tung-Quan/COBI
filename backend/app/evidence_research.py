@@ -2,12 +2,13 @@
 import json
 from pathlib import Path
 
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import FileResponse
 
 from .calculations import _mandatory_gates
 from .db import get_application
 from .research import ROOT, digest
+from .security import require_user_id
 
 router = APIRouter(prefix="/api/evidence-ai", tags=["evidence research"])
 BLOCKED = "EVIDENCE_AI_VALIDATION_BLOCKED"
@@ -163,8 +164,8 @@ def v4_figure(filename: str):
 
 
 @router.get("/shadow/{application_id}")
-def shadow(application_id: str):
-    application = get_application(application_id)
+def shadow(application_id: str, owner_user_id: str = Depends(require_user_id)):
+    application = get_application(application_id, owner_user_id=owner_user_id)
     if application is None:
         raise HTTPException(404, "Application was not found.")
     failed = [gate["key"] for gate in _mandatory_gates(application) if not gate["passed"]]

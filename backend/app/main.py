@@ -1,18 +1,20 @@
 from __future__ import annotations
 
 import json
+import os
 from contextlib import asynccontextmanager
 from copy import deepcopy
 from hashlib import sha256
-import json
 import sqlite3
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Any
 
-from fastapi import FastAPI, HTTPException, Query, Request
+from fastapi import Depends, FastAPI, HTTPException, Query, Request
 from fastapi.exceptions import RequestValidationError
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from . import calculations as policy
 from .calculations import DEFAULT_ROUTE_COSTS_VND, calculate_application
@@ -32,6 +34,7 @@ from .research import router as research_router
 from .evidence_research import router as evidence_research_router
 from .evidence_research_v41 import router as evidence_research_v41_router
 from .schemas import ApplicationCreate, AssessmentSimulationIn, ReviewActionIn, ReviewReason, SimulationIn
+from .security import require_user_id
 
 
 @asynccontextmanager
@@ -52,9 +55,18 @@ app = FastAPI(
 app.include_router(research_router)
 app.include_router(evidence_research_router)
 app.include_router(evidence_research_v41_router)
+configured_origins = [
+    origin.strip().rstrip("/")
+    for origin in os.environ.get("COBI_CORS_ORIGINS", "").split(",")
+    if origin.strip()
+]
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://127.0.0.1:5173"],
+    allow_origins=sorted(set([
+        "http://localhost:5173",
+        "http://127.0.0.1:5173",
+        *configured_origins,
+    ])),
     allow_credentials=True,
     allow_methods=["GET", "POST"],
     allow_headers=["*"],
@@ -69,21 +81,21 @@ async def validation_error(_: Request, exc: RequestValidationError) -> JSONRespo
     ]})
 
 
-def _require_application(application_id: str, connection: sqlite3.Connection | None = None) -> dict[str, Any]:
-    application = get_application(application_id, connection)
+def _require_application(application_id: str, connection=None, owner_user_id: str = "local-demo") -> dict[str, Any]:
+    application = get_application(application_id, connection, owner_user_id)
     if application is None:
         raise HTTPException(status_code=404, detail=f"Application {application_id} was not found.")
     return application
 
 
-def _decorate(application: dict[str, Any]) -> dict[str, Any]:
+def _decorate(application: dict[str, Any], owner_user_id: str = "local-demo") -> dict[str, Any]:
     bundle = calculate_application(application)
-    persist_calculation(application, bundle.assessment, bundle.routing)
+    persist_calculation(application, bundle.assessment, bundle.routing, owner_user_id)
     return {
         **application,
         "assessment": bundle.assessment,
         "routing": bundle.routing,
-        "review_history": audit_history(application["application_id"]),
+        "review_history": audit_history(application["application_id"], owner_user_id),
     }
 
 
@@ -106,8 +118,9 @@ def applications(
     q: str | None = Query(default=None, max_length=120),
     route: str | None = None,
     blocked_only: bool = False,
+    owner_user_id: str = Depends(require_user_id),
 ) -> dict[str, Any]:
-    items = [_decorate(item) for item in list_applications()]
+    items = [_decorate(item, owner_user_id) for item in list_applications(owner_user_id)]
     if q:
         needle = q.casefold()
         items = [item for item in items if needle in " ".join([
@@ -122,25 +135,27 @@ def applications(
 
 
 @app.post("/api/applications", status_code=201, tags=["applications"])
-def submit_application(payload: ApplicationCreate) -> dict[str, Any]:
+def submit_application(payload: ApplicationCreate, owner_user_id: str = Depends(require_user_id)) -> dict[str, Any]:
     data = payload.model_dump()
     data["tags"] = ["Submitted in demo"]
     data["fixture_version"] = "submitted-v2.0"
     try:
-        create_application(data, _audit_trace(data, calculate_application(data).assessment))
-    except sqlite3.IntegrityError as exc:
+        create_application(data, _audit_trace(data, calculate_application(data).assessment), owner_user_id)
+    except Exception as exc:
+        if not isinstance(exc, sqlite3.IntegrityError) and type(exc).__name__ != "UniqueViolation":
+            raise
         raise HTTPException(status_code=409, detail="That application ID already exists.") from exc
-    return _decorate(data)
+    return _decorate(data, owner_user_id)
 
 
 @app.get("/api/applications/{application_id}", tags=["applications"])
-def application_detail(application_id: str) -> dict[str, Any]:
-    return _decorate(_require_application(application_id))
+def application_detail(application_id: str, owner_user_id: str = Depends(require_user_id)) -> dict[str, Any]:
+    return _decorate(_require_application(application_id, owner_user_id=owner_user_id), owner_user_id)
 
 
 @app.get("/api/assessments/{application_id}/explanation", tags=["methodology"])
-def explanation(application_id: str) -> dict[str, Any]:
-    application = _require_application(application_id)
+def explanation(application_id: str, owner_user_id: str = Depends(require_user_id)) -> dict[str, Any]:
+    application = _require_application(application_id, owner_user_id=owner_user_id)
     bundle = calculate_application(application)
     return {"application_id": application_id,
             "inputs": application if bundle.assessment["scoring_performed"] else None,
@@ -149,13 +164,13 @@ def explanation(application_id: str) -> dict[str, Any]:
 
 
 @app.post("/api/assessments/simulate", tags=["simulation"])
-def simulate_assessment(payload: AssessmentSimulationIn) -> dict[str, Any]:
-    return simulate(payload.application_id, SimulationIn.model_validate(payload.model_dump(exclude={"application_id"})))
+def simulate_assessment(payload: AssessmentSimulationIn, owner_user_id: str = Depends(require_user_id)) -> dict[str, Any]:
+    return simulate(payload.application_id, SimulationIn.model_validate(payload.model_dump(exclude={"application_id"})), owner_user_id)
 
 
 @app.post("/api/applications/{application_id}/simulate", tags=["simulation"])
-def simulate(application_id: str, payload: SimulationIn) -> dict[str, Any]:
-    original = _require_application(application_id)
+def simulate(application_id: str, payload: SimulationIn, owner_user_id: str = "local-demo") -> dict[str, Any]:
+    original = _require_application(application_id, owner_user_id=owner_user_id)
     scenario = deepcopy(original)
     updates = payload.model_dump(exclude_none=True, exclude={"route_costs_vnd", "max_dti", "residual_buffer",
                                                              "benchmark_model_id", "proposed_installment_vnd"})
@@ -187,15 +202,16 @@ def simulate(application_id: str, payload: SimulationIn) -> dict[str, Any]:
 
 
 @app.post("/api/applications/{application_id}/review", tags=["human review"])
-def review_action(application_id: str, payload: ReviewActionIn) -> dict[str, Any]:
+def review_action(application_id: str, payload: ReviewActionIn, owner_user_id: str = Depends(require_user_id)) -> dict[str, Any]:
     with connect() as connection:
-        connection.execute("BEGIN IMMEDIATE")
-        application = _require_application(application_id, connection)
-        event = _record_review(application, payload, connection)
-    return {"event": event, "review_history": audit_history(application_id), "loan_approval_created": False}
+        if not os.environ.get("DATABASE_URL"):
+            connection.execute("BEGIN IMMEDIATE")
+        application = _require_application(application_id, connection, owner_user_id)
+        event = _record_review(application, payload, connection, owner_user_id)
+    return {"event": event, "review_history": audit_history(application_id, owner_user_id), "loan_approval_created": False}
 
 
-def _record_review(application, payload, connection):
+def _record_review(application, payload, connection, owner_user_id: str = "local-demo"):
     current = calculate_application(application)
     eligible = current.routing["eligible_routes"]
     action = payload.action
@@ -227,24 +243,26 @@ def _record_review(application, payload, connection):
             "scoring_status": current.assessment["status"],
         },
         connection=connection,
+        owner_user_id=owner_user_id,
     )
 
 
 @app.post("/api/applications/{application_id}/revoke-consent", tags=["human review"])
-def stop_scoring(application_id: str, payload: ReviewReason) -> dict[str, Any]:
+def stop_scoring(application_id: str, payload: ReviewReason, owner_user_id: str = Depends(require_user_id)) -> dict[str, Any]:
     with connect() as connection:
-        connection.execute("BEGIN IMMEDIATE")
-        application = _require_application(application_id, connection)
+        if not os.environ.get("DATABASE_URL"):
+            connection.execute("BEGIN IMMEDIATE")
+        application = _require_application(application_id, connection, owner_user_id)
         if application.get("consent_revoked_at"):
             raise HTTPException(status_code=409, detail="Consent was already revoked.")
         blocked = calculate_application(application | {"consent": False})
-        event = revoke_consent(application, payload.reason, _audit_trace(application, blocked.assessment), connection)
+        event = revoke_consent(application, payload.reason, _audit_trace(application, blocked.assessment), connection, owner_user_id)
     return {"event": event, "assessment": blocked.assessment, "routing": blocked.routing}
 
 
 @app.get("/api/metrics", tags=["evaluation"])
-def metrics() -> dict[str, Any]:
-    items = [_decorate(item) for item in list_applications()]
+def metrics(owner_user_id: str = Depends(require_user_id)) -> dict[str, Any]:
+    items = [_decorate(item, owner_user_id) for item in list_applications(owner_user_id)]
     route_counts: dict[str, int] = {route: 0 for route in DEFAULT_ROUTE_COSTS_VND}
     proposed_cost = baseline_cost = 0.0
     scoreable = 0
@@ -280,8 +298,8 @@ def metrics() -> dict[str, Any]:
 
 
 @app.get("/api/evaluation", tags=["evaluation"])
-def evaluation() -> dict[str, Any]:
-    items = [_decorate(item) for item in list_applications()]
+def evaluation(owner_user_id: str = Depends(require_user_id)) -> dict[str, Any]:
+    items = [_decorate(item, owner_user_id) for item in list_applications(owner_user_id)]
     logs = []
     for item in items:
         assessment = item["assessment"]
@@ -303,8 +321,8 @@ def evaluation() -> dict[str, Any]:
 
 
 @app.get("/api/export", tags=["evaluation"])
-def export_json() -> dict[str, Any]:
-    return export_bundle()
+def export_json(owner_user_id: str = Depends(require_user_id)) -> dict[str, Any]:
+    return export_bundle(owner_user_id)
 
 
 @app.get("/api/assumptions", tags=["methodology"])
@@ -329,3 +347,10 @@ def assumptions() -> dict[str, Any]:
         "route_costs_vnd": DEFAULT_ROUTE_COSTS_VND,
         "provenance": "Versioned synthetic policy assumptions. Bank validation required.",
     }
+
+
+# The monorepo deploys as one Vercel project: the API owns /api and this final
+# mount serves the Vite app plus its assets from the same origin.
+_frontend_dist = Path(__file__).resolve().parents[2] / "frontend" / "dist"
+if _frontend_dist.is_dir():
+    app.mount("/", StaticFiles(directory=str(_frontend_dist), html=True), name="frontend")

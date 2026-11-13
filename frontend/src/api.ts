@@ -1,9 +1,13 @@
 import type { CaseRecord, PortfolioMetrics } from './types'
+import { getAuthToken } from './auth'
+
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '')
 
 export async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const response = await fetch(`/api${path}`, {
+  const token = await getAuthToken()
+  const response = await fetch(`${API_BASE_URL}/api${path}`, {
     ...init,
-    headers: { 'Content-Type': 'application/json', ...init?.headers },
+    headers: { 'Content-Type': 'application/json', ...(token ? { Authorization: `Bearer ${token}` } : {}), ...init?.headers },
   })
   if (!response.ok) {
     const body = await response.json().catch(() => null)
@@ -45,7 +49,8 @@ export function createApplication(payload: Record<string, unknown>): Promise<Cas
 }
 
 export async function downloadExport(): Promise<void> {
-  const response = await fetch('/api/export')
+  const token = await getAuthToken()
+  const response = await fetch(`${API_BASE_URL}/api/export`, { headers: token ? { Authorization: `Bearer ${token}` } : {} })
   if (!response.ok) throw new Error(`Export failed (${response.status})`)
   const data = await response.json()
   const blob = new Blob([JSON.stringify(data, null, 2)], { type: 'application/json' })

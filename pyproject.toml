@@ -1,0 +1,17 @@
+[project]
+name = "cobi-demo"
+version = "0.1.0"
+requires-python = ">=3.12"
+dependencies = [
+  "fastapi==0.115.12",
+  "uvicorn[standard]==0.34.2",
+  "pydantic==2.11.4",
+  "psycopg[binary]==3.3.9",
+  "PyJWT[crypto]==2.15.1",
+]
+
+[tool.vercel]
+entrypoint = "backend.app.main:app"
+
+[tool.vercel.scripts]
+build = "npm --prefix frontend run build"

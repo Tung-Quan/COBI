@@ -1,17 +1,18 @@
 import { useEffect, useMemo, useState, type CSSProperties, type FormEvent, type ReactNode } from 'react'
 import {
   Activity, ArrowDownRight, ArrowRight, ArrowUpRight, BadgeCheck, Banknote,
-  BarChart3, Bell, BookOpen, Check, CheckCircle2, ChevronDown, ChevronRight,
+  BarChart3, BookOpen, Check, CheckCircle2, ChevronDown, ChevronRight,
   CircleAlert, Download, FileCheck2, FileClock, FileSearch, Gauge,
   HelpCircle, History, Info, Landmark, LayoutDashboard, LockKeyhole,
-  Menu, MoreHorizontal, ReceiptText, RefreshCw, Search, ShieldAlert,
+  LogOut, Menu, ReceiptText, RefreshCw, Search, ShieldAlert,
   ShieldCheck, SlidersHorizontal, Sparkles, UserRound, Users, WalletCards, X,
 } from 'lucide-react'
-import { createApplication, downloadExport, getApplications, getMetrics, revokeConsent, runSimulation, sendReviewAction } from './api'
+import { createApplication, downloadExport, getApplications, getMetrics, request, revokeConsent, runSimulation, sendReviewAction } from './api'
 import type { Assessment, AuditEvent, CaseRecord, PortfolioMetrics, RouteName } from './types'
 import { ResearchLab } from './ResearchLab'
 import { EvidenceResearch, EvidenceShadow } from './EvidenceResearch'
 import { EvidenceResearchV41 } from './EvidenceResearchV41'
+import { authClient, authEnabled } from './auth'
 
 type PageName = 'Dashboard' | 'Applications' | 'AI Assessment' | 'Decision Routing' | 'Officer Review' | 'What-if Simulator' | 'Monitoring & export' | 'Research Lab' | 'Evidence AI Research'
 
@@ -33,9 +34,14 @@ const money = (value?: number | null) => value == null
   ? '—'
   : new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 0 }).format(value) + ' ₫'
 
-const moneyCompact = (value?: number | null) => value == null
-  ? '—'
-  : new Intl.NumberFormat('vi-VN', { notation: 'compact', maximumFractionDigits: 1 }).format(value) + ' ₫'
+const moneyCompact = (value?: number | null) => {
+  if (value == null) return '—'
+  const absolute = Math.abs(value)
+  const unit = absolute >= 1_000_000_000 ? 'tỷ' : absolute >= 1_000_000 ? 'triệu' : absolute >= 1_000 ? 'nghìn' : null
+  const divisor = absolute >= 1_000_000_000 ? 1_000_000_000 : absolute >= 1_000_000 ? 1_000_000 : absolute >= 1_000 ? 1_000 : 1
+  const amount = new Intl.NumberFormat('vi-VN', { maximumFractionDigits: 1 }).format(value / divisor)
+  return unit ? `${amount} ${unit} ₫` : money(value)
+}
 
 const percent = (value?: number | null, places = 1) => value == null ? '—' : `${(value * 100).toFixed(places)}%`
 const dateLabel = (value: string) => new Intl.DateTimeFormat('en-GB', { day: '2-digit', month: 'short', year: 'numeric' }).format(new Date(value))
@@ -54,6 +60,59 @@ function scoreClass(value?: number | null) {
 }
 
 function App() {
+  if (authEnabled) return <AuthGate />
+  return <WorkspaceApp userName="Demo reviewer" />
+}
+
+function AuthGate() {
+  const { data: session, isPending } = authClient.useSession()
+  if (isPending) return <div className="loading-screen"><div className="loader-mark"><Activity size={20} /></div><span>Opening your secure workspace…</span></div>
+  if (!session?.user) return <AuthPage />
+  return <WorkspaceApp userName={session.user.name || session.user.email || 'COBI reviewer'} onSignOut={() => void authClient.signOut()} />
+}
+
+function AuthPage() {
+  const [mode, setMode] = useState<'sign-in' | 'sign-up'>('sign-in')
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [busy, setBusy] = useState(false)
+  const [error, setError] = useState('')
+
+  const submit = async (event: FormEvent) => {
+    event.preventDefault(); setBusy(true); setError('')
+    try {
+      const result = mode === 'sign-up'
+        ? await authClient.signUp.email({ name: name.trim(), email: email.trim(), password })
+        : await authClient.signIn.email({ email: email.trim(), password })
+      if (result.error) setError(result.error.message || 'We could not sign you in. Check your details and try again.')
+    } catch (cause) {
+      setError(cause instanceof Error ? cause.message : 'We could not reach the sign-in service. Try again.')
+    } finally { setBusy(false) }
+  }
+
+  return <main className="auth-screen">
+    <section className="auth-story">
+      <div className="auth-brand"><span className="brand-mark"><Landmark size={20} /></span><div><strong>COBI</strong><small>Credit operations workspace</small></div></div>
+      <div className="auth-story-copy"><span className="auth-kicker"><span /> PRIVATE DEMO WORKSPACE</span><h1>Review every case<br /><em>with the evidence in view.</em></h1><p>Organize synthetic application data, trace each review step and keep every final decision with a human reviewer.</p>
+        <div className="auth-proof"><div><ShieldCheck size={17} /><span>Account-scoped case data</span></div><div><History size={17} /><span>Traceable review history</span></div><div><Info size={17} /><span>Synthetic demonstration only</span></div></div>
+      </div>
+      <div className="auth-story-footer">COBI · DEMO ENVIRONMENT <span>NO LIVE CREDIT DECISIONS</span></div>
+    </section>
+    <section className="auth-panel-wrap"><form className="auth-panel" onSubmit={submit}>
+      <span className="eyebrow">YOUR WORKSPACE</span><h2>{mode === 'sign-in' ? 'Welcome back' : 'Create your account'}</h2><p>{mode === 'sign-in' ? 'Sign in to continue to your review desk.' : 'Set up a private demo workspace in a few steps.'}</p>
+      {mode === 'sign-up' && <label className="auth-field"><span>Full name</span><input autoComplete="name" value={name} onChange={event => setName(event.target.value)} placeholder="Your name" required maxLength={120} /></label>}
+      <label className="auth-field"><span>Email address</span><input type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} placeholder="you@example.com" required maxLength={254} /></label>
+      <label className="auth-field"><span>Password</span><input type="password" autoComplete={mode === 'sign-in' ? 'current-password' : 'new-password'} value={password} onChange={event => setPassword(event.target.value)} placeholder="At least 8 characters" required minLength={8} maxLength={128} /></label>
+      {error && <div className="auth-error" role="alert"><CircleAlert size={15} />{error}</div>}
+      <button className="button button-dark auth-submit" type="submit" disabled={busy}>{busy ? 'Please wait…' : mode === 'sign-in' ? 'Sign in to COBI' : 'Create account'}<ArrowRight size={16} /></button>
+      <div className="auth-switch">{mode === 'sign-in' ? 'New to COBI?' : 'Already have an account?'} <button type="button" onClick={() => { setMode(mode === 'sign-in' ? 'sign-up' : 'sign-in'); setError('') }}>{mode === 'sign-in' ? 'Create an account' : 'Sign in'}</button></div>
+      <div className="auth-privacy"><LockKeyhole size={13} /><span>Your cases are private to your account. The workspace uses synthetic demo data only.</span></div>
+    </form></section>
+  </main>
+}
+
+function WorkspaceApp({ userName, onSignOut }: { userName: string; onSignOut?: () => void }) {
   const [page, setPage] = useState<PageName>('Dashboard')
   const [cases, setCases] = useState<CaseRecord[]>([])
   const [metrics, setMetrics] = useState<PortfolioMetrics | null>(null)
@@ -71,7 +130,7 @@ function App() {
       setActiveId(current => nextCases.some(item => item.application_id === current) ? current : nextCases[0]?.application_id ?? '')
       setError('')
     } catch (cause) {
-      setError(cause instanceof Error ? cause.message : 'Could not connect to the local demonstration API.')
+      setError(cause instanceof Error ? cause.message : 'Could not connect to the workspace service. Check your connection and try again.')
     } finally {
       setLoading(false)
     }
@@ -95,25 +154,25 @@ function App() {
   if (error && cases.length === 0) return <div className="connection-screen">
     <div className="connection-card">
       <div className="brand-mark"><Landmark size={20} /></div>
-      <span className="eyebrow">LOCAL DEMONSTRATION</span>
-      <h1>Credit review, with every step in view.</h1>
-      <p>The dashboard could not reach its local API. Start the backend and frontend using the commands in the README, then reload this page.</p>
+      <span className="eyebrow">WORKSPACE CONNECTION</span>
+      <h1>We couldn’t reach your review workspace.</h1>
+      <p>Check your connection and retry. If the problem continues, contact your workspace administrator.</p>
       <div className="connection-error"><CircleAlert size={16} />{error}</div>
       <button className="button button-dark" onClick={() => { setLoading(true); void refresh() }}><RefreshCw size={15} /> Try again</button>
     </div>
   </div>
 
   return <div className="app-shell">
-    <Sidebar page={page} onNavigate={selectPage} mobileOpen={mobileNav} />
+    <Sidebar page={page} onNavigate={selectPage} mobileOpen={mobileNav} userName={userName} />
     {mobileNav && <button className="mobile-scrim" aria-label="Close navigation" onClick={() => setMobileNav(false)} />}
     <main className="main-shell">
       <header className="topbar">
         <button className="icon-button mobile-menu" aria-label="Open menu" onClick={() => setMobileNav(true)}><Menu size={19} /></button>
         <div className="breadcrumbs"><span>Workspace</span><ChevronRight size={14} /><strong>{page}</strong></div>
         <div className="topbar-right">
-          <span className="sandbox-pill"><span className="status-dot" /> {page === 'Research Lab' || page === 'Evidence AI Research' ? 'Research benchmark' : 'Synthetic checkout demo'}</span>
-          <button className="icon-button bell-button" aria-label="Notifications"><Bell size={17} /><i /></button>
-          <div className="user-avatar" title="Simulated credit officer">TQ</div>
+          <span className="sandbox-pill"><span className="status-dot" /> {page === 'Research Lab' || page === 'Evidence AI Research' ? 'Research benchmark' : 'Synthetic demo workspace'}</span>
+          <div className="user-avatar" title={userName}>{userName.trim().split(/\s+/).slice(0, 2).map(part => part[0]).join('').toUpperCase()}</div>
+          {onSignOut && <button className="sign-out-button" onClick={onSignOut}><LogOut size={14} /><span>Sign out</span></button>}
         </div>
       </header>
       {error && <div className="inline-alert"><CircleAlert size={16} />{error}<button onClick={() => void refresh()}>Retry</button></div>}
@@ -133,7 +192,7 @@ function App() {
   </div>
 }
 
-function Sidebar({ page, onNavigate, mobileOpen }: { page: PageName; onNavigate: (page: PageName) => void; mobileOpen: boolean }) {
+function Sidebar({ page, onNavigate, mobileOpen, userName }: { page: PageName; onNavigate: (page: PageName) => void; mobileOpen: boolean; userName: string }) {
   const items: { name: PageName; icon: typeof LayoutDashboard; group: string }[] = [
     { name: 'Dashboard', icon: LayoutDashboard, group: 'WORKSPACE' },
     { name: 'Applications', icon: WalletCards, group: 'WORKSPACE' },
@@ -149,9 +208,9 @@ function Sidebar({ page, onNavigate, mobileOpen }: { page: PageName; onNavigate:
   return <aside className={`sidebar ${mobileOpen ? 'sidebar-open' : ''}`}>
     <div className="sidebar-brand">
       <div className="brand-mark"><Landmark size={19} strokeWidth={1.8} /></div>
-      <div><strong>credit / desk</strong><small>Checkout copilot</small></div>
+      <div><strong>COBI</strong><small>Credit operations</small></div>
     </div>
-    <div className="workspace-picker"><div className="workspace-glyph">C</div><div><strong>Credit Review Workbench</strong><small>Synthetic checkout</small></div><ChevronDown size={15} /></div>
+    <div className="workspace-picker" aria-label="Current workspace"><div className="workspace-glyph">C</div><div><strong>Operations workspace</strong><small>Synthetic demo data</small></div></div>
     <nav aria-label="Main navigation">
       {items.map(item => {
         const Icon = item.icon
@@ -168,7 +227,7 @@ function Sidebar({ page, onNavigate, mobileOpen }: { page: PageName; onNavigate:
       <div><strong>Safe demo mode</strong><p>No live credit decisions</p></div>
       <span className="sandbox-check"><Check size={12} /></span>
     </div>
-    <div className="sidebar-footer"><div className="officer-avatar">TQ</div><div className="officer-meta"><strong>Demo officer</strong><small>Credit officer · demo</small></div><MoreHorizontal size={18} /></div>
+    <div className="sidebar-footer"><div className="officer-avatar">{userName.trim().split(/\s+/).slice(0, 2).map(part => part[0]).join('').toUpperCase()}</div><div className="officer-meta"><strong>{userName}</strong><small>Human review · demo</small></div></div>
   </aside>
 }
 
@@ -193,8 +252,9 @@ function DashboardPage({ cases, activeId, metrics, onOpen, onNavigate }: {
   cases: CaseRecord[]; activeId: string; metrics: PortfolioMetrics | null; onOpen: (id: string) => void; onNavigate: (page: PageName) => void
 }) {
   const displayed = cases.slice(0, 5)
+  const todayLabel = new Intl.DateTimeFormat('en-US', { weekday: 'long', day: '2-digit', month: 'long', year: 'numeric' }).format(new Date())
   return <>
-    <PageTitle eyebrow="Saturday, 07 November 2026" title="Good morning, Tran" description="A clear view of the checkout credit review queue." action={<button className="button button-outline" onClick={() => onNavigate('Applications')}><FileSearch size={15} /> Browse applications</button>} />
+    <PageTitle eyebrow={`${todayLabel} · ICT`} title="Review overview" description="Prioritize the synthetic application queue and keep each review traceable." action={<button className="button button-outline" onClick={() => onNavigate('Applications')}><FileSearch size={15} /> Browse applications</button>} />
     <div className="hero-panel">
       <div className="hero-copy"><div className="hero-overline"><span className="hero-pulse" /> TODAY'S REVIEW DESK <span>·</span> ALL TIMES ICT</div>
         <h2>Every case has<br /><em>a clear next step.</em></h2>
@@ -255,7 +315,7 @@ function ApplicationsPage({ cases, active, onSelect, onNavigate, onCreated }: { 
     return matchesText && matchesFilter
   })
   return <>
-    <PageTitle eyebrow="APPLICATION INBOX" title="Applications" description="Inspect submitted synthetic cases and follow each through the review workflow." action={<div className="heading-button-group"><button className="button button-outline" onClick={() => window.open(`${window.location.protocol}//${window.location.hostname}:8000/docs`, '_blank', 'noopener')}><BookOpen size={15} /> API docs</button><button className="button button-dark" onClick={() => setShowCreate(true)}><BadgeCheck size={15} /> New synthetic case</button></div>} />
+    <PageTitle eyebrow="APPLICATION INBOX" title="Applications" description="Inspect submitted synthetic cases and follow each through the review workflow." action={<div className="heading-button-group"><button className="button button-outline" onClick={() => onNavigate('AI Assessment')}><HelpCircle size={15} /> How assessment works</button><button className="button button-dark" onClick={() => setShowCreate(true)}><BadgeCheck size={15} /> New synthetic case</button></div>} />
     <div className="queue-summary-row"><div className="queue-summary"><span className="queue-summary-icon"><WalletCards size={17} /></span><div><strong>{cases.length}</strong><span>Total cases</span></div></div><div className="queue-summary"><span className="queue-summary-icon queue-icon-green"><BadgeCheck size={17} /></span><div><strong>{cases.filter(item => item.assessment.scoring_performed).length}</strong><span>Evidence ready</span></div></div><div className="queue-summary"><span className="queue-summary-icon queue-icon-amber"><ShieldAlert size={17} /></span><div><strong>{cases.filter(item => !item.assessment.scoring_performed).length}</strong><span>Held for handling</span></div></div><div className="queue-summary queue-summary-note"><Info size={16} /><span>Every route remains a human review recommendation.</span></div></div>
     <div className="case-workspace">
       <section className="surface cases-list-panel">
@@ -263,7 +323,7 @@ function ApplicationsPage({ cases, active, onSelect, onNavigate, onCreated }: { 
         <CaseTable cases={filtered} onSelect={onSelect} />
       </section>
       <aside className="surface case-preview">
-        <div className="preview-top"><span className="eyebrow">SELECTED APPLICATION</span><button className="icon-button" aria-label="More application actions"><MoreHorizontal size={17} /></button></div>
+        <div className="preview-top"><span className="eyebrow">SELECTED APPLICATION</span></div>
         <div className="preview-id">{active.application_id} <span className="tag-demo">DEMO</span></div>
         <h2>{active.borrower_label}</h2><p className="preview-sub">{active.merchant}</p>
         <div className="preview-amount"><span>Purchase amount</span><strong>{money(active.purchase_amount_vnd)}</strong><small>{active.purchase_description}</small></div>
@@ -571,7 +631,7 @@ function EvaluationPage() {
   const [exporting, setExporting] = useState(false)
   useEffect(() => {
     Promise.all([
-      fetch('/api/evaluation').then(response => { if (!response.ok) throw new Error('Could not load evaluation logs.'); return response.json() }),
+      request<{ logs: typeof logs }>('/evaluation'),
       getMetrics(),
     ]).then(([evaluation, nextMetrics]) => { setLogs(evaluation.logs); setMetrics(nextMetrics) })
       .catch(cause => setError(cause instanceof Error ? cause.message : 'Could not load this demonstration snapshot.'))
