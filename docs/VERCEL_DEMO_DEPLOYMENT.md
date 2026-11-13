@@ -8,6 +8,7 @@ This configuration is for a personal, synthetic-data demonstration on Vercel Hob
 
 ## Deployment settings
 
+- The current personal demo project is `cobi-demo` at `https://cobi-demo.vercel.app`, connected to `Tung-Quan/COBI` with `commercial-demo-setup` as its Production branch.
 - Import `Tung-Quan/COBI` into the `tung-quan` Vercel account.
 - Keep the Root Directory at `.` (the repository root).
 - Keep the checked-in `vercel.json` build settings. The FastAPI app discovers the built interface under `frontend/dist` and serves it from the same origin as `/api`.
