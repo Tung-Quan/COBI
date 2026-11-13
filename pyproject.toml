@@ -14,4 +14,4 @@ dependencies = [
 entrypoint = "backend.app.main:app"
 
 [tool.vercel.scripts]
-build = "npm --prefix frontend run build"
+build = "npm ci --legacy-peer-deps --prefix frontend && npm --prefix frontend run build"
