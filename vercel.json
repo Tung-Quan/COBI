@@ -2,5 +2,19 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "framework": "fastapi",
   "regions": ["sin1"],
-  "buildCommand": "npm ci --legacy-peer-deps --prefix frontend && npm --prefix frontend run build"
+  "buildCommand": "npm ci --legacy-peer-deps --prefix frontend && npm --prefix frontend run build",
+  "headers": [
+    {
+      "source": "/",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    },
+    {
+      "source": "/index.html",
+      "headers": [
+        { "key": "Cache-Control", "value": "no-store" }
+      ]
+    }
+  ]
 }
