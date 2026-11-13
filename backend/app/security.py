@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import os
 from functools import lru_cache
+from urllib.parse import urlsplit
 
 import jwt
 from fastapi import Depends, HTTPException
@@ -28,6 +29,11 @@ def require_user_id(credentials: HTTPAuthorizationCredentials | None = Depends(_
         return LOCAL_USER_ID
     if not auth_base_url or not jwks_url:
         raise HTTPException(status_code=503, detail="Authentication is not configured for this workspace.")
+    parsed_auth_url = urlsplit(auth_base_url)
+    if parsed_auth_url.scheme not in {"http", "https"} or not parsed_auth_url.netloc:
+        raise HTTPException(status_code=503, detail="Authentication is not configured for this workspace.")
+    # Neon Auth's base URL includes its auth path, while its JWT issuer is the URL origin.
+    issuer = f"{parsed_auth_url.scheme}://{parsed_auth_url.netloc}"
     if credentials is None or credentials.scheme.lower() != "bearer":
         raise HTTPException(status_code=401, detail="Sign in to access your workspace.",
                             headers={"WWW-Authenticate": "Bearer"})
@@ -38,7 +44,7 @@ def require_user_id(credentials: HTTPAuthorizationCredentials | None = Depends(_
             credentials.credentials,
             signing_key.key,
             algorithms=["EdDSA"],
-            issuer=auth_base_url,
+            issuer=issuer,
             options={"require": ["sub", "exp", "iss"], "verify_aud": False},
         )
         subject = claims.get("sub")
