@@ -68,7 +68,7 @@ function AuthGate() {
   const { data: session, isPending } = authClient.useSession()
   if (isPending) return <div className="loading-screen"><div className="loader-mark"><Activity size={20} /></div><span>Opening your secure workspace…</span></div>
   if (!session?.user) return <AuthPage />
-  return <WorkspaceApp userName={session.user.name || session.user.email || 'COBI reviewer'} onSignOut={() => void authClient.signOut()} />
+  return <WorkspaceApp userName={session.user.name || session.user.email || 'ADDUDU reviewer'} onSignOut={() => void authClient.signOut()} />
 }
 
 function AuthPage() {
@@ -93,11 +93,11 @@ function AuthPage() {
 
   return <main className="auth-screen">
     <section className="auth-story">
-      <div className="auth-brand"><span className="brand-mark"><Landmark size={20} /></span><div><strong>COBI</strong><small>Credit operations workspace</small></div></div>
+      <div className="auth-brand"><span className="brand-mark"><Landmark size={20} /></span><div><strong>ADDUDU</strong><small>Credit operations workspace</small></div></div>
       <div className="auth-story-copy"><span className="auth-kicker"><span /> PRIVATE DEMO WORKSPACE</span><h1>Review every case<br /><em>with the evidence in view.</em></h1><p>Organize synthetic application data, trace each review step and keep every final decision with a human reviewer.</p>
         <div className="auth-proof"><div><ShieldCheck size={17} /><span>Account-scoped case data</span></div><div><History size={17} /><span>Traceable review history</span></div><div><Info size={17} /><span>Synthetic demonstration only</span></div></div>
       </div>
-      <div className="auth-story-footer">COBI · DEMO ENVIRONMENT <span>NO LIVE CREDIT DECISIONS</span></div>
+      <div className="auth-story-footer">ADDUDU · DEMO ENVIRONMENT <span>NO LIVE CREDIT DECISIONS</span></div>
     </section>
     <section className="auth-panel-wrap"><form className="auth-panel" onSubmit={submit}>
       <span className="eyebrow">YOUR WORKSPACE</span><h2>{mode === 'sign-in' ? 'Welcome back' : 'Create your account'}</h2><p>{mode === 'sign-in' ? 'Sign in to continue to your review desk.' : 'Set up a private demo workspace in a few steps.'}</p>
@@ -105,8 +105,8 @@ function AuthPage() {
       <label className="auth-field"><span>Email address</span><input type="email" autoComplete="email" value={email} onChange={event => setEmail(event.target.value)} placeholder="you@example.com" required maxLength={254} /></label>
       <label className="auth-field"><span>Password</span><input type="password" autoComplete={mode === 'sign-in' ? 'current-password' : 'new-password'} value={password} onChange={event => setPassword(event.target.value)} placeholder="At least 8 characters" required minLength={8} maxLength={128} /></label>
       {error && <div className="auth-error" role="alert"><CircleAlert size={15} />{error}</div>}
-      <button className="button button-dark auth-submit" type="submit" disabled={busy}>{busy ? 'Please wait…' : mode === 'sign-in' ? 'Sign in to COBI' : 'Create account'}<ArrowRight size={16} /></button>
-      <div className="auth-switch">{mode === 'sign-in' ? 'New to COBI?' : 'Already have an account?'} <button type="button" onClick={() => { setMode(mode === 'sign-in' ? 'sign-up' : 'sign-in'); setError('') }}>{mode === 'sign-in' ? 'Create an account' : 'Sign in'}</button></div>
+      <button className="button button-dark auth-submit" type="submit" disabled={busy}>{busy ? 'Please wait…' : mode === 'sign-in' ? 'Sign in to ADDUDU' : 'Create account'}<ArrowRight size={16} /></button>
+      <div className="auth-switch">{mode === 'sign-in' ? 'New to ADDUDU?' : 'Already have an account?'} <button type="button" onClick={() => { setMode(mode === 'sign-in' ? 'sign-up' : 'sign-in'); setError('') }}>{mode === 'sign-in' ? 'Create an account' : 'Sign in'}</button></div>
       <div className="auth-privacy"><LockKeyhole size={13} /><span>Your cases are private to your account. The workspace uses synthetic demo data only.</span></div>
     </form></section>
   </main>
@@ -208,9 +208,9 @@ function Sidebar({ page, onNavigate, mobileOpen, userName }: { page: PageName; o
   return <aside className={`sidebar ${mobileOpen ? 'sidebar-open' : ''}`}>
     <div className="sidebar-brand">
       <div className="brand-mark"><Landmark size={19} strokeWidth={1.8} /></div>
-      <div><strong>COBI</strong><small>Credit operations</small></div>
+      <div><strong>ADDUDU</strong><small>Credit operations</small></div>
     </div>
-    <div className="workspace-picker" aria-label="Current workspace"><div className="workspace-glyph">C</div><div><strong>Operations workspace</strong><small>Synthetic demo data</small></div></div>
+    <div className="workspace-picker" aria-label="Current workspace"><div className="workspace-glyph">A</div><div><strong>Operations workspace</strong><small>Synthetic demo data</small></div></div>
     <nav aria-label="Main navigation">
       {items.map(item => {
         const Icon = item.icon

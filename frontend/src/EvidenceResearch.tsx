@@ -111,7 +111,7 @@ export function EvidenceResearch() {
   }) : []
   const csCost = costRows.find(row => row.id === 'M0_CS_V2')?.total ?? 0
   return <article className="evidence-research">
-    <header className="evidence-hero"><span><FlaskConical size={17} /> COBI / V3 BASELINE + V4 STUDY</span>
+    <header className="evidence-hero"><span><FlaskConical size={17} /> ADDUDU / V3 BASELINE + V4 STUDY</span>
       <h1>Evidence AI Research</h1>
       <p>Controlled evidence-error detection and public receipt field extraction. Checkout validation requires independently adjudicated bank-document labels.</p>
       <strong><LockKeyhole size={15} /> EVIDENCE_AI_VALIDATION_BLOCKED</strong>
