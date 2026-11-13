@@ -11,9 +11,9 @@ This configuration is for a personal, synthetic-data demonstration on Vercel Hob
 - The current personal demo project is `cobi-demo` at `https://cobi-demo.vercel.app`, connected to `Tung-Quan/COBI` with `commercial-demo-setup` as its Production branch.
 - Import `Tung-Quan/COBI` into the `tung-quan` Vercel account.
 - Keep the Root Directory at `.` (the repository root).
-- Keep the checked-in `vercel.json` build settings. The FastAPI app discovers the built interface under `frontend/dist` and serves it from the same origin as `/api`.
+- Keep the checked-in `vercel.json` settings. Vercel installs the Python packages from `pyproject.toml`; the build command installs frontend packages and builds Vite. The FastAPI app discovers the built interface under `frontend/dist` and serves it from the same origin as `/api`.
 - The API function runs in Singapore (`sin1`) near the demo database.
-- Leave Vercel's Node.js install behavior overridden only by the checked-in `npm ci --legacy-peer-deps --prefix frontend` command; `pyproject.toml` declares the Python entry point and runtime packages.
+- Do not add a project-wide `installCommand` override: Vercel must resolve Python packages from `pyproject.toml`. The checked-in build command runs `npm ci --legacy-peer-deps --prefix frontend` for the UI.
 
 ## Environment variables
 
